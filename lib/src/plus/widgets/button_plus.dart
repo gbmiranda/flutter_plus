@@ -84,7 +84,7 @@ class ButtonPlus extends StatefulWidget {
 class _ButtomXState extends State<ButtonPlus> {
   // bool showElevation;
 
-  ContainerPlus _containerX;
+  ContainerPlus _ContainerPlus;
 
   @override
   void initState() {
@@ -104,7 +104,7 @@ class _ButtomXState extends State<ButtonPlus> {
   }
 
   Widget _buildButtomX() {
-    _containerX = ContainerPlus(
+    _ContainerPlus = ContainerPlus(
       padding: EdgeInsets.all(0),
       margin: this.widget.margin,
       isCenter: this.widget.isCenter,
@@ -124,7 +124,7 @@ class _ButtomXState extends State<ButtonPlus> {
       // notifyParent: () => setState(() {}),
       child: this._buildChildButton(),
     );
-    return _containerX;
+    return _ContainerPlus;
   }
 
   _buildChildButton() {
@@ -149,7 +149,7 @@ class _ButtomXState extends State<ButtonPlus> {
 
   // Widget _buildElevationContainer({@required Widget buttonChild}) {
   //   return Container(
-  //     foregroundDecoration: _containerX?.containerSize == null
+  //     foregroundDecoration: _ContainerPlus?.containerSize == null
   //         ? null
   //         : BoxDecoration(
   //             boxShadow: showElevation == true
@@ -159,14 +159,14 @@ class _ButtomXState extends State<ButtonPlus> {
   //                       spreadRadius: -2,
   //                       blurRadius: 8,
   //                       offset: Offset(
-  //                           0, _containerX.containerSize.height - 10.0),
+  //                           0, _ContainerPlus.containerSize.height - 10.0),
   //                     ),
   //                     BoxShadow(
   //                       color: Colors.black26,
   //                       spreadRadius: -2,
   //                       blurRadius: 8,
   //                       offset: Offset(
-  //                           _containerX.containerSize.width - 10.0, 0),
+  //                           _ContainerPlus.containerSize.width - 10.0, 0),
   //                     ),
   //                   ]
   //                 : null,

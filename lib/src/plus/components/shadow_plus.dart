@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ShadowPlus {
   final Color color;
-  // final ShadowXEnum shadowX;
+  // final ShadowPlusEnum ShadowPlus;
   final double opacity;
   final double blur;
   final double spread;
@@ -16,6 +16,6 @@ class ShadowPlus {
     this.moveRight = 0,
     this.moveDown = 0,
     this.opacity = 1,
-    // this.shadowX,
+    // this.ShadowPlus,
   });
 }

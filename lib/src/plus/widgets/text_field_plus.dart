@@ -132,15 +132,15 @@ class TextFieldX extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
   });
 
-  static ContainerPlus _containerX;
+  static ContainerPlus _ContainerPlus;
 
   @override
   Widget build(BuildContext context) {
-    return this._buildContainerX();
+    return this._buildContainerPlus();
   }
 
-  ContainerPlus _buildContainerX() {
-    _containerX = ContainerPlus(
+  ContainerPlus _buildContainerPlus() {
+    _ContainerPlus = ContainerPlus(
       padding: this.useSkeleton == true
           ? EdgeInsets.all(0)
           : this.padding ?? EdgeInsets.symmetric(horizontal: 4),
@@ -159,7 +159,7 @@ class TextFieldX extends StatelessWidget {
       // notifyParent: () => setState(() {}),
       child: this._buildTextField(),
     );
-    return _containerX;
+    return _ContainerPlus;
   }
 
   Widget _buildTextField() {

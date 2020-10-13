@@ -39,22 +39,22 @@ class ContainerPlus extends StatefulWidget {
 
   // Custom
 
-  /// X tap on [ContainerX].
+  /// X tap on [ContainerPlus].
   final Function onTap;
 
-  /// X tap on [ContainerX].
+  /// X tap on [ContainerPlus].
   final Function(TapDownDetails) onTapDown;
 
-  /// X tap on [ContainerX].
+  /// X tap on [ContainerPlus].
   final Function(TapUpDetails) onTapUp;
 
-  /// X tap on [ContainerX].
+  /// X tap on [ContainerPlus].
   final Function onTapCancel;
 
-  /// Double tap on [ContainerX].
+  /// Double tap on [ContainerPlus].
   final Function onDoubleTap;
 
-  /// Long press on [ContainerX].
+  /// Long press on [ContainerPlus].
   final Function onLongPress;
 
   /// Notify a parent when the update size and position.
@@ -141,25 +141,27 @@ class ContainerPlus extends StatefulWidget {
     this.innerShadows,
   }) : super(key: key);
 
-  static _ContainerPlusState _containerXState;
+  // static _containerPlusState _ContainerPlusState;
 
+  // @override
+  // _ContainerPlusState createState() {
+  //   _containerPlusState = _ContainerPlusState();
+  //   return _ContainerPlusState();
+  // }
   @override
-  _ContainerPlusState createState() {
-    _containerXState = _ContainerPlusState();
-    return _containerXState;
-  }
+  _ContainerPlusState createState() => _ContainerPlusState();
 
   // Future<Size> get size async {
   //   return Future.delayed(Duration(milliseconds: 50), () {
-  //     return _containerXState?._containerSize;
+  //     return _ContainerPlusState?._containerSize;
   //   });
   // }
 
   // Size get containerSize {
-  //   if (_containerXState == null)
+  //   if (_ContainerPlusState == null)
   //     return null;
   //   else
-  //     return _containerXState._containerSize;
+  //     return _ContainerPlusState._containerSize;
   // }
 }
 
@@ -197,21 +199,21 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   @override
   Widget build(BuildContext context) {
-    Widget containerX = this._buildContainerX();
+    Widget ContainerPlus = this._buildContainerPlus();
 
     if (this.widget.isCenter == true)
-      containerX = Center(
-        child: containerX,
+      ContainerPlus = Center(
+        child: ContainerPlus,
       );
 
     if (this.widget.isExpanded == true)
-      containerX = Expanded(
-        child: containerX,
+      ContainerPlus = Expanded(
+        child: ContainerPlus,
       );
-    return containerX;
+    return ContainerPlus;
   }
 
-  _buildContainerX() {
+  _buildContainerPlus() {
     return Container(
       // key: this.widget.key,
       key: this._keyRect,

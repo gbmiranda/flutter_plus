@@ -61,22 +61,22 @@ class TextPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget textX = this._buildTextX();
+    Widget TextPlus = this._buildTextPlus();
 
     if (this.isCenter == true)
-      textX = Center(
-        child: textX,
+      TextPlus = Center(
+        child: TextPlus,
       );
 
     if (this.isExpandend == true)
-      textX = Expanded(
-        child: textX,
+      TextPlus = Expanded(
+        child: TextPlus,
       );
 
-    return textX;
+    return TextPlus;
   }
 
-  Widget _buildTextX() {
+  Widget _buildTextPlus() {
     return Text(
       this._maskText,
       key: this.key,

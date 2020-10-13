@@ -1,4 +1,4 @@
-[EN](https://github.com/gbmiranda/flutter_x/blob/master/README.md) | PT
+[EN](https://github.com/gbmiranda/flutter_plus/blob/master/README.md) | PT
 
 <!--[![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 [![Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue.svg)](https://flutter.dev/)
@@ -11,14 +11,14 @@
 
 Flutter X é uma biblioteca open-source criada para tornar o desenvolvimento utilizando Flutter mais fácil e rápido.
 
-Você encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_x/tree/master/example).
+Você encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example).
 
 ## Installation
 
-<!--Add flutter_x to your project as a dependency in your pubspec.yaml file. This is a X Dart plugin, so additional configuration for iOS and Android is not needed.
+<!--Add flutter_plus to your project as a dependency in your pubspec.yaml file. This is a X Dart plugin, so additional configuration for iOS and Android is not needed.
 -->
 
-Adicione flutter_x ao seu projeto como uma dependência no seu arquivo pubspec.yaml.
+Adicione flutter_plus ao seu projeto como uma dependência no seu arquivo pubspec.yaml.
 
 Esta biblioteca é desenvolvida em Dart, não precisando de ajustes extras para funcionar no iOS, Android, Web ou Desktop.
 
@@ -26,11 +26,11 @@ Esta biblioteca é desenvolvida em Dart, não precisando de ajustes extras para 
 
 Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
 
-### `ContainerX`
+### `ContainerPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
-### `ButtonX`
+### `ButtonPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
@@ -38,11 +38,11 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor inc
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
-### `TextX`
+### `TextPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
-### `RichTextX`
+### `RichTextPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
@@ -50,7 +50,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor inc
 
 - [ ] Documentação detalhada dos componentes.
 - [ ] ScaffoldX.
-- [ ] NavigatorX.
+- [ ] navigatorPlus.
 - [ ] AlertX.
 - [ ] GridViewX.
 - [ ] ListViewX.

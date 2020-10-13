@@ -13,7 +13,7 @@ class NavigatorPlus {
 
   /// Use only to init.
   ///
-  /// MaterialApp > navigatorKey: navigatorX.setNavigatorKey
+  /// MaterialApp > navigatorKey: navigatorPlus.setNavigatorKey
   ///
   GlobalKey<NavigatorState> get setNavigatorKey {
     return _navigatorKey;
@@ -22,7 +22,7 @@ class NavigatorPlus {
   GlobalKey<NavigatorState> get navigatorKey {
     if (this._navigatorKey == null || this._navigatorKey.currentState == null) {
       print(
-          'navigatorX not set -> MaterialApp > navigatorKey: navigatorX.setNavigatorKey');
+          'navigatorPlus not set -> MaterialApp > navigatorKey: navigatorPlus.setNavigatorKey');
 
       return null;
     } else
@@ -126,7 +126,8 @@ class NavigatorPlus {
               child: child,
             );
           } else {
-            print('[flutter_x] heightPercentScreen: min > 0.0 and max <= 1.0');
+            print(
+                '[flutter_plus] heightPercentScreen: min > 0.0 and max <= 1.0');
           }
         }
 

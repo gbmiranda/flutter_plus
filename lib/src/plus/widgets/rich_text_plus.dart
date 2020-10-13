@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_plus/src/plus/widgets/text_plus.dart';
 
-class RichTextX extends StatelessWidget {
+class RichTextPlus extends StatelessWidget {
   // TODO
   // urls
   // phones
@@ -14,7 +14,7 @@ class RichTextX extends StatelessWidget {
 
   final List<TextPlus> texts;
 
-  RichTextX({
+  RichTextPlus({
     Key key,
     this.maxLines = 1,
     // custom
@@ -26,22 +26,22 @@ class RichTextX extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget textX = this._buildRichTextX();
+    Widget TextPlus = this._buildRichTextPlus();
 
     if (this.isCenter == true)
-      textX = Center(
-        child: textX,
+      TextPlus = Center(
+        child: TextPlus,
       );
 
     if (this.isExpandend == true)
-      textX = Expanded(
-        child: textX,
+      TextPlus = Expanded(
+        child: TextPlus,
       );
 
-    return textX;
+    return TextPlus;
   }
 
-  Widget _buildRichTextX() {
+  Widget _buildRichTextPlus() {
     return RichText(
       key: this.key,
       text: TextSpan(
@@ -49,9 +49,9 @@ class RichTextX extends StatelessWidget {
         children: this
             .texts
             .map(
-              (textX) => TextSpan(
-                text: textX.text,
-                style: textX.textStyle,
+              (TextPlus) => TextSpan(
+                text: TextPlus.text,
+                style: TextPlus.textStyle,
               ),
             )
             .toList(),
