@@ -1,242 +1,244 @@
-// import 'package:flutter/material.dart';
-// import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'dart:convert';
 
-// extension StringExtension on String {
-//   String get firstLetter {
-//     if (this != null)
-//       return this[0].toUpperCase();
-//     else
-//       return null;
-//   }
+import 'package:intl/intl.dart';
 
-//   String get firstLetterToUpperCase {
-//     if (this != null)
-//       return this[0].toUpperCase() + this.substring(1);
-//     else
-//       return null;
-//   }
+extension StringExtension on String {
+  String get firstLetter {
+    if (this != null)
+      return this[0].toUpperCase();
+    else
+      return null;
+  }
 
-//   String get firstWord {
-//     if (this == null) return '';
-//     List<String> words = this.split(' ');
-//     if (words.length > 0) {
-//       return words[0];
-//     } else {
-//       return this;
-//     }
-//   }
+  String get firstLetterToUpperCase {
+    if (this != null)
+      return this[0].toUpperCase() + this.substring(1);
+    else
+      return null;
+  }
 
-//   bool get isNotNullOrEmpty {
-//     return this != null && this.isNotEmpty;
-//   }
+  String get firstWord {
+    if (this == null) return '';
+    List<String> words = this.split(' ');
+    if (words.length > 0) {
+      return words[0];
+    } else {
+      return this;
+    }
+  }
 
-//   String get toBase64 {
-//     Codec<String, String> stringToBase64 = utf8.fuse(base64);
-//     return stringToBase64.encode(this);
-//   }
+  bool get isNotNullOrEmpty {
+    return this != null && this.isNotEmpty;
+  }
 
-//   String get fromBase64 {
-//     Codec<String, String> stringToBase64 = utf8.fuse(base64);
-//     return stringToBase64.decode(this);
-//   }
+  String get toBase64 {
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    return stringToBase64.encode(this);
+  }
 
-//   String get cleanString {
-//     return this.replaceAll(new RegExp(r'[^\w\s]+'), '');
-//   }
+  String get fromBase64 {
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    return stringToBase64.decode(this);
+  }
 
-//   String get cleanStringAndSpaces {
-//     return this.replaceAll(new RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
-//   }
+  String get cleanString {
+    return this.replaceAll(new RegExp(r'[^\w\s]+'), '');
+  }
 
-//   bool get isValidEmail {
-//     if (this == null || this.isEmpty) return false;
+  String get cleanStringAndSpaces {
+    return this.replaceAll(new RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
+  }
 
-//     return RegExp(
-//             r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-//         .hasMatch(this);
-//   }
+  bool get isValidEmail {
+    if (this == null || this.isEmpty) return false;
 
-//   bool get isValidCpfCnpj {
-//     if (this == null || this.isEmpty) return false;
+    return RegExp(
+            r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
+  }
 
-//     return RegExp(
-//             r'^(\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2})$')
-//         .hasMatch(this);
-//   }
+  bool get isValidCpfCnpj {
+    if (this == null || this.isEmpty) return false;
 
-//   bool get isValidCPF {
-//     if (this == null || this.isEmpty) return false;
-//     List<int> sanitizedCPF = this
-//         .replaceAll(new RegExp(r'\.|-'), '')
-//         .split('')
-//         .map((String digit) => int.parse(digit))
-//         .toList();
-//     return !blacklistedCPF(sanitizedCPF.join()) &&
-//         sanitizedCPF[9] ==
-//             gerarDigitoVerificador(sanitizedCPF.getRange(0, 9).toList()) &&
-//         sanitizedCPF[10] ==
-//             gerarDigitoVerificador(sanitizedCPF.getRange(0, 10).toList());
-//   }
+    return RegExp(
+            r'^(\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2})$')
+        .hasMatch(this);
+  }
 
-//   bool get isValidPlaca {
-//     RegExp regexPlaca = RegExp(r'[A-Z]{3}[0-9]{4}');
-//     RegExp regexMercosul = RegExp(r'[A-Z]{3}[0-9][A-Z][0-9]{2}');
+  bool get isValidCPF {
+    if (this == null || this.isEmpty) return false;
+    List<int> sanitizedCPF = this
+        .replaceAll(new RegExp(r'\.|-'), '')
+        .split('')
+        .map((String digit) => int.parse(digit))
+        .toList();
+    return !blacklistedCPF(sanitizedCPF.join()) &&
+        sanitizedCPF[9] ==
+            gerarDigitoVerificador(sanitizedCPF.getRange(0, 9).toList()) &&
+        sanitizedCPF[10] ==
+            gerarDigitoVerificador(sanitizedCPF.getRange(0, 10).toList());
+  }
 
-//     if (regexPlaca.hasMatch(this) || regexMercosul.hasMatch(this)) return true;
+  bool get isValidPlaca {
+    RegExp regexPlaca = RegExp(r'[A-Z]{3}[0-9]{4}');
+    RegExp regexMercosul = RegExp(r'[A-Z]{3}[0-9][A-Z][0-9]{2}');
 
-//     return false;
-//   }
+    if (regexPlaca.hasMatch(this) || regexMercosul.hasMatch(this)) return true;
 
-//   int gerarDigitoVerificador(List<int> digits) {
-//     int baseNumber = 0;
-//     for (var i = 0; i < digits.length; i++) {
-//       baseNumber += digits[i] * ((digits.length + 1) - i);
-//     }
-//     int verificationDigit = baseNumber * 10 % 11;
-//     return verificationDigit >= 10 ? 0 : verificationDigit;
-//   }
+    return false;
+  }
 
-//   bool blacklistedCPF(String cpf) {
-//     return cpf == '00000000000' ||
-//         cpf == '11111111111' ||
-//         cpf == '22222222222' ||
-//         cpf == '33333333333' ||
-//         cpf == '44444444444' ||
-//         cpf == '55555555555' ||
-//         cpf == '66666666666' ||
-//         cpf == '77777777777' ||
-//         cpf == '88888888888' ||
-//         cpf == '99999999999';
-//   }
+  int gerarDigitoVerificador(List<int> digits) {
+    int baseNumber = 0;
+    for (var i = 0; i < digits.length; i++) {
+      baseNumber += digits[i] * ((digits.length + 1) - i);
+    }
+    int verificationDigit = baseNumber * 10 % 11;
+    return verificationDigit >= 10 ? 0 : verificationDigit;
+  }
 
-//   bool get isValidCelular {
-//     if (this == null || this.isEmpty) return false;
-//     return RegExp(r'^\([1-9]{2}\) [0-9]{5}\-[0-9]{4}$').hasMatch(this);
-//   }
+  bool blacklistedCPF(String cpf) {
+    return cpf == '00000000000' ||
+        cpf == '11111111111' ||
+        cpf == '22222222222' ||
+        cpf == '33333333333' ||
+        cpf == '44444444444' ||
+        cpf == '55555555555' ||
+        cpf == '66666666666' ||
+        cpf == '77777777777' ||
+        cpf == '88888888888' ||
+        cpf == '99999999999';
+  }
 
-//   bool get isValidTelefone {
-//     if (this == null || this.isEmpty) return false;
-//     return RegExp(r'^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$').hasMatch(this);
-//   }
+  bool get isValidCelular {
+    if (this == null || this.isEmpty) return false;
+    return RegExp(r'^\([1-9]{2}\) [0-9]{5}\-[0-9]{4}$').hasMatch(this);
+  }
 
-//   bool compareStrings(String text) {
-//     return this
-//         .removerAcentos
-//         .toLowerCase()
-//         .contains(text.removerAcentos.toLowerCase());
-//   }
+  bool get isValidTelefone {
+    if (this == null || this.isEmpty) return false;
+    return RegExp(r'^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$').hasMatch(this);
+  }
 
-//   String get removerAcentos {
-//     return removeDiacritics(this);
-//   }
+  // bool compareStrings(String text) {
+  //   return this
+  //       .removerAcentos
+  //       .toLowerCase()
+  //       .contains(text.removerAcentos.toLowerCase());
+  // }
 
-//   String capitalize({bool allWords}) {
-//     if (this == null || this.isEmpty) {
-//       return '';
-//     }
-//     var input = this.toLowerCase();
-//     if (allWords != null && allWords == true) {
-//       List<String> words = input.split(' ');
-//       var capitalized = words.map((word) {
-//         if (word.isEmpty) {
-//           return '';
-//         }
-//         return word[0].toUpperCase() + word.substring(1);
-//       }).join(' ');
-//       return capitalized;
-//     } else {
-//       return input[0].toUpperCase() + input.substring(1);
-//     }
-//   }
+  // String get removerAcentos {
+  //   return removeDiacritics(this);
+  // }
 
-//   DateTime toDate({@required String format}) {
-//     if (this == null) {
-//       return null;
-//     }
-//     return DateFormat(format).parse(this);
-//   }
+  String capitalize({bool allWords}) {
+    if (this == null || this.isEmpty) {
+      return '';
+    }
+    var input = this.toLowerCase();
+    if (allWords != null && allWords == true) {
+      List<String> words = input.split(' ');
+      var capitalized = words.map((word) {
+        if (word.isEmpty) {
+          return '';
+        }
+        return word[0].toUpperCase() + word.substring(1);
+      }).join(' ');
+      return capitalized;
+    } else {
+      return input[0].toUpperCase() + input.substring(1);
+    }
+  }
 
-//   T getEnumFromString<T>(Iterable<T> values) {
-//     return values.firstWhere((type) => type.toString().split(".").last == this,
-//         orElse: () => null);
-//   }
+  DateTime toDate({@required String format}) {
+    if (this == null) {
+      return null;
+    }
+    return DateFormat(format).parse(this);
+  }
 
-// //  bool isValidDate(String input) {
-// //    try {
-// //      DateFormat inputFormat = DateFormat("dd/MM/yyyy");
-// //      DateTime dateTime = inputFormat.parse(this);
-// //
-// //      DateFormat outputFormat = DateFormat("yyyy-MM-dd");
-// //      DateTime dateTime2 = outputFormat.parse(dateTime.toString());
-// //      String convertedDate = new DateFormat("yyyy-MM-dd").format(dateTime2);
-// //
-// //      final date = DateTime.parse(convertedDate);
-// //      final originalFormatString = toOriginalFormatString(date);
-// //      return convertedDate == originalFormatString;
-// //    } catch (formatError) {
-// //      return false;
-// //    }
-// //  }
+  T getEnumFromString<T>(Iterable<T> values) {
+    return values.firstWhere((type) => type.toString().split(".").last == this,
+        orElse: () => null);
+  }
 
-//   bool get isValidDate {
-//     try {
-//       List<String> diaMesAno = this.split('/');
+//  bool isValidDate(String input) {
+//    try {
+//      DateFormat inputFormat = DateFormat("dd/MM/yyyy");
+//      DateTime dateTime = inputFormat.parse(this);
+//
+//      DateFormat outputFormat = DateFormat("yyyy-MM-dd");
+//      DateTime dateTime2 = outputFormat.parse(dateTime.toString());
+//      String convertedDate = new DateFormat("yyyy-MM-dd").format(dateTime2);
+//
+//      final date = DateTime.parse(convertedDate);
+//      final originalFormatString = toOriginalFormatString(date);
+//      return convertedDate == originalFormatString;
+//    } catch (formatError) {
+//      return false;
+//    }
+//  }
 
-//       final y = int.parse(diaMesAno[2]);
-//       final m = int.parse(diaMesAno[1].padLeft(2, '0'));
-//       final d = int.parse(diaMesAno[0].padLeft(2, '0'));
+  bool get isValidDate {
+    try {
+      List<String> diaMesAno = this.split('/');
 
-//       return d > 0 &&
-//           d < 32 &&
-//           m > 0 &&
-//           m < 13 &&
-//           (y > 1900 && y <= DateTime.now().year);
-//     } catch (e) {
-//       return false;
-//     }
-//   }
+      final y = int.parse(diaMesAno[2]);
+      final m = int.parse(diaMesAno[1].padLeft(2, '0'));
+      final d = int.parse(diaMesAno[0].padLeft(2, '0'));
 
-//   bool get isValidTime {
-//     try {
-//       List<String> horaMinuto = this.split(':');
-//       final h = int.parse(horaMinuto[0]);
-//       final m = int.parse(horaMinuto[1]);
-//       return h > 0 && h <= 23 && m >= 0 && m <= 59;
-//     } catch (e) {
-//       return false;
-//     }
-//   }
+      return d > 0 &&
+          d < 32 &&
+          m > 0 &&
+          m < 13 &&
+          (y > 1900 && y <= DateTime.now().year);
+    } catch (e) {
+      return false;
+    }
+  }
 
-//   String toOriginalFormatString(DateTime dateTime) {
-//     final y = dateTime.year.toString().padLeft(4, '0');
-//     final m = dateTime.month.toString().padLeft(2, '0');
-//     final d = dateTime.day.toString().padLeft(2, '0');
-//     return "$y-$m-$d";
-//   }
+  bool get isValidTime {
+    try {
+      List<String> horaMinuto = this.split(':');
+      final h = int.parse(horaMinuto[0]);
+      final m = int.parse(horaMinuto[1]);
+      return h > 0 && h <= 23 && m >= 0 && m <= 59;
+    } catch (e) {
+      return false;
+    }
+  }
 
-//   String setMask({@required String mask}) {
-//     String text = this.cleanStringAndSpaces;
-//     if (text == null || text.isEmpty)
-//       return '';
-//     else {
-//       int maskItemCount = 0;
-//       String maskedString = '';
-//       for (var i = 0; i < mask.length; i++) {
-//         if (mask[i] == '#')
-//           maskedString += text[i - maskItemCount];
-//         else {
-//           maskedString += mask[i];
-//           maskItemCount++;
-//         }
-//       }
-//       return maskedString;
-//     }
-//   }
+  String toOriginalFormatString(DateTime dateTime) {
+    final y = dateTime.year.toString().padLeft(4, '0');
+    final m = dateTime.month.toString().padLeft(2, '0');
+    final d = dateTime.day.toString().padLeft(2, '0');
+    return "$y-$m-$d";
+  }
 
-//   isNumeric() => num.tryParse(this) != null;
+  String setMask({@required String mask}) {
+    String text = this.cleanStringAndSpaces;
+    if (text == null || text.isEmpty)
+      return '';
+    else {
+      int maskItemCount = 0;
+      String maskedString = '';
+      for (var i = 0; i < mask.length; i++) {
+        if (mask[i] == '#')
+          maskedString += text[i - maskItemCount];
+        else {
+          maskedString += mask[i];
+          maskItemCount++;
+        }
+      }
+      return maskedString;
+    }
+  }
 
-//   static num tryParse(String input) {
-//     String source = input.trim();
-//     return int.tryParse(source) ?? double.tryParse(source);
-//   }
-// }
+  isNumeric() => num.tryParse(this) != null;
+
+  static num tryParse(String input) {
+    String source = input.trim();
+    return int.tryParse(source) ?? double.tryParse(source);
+  }
+}

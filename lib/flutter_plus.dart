@@ -27,3 +27,5 @@ export 'package:flutter_plus/src/library/services/navigator_plus.dart';
 
 //extensions
 export 'package:flutter_plus/src/library/extensions/global_key_extension_plus.dart';
+export 'package:flutter_plus/src/library/extensions/string_exntension_plus.dart';
+export 'package:flutter_plus/src/library/extensions/date_extension_plus.dart';
