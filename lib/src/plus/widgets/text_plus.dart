@@ -3,7 +3,8 @@ import 'package:flutter_plus/src/plus/components/shadow_plus.dart';
 import 'package:flutter_plus/src/plus/components/text_decoration_plus.dart';
 
 class TextPlus extends StatelessWidget {
-  // TODO
+  // Todo
+  // padding
   // urls
   // phones
   // dates
@@ -37,7 +38,7 @@ class TextPlus extends StatelessWidget {
     this.text, {
     Key key,
     this.maxLines,
-    this.textOverflow,
+    this.textOverflow = TextOverflow.ellipsis,
     this.textAlign = TextAlign.left,
     this.textDirection = TextDirection.ltr,
     // style
