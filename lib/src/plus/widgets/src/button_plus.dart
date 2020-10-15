@@ -141,9 +141,7 @@ class _ButtomXState extends State<ButtonPlus> {
       onHighlightChanged: (value) {},
       onPressed: this.isEnabled ? this.widget.onPressed : null,
       onLongPress: this.isEnabled ? this.widget.onLongPress : null,
-      child: Center(
-        child: this.widget.child,
-      ),
+      child: this.widget.child,
     );
   }
 
