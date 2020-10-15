@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/skeleton_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/skeleton_plus.dart';
 
 class SkeletonRenderPlus extends StatefulWidget {
   final SkeletonPlus skeletonX;

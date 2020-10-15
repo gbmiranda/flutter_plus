@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/gradient_plus.dart';
-import 'package:flutter_plus/src/plus/components/inner_shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/inner_shadow_render_plus.dart';
-import 'package:flutter_plus/src/plus/components/radius_plus.dart';
-import 'package:flutter_plus/src/plus/components/shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/skeleton_plus.dart';
-import 'package:flutter_plus/src/plus/components/skeleton_render_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/gradient_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/inner_shadow_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/inner_shadow_render_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/skeleton_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/skeleton_render_plus.dart';
 
 class ContainerPlus extends StatefulWidget {
   /// Empty space to inscribe inside the [decoration]. The [child], if any, is

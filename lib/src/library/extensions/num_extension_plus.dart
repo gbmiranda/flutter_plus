@@ -1,25 +1,101 @@
-// import 'dart:math';
+import 'dart:math';
+import 'package:intl/intl.dart';
 
-// extension NumExtensionX on num {
-//   String numberToCurrency({bool exibeMoeda}) {
-//     if (exibeMoeda == false)
-//       return NumberFormat.XCurrency(name: '').format(this).trim();
-//     else
-//       return NumberFormat.XCurrency().format(this).trim();
-//   }
+extension NumExtensionPlus on num {
+  String toCurrency({bool withSymbol}) {
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      if (withSymbol == false)
+        return NumberFormat.simpleCurrency(name: '').format(this).trim();
+      else
+        return NumberFormat.simpleCurrency().format(this).trim();
+    }
+  }
 
-//   get numberFormat {
-//     return NumberFormat.decimalPattern().format(this);
-//   }
+  String toCurrencyCompact({bool withSymbol}) {
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      if (withSymbol == false)
+        return NumberFormat.compactSimpleCurrency(name: '').format(this).trim();
+      else
+        return NumberFormat.compactSimpleCurrency().format(this).trim();
+    }
+  }
 
-//   String format() {
-//     return this.toStringAsFixed(this.truncateToDouble() == this ? 0 : 2);
-//   }
+  double toPrecision(int fractionDigits) {
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      var mod = pow(10, fractionDigits.toDouble()).toDouble();
+      return ((this * mod).round().toDouble() / mod);
+    }
+  }
 
-//   num roundDecimals({num decimals = 2}) {
-//     int fac = pow(10, decimals);
-//     double d = this;
-//     d = (d * fac).round() / fac;
-//     return d;
-//   }
-// }
+  // toHours
+  num get daysToHours {
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this * Duration.hoursPerDay;
+    }
+  }
+
+  num get minutesToHours {
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this / Duration.minutesPerHour;
+    }
+  }
+
+  num get secondsToHours {
+    // 3600 seconds = 1 hour
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this / Duration.secondsPerHour;
+    }
+  }
+
+  // toDays
+
+  num get hoursToDays {
+    // 24 hours = 1 day
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this * Duration.hoursPerDay;
+    }
+  }
+
+  // toMinutes
+
+  num get secondsToMinutes {
+    // 60 seconds = 1 minute
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this / Duration.secondsPerMinute;
+    }
+  }
+
+  num get hoursToMinutes {
+    // 60 seconds = 1 minute
+    if (this.isNullOrZero) {
+      return null;
+    } else {
+      return this * Duration.minutesPerHour;
+    }
+  }
+
+  // check
+
+  bool get isNullOrZero {
+    if (this == null || this == 0) {
+      return true;
+    } else
+      return false;
+  }
+}

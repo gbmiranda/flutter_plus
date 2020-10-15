@@ -1,4 +1,4 @@
-import 'package:flutter_plus/src/plus/widgets/text_plus.dart';
+import 'package:flutter_plus/src/plus/widgets/src/text_plus.dart';
 
 class RichTextPatternPlus {
   final TextPlus textPlus;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/radius_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
+import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
 
 final NavigatorPlus navigatorPlus = NavigatorPlus.instance;
 
@@ -11,26 +11,26 @@ class NavigatorPlus {
 
   GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
 
-  /// Use only to init.
-  ///
-  /// MaterialApp > navigatorKey: navigatorPlus.setNavigatorKey
-  ///
-  GlobalKey<NavigatorState> get setNavigatorKey {
-    return _navigatorKey;
-  }
-
-  GlobalKey<NavigatorState> get navigatorKey {
+  GlobalKey<NavigatorState> get getNavigatorKey {
     if (this._navigatorKey == null || this._navigatorKey.currentState == null) {
       print(
-          'navigatorPlus not set -> MaterialApp > navigatorKey: navigatorPlus.setNavigatorKey');
+          '_navigatorKey not set -> MaterialApp > navigatorKey: navigatorPlus.navigatorKey');
 
       return null;
     } else
       return _navigatorKey;
   }
 
+  /// Use only to init.
+  ///
+  /// MaterialApp > navigatorKey: navigatorPlus.key
+  ///
+  GlobalKey<NavigatorState> get key {
+    return _navigatorKey;
+  }
+
   BuildContext get currentContext =>
-      this.navigatorKey?.currentState?.overlay?.context;
+      this.getNavigatorKey?.currentState?.overlay?.context;
 
   void navigate(
     dynamic destination, {
@@ -41,7 +41,7 @@ class NavigatorPlus {
   }) {
     FocusManager.instance.primaryFocus.unfocus();
     if (replace != null && replace == true) {
-      this.navigatorKey?.currentState?.pushReplacement(
+      this.getNavigatorKey?.currentState?.pushReplacement(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -49,7 +49,7 @@ class NavigatorPlus {
                 settings: settings ?? null),
           );
     } else {
-      this.navigatorKey?.currentState?.push(
+      this.getNavigatorKey?.currentState?.push(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -60,22 +60,23 @@ class NavigatorPlus {
   }
 
   bool get canPop {
-    if (this.navigatorKey == null || this.navigatorKey.currentState == null)
+    if (this.getNavigatorKey == null ||
+        this.getNavigatorKey.currentState == null)
       return false;
     else
-      return this.navigatorKey.currentState.canPop();
+      return this.getNavigatorKey.currentState.canPop();
   }
 
   pop({dynamic result}) {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canPop) this.navigatorKey.currentState.pop(result);
+    if (this.canPop) this.getNavigatorKey.currentState.pop(result);
   }
 
   popAll() {
     FocusManager.instance.primaryFocus.unfocus();
     if (this.canPop)
       this
-          .navigatorKey
+          .getNavigatorKey
           .currentState
           .popUntil((Route<dynamic> route) => route.isFirst);
   }
