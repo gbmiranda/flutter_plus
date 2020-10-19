@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
 import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
 
@@ -11,7 +12,7 @@ class NavigatorPlus {
 
   GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
 
-  GlobalKey<NavigatorState> get getNavigatorKey {
+  GlobalKey<NavigatorState> get _getNavigatorKey {
     if (this._navigatorKey == null || this._navigatorKey.currentState == null) {
       print(
           '_navigatorKey not set -> MaterialApp > navigatorKey: navigatorPlus.navigatorKey');
@@ -21,16 +22,25 @@ class NavigatorPlus {
       return _navigatorKey;
   }
 
+  GlobalKey<NavigatorState> get navigatorKey {
+    return _navigatorKey;
+  }
+
+  GlobalKey<NavigatorState> addKey(GlobalKey<NavigatorState> newKey) {
+    this._navigatorKey = newKey;
+    return this._navigatorKey;
+  }
+
   /// Use only to init.
   ///
   /// MaterialApp > navigatorKey: navigatorPlus.key
   ///
-  GlobalKey<NavigatorState> get key {
-    return _navigatorKey;
-  }
+  // GlobalKey<NavigatorState> get key {
+  //   return _navigatorKey;
+  // }
 
   BuildContext get currentContext =>
-      this.getNavigatorKey?.currentState?.overlay?.context;
+      this._getNavigatorKey?.currentState?.overlay?.context;
 
   Future<dynamic> navigate(
     dynamic destination, {
@@ -41,7 +51,7 @@ class NavigatorPlus {
   }) {
     FocusManager.instance.primaryFocus.unfocus();
     if (replace != null && replace == true) {
-      return this.getNavigatorKey?.currentState?.pushReplacement(
+      return this._getNavigatorKey?.currentState?.pushReplacement(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -49,7 +59,7 @@ class NavigatorPlus {
                 settings: settings ?? null),
           );
     } else {
-      return this.getNavigatorKey?.currentState?.push(
+      return this._getNavigatorKey?.currentState?.push(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -60,23 +70,23 @@ class NavigatorPlus {
   }
 
   bool get canPop {
-    if (this.getNavigatorKey == null ||
-        this.getNavigatorKey.currentState == null)
+    if (this._getNavigatorKey == null ||
+        this._getNavigatorKey.currentState == null)
       return false;
     else
-      return this.getNavigatorKey.currentState.canPop();
+      return this._getNavigatorKey.currentState.canPop();
   }
 
   pop({dynamic result}) {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canPop) this.getNavigatorKey.currentState.pop(result);
+    if (this.canPop) this._getNavigatorKey.currentState.pop(result);
   }
 
   popAll() {
     FocusManager.instance.primaryFocus.unfocus();
     if (this.canPop)
       this
-          .getNavigatorKey
+          ._getNavigatorKey
           .currentState
           .popUntil((Route<dynamic> route) => route.isFirst);
   }
@@ -91,17 +101,19 @@ class NavigatorPlus {
     bool enableDrag = true,
     double elevation = 0,
     double heightPercentScreen,
+    double height,
     Clip clipBehavior = Clip.none,
     RadiusPlus radius,
     BorderPlus border,
   }) {
     FocusManager.instance.primaryFocus.unfocus();
 
-    bool _validHeightPercentScreen = heightPercentScreen != null &&
-        heightPercentScreen > 0 &&
-        heightPercentScreen <= 1;
+    bool _validCustomHeight = (height != null && height > 0) ||
+        (heightPercentScreen != null &&
+            heightPercentScreen > 0 &&
+            heightPercentScreen <= 1);
 
-    if (isScrollControlled == false && _validHeightPercentScreen == true)
+    if (isScrollControlled == false && _validCustomHeight == true)
       isScrollControlled = true;
 
     showModalBottomSheet(
@@ -118,7 +130,12 @@ class NavigatorPlus {
         side: border?.toBorderSide ?? BorderSide.none,
       ),
       builder: (BuildContext context) {
-        if (heightPercentScreen != null) {
+        if (height != null && height > 0) {
+          child = SizedBox(
+            height: height,
+            child: child,
+          );
+        } else if (heightPercentScreen != null) {
           if (heightPercentScreen > 0 && heightPercentScreen <= 1) {
             var _screenHeight = MediaQuery.of(context).size.height;
             var percentHeight = _screenHeight * heightPercentScreen;

@@ -141,27 +141,28 @@ class ContainerPlus extends StatefulWidget {
     this.innerShadows,
   }) : super(key: key);
 
-  // static _containerPlusState _ContainerPlusState;
+  @override
+  _ContainerPlusState createState() => _ContainerPlusState();
+
+  // static _ContainerPlusState _containerPlusState;
 
   // @override
   // _ContainerPlusState createState() {
   //   _containerPlusState = _ContainerPlusState();
   //   return _ContainerPlusState();
   // }
-  @override
-  _ContainerPlusState createState() => _ContainerPlusState();
 
   // Future<Size> get size async {
   //   return Future.delayed(Duration(milliseconds: 50), () {
-  //     return _ContainerPlusState?._containerSize;
+  //     return _containerPlusState?._containerSize;
   //   });
   // }
 
   // Size get containerSize {
-  //   if (_ContainerPlusState == null)
+  //   if (_containerPlusState == null)
   //     return null;
   //   else
-  //     return _ContainerPlusState._containerSize;
+  //     return _containerPlusState._containerSize;
   // }
 }
 
@@ -185,8 +186,6 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   _afterLayout() {
-    // print('XXX_5');
-
     _getSizes();
     _getPositions();
 
@@ -199,18 +198,18 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   @override
   Widget build(BuildContext context) {
-    Widget ContainerPlus = this._buildContainerPlus();
+    Widget containerPlus = this._buildContainerPlus();
 
     if (this.widget.isCenter == true)
-      ContainerPlus = Center(
-        child: ContainerPlus,
+      containerPlus = Center(
+        child: containerPlus,
       );
 
     if (this.widget.isExpanded == true)
-      ContainerPlus = Expanded(
-        child: ContainerPlus,
+      containerPlus = Expanded(
+        child: containerPlus,
       );
-    return ContainerPlus;
+    return containerPlus;
   }
 
   _buildContainerPlus() {

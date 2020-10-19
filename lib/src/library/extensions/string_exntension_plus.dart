@@ -137,9 +137,9 @@ extension StringExtensionPlus on String {
 
   String get cleanDiacritics {
     if (this.isNotNullOrEmpty) {
-      return null;
-    } else {
       return removeDiacritics(this);
+    } else {
+      return null;
     }
   }
 
@@ -149,17 +149,15 @@ extension StringExtensionPlus on String {
 
   String get capitalizeFirstWord {
     if (this.isNotNullOrEmpty) {
-      return null;
-    } else {
       var input = this.toLowerCase();
       return input[0].toUpperCase() + input.substring(1);
+    } else {
+      return null;
     }
   }
 
   String get capitalizeAllWords {
-    if (this == null || this.isEmpty) {
-      return null;
-    } else {
+    if (this.isNotNullOrEmpty) {
       var input = this.toLowerCase();
       List<String> words = input.split(' ');
       var capitalized = words.map((word) {
@@ -169,21 +167,21 @@ extension StringExtensionPlus on String {
         return word[0].toUpperCase() + word.substring(1);
       }).join(' ');
       return capitalized;
+    } else {
+      return null;
     }
   }
 
   DateTime toDate({@required String format}) {
-    if (this == null || this.isEmpty) {
-      return null;
-    } else {
+    if (this.isNotNullOrEmpty) {
       return DateFormat(format).parse(this);
+    } else {
+      return null;
     }
   }
 
   String setMask({@required String mask}) {
-    if (this == null || this.isEmpty) {
-      return null;
-    } else {
+    if (this.isNotNullOrEmpty) {
       String cleanText = this.cleanStringAndSpaces;
       int maskItemCount = 0;
       String maskedString = '';
@@ -196,26 +194,28 @@ extension StringExtensionPlus on String {
         }
       }
       return maskedString;
+    } else {
+      return null;
     }
   }
 
   bool get isNum {
-    if (this == null || this.isEmpty) {
-      return false;
-    } else {
+    if (this.isNotNullOrEmpty) {
       String source = this.trim();
       var numberValue = int.tryParse(source) ??
           double.tryParse(source) ??
           num.tryParse(source);
       return numberValue != null;
+    } else {
+      return false;
     }
   }
 
   bool get isBool {
-    if (this == null || this.isEmpty) {
-      return false;
-    } else {
+    if (this.isNotNullOrEmpty) {
       return (this == 'true' || this == 'false');
+    } else {
+      return false;
     }
   }
 
@@ -231,9 +231,9 @@ extension StringExtensionPlus on String {
 
   bool _checkRegex(String regex) {
     if (this.isNotNullOrEmpty) {
-      return false;
-    } else {
       return RegExp(regex).hasMatch(this);
+    } else {
+      return false;
     }
   }
 }
