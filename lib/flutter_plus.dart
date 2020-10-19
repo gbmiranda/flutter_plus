@@ -1,14 +1,16 @@
 library flutter_plus;
 
-/// widgets
-export 'package:flutter_plus/src/plus/widgets/widgets_export_plus.dart';
+export 'flutter_plus_exports.dart';
 
-/// library
-export 'package:flutter_plus/src/plus/components/components_export_plus.dart';
+import 'flutter_plus_exports.dart';
 
-/// services
-export 'package:flutter_plus/src/library/services/navigator_plus.dart';
-export 'package:flutter_plus/src/library/services/alert_plus.dart';
+final flutterPlus = FlutterPlus;
 
-//extensions
-export 'package:flutter_plus/src/library/extensions/extensions_export_plus.dart';
+class FlutterPlus {
+  FlutterPlus._();
+
+  static NavigatorPlus navigator = navigatorPlus;
+  static SnackBarPlus snackBar = snackBarPlus;
+  static DialogPlus dialog = dialogPlus;
+  static BottomSheetPlus bottomSheet = bottomSheetPlus;
+}

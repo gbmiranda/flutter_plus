@@ -3,12 +3,17 @@
 
 import 'package:flutter/material.dart';
 
-class SnackBarPlus {
-  static final instance = SnackBarPlus();
+final snackBarPlus = SnackBarPlus._instance;
 
+class SnackBarPlus {
+  static final _instance = SnackBarPlus();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void showSnackBar(String text, {Color backgroundColor, Duration duration}) {
+  void show(
+    String text, {
+    Color backgroundColor,
+    Duration duration,
+  }) {
     var _snackBar = SnackBar(
       content: Text(
         text,
