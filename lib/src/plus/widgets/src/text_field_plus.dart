@@ -40,7 +40,7 @@ class TextFieldX extends StatelessWidget {
   final TextAlign textAlign;
   final TextAlignVertical textAlignVertical;
 
-  final Function(String) onChaned;
+  final Function(String) onChanged;
   final Function onTap;
   final Function onEditingComplete;
   final Function onSubmitted;
@@ -107,7 +107,7 @@ class TextFieldX extends StatelessWidget {
     this.obscureText = false,
     this.onlyNumbers = false,
     this.focusNode,
-    this.onChaned,
+    this.onChanged,
     this.readOnly = false,
     this.cursorColor,
     this.textAlignVertical = TextAlignVertical.center,
@@ -192,7 +192,7 @@ class TextFieldX extends StatelessWidget {
       inputFormatters: this._getFormatters(),
       prefix: this.prefixWidget,
       suffix: this.suffixWidget,
-      onChanged: this.onChaned,
+      onChanged: this.onChanged,
       onTap: this.onTap,
       onEditingComplete: this.onEditingComplete,
       onSubmitted: this.onSubmitted,

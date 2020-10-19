@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
 import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
 
-final NavigatorPlus navigatorPlus = NavigatorPlus.instance;
+final navigatorPlus = NavigatorPlus.instance;
 
 class NavigatorPlus {
   // SINGLETON
@@ -32,7 +32,7 @@ class NavigatorPlus {
   BuildContext get currentContext =>
       this.getNavigatorKey?.currentState?.overlay?.context;
 
-  void navigate(
+  Future<dynamic> navigate(
     dynamic destination, {
     bool modal,
     bool replace,
@@ -41,7 +41,7 @@ class NavigatorPlus {
   }) {
     FocusManager.instance.primaryFocus.unfocus();
     if (replace != null && replace == true) {
-      this.getNavigatorKey?.currentState?.pushReplacement(
+      return this.getNavigatorKey?.currentState?.pushReplacement(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -49,7 +49,7 @@ class NavigatorPlus {
                 settings: settings ?? null),
           );
     } else {
-      this.getNavigatorKey?.currentState?.push(
+      return this.getNavigatorKey?.currentState?.push(
             MaterialPageRoute(
                 builder: (context) => destination,
                 fullscreenDialog: modal ?? false,
@@ -87,7 +87,7 @@ class NavigatorPlus {
     Color backgroundColor,
     Color barrierColor,
     bool isDismissible = true,
-    bool isScrollControlled = true,
+    bool isScrollControlled = false,
     bool enableDrag = true,
     double elevation = 0,
     double heightPercentScreen,
