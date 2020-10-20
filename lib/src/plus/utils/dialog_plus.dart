@@ -8,17 +8,19 @@ class DialogPlus {
   static final _instance = DialogPlus._();
   DialogPlus._();
 
-  void show(
-    Widget child,
+  void show({
+    @required Widget child,
     Color barrierColor,
-    bool barrierDismissible,
-    bool useRootNavigator,
-    bool useSafeArea,
+    bool barrierDismissible = true,
+    bool useRootNavigator = false,
+    bool useSafeArea = false,
     RouteSettings routeSettings,
-    Function(BuildContext) builder,
-    bool closeKeyboardWhenOpen,
-  ) {
-    if (closeKeyboardWhenOpen) {
+    bool closeKeyboardWhenOpen = true,
+    RadiusPlus radius,
+    BorderPlus border,
+    double elevation = 1,
+  }) {
+    if (closeKeyboardWhenOpen == true) {
       flutterPlusUtils.closeKeyboard();
     }
     showDialog(
@@ -28,8 +30,91 @@ class DialogPlus {
       routeSettings: routeSettings,
       useRootNavigator: useRootNavigator,
       useSafeArea: useSafeArea,
-      child: child,
-      builder: builder,
+      child: this._createDialog(child, elevation, radius, border),
+    );
+  }
+
+  void showDefaultOneButton({
+    @required TextPlus message,
+    TextPlus title,
+    ButtonPlus buttonOne,
+    ButtonPlus buttonTwo,
+    EdgeInsetsGeometry padding,
+    Color barrierColor,
+    bool barrierDismissible = true,
+    bool closeKeyboardWhenOpen = true,
+    RadiusPlus radius,
+    BorderPlus border,
+    double elevation = 1,
+    double elementsSpacing = 16,
+  }) {
+    if (closeKeyboardWhenOpen == true) {
+      flutterPlusUtils.closeKeyboard();
+    }
+    showDialog(
+        context: navigatorPlus.currentContext,
+        barrierColor: barrierColor,
+        barrierDismissible: (buttonOne == null || buttonTwo == null)
+            ? true
+            : barrierDismissible,
+        builder: (context) {
+          Widget buttonsContent;
+          if (buttonOne == null && buttonTwo == null) {
+            buttonsContent = SizedBox.shrink();
+          } else if (buttonOne != null && buttonTwo != null) {
+            buttonsContent = Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                buttonOne,
+                SizedBox(
+                  width: elementsSpacing,
+                ),
+                buttonTwo,
+              ],
+            );
+          } else if (buttonOne != null) {
+            buttonsContent = buttonOne;
+          } else if (buttonTwo != null) {
+            buttonsContent = buttonTwo;
+          } else {
+            buttonsContent = SizedBox.shrink();
+          }
+
+          var dialogContent = Padding(
+            padding: padding ?? EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                title ?? SizedBox.shrink(),
+                SizedBox(
+                  height: elementsSpacing,
+                ),
+                message,
+                SizedBox(
+                  height: elementsSpacing,
+                ),
+                buttonsContent,
+              ],
+            ),
+          );
+          return this._createDialog(dialogContent, elevation, radius, border);
+        });
+  }
+
+  _createDialog(
+      Widget child, double elevation, RadiusPlus radius, BorderPlus border) {
+    return Dialog(
+      child: ClipRRect(
+        borderRadius: radius?.toBorderRadius ?? BorderRadius.zero,
+        child: child,
+      ),
+      elevation: elevation,
+      shape: RoundedRectangleBorder(
+        borderRadius: radius?.toBorderRadius ?? BorderRadius.zero,
+        side: border?.toBorderSide ?? BorderSide.none,
+      ),
     );
   }
 }

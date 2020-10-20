@@ -8,6 +8,7 @@ class TextPlus extends StatelessWidget {
   // urls
   // phones
   // dates
+  // onTap
 
   // atributos
   final String text;
@@ -31,7 +32,7 @@ class TextPlus extends StatelessWidget {
   final double height;
   final String fontFamily;
 
-  final TextDecorationPlus textDecorationX;
+  final TextDecorationPlus textDecorationPlus;
   final List<ShadowPlus> shadows;
 
   TextPlus(
@@ -56,7 +57,7 @@ class TextPlus extends StatelessWidget {
     this.isCenter = false,
     this.isExpandend = false,
     this.isCleanText,
-    this.textDecorationX,
+    this.textDecorationPlus,
     this.shadows,
   }) : super(key: key);
 
@@ -96,10 +97,10 @@ class TextPlus extends StatelessWidget {
       fontWeight: this.fontWeight,
       fontStyle: this.fontStyle,
       backgroundColor: this.backgroundColor,
-      decoration: this.textDecorationX?.textDecoration,
-      decorationColor: this.textDecorationX?.color,
-      decorationStyle: this.textDecorationX?.decorationStyle,
-      decorationThickness: this.textDecorationX?.decorationThickness,
+      decoration: this.textDecorationPlus?.textDecoration,
+      decorationColor: this.textDecorationPlus?.color,
+      decorationStyle: this.textDecorationPlus?.decorationStyle,
+      decorationThickness: this.textDecorationPlus?.decorationThickness,
       letterSpacing: this.letterSpacing,
       fontFamily: this.fontFamily,
       wordSpacing: this.wordSpacing,
