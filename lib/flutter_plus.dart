@@ -1,17 +1,15 @@
 library flutter_plus;
 
-export 'flutter_plus_exports.dart';
+import 'package:flutter_plus/src/utils/utils_export_plus.dart';
 
-import 'flutter_plus_exports.dart';
-import 'src/plus/utils/flutter_plus_utils.dart';
-import 'src/plus/utils/local_storage_plus.dart';
+export 'flutter_plus_exports.dart';
 
 final flutterPlus = FlutterPlus;
 
 class FlutterPlus {
   FlutterPlus._();
 
-  static FlutterPlusUtils utils = flutterPlusUtils;
+  static UtilsPlus utils = utilsPlus;
   static LocalStoragePlus localStorage = localStoragePlus;
   static NavigatorPlus navigator = navigatorPlus;
   static SnackBarPlus snackBar = snackBarPlus;

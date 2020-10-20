@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_plus/flutter_plus.dart';
-import 'package:flutter_plus/src/plus/utils/flutter_plus_utils.dart';
+import 'package:flutter_plus/src/utils/src/utils_plus.dart';
 
 final dialogPlus = DialogPlus._instance;
 
@@ -21,7 +21,7 @@ class DialogPlus {
     double elevation = 1,
   }) {
     if (closeKeyboardWhenOpen == true) {
-      flutterPlusUtils.closeKeyboard();
+      utilsPlus.closeKeyboard();
     }
     showDialog(
       context: navigatorPlus.currentContext,
@@ -49,7 +49,7 @@ class DialogPlus {
     double elementsSpacing = 16,
   }) {
     if (closeKeyboardWhenOpen == true) {
-      flutterPlusUtils.closeKeyboard();
+      utilsPlus.closeKeyboard();
     }
     showDialog(
         context: navigatorPlus.currentContext,

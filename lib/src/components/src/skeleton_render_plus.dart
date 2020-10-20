@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/src/skeleton_plus.dart';
+import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
+import 'package:flutter_plus/src/utils/src/utils_plus.dart';
 
 class SkeletonRenderPlus extends StatefulWidget {
-  final SkeletonPlus skeletonX;
-  SkeletonRenderPlus({@required this.skeletonX});
+  final SkeletonPlus skeletonPlus;
+  SkeletonRenderPlus({@required this.skeletonPlus});
 
   createState() => SkeletonRenderPlusState();
 }
@@ -17,10 +18,10 @@ class SkeletonRenderPlusState extends State<SkeletonRenderPlus>
   @override
   void initState() {
     _controller = AnimationController(
-        duration: Duration(
-          milliseconds: this.widget.skeletonX.duration,
-        ),
-        vsync: this);
+      duration:
+          this.widget.skeletonPlus.duration ?? Duration(milliseconds: 1500),
+      vsync: this,
+    );
     gradientPosition = Tween<double>(
       begin: -30,
       end: 10,
@@ -51,13 +52,12 @@ class SkeletonRenderPlusState extends State<SkeletonRenderPlus>
         gradient: LinearGradient(
           begin: Alignment(gradientPosition.value, 0),
           end: Alignment(2, 0),
-          colors: this.widget.skeletonX.colors != null
-              ? this.widget.skeletonX.colors
-              : [
-                  Colors.black12,
-                  Colors.black.withOpacity(0.08),
-                  Colors.black12,
-                ],
+          colors: [
+            this.widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
+            this.widget.skeletonPlus.highlightColor ??
+                utilsPlus.colorHex('F0F1F1'),
+            this.widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
+          ],
           stops: [
             0.2,
             0.6,

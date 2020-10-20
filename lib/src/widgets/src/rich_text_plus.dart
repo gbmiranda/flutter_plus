@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/widgets/src/text_plus.dart';
+import 'package:flutter_plus/src/widgets/src/text_plus.dart';
 
 class RichTextPlus extends StatelessWidget {
   // TODO

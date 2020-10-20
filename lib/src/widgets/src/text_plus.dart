@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/text_decoration_plus.dart';
+import 'package:flutter_plus/src/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
 
 class TextPlus extends StatelessWidget {
   // Todo

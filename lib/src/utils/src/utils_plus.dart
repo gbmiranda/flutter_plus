@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-final flutterPlusUtils = FlutterPlusUtils._instance;
+final utilsPlus = UtilsPlus._instance;
 
-class FlutterPlusUtils {
-  static final _instance = FlutterPlusUtils._();
-  FlutterPlusUtils._();
+class UtilsPlus {
+  static final _instance = UtilsPlus._();
+  UtilsPlus._();
 
   closeKeyboard() {
     FocusManager.instance.primaryFocus.unfocus();

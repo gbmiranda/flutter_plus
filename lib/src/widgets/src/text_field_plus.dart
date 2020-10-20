@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/gradient_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/text_decoration_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/text_field_mask_plus.dart';
-import 'package:flutter_plus/src/plus/widgets/src/text_plus.dart';
+import 'package:flutter_plus/src/components/src/border_plus.dart';
+import 'package:flutter_plus/src/components/src/gradient_plus.dart';
+import 'package:flutter_plus/src/components/src/radius_plus.dart';
+import 'package:flutter_plus/src/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
+import 'package:flutter_plus/src/components/src/text_field_mask_plus.dart';
+import 'package:flutter_plus/src/widgets/src/text_plus.dart';
 
 import 'container_plus.dart';
 

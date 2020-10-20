@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/utils/snack_bar_plus.dart';
-import 'package:flutter_plus/src/plus/utils/navigator_plus.dart';
+import 'package:flutter_plus/src/utils/src/snack_bar_plus.dart';
+import 'package:flutter_plus/src/utils/src/navigator_plus.dart';
 
 class FlutterPlusApp extends StatefulWidget {
   /// {@macro flutter.widgets.widgetsApp.navigatorKey}

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/gradient_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/inner_shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/inner_shadow_render_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/skeleton_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/skeleton_render_plus.dart';
+import 'package:flutter_plus/src/components/src/border_plus.dart';
+import 'package:flutter_plus/src/components/src/gradient_plus.dart';
+import 'package:flutter_plus/src/components/src/inner_shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/inner_shadow_render_plus.dart';
+import 'package:flutter_plus/src/components/src/radius_plus.dart';
+import 'package:flutter_plus/src/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
+import 'package:flutter_plus/src/components/src/skeleton_render_plus.dart';
 
 class ContainerPlus extends StatefulWidget {
   /// Empty space to inscribe inside the [decoration]. The [child], if any, is
@@ -132,7 +132,7 @@ class ContainerPlus extends StatefulWidget {
     this.onDoubleTap,
     this.onLongPress,
     this.notifyParent,
-    // X
+    // Plus
     this.skeleton,
     this.radius,
     this.border,
@@ -214,7 +214,6 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   _buildContainerPlus() {
     return Container(
-      // key: this.widget.key,
       key: this._keyRect,
       padding: this.skeletonEnabled == true
           ? EdgeInsets.all(0)
@@ -227,13 +226,26 @@ class _ContainerPlusState extends State<ContainerPlus> {
       decoration: this._buildOutDecoration(),
       child: ClipRRect(
         borderRadius: this._buildRadius(),
-        child: this.skeletonEnabled
+        child: this.skeletonEnabled == true
             ? this._buildSkeleton()
             : this._buildInnerShadow(
                 this._buildChild(),
               ),
       ),
     );
+  }
+
+  _buildSkeleton() {
+    // to calculate height
+    if (this.skeletonEnabled == false)
+      return this.widget.child;
+    else
+      return Container(
+        height: this._containerSize?.height ?? 0,
+        child: SkeletonRenderPlus(
+          skeletonPlus: this.widget.skeleton,
+        ),
+      );
   }
 
   Widget _buildInnerShadow(Widget child) {
@@ -291,15 +303,6 @@ class _ContainerPlusState extends State<ContainerPlus> {
       return true;
     else
       return false;
-  }
-
-  _buildSkeleton() {
-    return Container(
-      color: Colors.white,
-      child: SkeletonRenderPlus(
-        skeletonX: this.widget.skeleton,
-      ),
-    );
   }
 
   BoxDecoration _buildInDecoration() {
@@ -408,25 +411,34 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   bool get skeletonEnabled {
-    if (this.widget.skeleton != null && this.widget.skeleton.enabled == true)
+    if (this.widget.skeleton != null &&
+        this.widget.skeleton.enabled == true &&
+        this._containerSize != null)
       return true;
     else
       return false;
   }
 
   bool get skeletonShowShadow {
-    if (this.widget.skeleton == null ||
-        this.widget.skeleton.showShadows == true)
+    if (this.skeletonEnabled == false ||
+        this.widget.skeleton?.showShadows == true) {
       return true;
-    else
+    } else {
       return false;
+    }
+    // if (this.skeletonEnabled == true &&
+    //     this.widget.skeleton.showShadows == true)
+    //   return true;
+    // else
+    //   return false;
   }
 
   bool get skeletonShowBorder {
-    if (this.widget.skeleton == null ||
-        this.widget.skeleton.showBorders == true)
+    if (this.skeletonEnabled == false ||
+        this.widget.skeleton?.showBorders == true) {
       return true;
-    else
+    } else {
       return false;
+    }
   }
 }

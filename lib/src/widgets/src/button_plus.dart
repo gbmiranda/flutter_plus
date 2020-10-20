@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/gradient_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/border_plus.dart';
+import 'package:flutter_plus/src/components/src/gradient_plus.dart';
+import 'package:flutter_plus/src/components/src/radius_plus.dart';
+import 'package:flutter_plus/src/components/src/shadow_plus.dart';
 
 import 'container_plus.dart';
 
