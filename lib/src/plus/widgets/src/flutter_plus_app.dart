@@ -467,13 +467,6 @@ class _FlutterPlusAppState extends State<FlutterPlusApp> {
               : this.widget.builder(context, child),
         );
       },
-      // builder: this.widget.builder,
-      // builder: (context, child) {
-      //   return Scaffold(
-      //     key: SnackBarPlus.instance.scaffoldKey,
-      //     body: child,
-      //   );
-      // },
       home: this.widget.home,
     );
   }

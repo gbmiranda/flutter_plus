@@ -38,7 +38,7 @@ class TextPlus extends StatelessWidget {
     this.text, {
     Key key,
     this.maxLines,
-    this.textOverflow = TextOverflow.ellipsis,
+    this.textOverflow,
     this.textAlign = TextAlign.left,
     this.textDirection = TextDirection.ltr,
     // style

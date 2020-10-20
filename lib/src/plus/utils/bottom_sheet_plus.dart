@@ -6,7 +6,8 @@ import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
 final bottomSheetPlus = BottomSheetPlus._instance;
 
 class BottomSheetPlus {
-  static final _instance = BottomSheetPlus();
+  static final _instance = BottomSheetPlus._();
+  BottomSheetPlus._();
 
   show({
     @required Widget child,

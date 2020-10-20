@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/flutter_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/border_plus.dart';
-import 'package:flutter_plus/src/plus/components/src/radius_plus.dart';
 
 final navigatorPlus = NavigatorPlus._instance;
 
 class NavigatorPlus {
-  // SINGLETON
   static final _instance = NavigatorPlus._();
   NavigatorPlus._();
 
@@ -30,14 +26,6 @@ class NavigatorPlus {
     this._navigatorKey = newKey;
     return this._navigatorKey;
   }
-
-  /// Use only to init.
-  ///
-  /// MaterialApp > navigatorKey: navigatorPlus.key
-  ///
-  // GlobalKey<NavigatorState> get key {
-  //   return _navigatorKey;
-  // }
 
   BuildContext get currentContext =>
       this._getNavigatorKey?.currentState?.overlay?.context;
@@ -69,7 +57,7 @@ class NavigatorPlus {
     }
   }
 
-  bool get canPop {
+  bool get canBack {
     if (this._getNavigatorKey == null ||
         this._getNavigatorKey.currentState == null)
       return false;
@@ -77,14 +65,14 @@ class NavigatorPlus {
       return this._getNavigatorKey.currentState.canPop();
   }
 
-  pop({dynamic result}) {
+  back({dynamic result}) {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canPop) this._getNavigatorKey.currentState.pop(result);
+    if (this.canBack) this._getNavigatorKey.currentState.pop(result);
   }
 
-  popAll() {
+  backAll() {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canPop)
+    if (this.canBack)
       this
           ._getNavigatorKey
           .currentState

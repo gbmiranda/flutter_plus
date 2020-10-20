@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   intl:
   diacritic:
-
+  shared_preferences:
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter
