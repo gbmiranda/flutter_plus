@@ -3,22 +3,20 @@ import 'package:flutter_plus/src/components/src/border_plus.dart';
 import 'package:flutter_plus/src/components/src/gradient_plus.dart';
 import 'package:flutter_plus/src/components/src/radius_plus.dart';
 import 'package:flutter_plus/src/components/src/shadow_plus.dart';
+import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
 
 import 'container_plus.dart';
 
 class ButtonPlus extends StatefulWidget {
   /// Todo
-  ///
   /// 1- isLoading - show progress
-  /// 2- isSkeleton
 
   final Widget child;
 
   final bool enabled;
-  final bool useSkeleton;
   final bool isCenter;
   final bool isExpanded;
-  // final bool elevation;
+  final bool isCircle;
 
   final EdgeInsets padding;
   final EdgeInsets margin;
@@ -40,11 +38,16 @@ class ButtonPlus extends StatefulWidget {
   final Color focusColor;
   final Color hoverColor;
 
-  // XPackage
+  // Plus
   final RadiusPlus radius;
   final BorderPlus border;
   final List<ShadowPlus> shadow;
   final GradientPlus gradient;
+
+  /// When [true] show a loading effect up child.
+  ///
+  /// Defaults is [null].
+  final SkeletonPlus skeleton;
 
   ButtonPlus({
     Key key,
@@ -57,10 +60,10 @@ class ButtonPlus extends StatefulWidget {
     this.disabledBackgroundColor,
     this.alignment,
     //bools
-    this.isCenter,
-    this.isExpanded,
+    this.isCenter = false,
+    this.isExpanded = false,
+    this.isCircle = false,
     this.enabled,
-    this.useSkeleton,
     // actions
     this.onPressed,
     this.onLongPress,
@@ -68,47 +71,44 @@ class ButtonPlus extends StatefulWidget {
     this.highlightColor,
     this.focusColor,
     this.hoverColor,
-    // X
+    // Plus
     this.radius,
     this.border,
     this.shadow,
     this.gradient,
     this.image,
+    this.skeleton,
   });
-  // : this.super(key: key);
 
   @override
-  _ButtomXState createState() => _ButtomXState();
+  _ButtomPlusState createState() => _ButtomPlusState();
 }
 
-class _ButtomXState extends State<ButtonPlus> {
-  // bool showElevation;
-
-  ContainerPlus _ContainerPlus;
+class _ButtomPlusState extends State<ButtonPlus> {
+  ContainerPlus _containerPlus;
 
   @override
   void initState() {
-    // this.showElevation = this.widget.elevation;
     super.initState();
   }
 
   @override
   void didUpdateWidget(ButtonPlus oldWidget) {
-    // this.showElevation = this.widget.elevation;
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
-    return this._buildButtomX();
+    return this._buildButtomPlus();
   }
 
-  Widget _buildButtomX() {
-    _ContainerPlus = ContainerPlus(
+  Widget _buildButtomPlus() {
+    _containerPlus = ContainerPlus(
       padding: EdgeInsets.all(0),
       margin: this.widget.margin,
       isCenter: this.widget.isCenter,
       isExpanded: this.widget.isExpanded,
+      isCircle: this.widget.isCircle,
       alignment: this.widget.alignment,
       color: this.isEnabled
           ? this.widget.color
@@ -116,22 +116,20 @@ class _ButtomXState extends State<ButtonPlus> {
               this.widget.color.withOpacity(0.4),
       height: this.widget.height,
       width: this.widget.width,
-      // useSkeleton: this.widget.useSkeleton,
       border: this.widget.border,
       gradient: this.isEnabled ? this.widget.gradient : null,
       radius: this.widget.radius,
       shadows: this.widget.shadow,
       // notifyParent: () => setState(() {}),
+      skeleton: this.widget.skeleton,
       child: this._buildChildButton(),
     );
-    return _ContainerPlus;
+    return _containerPlus;
   }
 
   _buildChildButton() {
     return FlatButton(
-      padding: this.widget.useSkeleton == true
-          ? EdgeInsets.all(0)
-          : this.widget.padding,
+      padding: this.widget.padding,
       splashColor: this.widget.splashColor,
       highlightColor: this.widget.highlightColor,
       focusColor: this.widget.focusColor,
@@ -144,34 +142,6 @@ class _ButtomXState extends State<ButtonPlus> {
       child: this.widget.child,
     );
   }
-
-  // Widget _buildElevationContainer({@required Widget buttonChild}) {
-  //   return Container(
-  //     foregroundDecoration: _ContainerPlus?.containerSize == null
-  //         ? null
-  //         : BoxDecoration(
-  //             boxShadow: showElevation == true
-  //                 ? [
-  //                     BoxShadow(
-  //                       color: Colors.black26,
-  //                       spreadRadius: -2,
-  //                       blurRadius: 8,
-  //                       offset: Offset(
-  //                           0, _ContainerPlus.containerSize.height - 10.0),
-  //                     ),
-  //                     BoxShadow(
-  //                       color: Colors.black26,
-  //                       spreadRadius: -2,
-  //                       blurRadius: 8,
-  //                       offset: Offset(
-  //                           _ContainerPlus.containerSize.width - 10.0, 0),
-  //                     ),
-  //                   ]
-  //                 : null,
-  //           ),
-  //     child: buttonChild,
-  //   );
-  // }
 
   bool get isEnabled {
     if ((this.widget.onPressed == null && this.widget.onLongPress == null) ||

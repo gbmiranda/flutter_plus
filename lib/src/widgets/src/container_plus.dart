@@ -77,7 +77,7 @@ class ContainerPlus extends StatefulWidget {
   /// Defaults is [false].
   final bool isCircle;
 
-  // XPackage
+  // Plus Package
 
   /// When [true] show a loading effect up child.
   ///
@@ -242,6 +242,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     else
       return Container(
         height: this._containerSize?.height ?? 0,
+        width: this._containerSize?.width ?? 0,
         child: SkeletonRenderPlus(
           skeletonPlus: this.widget.skeleton,
         ),
@@ -372,9 +373,9 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   BorderRadius _buildRadius() {
-    if (this.widget.isCircle)
+    if (this.widget.isCircle == true && this._containerSize != null)
       return BorderRadius.all(
-        Radius.circular(this.widget.height / 2),
+        Radius.circular(this._containerSize.height / 2),
       );
     else if (this.widget.radius == null)
       return BorderRadius.zero;

@@ -63,19 +63,19 @@ class TextPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget TextPlus = this._buildTextPlus();
+    Widget _textPlus = this._buildTextPlus();
 
     if (this.isCenter == true)
-      TextPlus = Center(
-        child: TextPlus,
+      _textPlus = Center(
+        child: _textPlus,
       );
 
     if (this.isExpandend == true)
-      TextPlus = Expanded(
-        child: TextPlus,
+      _textPlus = Expanded(
+        child: _textPlus,
       );
 
-    return TextPlus;
+    return _textPlus;
   }
 
   Widget _buildTextPlus() {
@@ -145,13 +145,13 @@ class TextPlus extends StatelessWidget {
     if (this.shadows == null || this.shadows.isEmpty)
       return null;
     else
-      return this.shadows.map((XShadow) {
+      return this.shadows.map((shadowPlus) {
         return Shadow(
-          color: XShadow.color.withOpacity(XShadow.opacity),
-          blurRadius: XShadow.blur,
+          color: shadowPlus.color.withOpacity(shadowPlus.opacity),
+          blurRadius: shadowPlus.blur,
           offset: Offset(
-            XShadow.moveRight,
-            XShadow.moveDown,
+            shadowPlus.moveRight,
+            shadowPlus.moveDown,
           ),
         );
       }).toList();

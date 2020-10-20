@@ -11,7 +11,7 @@ import 'package:flutter_plus/src/widgets/src/text_plus.dart';
 
 import 'container_plus.dart';
 
-class TextFieldX extends StatelessWidget {
+class TextFieldPlus extends StatelessWidget {
   // only number
 
   final EdgeInsets padding;
@@ -26,7 +26,7 @@ class TextFieldX extends StatelessWidget {
   final bool isCenter;
   final bool isExpanded;
 
-  // XPackage
+  // Plus Package
   final RadiusPlus radius;
   final BorderPlus border;
   final List<ShadowPlus> shadow;
@@ -80,11 +80,11 @@ class TextFieldX extends StatelessWidget {
   final Widget suffixWidget;
   // placeholderStyle: this._buildTextStyle(),
 
-  TextFieldX({
+  TextFieldPlus({
     this.enabled,
     this.useSkeleton,
-    this.isCenter,
-    this.isExpanded,
+    this.isCenter = false,
+    this.isExpanded = false,
     this.padding,
     this.margin,
     this.height = 50,
