@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_plus/src/utils/src/snack_bar_plus.dart';
 import 'package:flutter_plus/src/utils/src/navigator_plus.dart';
 
-class FlutterPlusApp extends StatefulWidget {
+class FlutterAppPlus extends StatefulWidget {
   /// {@macro flutter.widgets.widgetsApp.navigatorKey}
   final GlobalKey<NavigatorState> navigatorKey;
 
@@ -373,7 +373,7 @@ class FlutterPlusApp extends StatefulWidget {
   ///  * <https://material.io/design/layout/spacing-methods.html>
   final bool debugShowMaterialGrid;
 
-  const FlutterPlusApp({
+  const FlutterAppPlus({
     Key key,
     this.navigatorKey,
     this.home,
@@ -421,10 +421,10 @@ class FlutterPlusApp extends StatefulWidget {
         super(key: key);
 
   @override
-  _FlutterPlusAppState createState() => _FlutterPlusAppState();
+  _FlutterAppPlusState createState() => _FlutterAppPlusState();
 }
 
-class _FlutterPlusAppState extends State<FlutterPlusApp> {
+class _FlutterAppPlusState extends State<FlutterAppPlus> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

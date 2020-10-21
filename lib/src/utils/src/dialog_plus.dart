@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/flutter_plus.dart';
+import 'package:flutter_plus/plus.dart';
 import 'package:flutter_plus/src/utils/src/utils_plus.dart';
 
 final dialogPlus = DialogPlus._instance;

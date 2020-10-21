@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/flutter_plus.dart';
+import 'package:flutter_plus/plus.dart';
 import 'package:flutter_plus/src/components/src/border_plus.dart';
 import 'package:flutter_plus/src/components/src/radius_plus.dart';
 

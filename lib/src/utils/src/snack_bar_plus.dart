@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/flutter_plus.dart';
+import 'package:flutter_plus/plus.dart';
 
 final snackBarPlus = SnackBarPlus._instance;
 

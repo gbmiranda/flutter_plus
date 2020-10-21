@@ -1,6 +1,6 @@
 name: flutter_plus
-description: A new Flutter package.
-version: 0.0.1
+description: Develop applications in Flutter more quickly and easily. Customize Containers, Buttons, Texts and TextFields in a few lines. Navigate between Screens and open BottomSheets, Dialogs and Snackbars without context from any point.
+version: 0.0.2
 homepage: https://github.com/gbmiranda/flutter_plus.git
 
 environment:
