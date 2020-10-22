@@ -252,9 +252,21 @@ class TextFieldPlus extends StatelessWidget {
       textInputFormatters.add(maskFormatter);
     }
 
-    if (this.onlyNumbers == true)
-      textInputFormatters.add(WhitelistingTextInputFormatter.digitsOnly);
+    if (this.onlyNumbers == true) {
+      // textInputFormatters.add(WhitelistingTextInputFormatter.digitsOnly);
+      textInputFormatters.add(DecimalTextInputFormatter());
+    }
 
     return textInputFormatters;
+  }
+}
+
+class DecimalTextInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    final regEx = RegExp(r"^\d*\.?\d*");
+    String newString = regEx.stringMatch(newValue.text) ?? "";
+    return newString == newValue.text ? newValue : oldValue;
   }
 }

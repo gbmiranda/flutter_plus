@@ -18,6 +18,9 @@ class TextPlus extends StatelessWidget {
   final bool isExpandend;
   final bool isCleanText; // fazer
 
+  final EdgeInsets padding;
+  final EdgeInsets margin;
+
   // style
   final TextOverflow textOverflow;
   final TextAlign textAlign;
@@ -59,6 +62,8 @@ class TextPlus extends StatelessWidget {
     this.isCleanText,
     this.textDecorationPlus,
     this.shadows,
+    this.padding,
+    this.margin,
   }) : super(key: key);
 
   @override
@@ -79,14 +84,18 @@ class TextPlus extends StatelessWidget {
   }
 
   Widget _buildTextPlus() {
-    return Text(
-      this._maskText,
-      key: this.key,
-      maxLines: this.maxLines,
-      overflow: this.textOverflow,
-      textAlign: this.textAlign,
-      textDirection: this.textDirection,
-      style: this.textStyle,
+    return Container(
+      padding: this.padding,
+      margin: this.margin,
+      child: Text(
+        this._maskText,
+        key: this.key,
+        maxLines: this.maxLines,
+        overflow: this.textOverflow,
+        textAlign: this.textAlign,
+        textDirection: this.textDirection,
+        style: this.textStyle,
+      ),
     );
   }
 
