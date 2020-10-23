@@ -254,7 +254,8 @@ class TextFieldPlus extends StatelessWidget {
 
     if (this.onlyNumbers == true) {
       // textInputFormatters.add(WhitelistingTextInputFormatter.digitsOnly);
-      textInputFormatters.add(DecimalTextInputFormatter());
+      textInputFormatters.add(FilteringTextInputFormatter.digitsOnly);
+      // textInputFormatters.add(DecimalTextInputFormatter());
     }
 
     return textInputFormatters;
