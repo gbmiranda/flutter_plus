@@ -18,7 +18,7 @@ class NavigatorPlus {
       return _navigatorKey;
   }
 
-  GlobalKey<NavigatorState> get navigatorKey {
+  GlobalKey<NavigatorState> get key {
     return _navigatorKey;
   }
 

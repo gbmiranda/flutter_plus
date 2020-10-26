@@ -8,12 +8,9 @@ import 'package:flutter_plus/src/components/src/shadow_plus.dart';
 import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
 import 'package:flutter_plus/src/components/src/text_field_mask_plus.dart';
 import 'package:flutter_plus/src/widgets/src/text_plus.dart';
-
 import 'container_plus.dart';
 
 class TextFieldPlus extends StatelessWidget {
-  // only number
-
   final EdgeInsets padding;
   final EdgeInsets margin;
   final double height;
@@ -132,7 +129,7 @@ class TextFieldPlus extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
   });
 
-  static ContainerPlus _ContainerPlus;
+  static ContainerPlus _containerPlus;
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +137,7 @@ class TextFieldPlus extends StatelessWidget {
   }
 
   ContainerPlus _buildContainerPlus() {
-    _ContainerPlus = ContainerPlus(
+    _containerPlus = ContainerPlus(
       padding: this.useSkeleton == true
           ? EdgeInsets.all(0)
           : this.padding ?? EdgeInsets.symmetric(horizontal: 4),
@@ -159,7 +156,7 @@ class TextFieldPlus extends StatelessWidget {
       // notifyParent: () => setState(() {}),
       child: this._buildTextField(),
     );
-    return _ContainerPlus;
+    return _containerPlus;
   }
 
   Widget _buildTextField() {
@@ -241,11 +238,15 @@ class TextFieldPlus extends StatelessWidget {
   }
 
   List<TextInputFormatter> _getFormatters() {
+    print('_getFormatters');
+
     List<TextInputFormatter> textInputFormatters = [];
     if (this.maxLength != null) {
-      var maxLengthFormatter = LengthLimitingTextInputFormatter(this.maxLength);
-      textInputFormatters.add(maxLengthFormatter);
+      //   var maxLengthFormatter = LengthLimitingTextInputFormatter(this.maxLength);
+      //   textInputFormatters.add(maxLengthFormatter);
+      textInputFormatters.add(MaxLengthTextInputFormatter(this.maxLength));
     }
+
     if (this.mask != null) {
       var maskFormatter = new TextFieldMaskPlus(
           mask: this.mask, filter: {"#": RegExp(r'[0-9]')});
@@ -262,12 +263,28 @@ class TextFieldPlus extends StatelessWidget {
   }
 }
 
-class DecimalTextInputFormatter extends TextInputFormatter {
+class MaxLengthTextInputFormatter extends TextInputFormatter {
+  final int maxLength;
+
+  MaxLengthTextInputFormatter(this.maxLength);
+
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    final regEx = RegExp(r"^\d*\.?\d*");
-    String newString = regEx.stringMatch(newValue.text) ?? "";
-    return newString == newValue.text ? newValue : oldValue;
+    if (newValue.text.length > maxLength) {
+      return oldValue;
+    } else {
+      return newValue;
+    }
   }
 }
+
+// class DecimalTextInputFormatter extends TextInputFormatter {
+//   @override
+//   TextEditingValue formatEditUpdate(
+//       TextEditingValue oldValue, TextEditingValue newValue) {
+//     final regEx = RegExp(r"^\d*\.?\d*");
+//     String newString = regEx.stringMatch(newValue.text) ?? "";
+//     return newString == newValue.text ? newValue : oldValue;
+//   }
+// }

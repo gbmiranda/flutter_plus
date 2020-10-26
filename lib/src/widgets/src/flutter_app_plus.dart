@@ -429,7 +429,7 @@ class _FlutterAppPlusState extends State<FlutterAppPlus> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: (this.widget.navigatorKey == null
-          ? navigatorPlus.navigatorKey
+          ? navigatorPlus.key
           : navigatorPlus.addKey(this.widget.navigatorKey)),
       navigatorObservers: this.widget.navigatorObservers,
       actions: this.widget.actions,

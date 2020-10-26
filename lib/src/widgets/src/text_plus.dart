@@ -7,6 +7,7 @@ class TextPlus extends StatelessWidget {
   // padding
   // urls
   // phones
+
   // dates
   // onTap
 
@@ -38,6 +39,14 @@ class TextPlus extends StatelessWidget {
   final TextDecorationPlus textDecorationPlus;
   final List<ShadowPlus> shadows;
 
+  // gesture
+  final Function onTap;
+  final Function(TapDownDetails) onTapDown;
+  final Function(TapUpDetails) onTapUp;
+  final Function onTapCancel;
+  final Function onDoubleTap;
+  final Function onLongPress;
+
   TextPlus(
     this.text, {
     Key key,
@@ -64,21 +73,33 @@ class TextPlus extends StatelessWidget {
     this.shadows,
     this.padding,
     this.margin,
+    this.onTap,
+    this.onTapDown,
+    this.onTapUp,
+    this.onTapCancel,
+    this.onDoubleTap,
+    this.onLongPress,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget _textPlus = this._buildTextPlus();
 
-    if (this.isCenter == true)
+    if (this.isCenter == true) {
       _textPlus = Center(
         child: _textPlus,
       );
+    }
 
-    if (this.isExpandend == true)
+    if (this.isExpandend == true) {
       _textPlus = Expanded(
         child: _textPlus,
       );
+    }
+
+    if (this.hasGestureDetector) {
+      _textPlus = this._buildGestureDetector(_textPlus);
+    }
 
     return _textPlus;
   }
@@ -97,6 +118,30 @@ class TextPlus extends StatelessWidget {
         style: this.textStyle,
       ),
     );
+  }
+
+  _buildGestureDetector(Widget child) {
+    return GestureDetector(
+      onTap: this.onTap ?? null,
+      onDoubleTap: this.onDoubleTap ?? null,
+      onLongPress: this.onLongPress ?? null,
+      onTapDown: this.onTapDown ?? null,
+      onTapUp: this.onTapUp ?? null,
+      onTapCancel: this.onTapCancel ?? null,
+      child: child,
+    );
+  }
+
+  bool get hasGestureDetector {
+    if (this.onTap != null ||
+        this.onDoubleTap != null ||
+        this.onLongPress != null ||
+        this.onTapDown != null ||
+        this.onTapUp != null ||
+        this.onTapCancel != null)
+      return true;
+    else
+      return false;
   }
 
   TextStyle get textStyle {
