@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
 extension DateExtensionPlus on DateTime {
-  String toStringFormat(String format) {
+  String format(String format) {
     if (this == null) {
       return null;
     } else {
@@ -42,18 +42,18 @@ extension DateExtensionPlus on DateTime {
   }
 
   String get monthName {
-    return this.toStringFormat('MMMM');
+    return this.format('MMMM');
   }
 
   String get monthNameSort {
-    return this.toStringFormat('MMM');
+    return this.format('MMM');
   }
 
   String get weekName {
-    return this.toStringFormat('EEEE');
+    return this.format('EEEE');
   }
 
   String get weekNameSort {
-    return this.toStringFormat('EEE');
+    return this.format('EEE');
   }
 }

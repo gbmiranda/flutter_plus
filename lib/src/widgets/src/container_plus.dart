@@ -291,6 +291,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
       onTapUp: this.widget.onTapUp ?? null,
       onTapCancel: this.widget.onTapCancel ?? null,
       child: widget.child,
+      behavior: HitTestBehavior.translucent,
     );
   }
 

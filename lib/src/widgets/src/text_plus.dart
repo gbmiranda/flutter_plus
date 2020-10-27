@@ -129,6 +129,7 @@ class TextPlus extends StatelessWidget {
       onTapUp: this.onTapUp ?? null,
       onTapCancel: this.onTapCancel ?? null,
       child: child,
+      behavior: HitTestBehavior.translucent,
     );
   }
 
