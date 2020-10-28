@@ -6,14 +6,33 @@ _Idiomas: [EN](README.md) - PT_
 [![pub package](https://img.shields.io/pub/v/bonfire.svg)](https://pub.dev/packages/bonfire)
 [![buymeacoffee](https://i.imgur.com/aV6DDA7.png)](https://www.buymeacoffee.com/rafaelbarbosa)
 -->
-# Indice
+# 🗂 Indice
 
 - [FlutterPlus](#flutterplus)
 - [Instalação](#instalação)
 - [Exemplos](#exemplos)
+	- [Widgets](#widgets)
+		- [ContainerPlus](#containerplus)
+		- [ButtonPlus](#buttonplus)
+		- [TextFieldPlus](#textfieldplus)
+		- [TextPlus](#textplus)
+		- [RichTextPlus](#richtextplus)
+	- [Utils](#utils)
+		- [NavigatorPlus](#navigatorplus)
+		- [BottomSheetPlus](#bottomsheetplus)
+		- [DialogPlus](#dialogplus)
+		- [SnackBarPlus](#snackbarplus)
+		- [LocalStoragePlus](#localstorageplus)
+		- [UtilsPlus](#utilsplus)
+	- [Extensions](#extensions)
+		- [StringExtensionPlus](#stringextensionplus)
+		- [DateExtensionPlus](#dateextensionplus)
+		- [NumExtensionPlus](#numextensionplus)
+		- [FileExtensionPlus](#fileextensionplus)
+		- [DurationExtensionPlus](#durationextensionplus)
 - [Próximos Passos](#próximos-passos)
 
-# FlutterPlus
+# 👾 FlutterPlus
 
 ### Criar aplicativos utilizando Flutter é ótimo, mas pode ficar melhor!
 
@@ -28,7 +47,7 @@ Utilize extensões para tratar **datas**, **strings**, **números** e **arquivos
 > **Muitas das soluções encontradas aqui foram criadas para uso próprio ao longo da minha jornada com Flutter.
 > Resolvi reunir tudo uma único lugar para auxiliar meu trabalho e o de quem interessar. ;)**
 
-# Instalação
+# 🔩 Instalação
 
 Adicione a dependência <b>flutter_plus</b> no arquivo <b>pubspec.yaml</b> do seu projeto.
 
@@ -45,13 +64,13 @@ import 'package:flutter_plus/plus.dart';
 
 _*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou Desktop._
 
-# Exemplos
+# 📚 Exemplos
 
 Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
 
 _*Você encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
 
-## Widgets
+## 🛠 Widgets
 
 Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para aumentar a produtividade facilitar a customização, com atributos mais poderosos e intuitivos. 
 
@@ -87,30 +106,30 @@ O **RichTextPlus** oferece tudo que o RichText nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do TextPlus.*
 
-<!--## Atributos
+## ⚙️ Atributos
 
-### `BorderPlus`
+### `📌 BorderPlus`
 
-### `GradientPlus`
+### `📌 GradientPlus`
 
-### `InnerShadowPlus`
+### `📌 InnerShadowPlus`
 
-### `RadiusPlus`
+### `📌 RadiusPlus`
 
-### `ShadowPlus`
+### `📌 ShadowPlus`
 
-### `SkeletonPlus`
+### `📌 SkeletonPlus`
 
-### `TextDecorationPlus`
+### `📌 TextDecorationPlus`
 
-### `SkeletonPlus`-->
+### `📌 SkeletonPlus`
 
 
-## Utils
+## 🔧 Utils
 
 Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
 
-### `➤ NavigatorPlus`
+### `📌 NavigatorPlus`
 
 O NavigatorPlus possibilita a negação entre telas de qualquer lugar do seu código, sem a necessidade de um `context`.
 
@@ -199,7 +218,7 @@ navigatorPlus.show(NextScreen());
 FlutterPlus.navigator.show(NextScreen());
 ```
 
-### `➥ BottomSheetPlus`
+### `📌 BottomSheetPlus`
 
 O BottomSheetPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `context`.
 
@@ -229,7 +248,7 @@ bottomSheetPlus.show(...);
 FlutterPlus.bottomSheet.show(...);
 ```
 
-### `👉 DialogPlus`
+### `📌 DialogPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
@@ -245,7 +264,7 @@ dialogPlus.show(...);
 FlutterPlus.dialog.show(...);
 ```
 
-### `- SnackBarPlus`
+### `📌 SnackBarPlus`
 
 O SnackBarPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `scaffold`.
 
@@ -292,7 +311,7 @@ snackBarPlus.show(...);
 FlutterPlus.snackBar.show(...);
 ```
 
-### `- LocalStoragePlus`
+### `📌 LocalStoragePlus`
 
 O LocalStoragePlus possibilita persistir e acessar dados locais em qualquer lugar do seu código.
 
@@ -325,7 +344,7 @@ localStoragePlus...;
 FlutterPlus.localStorage...;
 ```
 
-### `- UtilsPlus`
+### `📌 UtilsPlus`
 
 UtilsPlus disponibiliza funções para auxiliar no desenvolvimento do seu aplicativo.
 
@@ -347,11 +366,11 @@ utilsPlus...;
 FlutterPlus.utils...;
 ```
 
-## Extensions
+## 🧩 Extensions
 
 Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
 
-### `- StringExtensionPlus`
+### `📌 StringExtensionPlus`
 
 **• Propriedades:**
 
@@ -387,7 +406,7 @@ print(date.year);
 // 2020
 ```
 
-### `- DateExtensionPlus`
+### `📌 DateExtensionPlus`
 
 **• Propriedades:**
 
@@ -411,7 +430,7 @@ print(dateStr);
 // 01/01/2020
 ```
 
-### `- NumExtensionPlus`
+### `📌 NumExtensionPlus`
 
 **• Propriedades:**
 
@@ -437,7 +456,7 @@ print(value.toCurrency());
 // R$ 13.512,98
 ```
 
-### `➥ FileExtensionPlus`
+### `📌 FileExtensionPlus`
 
 **• Propriedades:**
 
@@ -453,7 +472,7 @@ File customFile = File(path);
 String base64 = customFile.base64Sync;
 ```
 
-### `- DurationExtensionPlus`
+### `📌 DurationExtensionPlus`
 
 **• Propriedades:**
 
@@ -479,7 +498,7 @@ print(customDuration.minutesStr); // 04
 print(customDuration.formattedDuration); // 10:04:55
 ```
 
-# Próximos passos
+# 🎯 Próximos passos
 
 - Documentação detalhada dos componentes.
 - Rotas

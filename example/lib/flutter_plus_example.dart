@@ -10,6 +10,7 @@ class FlutterPlusExample extends StatelessWidget {
   }
 
   _teste() async {
+    // DateTime.now()
     utilsPlus.closeKeyboard();
     Color customColor = utilsPlus.colorHex('FFFFFF');
     await localStoragePlus.write('lib_name', 'flutter_plus');
