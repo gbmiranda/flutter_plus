@@ -57,42 +57,35 @@ Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para 
 
 > Crie Widgets mais complexos com menos código.
 
-### `ContainerPlus`
+### `📌 ContainerPlus`
 
 O **ContainerPlus** oferece tudo que o Container nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do ContainerPlus.*
 
-### `ButtonPlus`
+### `📌 ButtonPlus`
 
 O **ButtonPlus** oferece tudo que o Button nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do ButtonPlus.*
 
-### `TextFieldPlus`
+### `📌 TextFieldPlus`
 
 O **TextFieldPlus** oferece tudo que o TextField nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do TextFieldPlus.*
 
-### `TextPlus`
+### `📌 TextPlus`
 
 O **TextPlus** oferece tudo que o Text nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do TextPlus.*
 
-### `RichTextPlus`
+### `📌 RichTextPlus`
 
 O **RichTextPlus** oferece tudo que o RichText nativo e muito mais!
 
 **Clique [aqui]() para conhecer todos os atributos do TextPlus.*
-
-<!--### `FlutterAppPlus`
-
-O **FlutterAppPlus** oferece tudo que o MaterialApp nativo e muito mais!
-
-**Clique [aqui]() para conhecer todos os atributos do TextPlus.*
--->
 
 <!--## Atributos
 
@@ -117,11 +110,11 @@ O **FlutterAppPlus** oferece tudo que o MaterialApp nativo e muito mais!
 
 Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
 
-### `- NavigatorPlus`
+### `➤ NavigatorPlus`
 
 O NavigatorPlus possibilita a negação entre telas de qualquer lugar do seu código, sem a necessidade de um `context`.
 
-**• Navegar para uma próxima tela:**
+**• Navegar para próxima tela:**
 
 ```dart
 // Navegar para tela desejada.
@@ -193,7 +186,7 @@ return FlutterAppPlus(
 ```dart
 // Pegar context atual.
 
-navigatorPlus.currentContext;
+BuildContext context = navigatorPlus.currentContext;
 ```
 
 **• Acesso:**
@@ -206,7 +199,7 @@ navigatorPlus.show(NextScreen());
 FlutterPlus.navigator.show(NextScreen());
 ```
 
-### `- BottomSheetPlus`
+### `➥ BottomSheetPlus`
 
 O BottomSheetPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `context`.
 
@@ -220,8 +213,8 @@ bottomSheetPlus.show(child: YourBottomSheet());
 
 | Atributo | Tipo | Função |
 | --- | --- | --- |
-| heightPercentScreen | `double` | Força a utilizar uma porcentagem da tela de 0.0 a 1.0 (100%). |
-| height | `double` | Força a utilizar uma altura exata da tela. |
+| heightPercentScreen | `double` | Utilizar uma porcentagem da tela de 0.0 a 1.0 (100%). |
+| height | `double` | Utilizar uma altura exata da tela. |
 | onClosed | `Function(dynamic result)` | Capturar valor retornado pelo BottomSheet ao fechar. |
 | radius | `RadiusPlus`  | Arredondar as bordas do BottomSheet. |
 | border | `BorderPlus`  | Criar uma borda em torno do BottomSheet. |
@@ -236,7 +229,7 @@ bottomSheetPlus.show(...);
 FlutterPlus.bottomSheet.show(...);
 ```
 
-### `- DialogPlus`
+### `👉 DialogPlus`
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
 
@@ -306,19 +299,19 @@ O LocalStoragePlus possibilita persistir e acessar dados locais em qualquer luga
 > Utiliza a dependência `shared_preferences`.
 
 ```dart
-// Abertura de SnackBar com texto simples. 
+// Salvar dados locais. 
 await localStoragePlus.write('lib_name', 'flutter_plus');
 
-// Abertura de SnackBar com widget customizado. 
+// Ler dados locais. 
 await localStoragePlus.read('lib_name');
 
-// Abertura de SnackBar com widget customizado. 
+// Apagar dados locais. 
 await localStoragePlus.delete('lib_name');
 
-// Abertura de SnackBar com widget customizado. 
+// Verificar se existe dado local salvo. 
 await localStoragePlus.containsKey('lib_name');
 
-// Abertura de SnackBar com widget customizado. 
+// Limpar todos os dados locais. 
 await localStoragePlus.clear();
 ```
 
@@ -390,6 +383,8 @@ Contribution is not limited to software developers, since there are other ways y
 ```dart
 String dateStr = "01/01/2020 10:00:00";
 DateTime date = dateStr.toDate("dd/MM/yyyy");
+print(date.year); 
+// 2020
 ```
 
 ### `- DateExtensionPlus`
@@ -442,7 +437,7 @@ print(value.toCurrency());
 // R$ 13.512,98
 ```
 
-### `- FileExtensionPlus`
+### `➥ FileExtensionPlus`
 
 **• Propriedades:**
 
