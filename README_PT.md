@@ -8,29 +8,29 @@ _Idiomas: [EN](README.md) - PT_
 -->
 # 🗂 Indice
 
-- [FlutterPlus](#flutterplus)
-- [Instalação](#instalação)
-- [Exemplos](#exemplos)
-	- [Widgets](#widgets)
-		- [ContainerPlus](#containerplus)
+- [FlutterPlus](#👾-flutterplus)
+- [Instalação](#🔩-instalação)
+- [Exemplos](#📚-exemplos)
+	- [Widgets](#🛠-widgets)
+		- [ContainerPlus](#📌-containerplus)
 		- [ButtonPlus](#buttonplus)
 		- [TextFieldPlus](#textfieldplus)
 		- [TextPlus](#textplus)
 		- [RichTextPlus](#richtextplus)
-	- [Utils](#utils)
+	- [Utils](#🔧-utils)
 		- [NavigatorPlus](#navigatorplus)
 		- [BottomSheetPlus](#bottomsheetplus)
 		- [DialogPlus](#dialogplus)
 		- [SnackBarPlus](#snackbarplus)
 		- [LocalStoragePlus](#localstorageplus)
 		- [UtilsPlus](#utilsplus)
-	- [Extensions](#extensions)
+	- [Extensions](#🧩-extensions)
 		- [StringExtensionPlus](#stringextensionplus)
 		- [DateExtensionPlus](#dateextensionplus)
 		- [NumExtensionPlus](#numextensionplus)
 		- [FileExtensionPlus](#fileextensionplus)
 		- [DurationExtensionPlus](#durationextensionplus)
-- [Próximos Passos](#próximos-passos)
+- [Próximos Passos](#🎯-próximos-passos)
 
 # 👾 FlutterPlus
 
