@@ -4,7 +4,7 @@ import 'package:flutter_plus/src/utils/utils_export_plus.dart';
 
 export 'flutter_plus_exports.dart';
 
-final flutterPlus = FlutterPlus;
+// final flutterPlus = FlutterPlus;
 
 class FlutterPlus {
   FlutterPlus._();

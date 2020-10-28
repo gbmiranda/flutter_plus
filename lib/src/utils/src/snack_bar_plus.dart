@@ -27,7 +27,7 @@ class SnackBarPlus {
     var _snackBar = SnackBar(
       content: child,
       backgroundColor: backgroundColor,
-      duration: duration ?? Duration(seconds: 5),
+      duration: duration ?? Duration(seconds: 3),
       action: action,
       animation: animation,
       behavior: behavior,
@@ -42,8 +42,8 @@ class SnackBarPlus {
     scaffoldKey.currentState.showSnackBar(_snackBar);
   }
 
-  void showText({
-    @required String text,
+  void showText(
+    String text, {
     Color textColor,
     int textLines = 3,
     double fontSize = 16,
@@ -73,7 +73,7 @@ class SnackBarPlus {
         textAlign: textAlign,
       ),
       backgroundColor: backgroundColor,
-      duration: duration ?? Duration(seconds: 5),
+      duration: duration ?? Duration(seconds: 3),
       action: action,
       animation: animation,
       behavior: behavior,

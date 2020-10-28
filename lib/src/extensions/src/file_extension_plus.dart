@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 extension FileExtensionPlus on File {
-  String get syncBase64 {
+  String get base64Sync {
     if (this == null) {
       return null;
     } else {
@@ -11,7 +11,7 @@ extension FileExtensionPlus on File {
     }
   }
 
-  Future<String> get asyncBase64 {
+  Future<String> get base64Async {
     if (this == null) {
       return null;
     } else {

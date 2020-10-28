@@ -1,4 +1,12 @@
 extension DurationExtensionPlus on Duration {
+  int get months {
+    return this.inDays.remainder(60).toInt();
+  }
+
+  int get days {
+    return this.inDays.toInt();
+  }
+
   int get hours {
     return this.inHours.remainder(60).toInt();
   }
