@@ -41,7 +41,7 @@ class ButtonPlus extends StatefulWidget {
   // Plus
   final RadiusPlus radius;
   final BorderPlus border;
-  final List<ShadowPlus> shadow;
+  final List<ShadowPlus> shadows;
   final GradientPlus gradient;
 
   /// When [true] show a loading effect up child.
@@ -74,7 +74,7 @@ class ButtonPlus extends StatefulWidget {
     // Plus
     this.radius,
     this.border,
-    this.shadow,
+    this.shadows,
     this.gradient,
     this.image,
     this.skeleton,
@@ -119,7 +119,7 @@ class _ButtomPlusState extends State<ButtonPlus> {
       border: this.widget.border,
       gradient: this.isEnabled ? this.widget.gradient : null,
       radius: this.widget.radius,
-      shadows: this.widget.shadow,
+      shadows: this.widget.shadows,
       // notifyParent: () => setState(() {}),
       skeleton: this.widget.skeleton,
       child: this._buildChildButton(),
@@ -129,7 +129,7 @@ class _ButtomPlusState extends State<ButtonPlus> {
 
   _buildChildButton() {
     return FlatButton(
-      padding: this.widget.padding,
+      padding: this.widget.padding ?? EdgeInsets.all(0),
       splashColor: this.widget.splashColor,
       highlightColor: this.widget.highlightColor,
       focusColor: this.widget.focusColor,

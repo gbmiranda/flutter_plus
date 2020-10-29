@@ -1,4 +1,4 @@
-_Idiomas: [EN](README.md) - PT_
+> #### 🌐 _Idiomas: [EN](README.md) - PT_
 
 <!--[![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 [![Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue.svg)](https://flutter.dev/)
@@ -145,13 +145,11 @@ O NavigatorPlus possibilita a negação entre telas de qualquer lugar do seu có
 
 ```dart
 // Navegar para tela desejada.
-
 navigatorPlus.show(NextScreen());
 ```
 
 ```dart
 // Abrir tela desejada como modal.
-
 navigatorPlus.showModal(NextScreen());
 ```
 
@@ -159,13 +157,11 @@ navigatorPlus.showModal(NextScreen());
 
 ```dart
 // Voltar para tela anterior.
-
 navigatorPlus.back();
 ```
 
 ```dart
 // Verificar se existe tela anterior para voltar.
-
 if (navigatorPlus.canBack) {
 	navigatorPlus.back();
 }
@@ -173,7 +169,6 @@ if (navigatorPlus.canBack) {
 
 ```dart
 // Voltar para primeira tela da pilha.
-
 navigatorPlus.backAll();
 ```
 
@@ -185,14 +180,12 @@ var result = await navigatorPlus.show(NextScreen());
 
 // Voltar para tela anterior passando os dados desejados.
 navigatorPlus.back(result: customData);
-
 ```
 
 **• Configuração:**
 
 ```dart
 // Opção 1 -> inserir a key direto no seu MaterialApp.
-
 return MaterialApp(
 ...
 navigatorKey: navigatorPlus.key,
@@ -202,7 +195,6 @@ navigatorKey: navigatorPlus.key,
 
 ```dart
 // Opção 2 -> Substituir o MaterialApp pelo FlutterAppPlus.
-
 return FlutterAppPlus(
 ...
 );
@@ -212,7 +204,6 @@ return FlutterAppPlus(
 
 ```dart
 // Pegar context atual.
-
 BuildContext context = navigatorPlus.currentContext;
 ```
 
@@ -220,9 +211,7 @@ BuildContext context = navigatorPlus.currentContext;
 
 ```dart
 // Formas de acessar.
-
 navigatorPlus.show(NextScreen());
-
 FlutterPlus.navigator.show(NextScreen());
 ```
 
@@ -250,9 +239,7 @@ bottomSheetPlus.show(child: YourBottomSheet());
 
 ```dart
 // Formas de acessar.
-
 bottomSheetPlus.show(...);
-
 FlutterPlus.bottomSheet.show(...);
 ```
 
@@ -266,9 +253,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor inc
 
 ```dart
 // Formas de acessar.
-
 dialogPlus.show(...);
-
 FlutterPlus.dialog.show(...);
 ```
 
@@ -288,7 +273,6 @@ snackBarPlus.show(child: YourWidget());
 
 ```dart
 // Opção 1 -> inserir a key direto no seu MaterialApp.
-
 return MaterialApp(
 ...
 	builder: (context, child) {
@@ -303,7 +287,6 @@ return MaterialApp(
 
 ```dart
 // Opção 2 -> Substituir o MaterialApp pelo FlutterAppPlus.
-
 return FlutterAppPlus(
 ...
 );
@@ -313,9 +296,7 @@ return FlutterAppPlus(
 
 ```dart
 // Formas de acessar.
-
 snackBarPlus.show(...);
-
 FlutterPlus.snackBar.show(...);
 ```
 
@@ -335,7 +316,7 @@ await localStoragePlus.read('lib_name');
 // Apagar dados locais. 
 await localStoragePlus.delete('lib_name');
 
-// Verificar se existe dado local salvo. 
+// Verificar se existe dados locais. 
 await localStoragePlus.containsKey('lib_name');
 
 // Limpar todos os dados locais. 
@@ -508,12 +489,20 @@ print(customDuration.formattedDuration); // 10:04:55
 
 # 🎯 Próximos passos
 
-- Documentação detalhada dos componentes.
-- Rotas
-- ScaffoldPlus.
-- GridViewPlus.
-- ListViewPlus.
-- LoadingPlus.
-- ThemePlus.
-- TranslatePlus.
-- ∞
+📌 Documentação detalhada dos componentes.
+
+📌 Rotas
+
+📌 ScaffoldPlus.
+
+📌 GridViewPlus.
+
+📌 ListViewPlus.
+
+📌 LoadingPlus.
+
+📌 ThemePlus.
+
+📌 TranslatePlus.
+
+📌 ∞
