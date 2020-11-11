@@ -23,6 +23,7 @@ class DialogPlus {
     if (closeKeyboardWhenOpen == true) {
       utilsPlus.closeKeyboard();
     }
+    // mainAxisSize: MainAxisSize.min,
     showDialog(
       context: navigatorPlus.currentContext,
       barrierColor: barrierColor,

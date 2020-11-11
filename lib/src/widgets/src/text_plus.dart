@@ -108,6 +108,7 @@ class TextPlus extends StatelessWidget {
     return Container(
       padding: this.padding,
       margin: this.margin,
+      color: this.backgroundColor,
       child: Text(
         this._maskText,
         key: this.key,
@@ -151,7 +152,7 @@ class TextPlus extends StatelessWidget {
       fontSize: this.fontSize,
       fontWeight: this.fontWeight,
       fontStyle: this.fontStyle,
-      backgroundColor: this.backgroundColor,
+      // backgroundColor: this.backgroundColor,
       decoration: this.textDecorationPlus?.textDecoration,
       decorationColor: this.textDecorationPlus?.color,
       decorationStyle: this.textDecorationPlus?.decorationStyle,

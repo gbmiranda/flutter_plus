@@ -26,7 +26,7 @@ class TextFieldPlus extends StatelessWidget {
   // Plus Package
   final RadiusPlus radius;
   final BorderPlus border;
-  final List<ShadowPlus> shadow;
+  final List<ShadowPlus> shadows;
   final GradientPlus gradient;
 
   //TextField
@@ -88,7 +88,7 @@ class TextFieldPlus extends StatelessWidget {
     this.width,
     this.radius,
     this.border,
-    this.shadow,
+    this.shadows,
     this.gradient,
     this.alignment,
     this.backgroundColor,
@@ -148,11 +148,11 @@ class TextFieldPlus extends StatelessWidget {
       color: this.backgroundColor,
       height: this.height,
       width: this.width,
-      // useSkeleton: this.useSkeleton,
+      // skeleton: this.useSkeleton,
       border: this.border,
       gradient: this.gradient,
       radius: this.radius,
-      shadows: this.shadow,
+      shadows: this.shadows,
       // notifyParent: () => setState(() {}),
       child: this._buildTextField(),
     );

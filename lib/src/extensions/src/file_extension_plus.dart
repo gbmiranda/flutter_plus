@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:path/path.dart' as path;
 
 extension FileExtensionPlus on File {
   String get base64Sync {
@@ -17,5 +18,17 @@ extension FileExtensionPlus on File {
     } else {
       return this.readAsBytes().then((fileBytes) => base64Encode(fileBytes));
     }
+  }
+
+  String get fileName {
+    return path.basename(this.path);
+  }
+
+  String get fileNameWithoutExtension {
+    return path.basenameWithoutExtension(this.path);
+  }
+
+  String get fileExtension {
+    return path.extension(this.path);
   }
 }

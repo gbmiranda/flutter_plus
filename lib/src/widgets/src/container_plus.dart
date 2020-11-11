@@ -115,7 +115,7 @@ class ContainerPlus extends StatefulWidget {
     this.width,
     this.color,
     this.child,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.margin,
     this.image,
     this.alignment,
@@ -178,7 +178,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // delay principalmente para casos por exemplo que o teclado está aberto
-      Future.delayed(Duration(milliseconds: 50), () {
+      Future.delayed(Duration(microseconds: 50), () {
         this._afterLayout();
       });
     });
@@ -215,9 +215,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
   _buildContainerPlus() {
     return Container(
       key: this._keyRect,
-      padding: this.skeletonEnabled == true
-          ? EdgeInsets.all(0)
-          : this.widget.padding,
+      padding: EdgeInsets.zero,
       alignment: this.widget.alignment,
       constraints: this.widget.boxConstraints,
       margin: this.widget.margin,
@@ -226,12 +224,30 @@ class _ContainerPlusState extends State<ContainerPlus> {
       decoration: this._buildOutDecoration(),
       child: ClipRRect(
         borderRadius: this._buildRadius(),
-        child: this.skeletonEnabled == true
-            ? this._buildSkeleton()
-            : this._buildInnerShadow(
-                this._buildChild(),
-              ),
+        child: this._buildInnerShadow(
+          Padding(
+            padding: this.skeletonEnabled == true
+                ? EdgeInsets.all(0)
+                : this.widget.padding,
+            child: this.skeletonEnabled == true
+                ? this._buildSkeleton()
+                : this._buildChild(),
+          ),
+        ),
       ),
+      // child: ClipRRect(
+      //   borderRadius: this._buildRadius(),
+      //   child: Padding(
+      //     padding: this.skeletonEnabled == true
+      //         ? EdgeInsets.all(0)
+      //         : this.widget.padding,
+      //     child: this.skeletonEnabled == true
+      //         ? this._buildSkeleton()
+      //         : this._buildInnerShadow(
+      //             this._buildChild(),
+      //           ),
+      //   ),
+      // ),
     );
   }
 
@@ -250,28 +266,31 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   Widget _buildInnerShadow(Widget child) {
-    return InnerShadowRenderPlus(
-      shadows: this.widget.innerShadows == null
-          ? []
-          : this
-              .widget
-              .innerShadows
-              .map(
-                (innerShadow) => Shadow(
-                  color: innerShadow.color,
-                  blurRadius: innerShadow.blur,
-                  offset: Offset(
-                    innerShadow.moveRight,
-                    innerShadow.moveDown,
+    if (this.widget.innerShadows == null || this.widget.innerShadows.isEmpty)
+      return child;
+    else
+      return InnerShadowRenderPlus(
+        shadows: this.widget.innerShadows == null
+            ? []
+            : this
+                .widget
+                .innerShadows
+                .map(
+                  (innerShadow) => Shadow(
+                    color: innerShadow.color,
+                    blurRadius: innerShadow.blur,
+                    offset: Offset(
+                      innerShadow.moveRight,
+                      innerShadow.moveDown,
+                    ),
                   ),
-                ),
-              )
-              .toList(),
-      child: Container(
-        decoration: this._buildInDecoration(),
-        child: child,
-      ),
-    );
+                )
+                .toList(),
+        child: Container(
+          decoration: this._buildInDecoration(),
+          child: child,
+        ),
+      );
   }
 
   _buildChild() {
@@ -310,10 +329,10 @@ class _ContainerPlusState extends State<ContainerPlus> {
   BoxDecoration _buildInDecoration() {
     return BoxDecoration(
       color: this.skeletonEnabled == true ? Colors.transparent : widget.color,
-      // shape: this.widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
-      // border: this._buildBorder(),
+      shape: this.widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
+      border: this._buildBorder(),
       borderRadius: this._buildRadius(),
-      // boxShadow: this._buildShadow(),
+      boxShadow: this._buildShadow(),
       gradient: this._buildGradient(),
       image: this._buildDecorationImage(),
       backgroundBlendMode: this.widget.backgroundBlendMode,

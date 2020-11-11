@@ -52,7 +52,7 @@ class ButtonPlus extends StatefulWidget {
   ButtonPlus({
     Key key,
     this.child,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.margin,
     this.height,
     this.width,
@@ -104,7 +104,7 @@ class _ButtomPlusState extends State<ButtonPlus> {
 
   Widget _buildButtomPlus() {
     _containerPlus = ContainerPlus(
-      padding: EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       margin: this.widget.margin,
       isCenter: this.widget.isCenter,
       isExpanded: this.widget.isExpanded,
@@ -129,7 +129,7 @@ class _ButtomPlusState extends State<ButtonPlus> {
 
   _buildChildButton() {
     return FlatButton(
-      padding: this.widget.padding ?? EdgeInsets.all(0),
+      padding: this.widget.padding ?? EdgeInsets.zero,
       splashColor: this.widget.splashColor,
       highlightColor: this.widget.highlightColor,
       focusColor: this.widget.focusColor,

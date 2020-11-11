@@ -56,4 +56,14 @@ extension DateExtensionPlus on DateTime {
   String get weekNameSort {
     return this.format('EEE');
   }
+
+  bool sameDay(DateTime compareDate) {
+    if (this == null) {
+      return false;
+    } else {
+      return this.day == compareDate.day &&
+          this.month == compareDate.month &&
+          this.year == compareDate.year;
+    }
+  }
 }
