@@ -18,4 +18,8 @@ class UtilsPlus {
       return Color(int.parse("0xFF${hex.replaceAll('#', '')}"));
     }
   }
+
+  String colorToHex(Color color) {
+    return color.value.toRadixString(16);
+  }
 }
