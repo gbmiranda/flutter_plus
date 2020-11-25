@@ -57,6 +57,12 @@ class ContainerPlus extends StatefulWidget {
   /// Long press on [ContainerPlus].
   final Function onLongPress;
 
+  final Function(DragUpdateDetails) onPanUpdate;
+  final Function(DragStartDetails) onPanStart;
+  final Function(DragEndDetails) onPanEnd;
+  final Function(DragDownDetails) onPanDown;
+  final Function() onPanCancel;
+
   /// Notify a parent when the update size and position.
   ///
   /// Defaults is [null].
@@ -113,10 +119,10 @@ class ContainerPlus extends StatefulWidget {
     Key key,
     this.height,
     this.width,
-    this.color,
+    this.color = Colors.white,
     this.child,
     this.padding = EdgeInsets.zero,
-    this.margin,
+    this.margin = EdgeInsets.zero,
     this.image,
     this.alignment,
     this.backgroundBlendMode,
@@ -125,6 +131,11 @@ class ContainerPlus extends StatefulWidget {
     this.isExpanded = false,
     this.isCircle = false,
     //functions
+    this.onPanUpdate,
+    this.onPanStart,
+    this.onPanEnd,
+    this.onPanDown,
+    this.onPanCancel,
     this.onTap,
     this.onTapDown,
     this.onTapUp,
@@ -200,15 +211,18 @@ class _ContainerPlusState extends State<ContainerPlus> {
   Widget build(BuildContext context) {
     Widget containerPlus = this._buildContainerPlus();
 
-    if (this.widget.isCenter == true)
+    if (this.widget.isCenter == true) {
       containerPlus = Center(
         child: containerPlus,
       );
+    }
 
-    if (this.widget.isExpanded == true)
+    if (this.widget.isExpanded == true) {
       containerPlus = Expanded(
         child: containerPlus,
       );
+    }
+
     return containerPlus;
   }
 
@@ -235,27 +249,15 @@ class _ContainerPlusState extends State<ContainerPlus> {
           ),
         ),
       ),
-      // child: ClipRRect(
-      //   borderRadius: this._buildRadius(),
-      //   child: Padding(
-      //     padding: this.skeletonEnabled == true
-      //         ? EdgeInsets.all(0)
-      //         : this.widget.padding,
-      //     child: this.skeletonEnabled == true
-      //         ? this._buildSkeleton()
-      //         : this._buildInnerShadow(
-      //             this._buildChild(),
-      //           ),
-      //   ),
-      // ),
     );
   }
 
   _buildSkeleton() {
     // to calculate height
-    if (this.skeletonEnabled == false)
+
+    if (this.skeletonEnabled == false) {
       return this.widget.child;
-    else
+    } else {
       return Container(
         height: this._containerSize?.height ?? 0,
         width: this._containerSize?.width ?? 0,
@@ -263,6 +265,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
           skeletonPlus: this.widget.skeleton,
         ),
       );
+    }
   }
 
   Widget _buildInnerShadow(Widget child) {
@@ -303,12 +306,23 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   _buildGestureDetector() {
     return GestureDetector(
+      // tap
       onTap: this.widget.onTap ?? null,
       onDoubleTap: this.widget.onDoubleTap ?? null,
       onLongPress: this.widget.onLongPress ?? null,
       onTapDown: this.widget.onTapDown ?? null,
       onTapUp: this.widget.onTapUp ?? null,
       onTapCancel: this.widget.onTapCancel ?? null,
+      // pan
+      onPanCancel: this.widget.onPanCancel ?? null,
+      onPanDown: this.widget.onPanDown ?? null,
+      onPanEnd: this.widget.onPanEnd ?? null,
+      // onPanEnd: (details) {
+      //   print('xxx');
+      // },
+      onPanStart: this.widget.onPanStart ?? null,
+      onPanUpdate: this.widget.onPanUpdate ?? null,
+      // others
       child: widget.child,
       behavior: HitTestBehavior.translucent,
     );
@@ -320,7 +334,12 @@ class _ContainerPlusState extends State<ContainerPlus> {
         this.widget.onLongPress != null ||
         this.widget.onTapDown != null ||
         this.widget.onTapUp != null ||
-        this.widget.onTapCancel != null)
+        this.widget.onTapCancel != null ||
+        this.widget.onPanCancel != null ||
+        this.widget.onPanDown != null ||
+        this.widget.onPanEnd != null ||
+        this.widget.onPanStart != null ||
+        this.widget.onPanUpdate != null)
       return true;
     else
       return false;
@@ -329,7 +348,8 @@ class _ContainerPlusState extends State<ContainerPlus> {
   BoxDecoration _buildInDecoration() {
     return BoxDecoration(
       color: this.skeletonEnabled == true ? Colors.transparent : widget.color,
-      shape: this.widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
+      // shape: this.widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
+      shape: BoxShape.rectangle,
       border: this._buildBorder(),
       borderRadius: this._buildRadius(),
       boxShadow: this._buildShadow(),
@@ -342,6 +362,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
   BoxDecoration _buildOutDecoration() {
     return BoxDecoration(
       color: this.skeletonEnabled == true ? Colors.transparent : widget.color,
+      // shape: this.widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
       shape: BoxShape.rectangle,
       border: this._buildBorder(),
       borderRadius: this._buildRadius(),
@@ -378,7 +399,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     if (this.widget.gradient == null)
       return null;
     else
-      return this.widget.gradient.gradient;
+      return this.widget.gradient.toGradient;
   }
 
   Border _buildBorder() {

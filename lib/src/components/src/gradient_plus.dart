@@ -62,7 +62,7 @@ class GradientPlus {
     );
   }
 
-  Gradient get gradient {
+  Gradient get toGradient {
     if (this._linearGradient != null)
       return this._linearGradient;
     else if (this._radialGradient != null)

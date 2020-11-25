@@ -61,7 +61,7 @@ Adicione a dependência <b>flutter_plus</b> no arquivo <b>pubspec.yaml</b> do se
 
 ```yaml
 dependencies:
-  flutter_plus:
+  flutter_plus: any
 ```
 
 Importe um único arquivo para acessar todos os componentes.
@@ -74,9 +74,9 @@ _*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou
 
 # 📚 Exemplos
 
-Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
+A seguir existem exemplos de como usar e configurar os principais recursos da biblioteca.
 
-_*Você encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
+_*Você também encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
 
 ## 🛠 Widgets
 
@@ -86,7 +86,7 @@ Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para 
 
 ### `📌 ContainerPlus`
 
-O **ContainerPlus** oferece tudo que o Container nativo e muito mais!
+Para mim o widget *Container* é a base do Flutter. O nosso **ContainerPlus** é uma evolução do nativo, mais fácil de customizar e com diversas propriedades.
 
 **Clique [aqui]() para conhecer todos os atributos do ContainerPlus.*
 
@@ -106,14 +106,112 @@ O **TextFieldPlus** oferece tudo que o TextField nativo e muito mais!
 
 O **TextPlus** oferece tudo que o Text nativo e muito mais!
 
-**Clique [aqui]() para conhecer todos os atributos do TextPlus.*
+> **Exemplo 1:**
+
+```dart
+TextPlus(
+	'Exemplo 1',
+    padding: EdgeInsets.all(16),
+    backgroundColor: Colors.red,
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 2,
+    wordSpacing: 20,
+    maxLines: 1,
+    textOverflow: TextOverflow.ellipsis,
+);
+```
+
+> **Exemplo 2:**
+
+```dart
+TextPlus(
+	'Exemplo 2',
+	margin: EdgeInsets.only(top: 24),
+   	padding: EdgeInsets.all(16),
+   	color: Colors.white,
+   	fontSize: 20,
+   	backgroundGradient: GradientPlus.linear(
+	   	colors: [
+	      	Colors.yellow,
+	    	Colors.orange,
+	      	Colors.pink,
+	    ],
+	    begin: Alignment.topLeft,
+	    end: Alignment.centerRight,
+    ),
+    backgroundRadius: RadiusPlus.all(10),
+    backgroundBorder: BorderPlus(
+    	color: Colors.blue,
+    	width: 2,
+    ),
+  	textShadows: [
+  		ShadowPlus(
+			color: Colors.black45,
+			blur: 10,
+   		)
+   ],
+);
+```
+
+> **Exemplo 3:**
+
+```dart
+TextPlus(
+	'00000000000',
+   	margin: EdgeInsets.only(top: 24),
+  	padding: EdgeInsets.all(16),
+  	backgroundColor: Colors.black,
+   	color: Colors.white,
+   	fontSize: 20,
+   	mask: '###.###.###-##',
+  	onTap: () {
+   		print('Exemplo 3');
+  	},
+);
+```
 
 ### `📌 RichTextPlus`
 
 O **RichTextPlus** oferece tudo que o RichText nativo e muito mais!
 
-**Clique [aqui]() para conhecer todos os atributos do TextPlus.*
-
+```dart
+RichTextPlus(
+	texts: [
+		TextPlus(
+     		'Flutter ',
+          color: Colors.black,
+          fontWeight: FontWeight.normal,
+          fontSize: 30,
+       ),
+       TextPlus(
+          'Plus ',
+          color: Colors.red,
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+       ),
+       TextPlus(
+          '!',
+          color: Colors.blue,
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+       ),
+       TextPlus(
+          '!',
+          color: Colors.green,
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+       ),
+       TextPlus(
+          '!',
+          color: Colors.orange,
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+       ),
+	],
+);
+```
 ## ⚙️ Atributos
 
 ### `📌 BorderPlus`
@@ -139,7 +237,7 @@ Contribution is not limited to software developers, since there are other ways y
 
 ### `📌 NavigatorPlus`
 
-O NavigatorPlus possibilita a negação entre telas de qualquer lugar do seu código, sem a necessidade de um `context`.
+O NavigatorPlus possibilita a navegação entre telas de qualquer lugar do seu código, sem a necessidade de um `context`.
 
 **• Navegar para próxima tela:**
 

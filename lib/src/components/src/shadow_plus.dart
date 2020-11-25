@@ -11,11 +11,11 @@ class ShadowPlus {
 
   ShadowPlus({
     this.color = Colors.black,
-    this.blur = 4,
-    this.spread = 2,
+    this.blur = 5,
+    this.spread = 1,
     this.moveRight = 0,
     this.moveDown = 0,
-    this.opacity = 1,
+    this.opacity,
     // this.ShadowPlus,
   });
 }

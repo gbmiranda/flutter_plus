@@ -1,22 +1,32 @@
+import 'package:example/src/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_plus/plus.dart';
 
-class FlutterPlusExample extends StatelessWidget {
+class FlutterPlusExample extends StatefulWidget {
+  @override
+  _FlutterPlusExampleState createState() => _FlutterPlusExampleState();
+}
+
+class _FlutterPlusExampleState extends State<FlutterPlusExample> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
+    // Using FlutterAppPlus
+    return FlutterAppPlus(
+      title: 'Flutter Plus Example',
+      home: HomeScreen(),
     );
-  }
 
-  _teste() async {
-    // DateTime.now()
-    utilsPlus.closeKeyboard();
-    Color customColor = utilsPlus.colorHex('FFFFFF');
-    await localStoragePlus.write('lib_name', 'flutter_plus');
-    await localStoragePlus.read('lib_name');
-    await localStoragePlus.delete('lib_name');
-    await localStoragePlus.containsKey('lib_name');
-    await localStoragePlus.clear();
+    // Using MaterialApp
+
+    // return MaterialApp(
+    //   title: 'Flutter Plus Example',
+    //   navigatorKey: navigatorPlus.key,
+    //   builder: (context, child) {
+    //     return Scaffold(
+    //       key: snackBarPlus.scaffoldKey,
+    //       body: child,
+    //     );
+    //   },
+    // );
   }
 }

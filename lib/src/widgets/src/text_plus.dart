@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_plus/plus.dart';
 import 'package:flutter_plus/src/components/src/shadow_plus.dart';
 import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
+import 'package:flutter_plus/src/widgets/src/container_plus.dart';
 
 class TextPlus extends StatelessWidget {
   // Todo
-  // padding
   // urls
   // phones
-
   // dates
   // onTap
 
@@ -17,8 +17,9 @@ class TextPlus extends StatelessWidget {
   final String mask;
   final bool isCenter;
   final bool isExpandend;
-  final bool isCleanText; // fazer
 
+  final double height;
+  final double width;
   final EdgeInsets padding;
   final EdgeInsets margin;
 
@@ -33,19 +34,20 @@ class TextPlus extends StatelessWidget {
   final Color backgroundColor;
   final double letterSpacing;
   final double wordSpacing;
-  final double height;
   final String fontFamily;
 
   final TextDecorationPlus textDecorationPlus;
-  final List<ShadowPlus> shadows;
+  final List<ShadowPlus> textShadows;
 
-  // gesture
+  // ContainePlus
   final Function onTap;
-  final Function(TapDownDetails) onTapDown;
-  final Function(TapUpDetails) onTapUp;
-  final Function onTapCancel;
-  final Function onDoubleTap;
   final Function onLongPress;
+
+  final BorderPlus backgroundBorder;
+  final List<ShadowPlus> backgroundShadows;
+  final List<InnerShadowPlus> backgroundInnerShadows;
+  final GradientPlus backgroundGradient;
+  final RadiusPlus backgroundRadius;
 
   TextPlus(
     this.text, {
@@ -59,7 +61,7 @@ class TextPlus extends StatelessWidget {
     this.fontSize,
     this.fontWeight = FontWeight.normal,
     this.fontStyle = FontStyle.normal,
-    this.backgroundColor = Colors.transparent,
+    this.backgroundColor,
     this.letterSpacing,
     this.wordSpacing,
     this.height,
@@ -68,17 +70,18 @@ class TextPlus extends StatelessWidget {
     this.mask,
     this.isCenter = false,
     this.isExpandend = false,
-    this.isCleanText,
     this.textDecorationPlus,
-    this.shadows,
-    this.padding,
-    this.margin,
+    this.textShadows,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
     this.onTap,
-    this.onTapDown,
-    this.onTapUp,
-    this.onTapCancel,
-    this.onDoubleTap,
     this.onLongPress,
+    this.width,
+    this.backgroundBorder,
+    this.backgroundShadows,
+    this.backgroundInnerShadows,
+    this.backgroundGradient,
+    this.backgroundRadius,
   }) : super(key: key);
 
   @override
@@ -97,18 +100,23 @@ class TextPlus extends StatelessWidget {
       );
     }
 
-    if (this.hasGestureDetector) {
-      _textPlus = this._buildGestureDetector(_textPlus);
-    }
-
     return _textPlus;
   }
 
   Widget _buildTextPlus() {
-    return Container(
+    return ContainerPlus(
+      width: this.width,
+      height: this.height,
       padding: this.padding,
       margin: this.margin,
       color: this.backgroundColor,
+      onTap: this.onTap,
+      onLongPress: this.onLongPress,
+      border: this.backgroundBorder,
+      shadows: this.backgroundShadows,
+      innerShadows: this.backgroundInnerShadows,
+      gradient: this.backgroundGradient,
+      radius: this.backgroundRadius,
       child: Text(
         this._maskText,
         key: this.key,
@@ -121,30 +129,21 @@ class TextPlus extends StatelessWidget {
     );
   }
 
-  _buildGestureDetector(Widget child) {
-    return GestureDetector(
-      onTap: this.onTap ?? null,
-      onDoubleTap: this.onDoubleTap ?? null,
-      onLongPress: this.onLongPress ?? null,
-      onTapDown: this.onTapDown ?? null,
-      onTapUp: this.onTapUp ?? null,
-      onTapCancel: this.onTapCancel ?? null,
-      child: child,
-      behavior: HitTestBehavior.translucent,
-    );
-  }
+  // _buildGestureDetector(Widget child) {
+  //   return GestureDetector(
+  //     onTap: this.onTap ?? null,
+  //     onLongPress: this.onLongPress ?? null,
+  //     child: child,
+  //     behavior: HitTestBehavior.translucent,
+  //   );
+  // }
 
-  bool get hasGestureDetector {
-    if (this.onTap != null ||
-        this.onDoubleTap != null ||
-        this.onLongPress != null ||
-        this.onTapDown != null ||
-        this.onTapUp != null ||
-        this.onTapCancel != null)
-      return true;
-    else
-      return false;
-  }
+  // bool get hasGestureDetector {
+  //   if (this.onTap != null || this.onLongPress != null)
+  //     return true;
+  //   else
+  //     return false;
+  // }
 
   TextStyle get textStyle {
     return TextStyle(
@@ -152,7 +151,7 @@ class TextPlus extends StatelessWidget {
       fontSize: this.fontSize,
       fontWeight: this.fontWeight,
       fontStyle: this.fontStyle,
-      // backgroundColor: this.backgroundColor,
+      backgroundColor: Colors.transparent,
       decoration: this.textDecorationPlus?.textDecoration,
       decorationColor: this.textDecorationPlus?.color,
       decorationStyle: this.textDecorationPlus?.decorationStyle,
@@ -160,7 +159,7 @@ class TextPlus extends StatelessWidget {
       letterSpacing: this.letterSpacing,
       fontFamily: this.fontFamily,
       wordSpacing: this.wordSpacing,
-      height: this.height,
+      // height: this.height,
       shadows: this._buildShadows(),
     );
   }
@@ -198,12 +197,14 @@ class TextPlus extends StatelessWidget {
   }
 
   _buildShadows() {
-    if (this.shadows == null || this.shadows.isEmpty)
+    if (this.textShadows == null || this.textShadows.isEmpty)
       return null;
     else
-      return this.shadows.map((shadowPlus) {
+      return this.textShadows.map((shadowPlus) {
         return Shadow(
-          color: shadowPlus.color.withOpacity(shadowPlus.opacity),
+          color: shadowPlus.opacity != null
+              ? shadowPlus.color.withOpacity(shadowPlus.opacity)
+              : shadowPlus.color,
           blurRadius: shadowPlus.blur,
           offset: Offset(
             shadowPlus.moveRight,

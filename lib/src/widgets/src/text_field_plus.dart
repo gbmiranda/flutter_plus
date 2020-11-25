@@ -161,7 +161,9 @@ class TextFieldPlus extends StatelessWidget {
 
   Widget _buildTextField() {
     return CupertinoTextField(
-      padding: EdgeInsets.all(0),
+      padding: this.useSkeleton == true
+          ? EdgeInsets.all(0)
+          : this.padding ?? EdgeInsets.symmetric(horizontal: 4),
       autocorrect: this.autocorrect,
       enabled: this.enabled,
       controller: this.controller,

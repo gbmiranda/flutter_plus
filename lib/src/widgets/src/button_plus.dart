@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_plus/src/components/src/border_plus.dart';
 import 'package:flutter_plus/src/components/src/gradient_plus.dart';
+import 'package:flutter_plus/src/components/src/inner_shadow_plus.dart';
 import 'package:flutter_plus/src/components/src/radius_plus.dart';
 import 'package:flutter_plus/src/components/src/shadow_plus.dart';
 import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
@@ -10,6 +11,8 @@ import 'container_plus.dart';
 class ButtonPlus extends StatefulWidget {
   /// Todo
   /// 1- isLoading - show progress
+  /// 2- tap feedback
+  ///
 
   final Widget child;
 
@@ -43,6 +46,7 @@ class ButtonPlus extends StatefulWidget {
   final BorderPlus border;
   final List<ShadowPlus> shadows;
   final GradientPlus gradient;
+  final List<InnerShadowPlus> innerShadows;
 
   /// When [true] show a loading effect up child.
   ///
@@ -54,9 +58,9 @@ class ButtonPlus extends StatefulWidget {
     this.child,
     this.padding = EdgeInsets.zero,
     this.margin,
-    this.height,
+    this.height = 40,
     this.width,
-    this.color = Colors.transparent,
+    this.color,
     this.disabledBackgroundColor,
     this.alignment,
     //bools
@@ -78,6 +82,7 @@ class ButtonPlus extends StatefulWidget {
     this.gradient,
     this.image,
     this.skeleton,
+    this.innerShadows,
   });
 
   @override
@@ -85,46 +90,30 @@ class ButtonPlus extends StatefulWidget {
 }
 
 class _ButtomPlusState extends State<ButtonPlus> {
-  ContainerPlus _containerPlus;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void didUpdateWidget(ButtonPlus oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
   @override
   Widget build(BuildContext context) {
     return this._buildButtomPlus();
   }
 
   Widget _buildButtomPlus() {
-    _containerPlus = ContainerPlus(
+    return ContainerPlus(
       padding: EdgeInsets.zero,
       margin: this.widget.margin,
       isCenter: this.widget.isCenter,
       isExpanded: this.widget.isExpanded,
       isCircle: this.widget.isCircle,
       alignment: this.widget.alignment,
-      color: this.isEnabled
-          ? this.widget.color
-          : this.widget.disabledBackgroundColor ??
-              this.widget.color.withOpacity(0.4),
+      color: this.widget.color,
       height: this.widget.height,
       width: this.widget.width,
       border: this.widget.border,
-      gradient: this.isEnabled ? this.widget.gradient : null,
+      gradient: this.widget.gradient,
       radius: this.widget.radius,
       shadows: this.widget.shadows,
-      // notifyParent: () => setState(() {}),
+      innerShadows: this.widget.innerShadows,
       skeleton: this.widget.skeleton,
       child: this._buildChildButton(),
     );
-    return _containerPlus;
   }
 
   _buildChildButton() {
@@ -134,7 +123,6 @@ class _ButtomPlusState extends State<ButtonPlus> {
       highlightColor: this.widget.highlightColor,
       focusColor: this.widget.focusColor,
       hoverColor: this.widget.hoverColor,
-      // sempre transparente para usar a cor do container
       color: Colors.transparent,
       onHighlightChanged: (value) {},
       onPressed: this.isEnabled ? this.widget.onPressed : null,
