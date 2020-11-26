@@ -93,6 +93,8 @@ Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma 
 
 > Um Container customizado com um texto centralizado que aceite interação do usuário. 
 
+![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
+
 ## 🛠 Widgets
 
 Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para aumentar a produtividade facilitar a customização, com atributos mais poderosos e intuitivos. 
@@ -141,6 +143,8 @@ ContainerPlus(
 );
 ```
 
+![ContainerPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_1.png)
+
 > **Exemplo 2:**
 
 ```dart
@@ -172,6 +176,8 @@ ContainerPlus(
 );
 ```
 
+![ContainerPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_2.png)
+
 > **Exemplo 3:**
 
 ```dart
@@ -202,6 +208,8 @@ ContainerPlus(
 );
 ```
 
+![ContainerPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_3.gif)
+
 ### `📌 ButtonPlus`
 
 > **Exemplo 1:**
@@ -226,6 +234,8 @@ ButtonPlus(
   },
 );
 ```
+
+![ButtonPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_1.png)
 
 > **Exemplo 2:**
 
@@ -268,6 +278,8 @@ ButtonPlus(
 );
 ```
 
+![ButtonPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_2.png)
+
 > **Exemplo 3:**
 
 ```dart
@@ -301,6 +313,8 @@ ButtonPlus(
 );
 ```
 
+![ButtonPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_3.png)
+
 > **Exemplo 4:**
 
 ```dart
@@ -331,6 +345,7 @@ ButtonPlus(
   },
 );
 ```
+![ButtonPlus example_4](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_4.gif)
 
 ### `📌 TextFieldPlus`
 
@@ -359,6 +374,8 @@ TextFieldPlus(
 );
 ```
 
+![TextFieldPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_field_plus_1.png)
+
 > **Exemplo 2:**
 
 ```dart
@@ -376,6 +393,8 @@ TextFieldPlus(
   ),
 );
 ```
+
+![TextFieldPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_field_plus_2.png)
 
 > **Exemplo 3:**
 
@@ -410,6 +429,8 @@ TextFieldPlus(
 );
 ```
 
+![TextFieldPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_field_plus_3.png)
+
 ### `📌 TextPlus`
 
 > **Exemplo 1:**
@@ -428,6 +449,8 @@ TextPlus(
   textOverflow: TextOverflow.ellipsis,
 );
 ```
+
+![TextPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_plus_1.png)
 
 > **Exemplo 2:**
 
@@ -461,6 +484,8 @@ TextPlus(
 );
 ```
 
+![TextPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_plus_2.png)
+
 > **Exemplo 3:**
 
 ```dart
@@ -477,6 +502,7 @@ TextPlus(
   },
 );
 ```
+![TextPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_plus_3.png)
 
 ### `📌 RichTextPlus`
 
@@ -516,6 +542,7 @@ RichTextPlus(
   ],
 );
 ```
+![RichTextPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/rich_text_plus.png)
 
 ## 🔧 Utils
 
@@ -620,6 +647,7 @@ bottomSheetPlus.show(
   heightPercentScreen: 0.3,
 );
 ```
+![BottomSheetPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/bottom_sheet_plus.png)
 
 **• Acesso:**
 
@@ -685,6 +713,8 @@ dialogPlus.showDefault(
 	},
 );
 ```
+![DialogPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/dialog_plus_default.png)
+
 ```dart
 // Abertura de Dialog com layout próprio
 
@@ -694,6 +724,8 @@ dialogPlus.showDefault(
     closeKeyboardWhenOpen: true,
   );
 ```
+
+![DialogPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/dialog_plus_custom.png)
 
 **• Acesso:**
 
@@ -745,38 +777,41 @@ snackBarPlus.showText(
 );
 ```
 
+![SnackBarPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/snack_bar_plus_default.png)
+
 ```dart
 // Abertura de SnackBar com widget customizado
 
 snackBarPlus.show(
-backgroundColor: Colors.green,
-child: Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Icon(
-      Icons.star,
-      color: Colors.yellow,
-    ),
-    SizedBox(
-      width: 8,
-    ),
-    TextPlus(
-      'FlutterPlus!',
-      color: Colors.white,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-    ),
-    SizedBox(
-      width: 8,
-    ),
-    Icon(
-      Icons.star,
-      color: Colors.yellow,
-    ),
-  ],
-),
+	backgroundColor: Colors.green,
+	child: Row(
+	  mainAxisAlignment: MainAxisAlignment.center,
+	  children: [
+	    Icon(
+	      Icons.star,
+	      color: Colors.yellow,
+	    ),
+	    SizedBox(
+	      width: 8,
+	    ),
+	    TextPlus(
+	      'FlutterPlus!',
+	      color: Colors.white,
+	      fontSize: 18,
+	      fontWeight: FontWeight.bold,
+	    ),
+	    SizedBox(
+	      width: 8,
+	    ),
+	    Icon(
+	      Icons.star,
+	      color: Colors.yellow,
+	    ),
+	  ],
+	),
 );
 ```
+![SnackBarPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/snack_bar_plus_custom.png)
 
 **• Configuração:**
 
