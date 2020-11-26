@@ -40,7 +40,7 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
   }
 
   _buildExample1() {
-    return ContainerPlus(
+    ContainerPlus(
       width: 150,
       height: 150,
       radius: RadiusPlus.all(20),
@@ -76,7 +76,7 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
   }
 
   _buildExample2() {
-    return ContainerPlus(
+    ContainerPlus(
       margin: EdgeInsets.only(top: 48),
       width: 150,
       height: 150,
@@ -107,7 +107,7 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
   bool skeletonEnabled = false;
 
   _buildExample3() {
-    return ContainerPlus(
+    ContainerPlus(
       margin: EdgeInsets.only(top: 48),
       width: 150,
       height: 150,

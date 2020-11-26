@@ -55,6 +55,8 @@ Utilize extensões para tratar **datas**, **strings**, **números** e **arquivos
 > **Muitas das soluções encontradas aqui foram criadas para uso próprio ao longo da minha jornada com Flutter.
 > Resolvi reunir tudo uma único lugar para auxiliar meu trabalho e o de quem interessar. ;)**
 
+> Tentarei sempre manter a documentação atualizada porém pode acontecer de esquecer de colocar uma coisa ou outra aqui ;)
+
 # 🔩 Instalação
 
 Adicione a dependência <b>flutter_plus</b> no arquivo <b>pubspec.yaml</b> do seu projeto.
@@ -70,6 +72,12 @@ Importe um único arquivo para acessar todos os componentes.
 import 'package:flutter_plus/plus.dart';
 ```
 
+> **- Esta biblioteca estará sempre em constante evolução, então:**
+> 
+> 1- Se você não quer ter problemas como nomes ou atributos mudando e parando de funcionar, sugiro fixar a versão quando for começar a utilizar.
+> 
+> 2- Se você for como eu que gosta de evolução e não se importa em um pouco de retrabalho quando for para melhor, deixe sem versão fixa e fique ligado nos updates ;) 
+
 _*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou Desktop._
 
 # 📚 Exemplos
@@ -77,6 +85,9 @@ _*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou
 A seguir existem exemplos de como usar e configurar os principais recursos da biblioteca.
 
 _*Você também encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
+
+<!--### 🍬 Comparativo
+-->
 
 ## 🛠 Widgets
 
@@ -88,19 +99,316 @@ Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para 
 
 Para mim o widget *Container* é a base do Flutter. O nosso **ContainerPlus** é uma evolução do nativo, mais fácil de customizar e com diversas propriedades.
 
-**Clique [aqui]() para conhecer todos os atributos do ContainerPlus.*
+> **Exemplo 1:**
+
+```dart
+ContainerPlus(
+  width: 150,
+  height: 150,
+  radius: RadiusPlus.all(20),
+  color: Colors.yellow,
+  shadows: [
+    ShadowPlus(
+      color: Colors.red,
+      moveDown: -10,
+      moveRight: -10,
+      blur: 5,
+      spread: 1,
+      opacity: 0.2,
+    ),
+    ShadowPlus(
+      color: Colors.blue,
+      moveDown: 10,
+      moveRight: 10,
+      blur: 10,
+      spread: 5,
+      opacity: 0.5,
+    ),
+  ],
+  border: BorderPlus(
+    color: Colors.black,
+    width: 2,
+  ),
+  child: TextPlus(
+    'EXAMPLE 1',
+    isCenter: true,
+    color: Colors.white,
+  ),
+);
+```
+
+> **Exemplo 2:**
+
+```dart
+ContainerPlus(
+  margin: EdgeInsets.only(top: 48),
+  width: 150,
+  height: 150,
+  isCircle: true,
+  gradient: GradientPlus.linear(
+    colors: [
+      Colors.yellow,
+      Colors.orange,
+      Colors.pink,
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.centerRight,
+  ),
+  innerShadows: [
+    InnerShadowPlus(
+      color: Colors.green,
+      blur: 10,
+    )
+  ],
+  child: TextPlus(
+    'EXAMPLE 2',
+    isCenter: true,
+    color: Colors.white,
+  ),
+);
+```
+
+> **Exemplo 3:**
+
+```dart
+bool isLoading = false;
+
+ContainerPlus(
+  margin: EdgeInsets.only(top: 48),
+  width: 150,
+  height: 150,
+  color: Colors.black,
+  radius: RadiusPlus.only(topLeft: 40, bottomRight: 10),
+  skeleton: SkeletonPlus.automatic(enabled: this.isLoading),
+  onTap: () {
+    setState(() {
+      this.isLoading = !this.isLoading;
+    });
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        this.isLoading = !this.isLoading;
+      });
+    });
+  },
+  child: TextPlus(
+    'EXAMPLE 3',
+    isCenter: true,
+    color: Colors.white,
+  ),
+);
+```
 
 ### `📌 ButtonPlus`
 
 O **ButtonPlus** oferece tudo que o Button nativo e muito mais!
 
-**Clique [aqui]() para conhecer todos os atributos do ButtonPlus.*
+> **Exemplo 1:**
+
+```dart
+ButtonPlus(
+  width: 200,
+  height: 60,
+  radius: RadiusPlus.all(12),
+  color: Colors.blue,
+  enabled: true,
+  splashColor: Colors.red,
+  highlightColor: Colors.yellow,
+  focusColor: Colors.green,
+  hoverColor: Colors.pink,
+  child: TextPlus(
+    'EXAMPLE 1',
+    color: Colors.white,
+  ),
+  onPressed: () {
+    print('EXAMPLE 1');
+  },
+);
+```
+
+> **Exemplo 2:**
+
+```dart
+ButtonPlus(
+  margin: EdgeInsets.only(top: 48),
+  width: 200,
+  height: 60,
+  radius: RadiusPlus.bottom(20),
+  color: Colors.yellow,
+  shadows: [
+    ShadowPlus(
+      color: Colors.red,
+      moveDown: -10,
+      moveRight: -10,
+      blur: 5,
+      spread: 1,
+      opacity: 0.2,
+    ),
+    ShadowPlus(
+      color: Colors.blue,
+      moveDown: 10,
+      moveRight: 10,
+      blur: 10,
+      spread: 5,
+      opacity: 0.5,
+    ),
+  ],
+  border: BorderPlus(
+    color: Colors.black,
+    width: 2,
+  ),
+  child: TextPlus(
+    'EXAMPLE 2',
+    color: Colors.white,
+  ),
+  onPressed: () {
+    print('EXAMPLE 2');
+  },
+);
+```
+
+> **Exemplo 3:**
+
+```dart
+ButtonPlus(
+  margin: EdgeInsets.only(top: 48),
+  width: 200,
+  height: 60,
+  isCircle: true,
+  gradient: GradientPlus.linear(
+    colors: [
+      Colors.yellow,
+      Colors.orange,
+      Colors.pink,
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.centerRight,
+  ),
+  innerShadows: [
+    InnerShadowPlus(
+      color: Colors.green,
+      blur: 10,
+    )
+  ],
+  child: TextPlus(
+    'EXAMPLE 3',
+    color: Colors.white,
+  ),
+  onPressed: () {
+    print('EXAMPLE 3');
+  },
+);
+```
+
+> **Exemplo 4:**
+
+```dart
+bool isLoading = false;
+
+ButtonPlus(
+  margin: EdgeInsets.only(top: 48),
+  width: 200,
+  height: 60,
+  color: Colors.black,
+  radius: RadiusPlus.only(topLeft: 40, bottomRight: 10),
+  skeleton: SkeletonPlus.automatic(enabled: this.isLoading),
+  child: TextPlus(
+    'EXAMPLE 4',
+    color: Colors.white,
+  ),
+  onPressed: () {
+    print('EXAMPLE 4');
+
+    setState(() {
+      this.isLoading = !this.isLoading;
+    });
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        this.isLoading = !this.isLoading;
+      });
+    });
+  },
+);
+```
 
 ### `📌 TextFieldPlus`
 
 O **TextFieldPlus** oferece tudo que o TextField nativo e muito mais!
 
-**Clique [aqui]() para conhecer todos os atributos do TextFieldPlus.*
+> **Exemplo 1:**
+
+```dart
+TextFieldPlus(
+  padding: EdgeInsets.symmetric(horizontal: 8),
+  height: 60,
+  backgroundColor: Colors.black12,
+  cursorColor: Colors.red,
+  enabled: true,
+  textInputType: TextInputType.emailAddress,
+  placeholder: TextPlus(
+    'E-mail',
+    color: Colors.black38,
+  ),
+  prefixWidget: Icon(
+    Icons.alternate_email,
+    color: Colors.redAccent,
+  ),
+  suffixWidget: Icon(
+    Icons.email,
+    color: Colors.redAccent,
+  ),
+);
+```
+
+> **Exemplo 2:**
+
+```dart
+TextFieldPlus(
+  margin: EdgeInsets.only(top: 24),
+  padding: EdgeInsets.symmetric(horizontal: 8),
+  height: 60,
+  backgroundColor: Colors.black12,
+  cursorColor: Colors.red,
+  textInputType: TextInputType.number,
+  mask: '###.###.###-##',
+  placeholder: TextPlus(
+    'CPF',
+    color: Colors.black38,
+  ),
+);
+```
+
+> **Exemplo 3:**
+
+```dart
+TextFieldPlus(
+  margin: EdgeInsets.only(top: 24),
+  padding: EdgeInsets.symmetric(horizontal: 8),
+  height: 60,
+  cursorColor: Colors.white,
+  textCapitalization: TextCapitalization.words,
+  maxLines: 1,
+  letterSpacing: 2,
+  gradient: GradientPlus.linear(
+    colors: [
+      Colors.red,
+      Colors.orange,
+      Colors.yellow,
+    ],
+  ),
+  radius: RadiusPlus.all(12),
+  placeholder: TextPlus(
+    'Name',
+    color: Colors.white70,
+  ),
+  suffixWidget: Icon(
+    Icons.person,
+    color: Colors.white70,
+  ),
+  textColor: Colors.white,
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+```
 
 ### `📌 TextPlus`
 
@@ -110,16 +418,16 @@ O **TextPlus** oferece tudo que o Text nativo e muito mais!
 
 ```dart
 TextPlus(
-	'Exemplo 1',
-    padding: EdgeInsets.all(16),
-    backgroundColor: Colors.red,
-    color: Colors.white,
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
-    letterSpacing: 2,
-    wordSpacing: 20,
-    maxLines: 1,
-    textOverflow: TextOverflow.ellipsis,
+  'Exemplo 1',
+  padding: EdgeInsets.all(16),
+  backgroundColor: Colors.red,
+  color: Colors.white,
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+  letterSpacing: 2,
+  wordSpacing: 20,
+  maxLines: 1,
+  textOverflow: TextOverflow.ellipsis,
 );
 ```
 
@@ -127,31 +435,31 @@ TextPlus(
 
 ```dart
 TextPlus(
-	'Exemplo 2',
-	margin: EdgeInsets.only(top: 24),
-   	padding: EdgeInsets.all(16),
-   	color: Colors.white,
-   	fontSize: 20,
-   	backgroundGradient: GradientPlus.linear(
-	   	colors: [
-	      	Colors.yellow,
-	    	Colors.orange,
-	      	Colors.pink,
-	    ],
-	    begin: Alignment.topLeft,
-	    end: Alignment.centerRight,
-    ),
-    backgroundRadius: RadiusPlus.all(10),
-    backgroundBorder: BorderPlus(
-    	color: Colors.blue,
-    	width: 2,
-    ),
-  	textShadows: [
-  		ShadowPlus(
-			color: Colors.black45,
-			blur: 10,
-   		)
-   ],
+  'Exemplo 2',
+  color: Colors.white,
+  fontSize: 20,
+  margin: EdgeInsets.only(top: 24),
+  padding: EdgeInsets.all(16),
+  backgroundGradient: GradientPlus.linear(
+    colors: [
+      Colors.yellow,
+      Colors.orange,
+      Colors.pink,
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.centerRight,
+  ),
+  backgroundRadius: RadiusPlus.all(10),
+  backgroundBorder: BorderPlus(
+    color: Colors.blue,
+    width: 2,
+  ),
+  textShadows: [
+    ShadowPlus(
+      color: Colors.black45,
+      blur: 10,
+    )
+  ],
 );
 ```
 
@@ -159,16 +467,16 @@ TextPlus(
 
 ```dart
 TextPlus(
-	'00000000000',
-   	margin: EdgeInsets.only(top: 24),
-  	padding: EdgeInsets.all(16),
-  	backgroundColor: Colors.black,
-   	color: Colors.white,
-   	fontSize: 20,
-   	mask: '###.###.###-##',
-  	onTap: () {
-   		print('Exemplo 3');
-  	},
+  '00000000000',
+  margin: EdgeInsets.only(top: 24),
+  padding: EdgeInsets.all(16),
+  backgroundColor: Colors.black,
+  color: Colors.white,
+  fontSize: 20,
+  mask: '###.###.###-##',
+  onTap: () {
+    print('Exemplo 3');
+  },
 );
 ```
 
@@ -178,62 +486,167 @@ O **RichTextPlus** oferece tudo que o RichText nativo e muito mais!
 
 ```dart
 RichTextPlus(
-	texts: [
-		TextPlus(
-     		'Flutter ',
-          color: Colors.black,
-          fontWeight: FontWeight.normal,
-          fontSize: 30,
-       ),
-       TextPlus(
-          'Plus ',
-          color: Colors.red,
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-       ),
-       TextPlus(
-          '!',
-          color: Colors.blue,
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-       ),
-       TextPlus(
-          '!',
-          color: Colors.green,
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-       ),
-       TextPlus(
-          '!',
-          color: Colors.orange,
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-       ),
-	],
+  texts: [
+    TextPlus(
+      'Flutter ',
+      color: Colors.black,
+      fontWeight: FontWeight.normal,
+      fontSize: 30,
+    ),
+    TextPlus(
+      'Plus ',
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+      fontSize: 30,
+    ),
+    TextPlus(
+      '!',
+      color: Colors.blue,
+      fontWeight: FontWeight.bold,
+      fontSize: 30,
+    ),
+    TextPlus(
+      '!',
+      color: Colors.green,
+      fontWeight: FontWeight.bold,
+      fontSize: 30,
+    ),
+    TextPlus(
+      '!',
+      color: Colors.orange,
+      fontWeight: FontWeight.bold,
+      fontSize: 30,
+    ),
+  ],
 );
 ```
 ## ⚙️ Atributos
 
+Os atributos de customização abaixo são utilizados na maioria dos Widgets acima.
+
 ### `📌 BorderPlus`
+
+```dart
+BorderPlus(
+  color: Colors.black,
+  style: BorderStyle.solid,
+  width: 2.0,
+);
+```
 
 ### `📌 GradientPlus`
 
+```dart
+GradientPlus.linear(
+  colors: [Colors.black, Colors.white],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  stops: [0.2, 0.8],
+);
+```
+
+```dart
+GradientPlus.radial(
+  colors: [Colors.black, Colors.white],
+  center: Alignment.centerLeft,
+  focal: Alignment.bottomCenter,
+  focalRadius: 1.5,
+  radius: 4.5,
+  stops: [0.3, 0.7],
+);
+```
+
+```dart
+GradientPlus.sweep(
+  colors: [Colors.black, Colors.white],
+  center: Alignment.centerLeft,
+  startAngle: 1.5,
+  endAngle: 3.2,
+  stops: [0.5, 0.8],
+);
+```
+
 ### `📌 InnerShadowPlus`
 
+```dart
+InnerShadowPlus(
+  color: Colors.red,
+  blur: 10.0,
+  moveDown: 4.5,
+  moveRight: 2.5,
+  opacity: 0.5,
+);
+```
 ### `📌 RadiusPlus`
+
+```dart
+RadiusPlus.all(12.0);
+```
+
+```dart
+RadiusPlus.bottom(12.0);
+```
+
+```dart
+RadiusPlus.top(12.0);
+```
+
+```dart
+RadiusPlus.only(
+  topLeft: 10.0,
+  topRight: 16.0,
+  bottomLeft: 4.0,
+  bottomRight: 8.0,
+);
+```
 
 ### `📌 ShadowPlus`
 
+```dart
+ShadowPlus(
+  color: Colors.red,
+  blur: 10.0,
+  spread: 2.5,
+  moveDown: 4.5,
+  moveRight: 2.5,
+  opacity: 0.5,
+);
+```
+
 ### `📌 SkeletonPlus`
+
+```dart
+bool isLoading = true;
+SkeletonPlus.automatic(enabled: isLoading);
+```
+
+```dart
+bool isLoading = true;
+SkeletonPlus.custom(
+  enabled: isLoading,
+  baseColor: Colors.black87,
+  highlightColor: Colors.black26,
+  duration: Duration(
+    milliseconds: 500,
+  ),
+  showBorders: false,
+  showShadows: false,
+);
+```
 
 ### `📌 TextDecorationPlus`
 
-### `📌 SkeletonPlus`
-
+```dart
+TextDecorationPlus(
+  color: Colors.red,
+  decorationStyle: TextDecorationStyle.dashed,
+  decorationThickness: 0.5,
+);
+```
 
 ## 🔧 Utils
 
-Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
+Além dos Widgets padrões temos algumas abstrações que vão te economizar código e tempo para você focar no que realmente importa para seu projeto. 
 
 ### `📌 NavigatorPlus`
 
@@ -282,19 +695,27 @@ navigatorPlus.back(result: customData);
 
 **• Configuração:**
 
+> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+
 ```dart
-// Opção 1 -> inserir a key direto no seu MaterialApp.
-return MaterialApp(
-...
-navigatorKey: navigatorPlus.key,
-...
+return FlutterAppPlus(
+  title: 'Flutter Plus Example',
+  home: HomeScreen(),
 );
 ```
 
+> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+
 ```dart
-// Opção 2 -> Substituir o MaterialApp pelo FlutterAppPlus.
-return FlutterAppPlus(
-...
+MaterialApp(
+  title: 'Flutter Plus Example',
+  navigatorKey: navigatorPlus.key,
+  builder: (context, child) {
+    return Scaffold(
+      key: snackBarPlus.scaffoldKey,
+      body: child,
+    );
+  },
 );
 ```
 
@@ -369,24 +790,27 @@ snackBarPlus.show(child: YourWidget());
 
 **• Configuração:**
 
+> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+
 ```dart
-// Opção 1 -> inserir a key direto no seu MaterialApp.
-return MaterialApp(
-...
-	builder: (context, child) {
-        return Scaffold(
-          key: snackBarPlus.scaffoldKey,
-          body: child,
-        );
-	},
-...
+return FlutterAppPlus(
+  title: 'Flutter Plus Example',
+  home: HomeScreen(),
 );
 ```
 
+> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+
 ```dart
-// Opção 2 -> Substituir o MaterialApp pelo FlutterAppPlus.
-return FlutterAppPlus(
-...
+MaterialApp(
+  title: 'Flutter Plus Example',
+  navigatorKey: navigatorPlus.key,
+  builder: (context, child) {
+    return Scaffold(
+      key: snackBarPlus.scaffoldKey,
+      body: child,
+    );
+  },
 );
 ```
 
@@ -401,8 +825,6 @@ FlutterPlus.snackBar.show(...);
 ### `📌 LocalStoragePlus`
 
 O LocalStoragePlus possibilita persistir e acessar dados locais em qualquer lugar do seu código.
-
-> Utiliza a dependência `shared_preferences`.
 
 ```dart
 // Salvar dados locais. 
@@ -431,6 +853,8 @@ localStoragePlus...;
 FlutterPlus.localStorage...;
 ```
 
+> Utiliza a dependência `shared_preferences`.
+
 ### `📌 UtilsPlus`
 
 UtilsPlus disponibiliza funções para auxiliar no desenvolvimento do seu aplicativo.
@@ -453,9 +877,13 @@ utilsPlus...;
 FlutterPlus.utils...;
 ```
 
-## 🧩 Extensions
+## 🧩 ExtensionsPlus
 
-Contribution is not limited to software developers, since there are other ways you can help. For example, contributing towards documentation, translation and support. Join the room on Gitter to see how you can help (see below).
+Por último mas não menos importante, ***Extensions*** são uma poderosa ferramenta para facilitar certas tarefas sem a necessidade de replicar código várias vezes.
+
+Nessa seção você irá várias extensões para os tipos ***String***, ***Date***, ***Num***, ***File***, ***Duration***.
+
+> As vezes é difiícl manter tudo atualizado, então podem surgir novas propriedades que não estão aqui.s
 
 ### `📌 StringExtensionPlus`
 

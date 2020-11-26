@@ -41,7 +41,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample1() {
-    return ButtonPlus(
+    ButtonPlus(
       width: 200,
       height: 60,
       radius: RadiusPlus.all(12),
@@ -62,7 +62,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample2() {
-    return ButtonPlus(
+    ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
@@ -101,7 +101,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample3() {
-    return ButtonPlus(
+    ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
@@ -131,16 +131,16 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
     );
   }
 
-  bool skeletonEnabled = false;
+  bool isLoading = false;
 
   _buildExample4() {
-    return ButtonPlus(
+    ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
       color: Colors.black,
       radius: RadiusPlus.only(topLeft: 40, bottomRight: 10),
-      skeleton: SkeletonPlus.automatic(enabled: this.skeletonEnabled),
+      skeleton: SkeletonPlus.automatic(enabled: this.isLoading),
       child: TextPlus(
         'EXAMPLE 4',
         color: Colors.white,
@@ -149,11 +149,11 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
         print('EXAMPLE 4');
 
         setState(() {
-          this.skeletonEnabled = !this.skeletonEnabled;
+          this.isLoading = !this.isLoading;
         });
         Future.delayed(Duration(seconds: 5), () {
           setState(() {
-            this.skeletonEnabled = !this.skeletonEnabled;
+            this.isLoading = !this.isLoading;
           });
         });
       },

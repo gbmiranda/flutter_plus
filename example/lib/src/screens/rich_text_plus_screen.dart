@@ -33,7 +33,7 @@ class RichTextPlusScreen extends StatelessWidget {
   }
 
   _buildExample() {
-    return RichTextPlus(
+    RichTextPlus(
       texts: [
         TextPlus(
           'Flutter ',

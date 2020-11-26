@@ -149,4 +149,83 @@ class HomeScreen extends StatelessWidget {
       },
     );
   }
+
+  _teste() {
+    BorderPlus(
+      color: Colors.black,
+      style: BorderStyle.solid,
+      width: 2.0,
+    );
+
+    GradientPlus.linear(
+      colors: [Colors.black, Colors.white],
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      stops: [0.2, 0.8],
+    );
+
+    GradientPlus.radial(
+      colors: [Colors.black, Colors.white],
+      center: Alignment.centerLeft,
+      focal: Alignment.bottomCenter,
+      focalRadius: 1.5,
+      radius: 4.5,
+      stops: [0.3, 0.7],
+    );
+
+    GradientPlus.sweep(
+      colors: [Colors.black, Colors.white],
+      center: Alignment.centerLeft,
+      startAngle: 1.5,
+      endAngle: 3.2,
+      stops: [0.5, 0.8],
+    );
+
+    InnerShadowPlus(
+      color: Colors.red,
+      blur: 10.0,
+      moveDown: 4.5,
+      moveRight: 2.5,
+      opacity: 0.5,
+    );
+
+    ShadowPlus(
+      color: Colors.red,
+      blur: 10.0,
+      spread: 2.5,
+      moveDown: 4.5,
+      moveRight: 2.5,
+      opacity: 0.5,
+    );
+
+    RadiusPlus.all(12.0);
+
+    RadiusPlus.bottom(12.0);
+
+    RadiusPlus.only(
+      topLeft: 12.0,
+      topRight: 12.0,
+      bottomLeft: 8.0,
+      bottomRight: 8.0,
+    );
+
+    RadiusPlus.top(12.0);
+
+    SkeletonPlus.custom(
+      enabled: true,
+      baseColor: Colors.black87,
+      highlightColor: Colors.black26,
+      duration: Duration(
+        milliseconds: 500,
+      ),
+      showBorders: false,
+      showShadows: false,
+    );
+
+    TextDecorationPlus(
+      color: Colors.red,
+      decorationStyle: TextDecorationStyle.dashed,
+      decorationThickness: 0.5,
+    );
+  }
 }
