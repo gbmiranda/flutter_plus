@@ -1,11 +1,4 @@
-Idiomas -> EN | [PT](README_PT.md)
-
-<!--[![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
-[![Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue.svg)](https://flutter.dev/)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![pub package](https://img.shields.io/pub/v/bonfire.svg)](https://pub.dev/packages/bonfire)
-[![buymeacoffee](https://i.imgur.com/aV6DDA7.png)](https://www.buymeacoffee.com/rafaelbarbosa)
--->
+Idiomas -> EN | [PT](README_PT.md)s
 # 🗂 Indice
 
 - [FlutterPlus](#-flutterplus)
@@ -208,7 +201,7 @@ ContainerPlus(
 );
 ```
 
-![ContainerPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_3.gif)
+![ContainerPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/container_plus_3.gif)
 
 ### `📌 ButtonPlus`
 
@@ -345,7 +338,7 @@ ButtonPlus(
   },
 );
 ```
-![ButtonPlus example_4](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_4.gif)
+![ButtonPlus example_4](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/button_plus_4.gif)
 
 ### `📌 TextFieldPlus`
 
