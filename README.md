@@ -1,4 +1,5 @@
-Idiomas -> EN | [PT](README_PT.md)s
+> #### 🌐 _Idiomas: EN_ - [PT](README_PT.md)
+
 # 🗂 Indice
 
 - [FlutterPlus](#-flutterplus)
