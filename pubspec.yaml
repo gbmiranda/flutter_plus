@@ -10,10 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl:
-  diacritic:
-  shared_preferences:
-    
+  intl: ^0.16.1
+  diacritic: ^0.1.1
+  shared_preferences: ^0.5.12+4
+  path: ^1.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -4,11 +4,8 @@ import 'package:flutter_plus/src/utils/utils_export_plus.dart';
 
 export 'flutter_plus_exports.dart';
 
-// final flutterPlus = FlutterPlus;
-
 class FlutterPlus {
   FlutterPlus._();
-
   static UtilsPlus utils = utilsPlus;
   static LocalStoragePlus localStorage = localStoragePlus;
   static NavigatorPlus navigator = navigatorPlus;
