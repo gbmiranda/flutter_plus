@@ -1,11 +1,11 @@
-> #### 🌐 _Idiomas: EN_ - [PT](README_PT.md)
+> #### 🌐 _Languages: EN_ - [PT](README_PT.md)
 
-# 🗂 Indice
+# 🗂 Index
 
 - [FlutterPlus](#-flutterplus)
-- [Instalação](#-instalação)
-- [Exemplos](#-exemplos)
-	- [Demonstração](#-demonstração)
+- [Installation](#-installation)
+- [Examples](#-examples)
+	- [Demonstration](#-demonstration)
 	- [Widgets](#-widgets)
 		- [ContainerPlus](#-containerplus)
 		- [ButtonPlus](#-buttonplus)
@@ -25,7 +25,7 @@
 		- [NumExtensionPlus](#-numextensionplus)
 		- [FileExtensionPlus](#-fileextensionplus)
 		- [DurationExtensionPlus](#-durationextensionplus)
-	- [Atributos](#-atributos)
+	- [Attributes](#-attributes)
 		- [BorderPlus](#-borderplus)
 		- [GradientPlus](#-gradientplus)
 		- [InnerShadowPlus](#-innershadowplus)
@@ -33,73 +33,74 @@
 		- [ShadowPlus](#-shadowplus)
 		- [SkeletonPlus](#-skeletonplus)
 		- [TextDecorationPlus](#-textdecorationplus)
-- [Próximos Passos](#-próximos-passos)
+- [Next steps](#-next-steps)
 
 # 👾 FlutterPlus
 
-### Criar aplicativos utilizando Flutter é ótimo, mas pode ficar melhor!
+### Creating apps using Flutter is great, but it can get better!
 
-FlutterPlus é uma biblioteca open-source criada para tornar o desenvolvimento em Flutter mais rápido, fácil e intuitivo.
+FlutterPlus is an open-source library created to make Flutter development faster, easier and more intuitive.
 
-Crie **Containers**, **Buttons**, **TextFields**, **Texts** e **RichTexts** customizados com poucas linhas.
+Create **Containers**, **Buttons**, **TextFields**, **Texts** and **RichTexts** customized with few lines.
 
-Navegue entre **Telas**, abra **BottomSheets**, **Dialogs** e **Snackbars** sem contexto de qualquer lugar do seu código.
+Navigate between **Telas**, open **BottomSheets**, **Dialogs** and **Snackbars** without context anywhere in your code.
 
-Utilize extensões para tratar **datas**, **strings**, **números** e **arquivos**.
+Use extensions to treat **datas**, **strings**, **números** and **arquivos**.
 
-> **Muitas das soluções encontradas aqui foram criadas para uso próprio ao longo da minha jornada com Flutter.
-> Resolvi reunir tudo uma único lugar para auxiliar meu trabalho e o de quem interessar. ;)**
+> ** Many of the solutions found here were created for my own use throughout my journey with Flutter.
 
-> Tentarei sempre manter a documentação atualizada porém pode acontecer de esquecer de colocar uma coisa ou outra aqui ;)
+> I decided to bring everything together in a single place to help my work and that of anyone interested ;)**
 
-# 🔩 Instalação
+> I will always try to keep the documentation up to date but it may happen that I forget to put something or other here ;)
 
-Adicione a dependência <b>flutter_plus</b> no arquivo <b>pubspec.yaml</b> do seu projeto.
+# 🔩 Installation
+
+Add the <b>flutter_plus</b> dependency to your project's <b>pubspec.yaml</b> file.
 
 ```yaml
 dependencies:
   flutter_plus: any
 ```
 
-Importe um único arquivo para acessar todos os componentes.
+Import a single file to access all components.
 
 ```dart
 import 'package:flutter_plus/plus.dart';
 ```
 
-> **- Esta biblioteca estará sempre em constante evolução, então:**
+> **- This library will always be in constant evolution, so:**
 > 
-> 1- Se você não quer ter problemas como nomes ou atributos mudando e parando de funcionar, sugiro fixar a versão quando for começar a utilizar.
+> 1- If you don't want to have problems with names or attributes changing and stopping, I suggest setting the version when you start using it.
 > 
-> 2- Se você for como eu que gosta de evolução e não se importa em um pouco de retrabalho quando for para melhor, deixe sem versão fixa e fique ligado nos updates ;) 
+> 2- If you're like me who likes evolution and don't mind a little rework when it is for the best, leave it without a fixed version and stay tuned for updates ;) 
 
-_*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou Desktop._
+_*No extra adjustments are required to work on iOS, Android, Web or Desktop._
 
-# 📚 Exemplos
+# 📚 Examples
 
-A seguir existem exemplos de como usar e configurar os principais recursos da biblioteca.
+The following are examples of how to use and configure the main features of the library.
 
-_*Você também encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
+_*You can also find an example project showing how to use the library [here](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
 
-## 🍬 Demonstração
+## 🍬 Demonstration
 
-Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro com widgets nativos e o segundo utilizando a biblioteca.
+An appetizer of the real meaning of the library. Two codes that do the same thing, the first with native widgets and the second using the library.
 
-> Um Container customizado com um texto centralizado que aceite interação do usuário. 
-
+> A customized Container with centralized text that accepts user interaction.
+> 
 ![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 ## 🛠 Widgets
 
-Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para aumentar a produtividade facilitar a customização, com atributos mais poderosos e intuitivos. 
+The *Widgets* below are evolutions of the native Flutter. They were created to increase productivity and facilitate customization, with more powerful and intuitive attributes.
 
-> **Crie Widgets mais complexos com menos código.**
+> **Create more complex widgets with less code.**
 
 ### `📌 ContainerPlus`
 
-Para mim o widget *Container* é a base do Flutter. O nosso **ContainerPlus** é uma evolução do nativo, mais fácil de customizar e com diversas propriedades.
+For me, the *Container* widget is the basis of Flutter. Our **ContainerPlus** is an evolution of the native, easier to customize and with several properties.
 
-> **Exemplo 1:**
+> **Example 1:**
 
 ```dart
 ContainerPlus(
@@ -139,7 +140,7 @@ ContainerPlus(
 
 ![ContainerPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_1.png)
 
-> **Exemplo 2:**
+> **Example 2:**
 
 ```dart
 ContainerPlus(
@@ -172,7 +173,7 @@ ContainerPlus(
 
 ![ContainerPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/container_plus_2.png)
 
-> **Exemplo 3:**
+> **Example 3:**
 
 ```dart
 bool isLoading = false;
@@ -206,7 +207,7 @@ ContainerPlus(
 
 ### `📌 ButtonPlus`
 
-> **Exemplo 1:**
+> **Example 1:**
 
 ```dart
 ButtonPlus(
@@ -231,7 +232,7 @@ ButtonPlus(
 
 ![ButtonPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_1.png)
 
-> **Exemplo 2:**
+> **Example 2:**
 
 ```dart
 ButtonPlus(
@@ -274,7 +275,7 @@ ButtonPlus(
 
 ![ButtonPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_2.png)
 
-> **Exemplo 3:**
+> **Example 3:**
 
 ```dart
 ButtonPlus(
@@ -309,7 +310,7 @@ ButtonPlus(
 
 ![ButtonPlus example_3](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/button_plus_3.png)
 
-> **Exemplo 4:**
+> **Example 4:**
 
 ```dart
 bool isLoading = false;
@@ -343,7 +344,7 @@ ButtonPlus(
 
 ### `📌 TextFieldPlus`
 
-> **Exemplo 1:**
+> **Example 1:**
 
 ```dart
 TextFieldPlus(
@@ -370,7 +371,7 @@ TextFieldPlus(
 
 ![TextFieldPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_field_plus_1.png)
 
-> **Exemplo 2:**
+> **Example 2:**
 
 ```dart
 TextFieldPlus(
@@ -390,7 +391,7 @@ TextFieldPlus(
 
 ![TextFieldPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_field_plus_2.png)
 
-> **Exemplo 3:**
+> **Example 3:**
 
 ```dart
 TextFieldPlus(
@@ -427,7 +428,7 @@ TextFieldPlus(
 
 ### `📌 TextPlus`
 
-> **Exemplo 1:**
+> **Example 1:**
 
 ```dart
 TextPlus(
@@ -446,7 +447,7 @@ TextPlus(
 
 ![TextPlus example_1](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_plus_1.png)
 
-> **Exemplo 2:**
+> **Example 2:**
 
 ```dart
 TextPlus(
@@ -480,7 +481,7 @@ TextPlus(
 
 ![TextPlus example_2](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/text_plus_2.png)
 
-> **Exemplo 3:**
+> **Example 3:**
 
 ```dart
 TextPlus(
@@ -540,56 +541,58 @@ RichTextPlus(
 
 ## 🔧 Utils
 
-Além dos Widgets padrões temos algumas abstrações que vão te economizar código e tempo para você focar no que realmente importa para seu projeto. 
+In addition to the standard widgets we have some abstractions that will save you code and time so you can focus on what really matters to your project.
 
 ### `📌 NavigatorPlus`
 
-O NavigatorPlus possibilita a navegação entre telas de qualquer lugar do seu código, sem a necessidade de um `context`.
+NavigatorPlus makes it possible to navigate between screens from anywhere in your code, without the need for a `context`.
 
-**• Navegar para próxima tela:**
+> You need to configure it to work.
+
+**• Navigate to the next screen:**
 
 ```dart
-// Navegar para tela desejada
+// Navigate to desired screen
 navigatorPlus.show(NextScreen());
 ```
 
 ```dart
-// Abrir tela desejada como modal
+// Open desired screen as modal
 navigatorPlus.showModal(NextScreen());
 ```
 
-**• Voltar tela:**
+**• Back or close screen:**
 
 ```dart
-// Voltar para tela anterior
+// Back or close to previous screen
 navigatorPlus.back();
 ```
 
 ```dart
-// Verificar se existe tela anterior para voltar
+// Check if there is a previous screen to go back
 if (navigatorPlus.canBack) {
   navigatorPlus.back();
 }
 ```
 
 ```dart
-// Voltar para primeira tela da pilha
+// Back to first stack screen
 navigatorPlus.backAll();
 ```
 
-**• Retornar dados para tela de origem:**
+**• Return data to source screen:**
 
 ```dart
-// Chamar a próxima tela com await esperando um retorno
+// Call the next screen with await waiting for a return
 var result = await navigatorPlus.show(NextScreen());
 
-// Voltar para tela anterior passando os dados desejados
+// Return to the previous screen passing the desired data
 navigatorPlus.back(result: customData);
 ```
 
-**• Configuração:**
+**• Configuration:**
 
-> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+> Recommended: Replace MaterialApp with FlutterAppPlus.
 
 ```dart
 return FlutterAppPlus(
@@ -598,7 +601,7 @@ return FlutterAppPlus(
 );
 ```
 
-> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+> Alternative: Add the keys of the navigatorPlus and snackBarPlus.
 
 ```dart
 MaterialApp(
@@ -616,11 +619,11 @@ MaterialApp(
 **• Context:**
 
 ```dart
-// Pegar context atual
+// Get current context
 BuildContext context = navigatorPlus.currentContext;
 ```
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 navigatorPlus.show(NextScreen());
@@ -632,7 +635,7 @@ FlutterPlus.navigator.show(NextScreen());
 
 O BottomSheetPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `context`.
 
-> Necessita configurar para funcionar.
+> You need to configure it to work.
 
 ```dart
 bottomSheetPlus.show(
@@ -643,7 +646,7 @@ bottomSheetPlus.show(
 ```
 ![BottomSheetPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/bottom_sheet_plus.png)
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 bottomSheetPlus.show(...);
@@ -651,9 +654,9 @@ bottomSheetPlus.show(...);
 FlutterPlus.bottomSheet.show(...);
 ```
 
-**• Configuração:**
+**• Configuration:**
 
-> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+> Recommended: Replace MaterialApp with FlutterAppPlus.
 
 ```dart
 return FlutterAppPlus(
@@ -662,7 +665,7 @@ return FlutterAppPlus(
 );
 ```
 
-> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+> Alternative: Add the keys of the navigatorPlus and snackBarPlus.
 
 ```dart
 MaterialApp(
@@ -679,12 +682,12 @@ MaterialApp(
 
 ### `📌 DialogPlus`
 
-O DialogPlus possibilita abrir um dialog com layout já definido um próprio.
+DialogPlus makes it possible to open a dialog with an already defined layout.
 
-> Necessita configurar para funcionar.
+> You need to configure it to work.
 
 ```dart
-// Abertura de Dialog default customizável
+// Opening of customizable default Dialog
 
 const url = 'https://github.com/gbmiranda/flutter_plus';
 
@@ -710,7 +713,7 @@ dialogPlus.showDefault(
 ![DialogPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/dialog_plus_default.png)
 
 ```dart
-// Abertura de Dialog com layout próprio
+// Dialog opening with its own layout
 
   dialogPlus.show(
     child: CustomWidget(),
@@ -721,7 +724,7 @@ dialogPlus.showDefault(
 
 ![DialogPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/dialog_plus_custom.png)
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 dialogPlus.show(...);
@@ -729,9 +732,9 @@ dialogPlus.show(...);
 FlutterPlus.dialog.show(...);
 ```
 
-**• Configuração:**
+**• Configuration:**
 
-> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+> Recommended: Replace MaterialApp with FlutterAppPlus.
 
 ```dart
 return FlutterAppPlus(
@@ -740,7 +743,7 @@ return FlutterAppPlus(
 );
 ```
 
-> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+> Alternative: Add the keys of the navigatorPlus and snackBarPlus.
 
 ```dart
 MaterialApp(
@@ -757,10 +760,12 @@ MaterialApp(
 
 ### `📌 SnackBarPlus`
 
-O SnackBarPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `scaffold`.
+SnackBarPlus allows you to open your code anywhere, without the need for a scaffold.
+
+> You need to configure it to work.
 
 ```dart
-// Abertura de SnackBar com texto simples
+// SnackBar opening with plain text
 
 snackBarPlus.showText(
   'FlutterPlus',
@@ -774,7 +779,7 @@ snackBarPlus.showText(
 ![SnackBarPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/snack_bar_plus_default.png)
 
 ```dart
-// Abertura de SnackBar com widget customizado
+// SnackBar opening with custom widget
 
 snackBarPlus.show(
 	backgroundColor: Colors.green,
@@ -807,9 +812,9 @@ snackBarPlus.show(
 ```
 ![SnackBarPlus example](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/snack_bar_plus_custom.png)
 
-**• Configuração:**
+**• Configuration:**
 
-> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+> Recommended: Replace MaterialApp with FlutterAppPlus.
 
 ```dart
 return FlutterAppPlus(
@@ -818,7 +823,7 @@ return FlutterAppPlus(
 );
 ```
 
-> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+> Alternative: Add the keys of the navigatorPlus and snackBarPlus.
 
 ```dart
 MaterialApp(
@@ -833,7 +838,7 @@ MaterialApp(
 );
 ```
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 snackBarPlus.show(...);
@@ -843,26 +848,26 @@ FlutterPlus.snackBar.show(...);
 
 ### `📌 LocalStoragePlus`
 
-O LocalStoragePlus possibilita persistir e acessar dados locais em qualquer lugar do seu código.
+LocalStoragePlus makes it possible to persist and access local data anywhere in your code.
 
 ```dart
-// Salvar dados locais
+// Save local data
 await localStoragePlus.write('lib_name', 'flutter_plus');
 
-// Ler dados locais
+// Read local data
 await localStoragePlus.read('lib_name');
 
-// Apagar dados locais
+// Erase local data
 await localStoragePlus.delete('lib_name');
 
-// Verificar se existe dados locais
+// Check for local data
 await localStoragePlus.containsKey('lib_name');
 
-// Limpar todos os dados locais
+// Clear all local data
 await localStoragePlus.clear();
 ```
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 localStoragePlus...;
@@ -870,21 +875,21 @@ localStoragePlus...;
 FlutterPlus.localStorage...;
 ```
 
-> Utiliza a dependência `shared_preferences`.
+> Uses the `shared_preferences` dependency.
 
 ### `📌 UtilsPlus`
 
-UtilsPlus disponibiliza funções para auxiliar no desenvolvimento do seu aplicativo.
+UtilsPlus provides functions to assist in the development of your application.
 
 ```dart
-// Fechar o teclado caso esteja aberto
+// Close the keyboard if it is open
 utilsPlus.closeKeyboard();
 
-// Obter um Color a partir de um Hex
+// Get a Color from a Hex
 Color customColor = utilsPlus.colorHex('FFFFFF');
 ```
 
-**• Acesso:**
+**• Access:**
 
 ```dart
 utilsPlus...;
@@ -894,17 +899,17 @@ FlutterPlus.utils...;
 
 ## 🧩 ExtensionsPlus
 
-Por último mas não menos importante, ***Extensions*** são uma poderosa ferramenta para facilitar certas tarefas sem a necessidade de replicar código várias vezes.
+Last but not least, *** Extensions *** are a powerful tool to make certain tasks easier without having to replicate code multiple times.
 
-Nessa seção você irá várias extensões para os tipos ***String***, ***Date***, ***Num***, ***File***, ***Duration***.
+In this section you will find various extensions for the types ***String***, ***Date***, ***Num***, ***File***, ***Duration***.
 
-> As vezes é difiícl manter tudo atualizado, então podem surgir novas propriedades que não estão aqui.s
+> Sometimes it is difficult to keep everything up to date, so new properties may appear that are not here.
 
 ### `📌 StringExtensionPlus`
 
-**• Propriedades:**
+**• Properties:**
 
-| Propriedade | Exemplo | Resultado |
+| Property | Example | Result |
 | ---| --- | --- |
 | toDate | `"11/08/1992".toDate(format: "dd/MM/yyyy");` | DateTime
 | capitalizeFirstWord | `"flutter plus".capitalizeFirstWord;` | Flutter plus
@@ -927,7 +932,7 @@ Nessa seção você irá várias extensões para os tipos ***String***, ***Date*
 | isCelular | `"flutter plus".isCelular;` | false
 | isTelefone | `"flutter plus".isTelefone;` | false
 
-**• Exemplo:**
+**• Example:**
 
 ```dart
 String dateStr = "01/01/2020 10:00:00";
@@ -938,20 +943,20 @@ print(date.year);
 
 ### `📌 DateExtensionPlus`
 
-**• Propriedades:**
+**• Properties:**
 
-| Propriedade | Tipo Retorno | Função |
+| Property | Return Type | Result |
 | ---| --- | --- |
-| format | `String` | String com a data formatada 
-| daysOfMonth | `int` | Quantidade de dias do mês
-| daysOfYear | `int` | Quantidade de dias do ano (366 quando ano binário)
-| isToday | `bool` | Verdadeiro ou falso
-| monthName | `String` | Nome do mês
-| monthNameSort | `String` | Nome do mês resumido
-| weekName | `String` | Dia da semana
-| weekNameSort | `String` | Dia da semana resumido
+| format | `String` | String with formatted date
+| daysOfMonth | `int` | Number of days of the month
+| daysOfYear | `int` | Number of days in the year (366 when binary year)
+| isToday | `bool` | True or false
+| monthName | `String` | Month name
+| monthNameSort | `String` | Summarized month name
+| weekName | `String` | Day of the week
+| weekNameSort | `String` | Summary day of the week
 
-**• Exemplo:**
+**• Example:**
 
 ```dart
 DateTime.now date = DateTime.now();
@@ -962,22 +967,22 @@ print(dateStr);
 
 ### `📌 NumExtensionPlus`
 
-**• Propriedades:**
+**• Properties:**
 
-| Propriedade | Tipo Retorno | Função |
+| Property | Return Type | Result |
 | ---| --- | --- |
-| toCurrency | `String` | Formata para moeda local
-| toCurrencyCompact | `String` | Formata para moeda local resumida
-| toPrecision | `double` | Define número de casas decimais
-| daysToHours | `int` | Dias para horas
-| minutesToHours | `int` | Minutos para horas
-| secondsToHours | `int` | Segundos para horas
-| hoursToDays | `int` | Horas para dias
-| secondsToMinutes | `int` | Segundos para minutos
-| hoursToMinutes | `int` | Horas para minutos
-| isNullOrZero | `bool` | Verifica se é diferente de nulo ou zero
+| toCurrency | `String` | Formats to local currency
+| toCurrencyCompact | `String` | Formats to summarized local currency
+| toPrecision | `double` | Sets number of decimal places
+| daysToHours | `int` | Days to hours
+| minutesToHours | `int` | Minutes to hours
+| secondsToHours | `int` | Seconds to hours
+| hoursToDays | `int` | Hours to days
+| secondsToMinutes | `int` | Seconds to minutes
+| hoursToMinutes | `int` | Hours to minutes
+| isNullOrZero | `bool` | Checks if it is different from null or zero
 
-**• Exemplo:**
+**• Example:**
 
 ```dart
 double value = 13512.98;
@@ -988,14 +993,14 @@ print(value.toCurrency());
 
 ### `📌 FileExtensionPlus`
 
-**• Propriedades:**
+**• Properties:**
 
-| Propriedade | Tipo Retorno | Função |
+| Property | Return Type | Result |
 | ---| --- | --- |
-| base64Sync | `String` | Converte para base64 sync
-| base64Async | `String` | Converte para base64 async
+| base64Sync | `String` | Converts to base64 sync
+| base64Async | `String` | Converts to base64 async
 
-**• Exemplo:**
+**• Example:**
 
 ```dart
 File customFile = File(path);
@@ -1004,21 +1009,21 @@ String base64 = customFile.base64Sync;
 
 ### `📌 DurationExtensionPlus`
 
-**• Propriedades:**
+**• Properties:**
 
-| Propriedade | Tipo Retorno | Função |
+| Property | Return Type | Result |
 | ---| --- | --- |
-| months | `int` | Retorna a quantidade de meses do Duration
-| days | `int` | Retorna a quantidade de dias do Duration
-| hours | `int` | Retorna a quantidade de horas do Duration
-| hoursStr | `String` | Retorna a quantidade de horas formatada do Duration
-| minutes | `int` | Retorna a quantidade de minutos do Duration
-| minutesStr | `String` | Retorna a quantidade de minutos formatado do Duration
-| seconds | `int` | Retorna a quantidade de segundos do Duration
-| secondsStr | `String` | Retorna a quantidade de segundos formatado do Duration
-| formattedDuration | `String` | Retorna o Duration formatado
+| months | `int` | Returns the number of months of Duration
+| days | `int` | Returns the number of days of Duration
+| hours | `int` | Returns the number of hours of Duration
+| hoursStr | `String` | Returns the formatted number of hours of Duration
+| minutes | `int` | Returns the number of minutes of Duration
+| minutesStr | `String` | Returns the formatted number of minutes of Duration
+| seconds | `int` | Returns the number of seconds of Duration
+| secondsStr | `String` | Returns the formatted number of seconds of Duration
+| formattedDuration | `String` | Returns the formatted Duration
 
-**• Exemplo:**
+**• Example:**
 
 ```dart
 Duration customDuration = Duration(hours: 10, minutes: 4, seconds: 55);
@@ -1028,9 +1033,9 @@ print(customDuration.minutesStr); // 04
 print(customDuration.formattedDuration); // 10:04:55
 ```
 
-## ⚙️ Atributos
+## ⚙️ Attributes
 
-Os atributos de customização abaixo são utilizados na maioria dos Widgets acima.
+The customization attributes below are used in most of the widgets above.
 
 ### `📌 BorderPlus`
 
@@ -1152,11 +1157,11 @@ TextDecorationPlus(
 );
 ```
 
-# 🎯 Próximos passos
+# 🎯 Next Steps
 
-📌 Documentação detalhada dos componentes.
+📌 Detailed documentation of the components.
 
-📌 Rotas
+📌 Route Navigation
 
 📌 ScaffoldPlus.
 

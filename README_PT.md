@@ -1156,7 +1156,7 @@ TextDecorationPlus(
 
 📌 Documentação detalhada dos componentes.
 
-📌 Rotas
+📌 Navegação por Rotas
 
 📌 ScaffoldPlus.
 
