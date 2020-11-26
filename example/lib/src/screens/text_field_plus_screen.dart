@@ -35,7 +35,7 @@ class TextFieldPlusScreen extends StatelessWidget {
   }
 
   _buildExample1() {
-    TextFieldPlus(
+    return TextFieldPlus(
       padding: EdgeInsets.symmetric(horizontal: 8),
       height: 60,
       backgroundColor: Colors.black12,
@@ -58,7 +58,7 @@ class TextFieldPlusScreen extends StatelessWidget {
   }
 
   _buildExample2() {
-    TextFieldPlus(
+    return TextFieldPlus(
       margin: EdgeInsets.only(top: 24),
       padding: EdgeInsets.symmetric(horizontal: 8),
       height: 60,
@@ -74,7 +74,7 @@ class TextFieldPlusScreen extends StatelessWidget {
   }
 
   _buildExample3() {
-    TextFieldPlus(
+    return TextFieldPlus(
       margin: EdgeInsets.only(top: 24),
       padding: EdgeInsets.symmetric(horizontal: 8),
       height: 60,

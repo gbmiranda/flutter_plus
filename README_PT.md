@@ -11,20 +11,13 @@
 - [FlutterPlus](#-flutterplus)
 - [Instalação](#-instalação)
 - [Exemplos](#-exemplos)
+	- [Demonstração](#-demonstração)
 	- [Widgets](#-widgets)
 		- [ContainerPlus](#-containerplus)
 		- [ButtonPlus](#-buttonplus)
 		- [TextFieldPlus](#-textfieldplus)
 		- [TextPlus](#-textplus)
 		- [RichTextPlus](#-richtextplus)
-	- [Atributos](#-atributos)
-		- [BorderPlus](#-borderplus)
-		- [GradientPlus](#-gradientplus)
-		- [InnerShadowPlus](#-innershadowplus)
-		- [RadiusPlus](#-radiusplus)
-		- [ShadowPlus](#-shadowplus)
-		- [SkeletonPlus](#-skeletonplus)
-		- [TextDecorationPlus](#-textdecorationplus)
 	- [Utils](#-utils)
 		- [NavigatorPlus](#-navigatorplus)
 		- [BottomSheetPlus](#-bottomsheetplus)
@@ -38,6 +31,14 @@
 		- [NumExtensionPlus](#-numextensionplus)
 		- [FileExtensionPlus](#-fileextensionplus)
 		- [DurationExtensionPlus](#-durationextensionplus)
+	- [Atributos](#-atributos)
+		- [BorderPlus](#-borderplus)
+		- [GradientPlus](#-gradientplus)
+		- [InnerShadowPlus](#-innershadowplus)
+		- [RadiusPlus](#-radiusplus)
+		- [ShadowPlus](#-shadowplus)
+		- [SkeletonPlus](#-skeletonplus)
+		- [TextDecorationPlus](#-textdecorationplus)
 - [Próximos Passos](#-próximos-passos)
 
 # 👾 FlutterPlus
@@ -86,14 +87,17 @@ A seguir existem exemplos de como usar e configurar os principais recursos da bi
 
 _*Você também encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
 
-<!--### 🍬 Comparativo
--->
+## 🍬 Demonstração
+
+Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro com widgets nativos e o segundo utilizando a biblioteca.
+
+> Um Container customizado com um texto centralizado que aceite interação do usuário. 
 
 ## 🛠 Widgets
 
 Os *Widgets* abaixo são evoluções dos nativos do Flutter. Foram criados para aumentar a produtividade facilitar a customização, com atributos mais poderosos e intuitivos. 
 
-> Crie Widgets mais complexos com menos código.
+> **Crie Widgets mais complexos com menos código.**
 
 ### `📌 ContainerPlus`
 
@@ -199,8 +203,6 @@ ContainerPlus(
 ```
 
 ### `📌 ButtonPlus`
-
-O **ButtonPlus** oferece tudo que o Button nativo e muito mais!
 
 > **Exemplo 1:**
 
@@ -332,8 +334,6 @@ ButtonPlus(
 
 ### `📌 TextFieldPlus`
 
-O **TextFieldPlus** oferece tudo que o TextField nativo e muito mais!
-
 > **Exemplo 1:**
 
 ```dart
@@ -412,8 +412,6 @@ TextFieldPlus(
 
 ### `📌 TextPlus`
 
-O **TextPlus** oferece tudo que o Text nativo e muito mais!
-
 > **Exemplo 1:**
 
 ```dart
@@ -482,8 +480,6 @@ TextPlus(
 
 ### `📌 RichTextPlus`
 
-O **RichTextPlus** oferece tudo que o RichText nativo e muito mais!
-
 ```dart
 RichTextPlus(
   texts: [
@@ -520,129 +516,6 @@ RichTextPlus(
   ],
 );
 ```
-## ⚙️ Atributos
-
-Os atributos de customização abaixo são utilizados na maioria dos Widgets acima.
-
-### `📌 BorderPlus`
-
-```dart
-BorderPlus(
-  color: Colors.black,
-  style: BorderStyle.solid,
-  width: 2.0,
-);
-```
-
-### `📌 GradientPlus`
-
-```dart
-GradientPlus.linear(
-  colors: [Colors.black, Colors.white],
-  begin: Alignment.centerLeft,
-  end: Alignment.centerRight,
-  stops: [0.2, 0.8],
-);
-```
-
-```dart
-GradientPlus.radial(
-  colors: [Colors.black, Colors.white],
-  center: Alignment.centerLeft,
-  focal: Alignment.bottomCenter,
-  focalRadius: 1.5,
-  radius: 4.5,
-  stops: [0.3, 0.7],
-);
-```
-
-```dart
-GradientPlus.sweep(
-  colors: [Colors.black, Colors.white],
-  center: Alignment.centerLeft,
-  startAngle: 1.5,
-  endAngle: 3.2,
-  stops: [0.5, 0.8],
-);
-```
-
-### `📌 InnerShadowPlus`
-
-```dart
-InnerShadowPlus(
-  color: Colors.red,
-  blur: 10.0,
-  moveDown: 4.5,
-  moveRight: 2.5,
-  opacity: 0.5,
-);
-```
-### `📌 RadiusPlus`
-
-```dart
-RadiusPlus.all(12.0);
-```
-
-```dart
-RadiusPlus.bottom(12.0);
-```
-
-```dart
-RadiusPlus.top(12.0);
-```
-
-```dart
-RadiusPlus.only(
-  topLeft: 10.0,
-  topRight: 16.0,
-  bottomLeft: 4.0,
-  bottomRight: 8.0,
-);
-```
-
-### `📌 ShadowPlus`
-
-```dart
-ShadowPlus(
-  color: Colors.red,
-  blur: 10.0,
-  spread: 2.5,
-  moveDown: 4.5,
-  moveRight: 2.5,
-  opacity: 0.5,
-);
-```
-
-### `📌 SkeletonPlus`
-
-```dart
-bool isLoading = true;
-SkeletonPlus.automatic(enabled: isLoading);
-```
-
-```dart
-bool isLoading = true;
-SkeletonPlus.custom(
-  enabled: isLoading,
-  baseColor: Colors.black87,
-  highlightColor: Colors.black26,
-  duration: Duration(
-    milliseconds: 500,
-  ),
-  showBorders: false,
-  showShadows: false,
-);
-```
-
-### `📌 TextDecorationPlus`
-
-```dart
-TextDecorationPlus(
-  color: Colors.red,
-  decorationStyle: TextDecorationStyle.dashed,
-  decorationThickness: 0.5,
-);
-```
 
 ## 🔧 Utils
 
@@ -655,41 +528,41 @@ O NavigatorPlus possibilita a navegação entre telas de qualquer lugar do seu c
 **• Navegar para próxima tela:**
 
 ```dart
-// Navegar para tela desejada.
+// Navegar para tela desejada
 navigatorPlus.show(NextScreen());
 ```
 
 ```dart
-// Abrir tela desejada como modal.
+// Abrir tela desejada como modal
 navigatorPlus.showModal(NextScreen());
 ```
 
 **• Voltar tela:**
 
 ```dart
-// Voltar para tela anterior.
+// Voltar para tela anterior
 navigatorPlus.back();
 ```
 
 ```dart
-// Verificar se existe tela anterior para voltar.
+// Verificar se existe tela anterior para voltar
 if (navigatorPlus.canBack) {
-	navigatorPlus.back();
+  navigatorPlus.back();
 }
 ```
 
 ```dart
-// Voltar para primeira tela da pilha.
+// Voltar para primeira tela da pilha
 navigatorPlus.backAll();
 ```
 
 **• Retornar dados para tela de origem:**
 
 ```dart
-// Chamar a próxima tela com await esperando um retorno.
+// Chamar a próxima tela com await esperando um retorno
 var result = await navigatorPlus.show(NextScreen());
 
-// Voltar para tela anterior passando os dados desejados.
+// Voltar para tela anterior passando os dados desejados
 navigatorPlus.back(result: customData);
 ```
 
@@ -722,15 +595,15 @@ MaterialApp(
 **• Context:**
 
 ```dart
-// Pegar context atual.
+// Pegar context atual
 BuildContext context = navigatorPlus.currentContext;
 ```
 
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
 navigatorPlus.show(NextScreen());
+
 FlutterPlus.navigator.show(NextScreen());
 ```
 
@@ -738,42 +611,122 @@ FlutterPlus.navigator.show(NextScreen());
 
 O BottomSheetPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `context`.
 
-> Necessita configurar o NavigatorPlus para funcionar.
+> Necessita configurar para funcionar.
 
 ```dart
-bottomSheetPlus.show(child: YourBottomSheet());
+bottomSheetPlus.show(
+  child: CustomWidget(),
+  radius: RadiusPlus.top(20),
+  heightPercentScreen: 0.3,
+);
 ```
-
-**• Atributos Plus:**
-
-| Atributo | Tipo | Função |
-| --- | --- | --- |
-| heightPercentScreen | `double` | Utilizar uma porcentagem da tela de 0.0 a 1.0 (100%). |
-| height | `double` | Utilizar uma altura exata da tela. |
-| onClosed | `Function(dynamic result)` | Capturar valor retornado pelo BottomSheet ao fechar. |
-| radius | `RadiusPlus`  | Arredondar as bordas do BottomSheet. |
-| border | `BorderPlus`  | Criar uma borda em torno do BottomSheet. |
 
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
 bottomSheetPlus.show(...);
+
 FlutterPlus.bottomSheet.show(...);
+```
+
+**• Configuração:**
+
+> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+
+```dart
+return FlutterAppPlus(
+  title: 'Flutter Plus Example',
+  home: HomeScreen(),
+);
+```
+
+> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+
+```dart
+MaterialApp(
+  title: 'Flutter Plus Example',
+  navigatorKey: navigatorPlus.key,
+  builder: (context, child) {
+    return Scaffold(
+      key: snackBarPlus.scaffoldKey,
+      body: child,
+    );
+  },
+);
 ```
 
 ### `📌 DialogPlus`
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et.
+O DialogPlus possibilita abrir um dialog com layout já definido um próprio.
 
-> Necessita configurar o NavigatorPlus para funcionar.
+> Necessita configurar para funcionar.
+
+```dart
+// Abertura de Dialog default customizável
+
+const url = 'https://github.com/gbmiranda/flutter_plus';
+
+dialogPlus.showDefault(
+	title: 'FlutterPlus',
+	message: url,
+	elementsSpacing: 16,
+	buttonOneText: 'Close',
+	buttonOneColor: Colors.red,
+	buttonOneCallback: () {
+	  navigatorPlus.back();
+	},
+	buttonTwoText: 'Open',
+	buttonTwoCallback: () async {
+	  if (await canLaunch(url)) {
+	    await launch(url);
+	  } else {
+	    throw 'Could not launch $url';
+	  }
+	},
+);
+```
+```dart
+// Abertura de Dialog com layout próprio
+
+  dialogPlus.show(
+    child: CustomWidget(),
+    radius: RadiusPlus.all(20),
+    closeKeyboardWhenOpen: true,
+  );
+```
 
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
 dialogPlus.show(...);
+
 FlutterPlus.dialog.show(...);
+```
+
+**• Configuração:**
+
+> Recomendada: Substituir o MaterialApp pelo FlutterAppPlus.
+
+```dart
+return FlutterAppPlus(
+  title: 'Flutter Plus Example',
+  home: HomeScreen(),
+);
+```
+
+> Alternativa: Adicionar as chaves do navigatorPlus e do snackBarPlus.
+
+```dart
+MaterialApp(
+  title: 'Flutter Plus Example',
+  navigatorKey: navigatorPlus.key,
+  builder: (context, child) {
+    return Scaffold(
+      key: snackBarPlus.scaffoldKey,
+      body: child,
+    );
+  },
+);
 ```
 
 ### `📌 SnackBarPlus`
@@ -781,11 +734,48 @@ FlutterPlus.dialog.show(...);
 O SnackBarPlus possibilita a abertura em qualquer lugar do seu código, sem a necessidade de um `scaffold`.
 
 ```dart
-// Abertura de SnackBar com texto simples. 
-snackBarPlus.showText('Your Text');
+// Abertura de SnackBar com texto simples
 
-// Abertura de SnackBar com widget customizado. 
-snackBarPlus.show(child: YourWidget());
+snackBarPlus.showText(
+  'FlutterPlus',
+  textColor: Colors.white,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+  backgroundColor: Colors.green,
+);
+```
+
+```dart
+// Abertura de SnackBar com widget customizado
+
+snackBarPlus.show(
+backgroundColor: Colors.green,
+child: Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Icon(
+      Icons.star,
+      color: Colors.yellow,
+    ),
+    SizedBox(
+      width: 8,
+    ),
+    TextPlus(
+      'FlutterPlus!',
+      color: Colors.white,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+    SizedBox(
+      width: 8,
+    ),
+    Icon(
+      Icons.star,
+      color: Colors.yellow,
+    ),
+  ],
+),
+);
 ```
 
 **• Configuração:**
@@ -817,8 +807,8 @@ MaterialApp(
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
 snackBarPlus.show(...);
+
 FlutterPlus.snackBar.show(...);
 ```
 
@@ -827,27 +817,25 @@ FlutterPlus.snackBar.show(...);
 O LocalStoragePlus possibilita persistir e acessar dados locais em qualquer lugar do seu código.
 
 ```dart
-// Salvar dados locais. 
+// Salvar dados locais
 await localStoragePlus.write('lib_name', 'flutter_plus');
 
-// Ler dados locais. 
+// Ler dados locais
 await localStoragePlus.read('lib_name');
 
-// Apagar dados locais. 
+// Apagar dados locais
 await localStoragePlus.delete('lib_name');
 
-// Verificar se existe dados locais. 
+// Verificar se existe dados locais
 await localStoragePlus.containsKey('lib_name');
 
-// Limpar todos os dados locais. 
+// Limpar todos os dados locais
 await localStoragePlus.clear();
 ```
 
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
-
 localStoragePlus...;
 
 FlutterPlus.localStorage...;
@@ -860,18 +848,16 @@ FlutterPlus.localStorage...;
 UtilsPlus disponibiliza funções para auxiliar no desenvolvimento do seu aplicativo.
 
 ```dart
-// Fechar o teclado caso esteja aberto. 
+// Fechar o teclado caso esteja aberto
 utilsPlus.closeKeyboard();
 
-// Obter um Color a partir de um Hex. 
+// Obter um Color a partir de um Hex
 Color customColor = utilsPlus.colorHex('FFFFFF');
 ```
 
 **• Acesso:**
 
 ```dart
-// Formas de acessar.
-
 utilsPlus...;
 
 FlutterPlus.utils...;
@@ -1011,6 +997,130 @@ print(customDuration.days); // 0
 print(customDuration.hours); // 10
 print(customDuration.minutesStr); // 04
 print(customDuration.formattedDuration); // 10:04:55
+```
+
+## ⚙️ Atributos
+
+Os atributos de customização abaixo são utilizados na maioria dos Widgets acima.
+
+### `📌 BorderPlus`
+
+```dart
+BorderPlus(
+  color: Colors.black,
+  style: BorderStyle.solid,
+  width: 2.0,
+);
+```
+
+### `📌 GradientPlus`
+
+```dart
+GradientPlus.linear(
+  colors: [Colors.black, Colors.white],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  stops: [0.2, 0.8],
+);
+```
+
+```dart
+GradientPlus.radial(
+  colors: [Colors.black, Colors.white],
+  center: Alignment.centerLeft,
+  focal: Alignment.bottomCenter,
+  focalRadius: 1.5,
+  radius: 4.5,
+  stops: [0.3, 0.7],
+);
+```
+
+```dart
+GradientPlus.sweep(
+  colors: [Colors.black, Colors.white],
+  center: Alignment.centerLeft,
+  startAngle: 1.5,
+  endAngle: 3.2,
+  stops: [0.5, 0.8],
+);
+```
+
+### `📌 InnerShadowPlus`
+
+```dart
+InnerShadowPlus(
+  color: Colors.red,
+  blur: 10.0,
+  moveDown: 4.5,
+  moveRight: 2.5,
+  opacity: 0.5,
+);
+```
+### `📌 RadiusPlus`
+
+```dart
+RadiusPlus.all(12.0);
+```
+
+```dart
+RadiusPlus.bottom(12.0);
+```
+
+```dart
+RadiusPlus.top(12.0);
+```
+
+```dart
+RadiusPlus.only(
+  topLeft: 10.0,
+  topRight: 16.0,
+  bottomLeft: 4.0,
+  bottomRight: 8.0,
+);
+```
+
+### `📌 ShadowPlus`
+
+```dart
+ShadowPlus(
+  color: Colors.red,
+  blur: 10.0,
+  spread: 2.5,
+  moveDown: 4.5,
+  moveRight: 2.5,
+  opacity: 0.5,
+);
+```
+
+### `📌 SkeletonPlus`
+
+```dart
+bool isLoading = true;
+SkeletonPlus.automatic(enabled: isLoading);
+```
+
+```dart
+bool isLoading = true;
+SkeletonPlus.custom(
+  enabled: isLoading,
+  baseColor: Colors.black87,
+  highlightColor: Colors.black26,
+  duration: Duration(
+    milliseconds: 500,
+  ),
+  showBorders: false,
+  showShadows: false,
+);
+```
+
+### `📌 TextDecorationPlus`
+
+```dart
+TextDecorationPlus(
+  color: Colors.red,
+  decorationStyle: TextDecorationStyle.dashed,
+  decorationThickness: 0.5,
+);
 ```
 
 # 🎯 Próximos passos

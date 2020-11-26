@@ -41,7 +41,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample1() {
-    ButtonPlus(
+    return ButtonPlus(
       width: 200,
       height: 60,
       radius: RadiusPlus.all(12),
@@ -62,7 +62,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample2() {
-    ButtonPlus(
+    return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
@@ -101,7 +101,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   }
 
   _buildExample3() {
-    ButtonPlus(
+    return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
@@ -134,7 +134,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
   bool isLoading = false;
 
   _buildExample4() {
-    ButtonPlus(
+    return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,

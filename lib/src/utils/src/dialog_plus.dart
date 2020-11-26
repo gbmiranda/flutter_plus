@@ -19,11 +19,11 @@ class DialogPlus {
     RadiusPlus radius,
     BorderPlus border,
     double elevation = 1,
+    double screenHorizontalMargin,
   }) {
     if (closeKeyboardWhenOpen == true) {
       utilsPlus.closeKeyboard();
     }
-    // mainAxisSize: MainAxisSize.min,
     showDialog(
       context: navigatorPlus.currentContext,
       barrierColor: barrierColor,
@@ -31,15 +31,48 @@ class DialogPlus {
       routeSettings: routeSettings,
       useRootNavigator: useRootNavigator,
       useSafeArea: useSafeArea,
-      child: this._createDialog(child, elevation, radius, border),
+      child: this._createDialog(
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [child],
+        ),
+        elevation,
+        radius,
+        border,
+        screenHorizontalMargin,
+      ),
     );
   }
 
-  void showDefaultOneButton({
-    @required TextPlus message,
-    TextPlus title,
-    ButtonPlus buttonOne,
-    ButtonPlus buttonTwo,
+  void showDefault({
+    // title
+    String title,
+    Color titleColor,
+    double titleSize,
+    FontWeight titleWeight,
+    // message
+    String message,
+    Color messageColor,
+    double messageSize,
+    FontWeight messageWeight,
+    // button one
+    String buttonOneText,
+    Color buttonOneTextColor,
+    double buttonOneTextSize,
+    FontWeight buttonOneTextWeight,
+    Color buttonOneColor,
+    RadiusPlus buttonOneRadius,
+    Function buttonOneCallback,
+    // buttonTwo
+    String buttonTwoText,
+    Color buttonTwoTextColor,
+    double buttonTwoTextSize,
+    FontWeight buttonTwoTextWeight,
+    Color buttonTwoColor,
+    RadiusPlus buttonTwoRadius,
+    Function buttonTwoCallback,
+    // others
+    double buttonsHeight,
     EdgeInsetsGeometry padding,
     Color barrierColor,
     bool barrierDismissible = true,
@@ -48,64 +81,141 @@ class DialogPlus {
     BorderPlus border,
     double elevation = 1,
     double elementsSpacing = 16,
+    double screenHorizontalMargin,
   }) {
     if (closeKeyboardWhenOpen == true) {
       utilsPlus.closeKeyboard();
     }
     showDialog(
-        context: navigatorPlus.currentContext,
-        barrierColor: barrierColor,
-        barrierDismissible: (buttonOne == null || buttonTwo == null)
-            ? true
-            : barrierDismissible,
-        builder: (context) {
-          Widget buttonsContent;
-          if (buttonOne == null && buttonTwo == null) {
-            buttonsContent = SizedBox.shrink();
-          } else if (buttonOne != null && buttonTwo != null) {
-            buttonsContent = Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                buttonOne,
-                SizedBox(
-                  width: elementsSpacing,
+      context: navigatorPlus.currentContext,
+      barrierColor: barrierColor,
+      barrierDismissible: (buttonOneText == null || buttonOneText == null)
+          ? true
+          : barrierDismissible,
+      builder: (context) {
+        Widget buttonsContent;
+        if (buttonOneText.isNotNullOrEmpty && buttonTwoText.isNotNullOrEmpty) {
+          buttonsContent = Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: this._createButton(
+                  buttonOneText,
+                  buttonOneTextColor,
+                  buttonOneTextSize,
+                  buttonOneTextWeight,
+                  buttonsHeight,
+                  buttonOneColor,
+                  buttonOneRadius,
+                  buttonOneCallback,
                 ),
-                buttonTwo,
-              ],
-            );
-          } else if (buttonOne != null) {
-            buttonsContent = buttonOne;
-          } else if (buttonTwo != null) {
-            buttonsContent = buttonTwo;
-          } else {
-            buttonsContent = SizedBox.shrink();
-          }
-
-          var dialogContent = Padding(
-            padding: padding ?? EdgeInsets.all(16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                title ?? SizedBox.shrink(),
-                SizedBox(
-                  height: elementsSpacing,
+              ),
+              SizedBox(
+                width: elementsSpacing,
+              ),
+              Expanded(
+                child: this._createButton(
+                  buttonTwoText,
+                  buttonTwoTextColor,
+                  buttonTwoTextSize,
+                  buttonTwoTextWeight,
+                  buttonsHeight,
+                  buttonTwoColor,
+                  buttonTwoRadius,
+                  buttonTwoCallback,
                 ),
-                message,
-                SizedBox(
-                  height: elementsSpacing,
-                ),
-                buttonsContent,
-              ],
-            ),
+              )
+            ],
           );
-          return this._createDialog(dialogContent, elevation, radius, border);
-        });
+        } else if (buttonOneText.isNotNullOrEmpty) {
+          buttonsContent = this._createButton(
+            buttonOneText,
+            buttonOneTextColor,
+            buttonOneTextSize,
+            buttonOneTextWeight,
+            buttonsHeight,
+            buttonOneColor,
+            buttonOneRadius,
+            buttonOneCallback,
+          );
+        } else if (buttonTwoText.isNotNullOrEmpty) {
+          buttonsContent = this._createButton(
+            buttonTwoText,
+            buttonTwoTextColor,
+            buttonTwoTextSize,
+            buttonTwoTextWeight,
+            buttonsHeight,
+            buttonTwoColor,
+            buttonTwoRadius,
+            buttonTwoCallback,
+          );
+        }
+
+        TextPlus titleWidget;
+        if (title != null) {
+          titleWidget = TextPlus(
+            title,
+            color: titleColor ?? Colors.black,
+            fontSize: titleSize ?? 20,
+            fontWeight: titleWeight ?? FontWeight.w700,
+            textAlign: TextAlign.center,
+            textOverflow: TextOverflow.ellipsis,
+          );
+        }
+
+        TextPlus messageWidget;
+        if (message != null) {
+          messageWidget = TextPlus(
+            message,
+            color: messageColor ?? Colors.grey,
+            fontSize: messageSize ?? 16,
+            fontWeight: messageWeight ?? FontWeight.normal,
+            textAlign: TextAlign.center,
+            textOverflow: TextOverflow.ellipsis,
+          );
+        }
+
+        var dialogContent = Padding(
+          padding: padding ?? EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              titleWidget ?? SizedBox.shrink(),
+              messageWidget != null
+                  ? SizedBox(
+                      height: elementsSpacing,
+                    )
+                  : SizedBox.shrink(),
+              messageWidget ?? SizedBox.shrink(),
+              buttonsContent != null
+                  ? SizedBox(
+                      height: elementsSpacing,
+                    )
+                  : SizedBox.shrink(),
+              buttonsContent ?? SizedBox.shrink(),
+            ],
+          ),
+        );
+        return this._createDialog(
+          dialogContent,
+          elevation,
+          radius ?? RadiusPlus.all(20),
+          border,
+          screenHorizontalMargin,
+        );
+      },
+    );
   }
 
   _createDialog(
-      Widget child, double elevation, RadiusPlus radius, BorderPlus border) {
+    Widget child,
+    double elevation,
+    RadiusPlus radius,
+    BorderPlus border,
+    double screenHorizontalMargin,
+  ) {
     return Dialog(
       child: ClipRRect(
         borderRadius: radius?.toBorderRadius ?? BorderRadius.zero,
@@ -116,6 +226,33 @@ class DialogPlus {
         borderRadius: radius?.toBorderRadius ?? BorderRadius.zero,
         side: border?.toBorderSide ?? BorderSide.none,
       ),
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: screenHorizontalMargin ?? 24,
+      ),
+    );
+  }
+
+  ButtonPlus _createButton(
+    String buttonText,
+    Color buttonTextColor,
+    double buttonTextSize,
+    FontWeight buttonTextWeight,
+    double buttonsHeight,
+    Color buttonColor,
+    RadiusPlus buttonRadius,
+    Function buttonCallback,
+  ) {
+    return ButtonPlus(
+      child: TextPlus(
+        buttonText,
+        color: buttonTextColor ?? Colors.white,
+        fontSize: buttonTextSize ?? 18,
+        fontWeight: buttonTextWeight ?? FontWeight.w700,
+      ),
+      height: buttonsHeight ?? 50,
+      color: buttonColor ?? Colors.blue,
+      radius: buttonRadius ?? RadiusPlus.all(12),
+      onPressed: buttonCallback,
     );
   }
 }

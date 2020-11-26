@@ -1,9 +1,13 @@
+import 'package:example/src/screens/compare_widget_screen.dart';
 import 'package:example/src/screens/container_plus_screen.dart';
+import 'package:example/src/screens/navigator_plus_screen.dart';
 import 'package:example/src/screens/rich_text_plus_screen.dart';
 import 'package:example/src/screens/text_field_plus_screen.dart';
 import 'package:example/src/screens/text_plus_screen.dart';
+import 'package:example/src/widgets/custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_plus/plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'button_plus_screen.dart';
 
@@ -23,6 +27,26 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: this._buildBody(),
+    );
+  }
+
+  _buildInfoButton() {
+    return ButtonPlus(
+      child: Icon(
+        Icons.info_outline,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        dialogPlus.showDefault(
+          title: 'FlutterPlus',
+          message: 'Developed by Gabriel Braga.',
+          buttonOneText: 'OK',
+          buttonOneColor: Colors.black,
+          buttonOneCallback: () {
+            navigatorPlus.back();
+          },
+        );
+      },
     );
   }
 
@@ -68,89 +92,196 @@ class HomeScreen extends StatelessWidget {
         Divider(
           color: Colors.black,
         ),
-        this._buildButton(
-          'NavigatorPlus',
-          Colors.blueAccent,
-          () {
-            // navigatorPlus.show(RichTextPlusScreen());
-          },
+        Row(
+          children: [
+            Expanded(
+              child: this._buildButton(
+                'NavigatorPlus:\nshowModal()',
+                Colors.blueAccent,
+                () {
+                  navigatorPlus.showModal(NavigatorPlusScreen());
+                },
+              ),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              child: this._buildButton(
+                'NavigatorPlus:\nshow()',
+                Colors.blueAccent,
+                () {
+                  navigatorPlus.show(NavigatorPlusScreen());
+                },
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: this._buildButton(
+                'SnackBarPlus:\nshowText()',
+                Colors.blueAccent,
+                () {
+                  snackBarPlus.showText(
+                    'FlutterPlus',
+                    textColor: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    backgroundColor: Colors.green,
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              child: this._buildButton(
+                'SnackBarPlus:\nshow()',
+                Colors.blueAccent,
+                () {
+                  snackBarPlus.show(
+                    backgroundColor: Colors.green,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        TextPlus(
+                          'FlutterPlus!',
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: this._buildButton(
+                'DialogPlus:\nshowDefault()',
+                Colors.blueAccent,
+                () {
+                  const url = 'https://github.com/gbmiranda/flutter_plus';
+                  dialogPlus.showDefault(
+                    title: 'FlutterPlus',
+                    message: url,
+                    elementsSpacing: 16,
+                    buttonOneText: 'Close',
+                    buttonOneColor: Colors.red,
+                    buttonOneCallback: () {
+                      navigatorPlus.back();
+                    },
+                    buttonTwoText: 'Open',
+                    buttonTwoCallback: () async {
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        print('Could not launch $url');
+                      }
+                    },
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              child: this._buildButton(
+                'DialogPlus:\nshow()',
+                Colors.blueAccent,
+                () {
+                  dialogPlus.show(
+                    child: CustomWidget(),
+                    radius: RadiusPlus.all(20),
+                    closeKeyboardWhenOpen: true,
+                  );
+                },
+              ),
+            )
+          ],
         ),
         this._buildButton(
           'BottomSheetPlus',
           Colors.blueAccent,
           () {
-            // navigatorPlus.show(RichTextPlusScreen());
-          },
-        ),
-        this._buildButton(
-          'DialogPlus',
-          Colors.blueAccent,
-          () {
-            // navigatorPlus.show(RichTextPlusScreen());
-          },
-        ),
-        this._buildButton(
-          'SnackBarPlus',
-          Colors.blueAccent,
-          () {
-            // navigatorPlus.show(RichTextPlusScreen());
+            bottomSheetPlus.show(
+              child: CustomWidget(),
+              radius: RadiusPlus.top(20),
+              heightPercentScreen: 0.3,
+            );
           },
         ),
         Divider(
           color: Colors.black,
         ),
         this._buildButton(
-          'UtilsPlus',
-          Colors.greenAccent,
+          'Compare Widgets',
+          Colors.orange,
           () {
-            // navigatorPlus.show(RichTextPlusScreen());
+            navigatorPlus.show(CompareWidgetScreen());
           },
         ),
         this._buildButton(
-          'ExtensionsPlus',
-          Colors.greenAccent,
+          'Open complete documentation',
+          Colors.green,
           () {
-            // navigatorPlus.show(RichTextPlusScreen());
-          },
-        ),
-        this._buildButton(
-          'LocalStoragePlus',
-          Colors.greenAccent,
-          () {
-            // navigatorPlus.show(RichTextPlusScreen());
+            this._openDocSite();
           },
         ),
       ],
     );
   }
 
+  _openDocSite() async {
+    const url =
+        'https://github.com/gbmiranda/flutter_plus/blob/master/README.md';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print('Could not launch $url');
+    }
+  }
+
   _buildButton(String title, Color color, Function onPressed) {
     return ButtonPlus(
       margin: EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      radius: RadiusPlus.all(8),
       height: 50,
       child: TextPlus(
         title,
         color: Colors.white,
         fontWeight: FontWeight.bold,
+        textAlign: TextAlign.center,
       ),
       color: color,
       onPressed: onPressed,
     );
   }
 
-  _buildInfoButton() {
-    return ButtonPlus(
-      child: Icon(
-        Icons.info_outline,
-        color: Colors.white,
-      ),
-      onPressed: () {
-        print('info_pressed');
-      },
-    );
-  }
-
-  _teste() {
+  _atributos() {
     BorderPlus(
       color: Colors.black,
       style: BorderStyle.solid,

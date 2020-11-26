@@ -35,7 +35,7 @@ class TextPlusScreen extends StatelessWidget {
   }
 
   _buildExample1() {
-    TextPlus(
+    return TextPlus(
       'Exemplo 1',
       padding: EdgeInsets.all(16),
       backgroundColor: Colors.red,
@@ -50,7 +50,7 @@ class TextPlusScreen extends StatelessWidget {
   }
 
   _buildExample2() {
-    TextPlus(
+    return TextPlus(
       'Exemplo 2',
       color: Colors.white,
       fontSize: 20,
@@ -80,7 +80,7 @@ class TextPlusScreen extends StatelessWidget {
   }
 
   _buildExample3() {
-    TextPlus(
+    return TextPlus(
       '00000000000',
       margin: EdgeInsets.only(top: 24),
       padding: EdgeInsets.all(16),
