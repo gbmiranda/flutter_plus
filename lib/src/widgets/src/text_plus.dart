@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
-import 'package:flutter_plus/src/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
-import 'package:flutter_plus/src/widgets/src/container_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 class TextPlus extends StatelessWidget {
   // Todo
@@ -40,8 +38,8 @@ class TextPlus extends StatelessWidget {
   final List<ShadowPlus> textShadows;
 
   // ContainePlus
-  final Function onTap;
-  final Function onLongPress;
+  final Function() onTap;
+  final Function() onLongPress;
 
   final BorderPlus backgroundBorder;
   final List<ShadowPlus> backgroundShadows;
@@ -86,15 +84,15 @@ class TextPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget _textPlus = this._buildTextPlus();
+    var _textPlus = _buildTextPlus();
 
-    if (this.isCenter == true) {
+    if (isCenter == true) {
       _textPlus = Center(
         child: _textPlus,
       );
     }
 
-    if (this.isExpandend == true) {
+    if (isExpandend == true) {
       _textPlus = Expanded(
         child: _textPlus,
       );
@@ -105,102 +103,83 @@ class TextPlus extends StatelessWidget {
 
   Widget _buildTextPlus() {
     return ContainerPlus(
-      width: this.width,
-      height: this.height,
-      padding: this.padding,
-      margin: this.margin,
-      color: this.backgroundColor,
-      onTap: this.onTap,
-      onLongPress: this.onLongPress,
-      border: this.backgroundBorder,
-      shadows: this.backgroundShadows,
-      innerShadows: this.backgroundInnerShadows,
-      gradient: this.backgroundGradient,
-      radius: this.backgroundRadius,
+      width: width,
+      height: height,
+      padding: padding,
+      margin: margin,
+      color: backgroundColor,
+      onTap: onTap,
+      onLongPress: onLongPress,
+      border: backgroundBorder,
+      shadows: backgroundShadows,
+      innerShadows: backgroundInnerShadows,
+      gradient: backgroundGradient,
+      radius: backgroundRadius,
       child: Text(
-        this._maskText,
-        key: this.key,
-        maxLines: this.maxLines,
-        overflow: this.textOverflow,
-        textAlign: this.textAlign,
-        textDirection: this.textDirection,
-        style: this.textStyle,
+        _maskText,
+        key: key,
+        maxLines: maxLines,
+        overflow: textOverflow,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        style: textStyle,
       ),
     );
   }
 
-  // _buildGestureDetector(Widget child) {
-  //   return GestureDetector(
-  //     onTap: this.onTap ?? null,
-  //     onLongPress: this.onLongPress ?? null,
-  //     child: child,
-  //     behavior: HitTestBehavior.translucent,
-  //   );
-  // }
-
-  // bool get hasGestureDetector {
-  //   if (this.onTap != null || this.onLongPress != null)
-  //     return true;
-  //   else
-  //     return false;
-  // }
-
   TextStyle get textStyle {
     return TextStyle(
-      color: this.color,
-      fontSize: this.fontSize,
-      fontWeight: this.fontWeight,
-      fontStyle: this.fontStyle,
+      color: color,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
       backgroundColor: Colors.transparent,
-      decoration: this.textDecorationPlus?.textDecoration,
-      decorationColor: this.textDecorationPlus?.color,
-      decorationStyle: this.textDecorationPlus?.decorationStyle,
-      decorationThickness: this.textDecorationPlus?.decorationThickness,
-      letterSpacing: this.letterSpacing,
-      fontFamily: this.fontFamily,
-      wordSpacing: this.wordSpacing,
-      // height: this.height,
-      shadows: this._buildShadows(),
+      decoration: textDecorationPlus?.textDecoration,
+      decorationColor: textDecorationPlus?.color,
+      decorationStyle: textDecorationPlus?.decorationStyle,
+      decorationThickness: textDecorationPlus?.decorationThickness,
+      letterSpacing: letterSpacing,
+      fontFamily: fontFamily,
+      wordSpacing: wordSpacing,
+      // height: height,
+      shadows: _buildShadows(),
     );
   }
 
   String get _maskText {
     try {
-      if (this.text == null || this.text.isEmpty)
+      if (text == null || text.isEmpty) {
         return '';
-      else if (this.mask == null || this.mask.isEmpty)
-        return this.text;
-      else {
-        int maskItemCount = 0;
-        String maskedString = '';
+      } else if (mask == null || mask.isEmpty) {
+        return text;
+      } else {
+        var maskItemCount = 0;
+        var maskedString = '';
         for (var i = 0; i < mask.length; i++) {
-          if (mask[i] == '#')
-            maskedString += this._cleanText[i - maskItemCount];
-          else {
+          if (mask[i] == '#') {
+            maskedString += _cleanText[i - maskItemCount];
+          } else {
             maskedString += mask[i];
             maskItemCount++;
           }
         }
         return maskedString;
       }
-    } catch (e) {
+    } on Exception catch (e) {
       print(e);
       return '* invalid mask *';
     }
   }
 
   String get _cleanText {
-    return this
-        .text
-        .replaceAll(new RegExp(r'[^\w\s]+'), '')
-        .replaceAll(' ', '');
+    return text.replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
   }
 
-  _buildShadows() {
-    if (this.textShadows == null || this.textShadows.isEmpty)
+  List<Shadow> _buildShadows() {
+    if (textShadows == null || textShadows.isEmpty) {
       return null;
-    else
-      return this.textShadows.map((shadowPlus) {
+    } else {
+      return textShadows.map((shadowPlus) {
         return Shadow(
           color: shadowPlus.opacity != null
               ? shadowPlus.color.withOpacity(shadowPlus.opacity)
@@ -212,5 +191,6 @@ class TextPlus extends StatelessWidget {
           ),
         );
       }).toList();
+    }
   }
 }

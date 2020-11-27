@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class NavigatorPlusScreen extends StatelessWidget {
   @override
@@ -13,11 +13,11 @@ class NavigatorPlusScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.red,
       ),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(24),
       child: Center(

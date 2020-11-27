@@ -1,6 +1,7 @@
-import 'package:example/src/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
+
+import 'src/screens/home_screen.dart';
 
 class FlutterPlusExample extends StatefulWidget {
   @override

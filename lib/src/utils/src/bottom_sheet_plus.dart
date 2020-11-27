@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
-import 'package:flutter_plus/src/components/src/border_plus.dart';
-import 'package:flutter_plus/src/components/src/radius_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 final bottomSheetPlus = BottomSheetPlus._instance;
 
@@ -9,7 +8,7 @@ class BottomSheetPlus {
   static final _instance = BottomSheetPlus._();
   BottomSheetPlus._();
 
-  show({
+  void show({
     @required Widget child,
     Function(dynamic result) onClosed,
     Color backgroundColor,
@@ -26,14 +25,14 @@ class BottomSheetPlus {
   }) {
     FocusManager.instance.primaryFocus.unfocus();
 
-    bool _validCustomHeight = (height != null && height > 0) ||
+    var _validCustomHeight = (height != null && height > 0) ||
         (heightPercentScreen != null &&
             heightPercentScreen > 0 &&
             heightPercentScreen <= 1);
 
-    if (isScrollControlled == false && _validCustomHeight == true)
+    if (isScrollControlled == false && _validCustomHeight == true) {
       isScrollControlled = true;
-
+    }
     showModalBottomSheet(
       context: navigatorPlus.currentContext,
       backgroundColor: backgroundColor,
@@ -47,7 +46,7 @@ class BottomSheetPlus {
         borderRadius: radius?.toBorderRadius ?? BorderRadius.zero,
         side: border?.toBorderSide ?? BorderSide.none,
       ),
-      builder: (BuildContext context) {
+      builder: (context) {
         if (height != null && height > 0) {
           child = SizedBox(
             height: height,
@@ -72,8 +71,9 @@ class BottomSheetPlus {
             borderRadius: radius.toBorderRadius,
             child: child,
           );
-        } else
+        } else {
           return child;
+        }
       },
     ).then((result) {
       if (onClosed != null) onClosed(result);

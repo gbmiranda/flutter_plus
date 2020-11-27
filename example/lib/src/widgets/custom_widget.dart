@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class CustomWidget extends StatelessWidget {
   @override

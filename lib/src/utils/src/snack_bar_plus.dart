@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+
+import '../../../flutter_plus.dart';
 
 final snackBarPlus = SnackBarPlus._instance;
 
@@ -21,7 +22,7 @@ class SnackBarPlus {
     double width,
     EdgeInsetsGeometry margin,
     EdgeInsetsGeometry padding,
-    Function onVisibile,
+    Function() onVisibile,
     ShapeBorder shape,
   }) {
     var _snackBar = SnackBar(
@@ -59,7 +60,7 @@ class SnackBarPlus {
     double width,
     EdgeInsetsGeometry margin,
     EdgeInsetsGeometry padding,
-    Function onVisibile,
+    Function() onVisibile,
     ShapeBorder shape,
   }) {
     var _snackBar = SnackBar(

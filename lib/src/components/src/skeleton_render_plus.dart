@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
-import 'package:flutter_plus/src/utils/src/utils_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 class SkeletonRenderPlus extends StatefulWidget {
   final SkeletonPlus skeletonPlus;
   SkeletonRenderPlus({@required this.skeletonPlus});
 
-  createState() => SkeletonRenderPlusState();
+  @override
+  _SkeletonRenderPlusState createState() => _SkeletonRenderPlusState();
 }
 
-class SkeletonRenderPlusState extends State<SkeletonRenderPlus>
+class _SkeletonRenderPlusState extends State<SkeletonRenderPlus>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-
-  Animation gradientPosition;
+  Animation _gradientPosition;
+  double get _gradientPositionValue {
+    if (_gradientPosition != null && _gradientPosition.value is double) {
+      return _gradientPosition.value as double;
+    } else {
+      return 0;
+    }
+  }
 
   @override
   void initState() {
     _controller = AnimationController(
-      duration:
-          this.widget.skeletonPlus.duration ?? Duration(milliseconds: 1500),
+      duration: widget.skeletonPlus.duration ?? Duration(milliseconds: 1500),
       vsync: this,
     );
-    gradientPosition = Tween<double>(
+    _gradientPosition = Tween<double>(
       begin: -30,
       end: 10,
     ).animate(
@@ -50,13 +56,12 @@ class SkeletonRenderPlusState extends State<SkeletonRenderPlus>
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment(gradientPosition.value, 0),
+          begin: Alignment(_gradientPositionValue, 0),
           end: Alignment(2, 0),
           colors: [
-            this.widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
-            this.widget.skeletonPlus.highlightColor ??
-                utilsPlus.colorHex('F0F1F1'),
-            this.widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
+            widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
+            widget.skeletonPlus.highlightColor ?? utilsPlus.colorHex('F0F1F1'),
+            widget.skeletonPlus.baseColor ?? utilsPlus.colorHex('E0E0E0'),
           ],
           stops: [
             0.2,

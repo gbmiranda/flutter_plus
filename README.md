@@ -62,7 +62,7 @@ Use extensions to treat **dates**, **strings**, **numbers** and **files**.
 An appetizer of the real meaning of the library. Two codes that do the same thing, the first using the library and the second with native widgets.
 
 > A customized Container with centralized text that accepts user interaction.
-> 
+
 ![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 # 🔩 Installation
@@ -77,7 +77,7 @@ dependencies:
 Import a single file to access all components.
 
 ```dart
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 ```
 
 > **- This library will always be in constant evolution, so:**

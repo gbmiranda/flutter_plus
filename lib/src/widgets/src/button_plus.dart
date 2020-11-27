@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/components/src/border_plus.dart';
-import 'package:flutter_plus/src/components/src/gradient_plus.dart';
-import 'package:flutter_plus/src/components/src/inner_shadow_plus.dart';
-import 'package:flutter_plus/src/components/src/radius_plus.dart';
-import 'package:flutter_plus/src/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/components/src/skeleton_plus.dart';
 
-import 'container_plus.dart';
+import '../../../flutter_plus.dart';
 
 class ButtonPlus extends StatefulWidget {
   /// Todo
@@ -32,8 +26,8 @@ class ButtonPlus extends StatefulWidget {
   final Color disabledBackgroundColor;
 
   final Alignment alignment;
-  final Function onPressed;
-  final Function onLongPress;
+  final Function() onPressed;
+  final Function() onLongPress;
 
   //effects
   final Color splashColor;
@@ -47,10 +41,6 @@ class ButtonPlus extends StatefulWidget {
   final List<ShadowPlus> shadows;
   final GradientPlus gradient;
   final List<InnerShadowPlus> innerShadows;
-
-  /// When [true] show a loading effect up child.
-  ///
-  /// Defaults is [null].
   final SkeletonPlus skeleton;
 
   ButtonPlus({
@@ -92,50 +82,51 @@ class ButtonPlus extends StatefulWidget {
 class _ButtomPlusState extends State<ButtonPlus> {
   @override
   Widget build(BuildContext context) {
-    return this._buildButtomPlus();
+    return _buildButtomPlus();
   }
 
   Widget _buildButtomPlus() {
     return ContainerPlus(
       padding: EdgeInsets.zero,
-      margin: this.widget.margin,
-      isCenter: this.widget.isCenter,
-      isExpanded: this.widget.isExpanded,
-      isCircle: this.widget.isCircle,
-      alignment: this.widget.alignment,
-      color: this.widget.color,
-      height: this.widget.height,
-      width: this.widget.width,
-      border: this.widget.border,
-      gradient: this.widget.gradient,
-      radius: this.widget.radius,
-      shadows: this.widget.shadows,
-      innerShadows: this.widget.innerShadows,
-      skeleton: this.widget.skeleton,
-      child: this._buildChildButton(),
+      margin: widget.margin,
+      isCenter: widget.isCenter,
+      isExpanded: widget.isExpanded,
+      isCircle: widget.isCircle,
+      alignment: widget.alignment,
+      color: widget.color,
+      height: widget.height,
+      width: widget.width,
+      border: widget.border,
+      gradient: widget.gradient,
+      radius: widget.radius,
+      shadows: widget.shadows,
+      innerShadows: widget.innerShadows,
+      skeleton: widget.skeleton,
+      child: _buildChildButton(),
     );
   }
 
-  _buildChildButton() {
+  Widget _buildChildButton() {
     return FlatButton(
-      padding: this.widget.padding ?? EdgeInsets.zero,
-      splashColor: this.widget.splashColor,
-      highlightColor: this.widget.highlightColor,
-      focusColor: this.widget.focusColor,
-      hoverColor: this.widget.hoverColor,
+      padding: widget.padding ?? EdgeInsets.zero,
+      splashColor: widget.splashColor,
+      highlightColor: widget.highlightColor,
+      focusColor: widget.focusColor,
+      hoverColor: widget.hoverColor,
       color: Colors.transparent,
       onHighlightChanged: (value) {},
-      onPressed: this.isEnabled ? this.widget.onPressed : null,
-      onLongPress: this.isEnabled ? this.widget.onLongPress : null,
-      child: this.widget.child,
+      onPressed: isEnabled ? widget.onPressed : null,
+      onLongPress: isEnabled ? widget.onLongPress : null,
+      child: widget.child,
     );
   }
 
   bool get isEnabled {
-    if ((this.widget.onPressed == null && this.widget.onLongPress == null) ||
-        this.widget.enabled == false)
+    if ((widget.onPressed == null && widget.onLongPress == null) ||
+        widget.enabled == false) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 }

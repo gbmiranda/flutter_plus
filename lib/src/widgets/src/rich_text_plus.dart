@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/widgets/src/text_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 class RichTextPlus extends StatelessWidget {
   // TODO
@@ -26,28 +27,28 @@ class RichTextPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget richTextPlus = this._buildRichTextPlus();
+    var richTextPlus = _buildRichTextPlus();
 
-    if (this.isCenter == true)
+    if (isCenter == true) {
       richTextPlus = Center(
         child: richTextPlus,
       );
+    }
 
-    if (this.isExpandend == true)
+    if (isExpandend == true) {
       richTextPlus = Expanded(
         child: richTextPlus,
       );
-
+    }
     return richTextPlus;
   }
 
   Widget _buildRichTextPlus() {
     return RichText(
-      key: this.key,
+      key: key,
       text: TextSpan(
         text: '',
-        children: this
-            .texts
+        children: texts
             .map(
               (richTextPlus) => TextSpan(
                 text: richTextPlus.text,

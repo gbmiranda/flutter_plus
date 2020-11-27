@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/src/utils/src/snack_bar_plus.dart';
-import 'package:flutter_plus/src/utils/src/navigator_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 class FlutterAppPlus extends StatefulWidget {
   /// {@macro flutter.widgets.widgetsApp.navigatorKey}
@@ -48,8 +48,10 @@ class FlutterAppPlus extends StatefulWidget {
 
   /// {@macro flutter.widgets.widgetsApp.builder}
   ///
-  /// Material specific features such as [showDialog] and [showMenu], and widgets
-  /// such as [Tooltip], [PopupMenuButton], also require a [Navigator] to properly
+  /// Material specific features such as [showDialog]
+  /// and [showMenu], and widgets
+  /// such as [Tooltip], [PopupMenuButton],
+  /// also require a [Navigator] to properly
   /// function.
   final TransitionBuilder builder;
 
@@ -137,7 +139,8 @@ class FlutterAppPlus extends StatefulWidget {
   /// and [darkTheme] are provided.
   ///
   /// If set to [ThemeMode.system], the choice of which theme to use will
-  /// be based on the user's system preferences. If the [MediaQuery.platformBrightnessOf]
+  /// be based on the user's system preferences.
+  /// If the [MediaQuery.platformBrightnessOf]
   /// is [Brightness.light], [theme] will be used. If it is [Brightness.dark],
   /// [darkTheme] will be used (unless it is null, in which case [theme]
   /// will be used.
@@ -223,7 +226,8 @@ class FlutterAppPlus extends StatefulWidget {
   /// no asynchronous work takes place upon "loading" the localizations object.
   ///
   /// ```dart
-  /// class FooLocalizationsDelegate extends LocalizationsDelegate<MaterialLocalizations> {
+  /// class FooLocalizationsDelegate
+  /// extends LocalizationsDelegate<MaterialLocalizations> {
   ///   const FooLocalizationsDelegate();
   ///   @override
   ///   Future<FooLocalizations> load(Locale locale) {
@@ -428,46 +432,44 @@ class _FlutterAppPlusState extends State<FlutterAppPlus> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: (this.widget.navigatorKey == null
+      navigatorKey: (widget.navigatorKey == null
           ? navigatorPlus.key
-          : navigatorPlus.addKey(this.widget.navigatorKey)),
-      navigatorObservers: this.widget.navigatorObservers,
-      actions: this.widget.actions,
-      checkerboardOffscreenLayers: this.widget.checkerboardOffscreenLayers,
-      checkerboardRasterCacheImages: this.widget.checkerboardRasterCacheImages,
-      color: this.widget.color,
-      darkTheme: this.widget.darkTheme,
-      debugShowCheckedModeBanner: this.widget.debugShowCheckedModeBanner,
-      debugShowMaterialGrid: this.widget.debugShowMaterialGrid,
-      highContrastDarkTheme: this.widget.highContrastDarkTheme,
-      highContrastTheme: this.widget.highContrastTheme,
-      initialRoute: this.widget.initialRoute,
-      key: this.widget.key,
-      locale: this.widget.locale,
-      localeListResolutionCallback: this.widget.localeListResolutionCallback,
-      localeResolutionCallback: this.widget.localeResolutionCallback,
-      localizationsDelegates: this.widget.localizationsDelegates,
-      onGenerateInitialRoutes: this.widget.onGenerateInitialRoutes,
-      onGenerateRoute: this.widget.onGenerateRoute,
-      onGenerateTitle: this.widget.onGenerateTitle,
-      onUnknownRoute: this.widget.onUnknownRoute,
-      routes: this.widget.routes,
-      shortcuts: this.widget.shortcuts,
-      showPerformanceOverlay: this.widget.showPerformanceOverlay,
-      showSemanticsDebugger: this.widget.showSemanticsDebugger,
-      supportedLocales: this.widget.supportedLocales,
-      theme: this.widget.theme,
-      themeMode: this.widget.themeMode,
-      title: this.widget.title,
+          : navigatorPlus.addKey(widget.navigatorKey)),
+      navigatorObservers: widget.navigatorObservers,
+      actions: widget.actions,
+      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
+      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
+      color: widget.color,
+      darkTheme: widget.darkTheme,
+      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+      debugShowMaterialGrid: widget.debugShowMaterialGrid,
+      highContrastDarkTheme: widget.highContrastDarkTheme,
+      highContrastTheme: widget.highContrastTheme,
+      initialRoute: widget.initialRoute,
+      key: widget.key,
+      locale: widget.locale,
+      localeListResolutionCallback: widget.localeListResolutionCallback,
+      localeResolutionCallback: widget.localeResolutionCallback,
+      localizationsDelegates: widget.localizationsDelegates,
+      onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
+      onGenerateRoute: widget.onGenerateRoute,
+      onGenerateTitle: widget.onGenerateTitle,
+      onUnknownRoute: widget.onUnknownRoute,
+      routes: widget.routes,
+      shortcuts: widget.shortcuts,
+      showPerformanceOverlay: widget.showPerformanceOverlay,
+      showSemanticsDebugger: widget.showSemanticsDebugger,
+      supportedLocales: widget.supportedLocales,
+      theme: widget.theme,
+      themeMode: widget.themeMode,
+      title: widget.title,
       builder: (context, child) {
         return Scaffold(
           key: snackBarPlus.scaffoldKey,
-          body: this.widget.builder == null
-              ? child
-              : this.widget.builder(context, child),
+          body: widget.builder == null ? child : widget.builder(context, child),
         );
       },
-      home: this.widget.home,
+      home: widget.home,
     );
   }
 }

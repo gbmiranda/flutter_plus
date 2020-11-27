@@ -12,10 +12,6 @@ class TextFieldMaskPlus extends TextInputFormatter {
   final _resultTextArray = <String>[];
   String _resultTextMasked = "";
 
-  /// Create the [mask] formatter for TextField
-  ///
-  /// The keys of the [filter] assign which character in the mask should be replaced and the values validate the entered character
-  /// By default `#` match to the number and `A` to the letter
   TextFieldMaskPlus({
     String mask = "+# (###) ###-##-##",
     Map<String, RegExp> filter,
@@ -38,7 +34,7 @@ class TextFieldMaskPlus extends TextInputFormatter {
       _updateFilter(filter);
     }
     _calcMaskLength();
-    final String unmaskedText = getUnmaskedText();
+    final unmaskedText = getUnmaskedText();
     _resultTextArray.clear();
     _resultTextMasked = "";
     return _formatUpdate(
@@ -86,8 +82,8 @@ class TextFieldMaskPlus extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     final selectionBefore = oldValue.selection;
 
-    final String textBefore = oldValue.text;
-    final String textAfter = newValue.text;
+    final textBefore = oldValue.text;
+    final textAfter = newValue.text;
 
     final startBefore = selectionBefore.start == -1 ? 0 : selectionBefore.start;
     final countBefore = selectionBefore.start == -1 || selectionBefore.end == -1
@@ -105,9 +101,9 @@ class TextFieldMaskPlus extends TextInputFormatter {
 
     final beforeResultTextLength = _resultTextArray.length;
 
-    int currentTotalText = _resultTextArray.length;
-    int selectionStart = 0;
-    int selectionLength = 0;
+    var currentTotalText = _resultTextArray.length;
+    var selectionStart = 0;
+    var selectionLength = 0;
     for (var i = 0; i < replaceStart + replaceLength; i++) {
       if (_maskChars.contains(_mask[i]) && currentTotalText > 0) {
         currentTotalText -= 1;
@@ -120,8 +116,8 @@ class TextFieldMaskPlus extends TextInputFormatter {
       }
     }
 
-    final String replacementText = textAfter.substring(startAfter, endAfter);
-    int targetCursorPosition = selectionStart;
+    final replacementText = textAfter.substring(startAfter, endAfter);
+    var targetCursorPosition = selectionStart;
     if (replacementText.isEmpty) {
       _resultTextArray.removeRange(
           selectionStart, selectionStart + selectionLength);
@@ -144,22 +140,22 @@ class TextFieldMaskPlus extends TextInputFormatter {
       }
     }
 
-    int curTextPos = 0;
-    int maskPos = 0;
+    var curTextPos = 0;
+    var maskPos = 0;
     _resultTextMasked = "";
-    int cursorPos = -1;
-    int nonMaskedCount = 0;
+    var cursorPos = -1;
+    var nonMaskedCount = 0;
 
     while (maskPos < _mask.length) {
-      final String curMaskChar = _mask[maskPos];
-      final bool isMaskChar = _maskChars.contains(curMaskChar);
+      final curMaskChar = _mask[maskPos];
+      final isMaskChar = _maskChars.contains(curMaskChar);
 
-      bool curTextInRange = curTextPos < _resultTextArray.length;
+      var curTextInRange = curTextPos < _resultTextArray.length;
 
       String curTextChar;
       if (isMaskChar && curTextInRange) {
         while (curTextChar == null && curTextInRange) {
-          final String potentialTextChar = _resultTextArray[curTextPos];
+          final potentialTextChar = _resultTextArray[curTextPos];
           if (_maskFilter[curMaskChar].hasMatch(potentialTextChar)) {
             curTextChar = potentialTextChar;
           } else {
@@ -208,7 +204,7 @@ class TextFieldMaskPlus extends TextInputFormatter {
       _resultTextArray.removeRange(_maskLength, _resultTextArray.length);
     }
 
-    int finalCursorPosition =
+    var finalCursorPosition =
         cursorPos == -1 ? _resultTextMasked.length : cursorPos;
 
     return TextEditingValue(
@@ -228,7 +224,7 @@ class TextFieldMaskPlus extends TextInputFormatter {
 
   void _calcMaskLength() {
     _maskLength = 0;
-    for (int i = 0; i < _mask.length; i++) {
+    for (var i = 0; i < _mask.length; i++) {
       if (_maskChars.contains(_mask[i])) {
         _maskLength++;
       }

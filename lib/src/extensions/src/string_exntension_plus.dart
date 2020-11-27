@@ -1,16 +1,16 @@
-import 'package:diacritic/diacritic.dart';
-import 'package:flutter/material.dart';
 import 'dart:convert';
 
+import 'package:diacritic/diacritic.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 extension StringExtensionPlus on String {
   bool get isNotNullOrEmpty {
-    return this != null && this.isNotEmpty;
+    return this != null && isNotEmpty;
   }
 
   String get firstLetter {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return this[0].toUpperCase();
     } else {
       return null;
@@ -18,8 +18,8 @@ extension StringExtensionPlus on String {
   }
 
   String get firstWord {
-    if (this.isNotNullOrEmpty) {
-      List<String> words = this.split(' ');
+    if (isNotNullOrEmpty) {
+      var words = split(' ');
       if (words.length > 0) {
         return words[0];
       } else {
@@ -31,8 +31,8 @@ extension StringExtensionPlus on String {
   }
 
   String get toBase64 {
-    if (this.isNotNullOrEmpty) {
-      Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    if (isNotNullOrEmpty) {
+      var stringToBase64 = utf8.fuse(base64);
       return stringToBase64.encode(this);
     } else {
       return null;
@@ -40,8 +40,8 @@ extension StringExtensionPlus on String {
   }
 
   String get fromBase64 {
-    if (this.isNotNullOrEmpty) {
-      Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    if (isNotNullOrEmpty) {
+      var stringToBase64 = utf8.fuse(base64);
       return stringToBase64.decode(this);
     } else {
       return null;
@@ -49,35 +49,33 @@ extension StringExtensionPlus on String {
   }
 
   String get cleanString {
-    if (this.isNotNullOrEmpty) {
-      return this.replaceAll(new RegExp(r'[^\w\s]+'), '');
+    if (isNotNullOrEmpty) {
+      return replaceAll(RegExp(r'[^\w\s]+'), '');
     } else {
       return null;
     }
   }
 
   String get cleanStringAndSpaces {
-    if (this.isNotNullOrEmpty) {
-      return this.replaceAll(new RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
+    if (isNotNullOrEmpty) {
+      return replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
     } else {
       return null;
     }
   }
 
   bool get isEmail {
-    return this._checkRegex(
-        r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+    return _checkRegex(
+      r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+    );
   }
 
   bool get isCpf {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return false;
     } else {
-      List<int> sanitizedCPF = this
-          .replaceAll(new RegExp(r'\.|-'), '')
-          .split('')
-          .map((String digit) => int.parse(digit))
-          .toList();
+      var sanitizedCPF =
+          replaceAll(RegExp(r'\.|-'), '').split('').map(int.parse).toList();
       return !_blacklistedCPF(sanitizedCPF.join()) &&
           sanitizedCPF[9] ==
               _gerarDigitoVerificador(sanitizedCPF.getRange(0, 9).toList()) &&
@@ -100,29 +98,29 @@ extension StringExtensionPlus on String {
   }
 
   int _gerarDigitoVerificador(List<int> digits) {
-    int baseNumber = 0;
+    var baseNumber = 0;
     for (var i = 0; i < digits.length; i++) {
       baseNumber += digits[i] * ((digits.length + 1) - i);
     }
-    int verificationDigit = baseNumber * 10 % 11;
+    var verificationDigit = baseNumber * 10 % 11;
     return verificationDigit >= 10 ? 0 : verificationDigit;
   }
 
   bool get isCelular {
-    return this._checkRegex(r'^\([1-9]{2}\) [0-9]{5}\-[0-9]{4}$');
+    return _checkRegex(r'^\([1-9]{2}\) [0-9]{5}\-[0-9]{4}$');
   }
 
   bool get isTelefone {
-    return this._checkRegex(r'^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$');
+    return _checkRegex(r'^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$');
   }
 
   bool compareStrings(String text, {bool caseSensitive}) {
     if (this == null || text == null) {
       return false;
-    } else if (this.isEmpty && text.isEmpty) {
+    } else if (isEmpty && text.isEmpty) {
       return true;
     } else {
-      var originalStr = this.cleanString?.cleanDiacritics;
+      var originalStr = cleanString?.cleanDiacritics;
       var compareStr = text.cleanString?.cleanDiacritics;
       if (originalStr == null || compareStr == null) {
         return false;
@@ -136,7 +134,7 @@ extension StringExtensionPlus on String {
   }
 
   String get cleanDiacritics {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return removeDiacritics(this);
     } else {
       return null;
@@ -144,12 +142,12 @@ extension StringExtensionPlus on String {
   }
 
   String get removerAcentos {
-    return this.cleanDiacritics;
+    return cleanDiacritics;
   }
 
   String get capitalizeFirstWord {
-    if (this.isNotNullOrEmpty) {
-      var input = this.toLowerCase();
+    if (isNotNullOrEmpty) {
+      var input = toLowerCase();
       return input[0].toUpperCase() + input.substring(1);
     } else {
       return null;
@@ -157,9 +155,9 @@ extension StringExtensionPlus on String {
   }
 
   String get capitalizeAllWords {
-    if (this.isNotNullOrEmpty) {
-      var input = this.toLowerCase();
-      List<String> words = input.split(' ');
+    if (isNotNullOrEmpty) {
+      var input = toLowerCase();
+      var words = input.split(' ');
       var capitalized = words.map((word) {
         if (word.isEmpty) {
           return '';
@@ -173,7 +171,7 @@ extension StringExtensionPlus on String {
   }
 
   DateTime toDate({@required String format}) {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return DateFormat(format).parse(this);
     } else {
       return null;
@@ -181,14 +179,14 @@ extension StringExtensionPlus on String {
   }
 
   String setMask({@required String mask}) {
-    if (this.isNotNullOrEmpty) {
-      String cleanText = this.cleanStringAndSpaces;
-      int maskItemCount = 0;
-      String maskedString = '';
+    if (isNotNullOrEmpty) {
+      var cleanText = cleanStringAndSpaces;
+      var maskItemCount = 0;
+      var maskedString = '';
       for (var i = 0; i < mask.length; i++) {
-        if (mask[i] == '#')
+        if (mask[i] == '#') {
           maskedString += cleanText[i - maskItemCount];
-        else {
+        } else {
           maskedString += mask[i];
           maskItemCount++;
         }
@@ -200,8 +198,8 @@ extension StringExtensionPlus on String {
   }
 
   bool get isNum {
-    if (this.isNotNullOrEmpty) {
-      String source = this.trim();
+    if (isNotNullOrEmpty) {
+      var source = trim();
       var numberValue = int.tryParse(source) ??
           double.tryParse(source) ??
           num.tryParse(source);
@@ -212,7 +210,7 @@ extension StringExtensionPlus on String {
   }
 
   bool get isBool {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return (this == 'true' || this == 'false');
     } else {
       return false;
@@ -220,17 +218,17 @@ extension StringExtensionPlus on String {
   }
 
   bool get isDateTime {
-    return this
-        ._checkRegex(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$");
+    return _checkRegex(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$");
   }
 
   bool get isURL {
-    return this._checkRegex(
-        r"^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,6}(\:[0-9]{1,5})*(/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+    return _checkRegex(
+      r"^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,6}(\:[0-9]{1,5})*(/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$",
+    );
   }
 
   bool _checkRegex(String regex) {
-    if (this.isNotNullOrEmpty) {
+    if (isNotNullOrEmpty) {
       return RegExp(regex).hasMatch(this);
     } else {
       return false;

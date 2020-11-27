@@ -9,13 +9,12 @@ class NavigatorPlus {
   GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
 
   GlobalKey<NavigatorState> get _getNavigatorKey {
-    if (this._navigatorKey == null || this._navigatorKey.currentState == null) {
-      print(
-          '_navigatorKey not set -> MaterialApp > navigatorKey: navigatorPlus.navigatorKey');
-
+    if (_navigatorKey == null || _navigatorKey.currentState == null) {
+      print('Need configuration');
       return null;
-    } else
+    } else {
       return _navigatorKey;
+    }
   }
 
   GlobalKey<NavigatorState> get key {
@@ -23,111 +22,82 @@ class NavigatorPlus {
   }
 
   GlobalKey<NavigatorState> addKey(GlobalKey<NavigatorState> newKey) {
-    this._navigatorKey = newKey;
-    return this._navigatorKey;
+    _navigatorKey = newKey;
+    return _navigatorKey;
   }
 
   BuildContext get currentContext =>
-      this._getNavigatorKey?.currentState?.overlay?.context;
-
-  // Future<dynamic> navigate(
-  //   dynamic destination, {
-  //   bool modal,
-  //   bool replace,
-  //   bool maintainState,
-  //   RouteSettings settings,
-  // }) {
-  //   FocusManager.instance.primaryFocus.unfocus();
-  //   if (replace != null && replace == true) {
-  //     return this._getNavigatorKey?.currentState?.pushReplacement(
-  //           MaterialPageRoute(
-  //               builder: (context) => destination,
-  //               fullscreenDialog: modal ?? false,
-  //               maintainState: maintainState ?? true,
-  //               settings: settings ?? null),
-  //         );
-  //   } else {
-  //     return this._getNavigatorKey?.currentState?.push(
-  //           MaterialPageRoute(
-  //               builder: (context) => destination,
-  //               fullscreenDialog: modal ?? false,
-  //               maintainState: maintainState ?? true,
-  //               settings: settings ?? null),
-  //         );
-  //   }
-  // }
+      _getNavigatorKey?.currentState?.overlay?.context;
 
   Future<dynamic> show(
-    dynamic destination, {
+    Widget destination, {
     bool replace,
     bool maintainState,
     RouteSettings settings,
   }) {
     FocusManager.instance.primaryFocus.unfocus();
     if (replace != null && replace == true) {
-      return this._getNavigatorKey?.currentState?.pushReplacement(
-            MaterialPageRoute(
-                builder: (context) => destination,
-                fullscreenDialog: false,
-                maintainState: maintainState ?? true,
-                settings: settings ?? null),
-          );
+      return _getNavigatorKey?.currentState?.pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => destination,
+            fullscreenDialog: false,
+            maintainState: maintainState ?? true,
+            settings: settings ?? null),
+      );
     } else {
-      return this._getNavigatorKey?.currentState?.push(
-            MaterialPageRoute(
-                builder: (context) => destination,
-                fullscreenDialog: false,
-                maintainState: maintainState ?? true,
-                settings: settings ?? null),
-          );
+      return _getNavigatorKey?.currentState?.push(
+        MaterialPageRoute(
+            builder: (context) => destination,
+            fullscreenDialog: false,
+            maintainState: maintainState ?? true,
+            settings: settings ?? null),
+      );
     }
   }
 
   Future<dynamic> showModal(
-    dynamic destination, {
+    Widget destination, {
     bool replace,
     bool maintainState,
     RouteSettings settings,
   }) {
     FocusManager.instance.primaryFocus.unfocus();
     if (replace != null && replace == true) {
-      return this._getNavigatorKey?.currentState?.pushReplacement(
-            MaterialPageRoute(
-                builder: (context) => destination,
-                fullscreenDialog: true,
-                maintainState: maintainState ?? true,
-                settings: settings ?? null),
-          );
+      return _getNavigatorKey?.currentState?.pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => destination,
+            fullscreenDialog: true,
+            maintainState: maintainState ?? true,
+            settings: settings ?? null),
+      );
     } else {
-      return this._getNavigatorKey?.currentState?.push(
-            MaterialPageRoute(
-                builder: (context) => destination,
-                fullscreenDialog: true,
-                maintainState: maintainState ?? true,
-                settings: settings ?? null),
-          );
+      return _getNavigatorKey?.currentState?.push(
+        MaterialPageRoute(
+            builder: (context) => destination,
+            fullscreenDialog: true,
+            maintainState: maintainState ?? true,
+            settings: settings ?? null),
+      );
     }
   }
 
   bool get canBack {
-    if (this._getNavigatorKey == null ||
-        this._getNavigatorKey.currentState == null)
+    if (_getNavigatorKey == null || _getNavigatorKey.currentState == null) {
       return false;
-    else
-      return this._getNavigatorKey.currentState.canPop();
+    } else {
+      return _getNavigatorKey.currentState.canPop();
+    }
   }
 
-  back({dynamic result}) {
+  void back({dynamic result}) {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canBack) this._getNavigatorKey.currentState.pop(result);
+    if (canBack) _getNavigatorKey.currentState.pop(result);
   }
 
-  backAll() {
+  void backAll() {
     FocusManager.instance.primaryFocus.unfocus();
-    if (this.canBack)
-      this
-          ._getNavigatorKey
-          .currentState
-          .popUntil((Route<dynamic> route) => route.isFirst);
+    if (canBack) {
+      _getNavigatorKey.currentState.popUntil((route) => route.isFirst);
+    }
   }
 }

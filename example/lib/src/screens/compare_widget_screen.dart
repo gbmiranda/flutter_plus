@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/flutter_plus_exports.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class CompareWidgetScreen extends StatelessWidget {
   @override
@@ -14,11 +14,11 @@ class CompareWidgetScreen extends StatelessWidget {
         backgroundColor: Colors.red,
       ),
       backgroundColor: utilsPlus.colorHex('161718'),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(24),
       child: Center(
@@ -26,18 +26,18 @@ class CompareWidgetScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            this._buildContainerPlus(),
+            _buildContainerPlus(),
             SizedBox(
               height: 48,
             ),
-            this._buildNativeContainer(),
+            _buildNativeContainer(),
           ],
         ),
       ),
     );
   }
 
-  _buildNativeContainer() {
+  Widget _buildNativeContainer() {
     return GestureDetector(
       child: Container(
         height: 200,
@@ -98,7 +98,7 @@ class CompareWidgetScreen extends StatelessWidget {
     );
   }
 
-  _buildContainerPlus() {
+  Widget _buildContainerPlus() {
     return ContainerPlus(
       height: 200,
       width: 200,

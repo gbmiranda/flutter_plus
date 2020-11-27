@@ -7,7 +7,7 @@ extension FileExtensionPlus on File {
     if (this == null) {
       return null;
     } else {
-      List<int> fileBytes = this.readAsBytesSync();
+      List<int> fileBytes = readAsBytesSync();
       return base64Encode(fileBytes);
     }
   }
@@ -16,7 +16,7 @@ extension FileExtensionPlus on File {
     if (this == null) {
       return null;
     } else {
-      return this.readAsBytes().then((fileBytes) => base64Encode(fileBytes));
+      return readAsBytes().then(base64Encode);
     }
   }
 

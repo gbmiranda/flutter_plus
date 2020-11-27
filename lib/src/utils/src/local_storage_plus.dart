@@ -4,12 +4,7 @@ final localStoragePlus = LocalStoragePlus._instance;
 
 class LocalStoragePlus {
   static final _instance = LocalStoragePlus._();
-  LocalStoragePlus._() {
-    // SharedPreferences.getInstance()
-    //     .then((shared) => this._sharedPreferences = shared);
-  }
-
-  // SharedPreferences _sharedPreferences;
+  LocalStoragePlus._();
 
   Future write(String key, dynamic data) async {
     return SharedPreferences.getInstance().then((sharedPreferences) {

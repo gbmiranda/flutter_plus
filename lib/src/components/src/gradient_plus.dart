@@ -13,12 +13,12 @@ class GradientPlus {
     Alignment begin = Alignment.centerLeft,
     Alignment end = Alignment.centerRight,
   }) {
-    this._linearGradient = LinearGradient(
-      colors: this.colors,
+    _linearGradient = LinearGradient(
+      colors: colors,
       begin: begin,
       end: end,
-      stops: this.stops,
-      tileMode: this.tileMode,
+      stops: stops,
+      tileMode: tileMode,
     );
   }
 
@@ -32,14 +32,14 @@ class GradientPlus {
     double focalRadius = 0.0,
     double radius = 0.0,
   }) {
-    this._radialGradient = RadialGradient(
-      colors: this.colors,
+    _radialGradient = RadialGradient(
+      colors: colors,
       center: center,
       focal: focal,
       focalRadius: focalRadius,
       radius: radius,
-      stops: this.stops,
-      tileMode: this.tileMode,
+      stops: stops,
+      tileMode: tileMode,
     );
   }
 
@@ -52,24 +52,25 @@ class GradientPlus {
     double startAngle = 0.0,
     double endAngle = 0.0,
   }) {
-    this._sweepGradient = SweepGradient(
-      colors: this.colors,
+    _sweepGradient = SweepGradient(
+      colors: colors,
       center: center,
       endAngle: endAngle,
       startAngle: startAngle,
-      stops: this.stops,
-      tileMode: this.tileMode,
+      stops: stops,
+      tileMode: tileMode,
     );
   }
 
   Gradient get toGradient {
-    if (this._linearGradient != null)
-      return this._linearGradient;
-    else if (this._radialGradient != null)
-      return this._radialGradient;
-    else if (this._sweepGradient != null)
-      return this._sweepGradient;
-    else
+    if (_linearGradient != null) {
+      return _linearGradient;
+    } else if (_radialGradient != null) {
+      return _radialGradient;
+    } else if (_sweepGradient != null) {
+      return _sweepGradient;
+    } else {
       return null;
+    }
   }
 }

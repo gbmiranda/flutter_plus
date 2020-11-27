@@ -1,14 +1,14 @@
 extension DurationExtensionPlus on Duration {
   int get months {
-    return this.inDays.remainder(60).toInt();
+    return inDays.remainder(60).toInt();
   }
 
   int get days {
-    return this.inDays.toInt();
+    return inDays.toInt();
   }
 
   int get hours {
-    return this.inHours.remainder(60).toInt();
+    return inHours.remainder(60).toInt();
   }
 
   String get hoursStr {
@@ -16,7 +16,7 @@ extension DurationExtensionPlus on Duration {
   }
 
   int get minutes {
-    return this.inMinutes.remainder(60).toInt();
+    return inMinutes.remainder(60).toInt();
   }
 
   String get minutesStr {
@@ -24,7 +24,7 @@ extension DurationExtensionPlus on Duration {
   }
 
   int get seconds {
-    return this.inSeconds.remainder(60).toInt();
+    return inSeconds.remainder(60).toInt();
   }
 
   String get secondsStr {

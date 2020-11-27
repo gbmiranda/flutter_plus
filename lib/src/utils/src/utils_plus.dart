@@ -6,7 +6,7 @@ class UtilsPlus {
   static final _instance = UtilsPlus._();
   UtilsPlus._();
 
-  closeKeyboard() {
+  void closeKeyboard() {
     FocusManager.instance.primaryFocus.unfocus();
     // FocusScope.of(navigatorPlus.currentContext).unfocus();
   }

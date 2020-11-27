@@ -18,31 +18,32 @@ class RadiusPlus {
     this.topRight,
     this.bottomLeft,
     this.bottomRight,
-  }) : this.all = null;
+  }) : all = null;
 
   RadiusPlus.top(double radiusTop)
-      : this.all = null,
-        this.topLeft = radiusTop,
-        this.topRight = radiusTop,
-        this.bottomLeft = null,
-        this.bottomRight = null;
+      : all = null,
+        topLeft = radiusTop,
+        topRight = radiusTop,
+        bottomLeft = null,
+        bottomRight = null;
 
   RadiusPlus.bottom(double radiusBottom)
-      : this.all = null,
-        this.topLeft = null,
-        this.topRight = null,
-        this.bottomLeft = radiusBottom,
-        this.bottomRight = radiusBottom;
+      : all = null,
+        topLeft = null,
+        topRight = null,
+        bottomLeft = radiusBottom,
+        bottomRight = radiusBottom;
 
   BorderRadius get toBorderRadius {
-    if (this == null)
+    if (this == null) {
       return BorderRadius.zero;
-    else
+    } else {
       return BorderRadius.only(
-        topLeft: Radius.circular(this.topLeft ?? 0),
-        topRight: Radius.circular(this.topRight ?? 0),
-        bottomLeft: Radius.circular(this.bottomLeft ?? 0),
-        bottomRight: Radius.circular(this.bottomRight ?? 0),
+        topLeft: Radius.circular(topLeft ?? 0),
+        topRight: Radius.circular(topRight ?? 0),
+        bottomLeft: Radius.circular(bottomLeft ?? 0),
+        bottomRight: Radius.circular(bottomRight ?? 0),
       );
+    }
   }
 }

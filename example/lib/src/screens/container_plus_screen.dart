@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class ContainerPlusScreen extends StatefulWidget {
   @override
@@ -18,11 +18,11 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
         ),
         backgroundColor: Colors.red,
       ),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(24),
       child: Center(
@@ -30,16 +30,16 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            this._buildExample1(),
-            this._buildExample2(),
-            this._buildExample3(),
+            _buildExample1(),
+            _buildExample2(),
+            _buildExample3(),
           ],
         ),
       ),
     );
   }
 
-  _buildExample1() {
+  Widget _buildExample1() {
     return ContainerPlus(
       width: 150,
       height: 150,
@@ -75,7 +75,7 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
     );
   }
 
-  _buildExample2() {
+  Widget _buildExample2() {
     return ContainerPlus(
       margin: EdgeInsets.only(top: 48),
       width: 150,
@@ -106,21 +106,21 @@ class _ContainerPlusScreenState extends State<ContainerPlusScreen> {
 
   bool skeletonEnabled = false;
 
-  _buildExample3() {
+  Widget _buildExample3() {
     return ContainerPlus(
       margin: EdgeInsets.only(top: 48),
       width: 150,
       height: 150,
       color: Colors.black,
       radius: RadiusPlus.only(topLeft: 40, bottomRight: 10),
-      skeleton: SkeletonPlus.automatic(enabled: this.skeletonEnabled),
+      skeleton: SkeletonPlus.automatic(enabled: skeletonEnabled),
       onTap: () {
         setState(() {
-          this.skeletonEnabled = !this.skeletonEnabled;
+          skeletonEnabled = !skeletonEnabled;
         });
         Future.delayed(Duration(seconds: 5), () {
           setState(() {
-            this.skeletonEnabled = !this.skeletonEnabled;
+            skeletonEnabled = !skeletonEnabled;
           });
         });
       },

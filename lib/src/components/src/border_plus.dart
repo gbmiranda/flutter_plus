@@ -12,28 +12,30 @@ class BorderPlus {
   });
 
   Border get toBorder {
-    if (this == null)
+    if (this == null) {
       return Border.all(
         color: Colors.transparent,
         width: 0,
         style: BorderStyle.none,
       );
-    else
+    } else {
       return Border.all(
-        style: this.style,
-        color: this.color,
-        width: this.width,
+        style: style,
+        color: color,
+        width: width,
       );
+    }
   }
 
   BorderSide get toBorderSide {
-    if (this == null)
+    if (this == null) {
       return BorderSide.none;
-    else
+    } else {
       return BorderSide(
-        style: this.style,
-        color: this.color,
-        width: this.width,
+        style: style,
+        color: color,
+        width: width,
       );
+    }
   }
 }

@@ -76,7 +76,7 @@ dependencies:
 Importe um único arquivo para acessar todos os componentes.
 
 ```dart
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 ```
 
 > **- Esta biblioteca estará sempre em constante evolução, então:**

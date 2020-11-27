@@ -1,15 +1,16 @@
-import 'package:example/src/screens/compare_widget_screen.dart';
-import 'package:example/src/screens/container_plus_screen.dart';
-import 'package:example/src/screens/navigator_plus_screen.dart';
-import 'package:example/src/screens/rich_text_plus_screen.dart';
-import 'package:example/src/screens/text_field_plus_screen.dart';
-import 'package:example/src/screens/text_plus_screen.dart';
-import 'package:example/src/widgets/custom_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../widgets/custom_widget.dart';
+
 import 'button_plus_screen.dart';
+import 'compare_widget_screen.dart';
+import 'container_plus_screen.dart';
+import 'navigator_plus_screen.dart';
+import 'rich_text_plus_screen.dart';
+import 'text_field_plus_screen.dart';
+import 'text_plus_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -23,14 +24,14 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.red,
         actions: [
-          this._buildInfoButton(),
+          _buildInfoButton(),
         ],
       ),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildInfoButton() {
+  Widget _buildInfoButton() {
     return ButtonPlus(
       child: Icon(
         Icons.info_outline,
@@ -50,39 +51,39 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return ListView(
       padding: EdgeInsets.all(24),
       children: [
-        this._buildButton(
+        _buildButton(
           'ContainerPlus',
           Colors.redAccent,
           () {
             navigatorPlus.show(ContainerPlusScreen());
           },
         ),
-        this._buildButton(
+        _buildButton(
           'ButtonPlus',
           Colors.redAccent,
           () {
             navigatorPlus.show(ButtonPlusScreen());
           },
         ),
-        this._buildButton(
+        _buildButton(
           'TextFieldPlus',
           Colors.redAccent,
           () {
             navigatorPlus.show(TextFieldPlusScreen());
           },
         ),
-        this._buildButton(
+        _buildButton(
           'TextPlus',
           Colors.redAccent,
           () {
             navigatorPlus.show(TextPlusScreen());
           },
         ),
-        this._buildButton(
+        _buildButton(
           'RichTextPlus',
           Colors.redAccent,
           () {
@@ -95,7 +96,7 @@ class HomeScreen extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'NavigatorPlus:\nshowModal()',
                 Colors.blueAccent,
                 () {
@@ -107,7 +108,7 @@ class HomeScreen extends StatelessWidget {
               width: 8,
             ),
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'NavigatorPlus:\nshow()',
                 Colors.blueAccent,
                 () {
@@ -120,7 +121,7 @@ class HomeScreen extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'SnackBarPlus:\nshowText()',
                 Colors.blueAccent,
                 () {
@@ -138,7 +139,7 @@ class HomeScreen extends StatelessWidget {
               width: 8,
             ),
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'SnackBarPlus:\nshow()',
                 Colors.blueAccent,
                 () {
@@ -178,7 +179,7 @@ class HomeScreen extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'DialogPlus:\nshowDefault()',
                 Colors.blueAccent,
                 () {
@@ -208,7 +209,7 @@ class HomeScreen extends StatelessWidget {
               width: 8,
             ),
             Expanded(
-              child: this._buildButton(
+              child: _buildButton(
                 'DialogPlus:\nshow()',
                 Colors.blueAccent,
                 () {
@@ -222,7 +223,7 @@ class HomeScreen extends StatelessWidget {
             )
           ],
         ),
-        this._buildButton(
+        _buildButton(
           'BottomSheetPlus',
           Colors.blueAccent,
           () {
@@ -236,19 +237,17 @@ class HomeScreen extends StatelessWidget {
         Divider(
           color: Colors.black,
         ),
-        this._buildButton(
+        _buildButton(
           'Compare Widgets',
           Colors.orange,
           () {
             navigatorPlus.show(CompareWidgetScreen());
           },
         ),
-        this._buildButton(
+        _buildButton(
           'Open complete documentation',
           Colors.green,
-          () {
-            this._openDocSite();
-          },
+          _openDocSite,
         ),
       ],
     );
@@ -264,7 +263,7 @@ class HomeScreen extends StatelessWidget {
     }
   }
 
-  _buildButton(String title, Color color, Function onPressed) {
+  Widget _buildButton(String title, Color color, Function() onPressed) {
     return ButtonPlus(
       margin: EdgeInsets.symmetric(vertical: 8),
       padding: EdgeInsets.symmetric(horizontal: 8),

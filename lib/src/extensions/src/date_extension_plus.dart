@@ -11,21 +11,23 @@ extension DateExtensionPlus on DateTime {
 
   int get daysOfMonth {
     if (this == null) {
-      return null;
+      {
+        return -1;
+      }
     } else {
-      DateTime beginningNextMonth = (this.month < 12)
-          ? new DateTime(this.year, this.month + 1, 1)
-          : new DateTime(this.year + 1, 1, 1);
-      return beginningNextMonth.subtract(new Duration(days: 1)).day;
+      final beginningNextMonth = (month < 12)
+          ? DateTime(year, month + 1, 1)
+          : DateTime(year + 1, 1, 1);
+      return beginningNextMonth.subtract(Duration(days: 1)).day;
     }
   }
 
   int get daysOfYear {
     if (this == null) {
-      return null;
+      return -1;
     } else {
-      DateTime firstMonth = DateTime(this.year, 1, 1);
-      DateTime lastMonth = DateTime(this.year, 12, 31);
+      final firstMonth = DateTime(year, 1, 1);
+      final lastMonth = DateTime(year, 12, 31);
       return firstMonth.difference(lastMonth).inDays;
     }
   }
@@ -36,34 +38,34 @@ extension DateExtensionPlus on DateTime {
     } else {
       final now = DateTime.now();
       final today = DateTime(now.year, now.month, now.day);
-      final dateCheck = DateTime(this.year, this.month, this.day);
+      final dateCheck = DateTime(year, month, day);
       return today == dateCheck;
     }
   }
 
   String get monthName {
-    return this.format('MMMM');
+    return format('MMMM');
   }
 
   String get monthNameSort {
-    return this.format('MMM');
+    return format('MMM');
   }
 
   String get weekName {
-    return this.format('EEEE');
+    return format('EEEE');
   }
 
   String get weekNameSort {
-    return this.format('EEE');
+    return format('EEE');
   }
 
   bool sameDay(DateTime compareDate) {
     if (this == null) {
       return false;
     } else {
-      return this.day == compareDate.day &&
-          this.month == compareDate.month &&
-          this.year == compareDate.year;
+      return day == compareDate.day &&
+          month == compareDate.month &&
+          year == compareDate.year;
     }
   }
 }

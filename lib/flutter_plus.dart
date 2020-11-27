@@ -1,8 +1,11 @@
 library flutter_plus;
 
-import 'package:flutter_plus/src/utils/utils_export_plus.dart';
+import 'src/utils/utils_export_plus.dart';
 
-export 'flutter_plus_exports.dart';
+export 'package:flutter_plus/src/components/components_export_plus.dart';
+export 'package:flutter_plus/src/extensions/extensions_export_plus.dart';
+export 'package:flutter_plus/src/utils/utils_export_plus.dart';
+export 'package:flutter_plus/src/widgets/widgets_export_plus.dart';
 
 class FlutterPlus {
   FlutterPlus._();

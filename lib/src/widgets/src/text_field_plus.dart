@@ -1,14 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_plus/src/components/src/border_plus.dart';
-import 'package:flutter_plus/src/components/src/gradient_plus.dart';
-import 'package:flutter_plus/src/components/src/radius_plus.dart';
-import 'package:flutter_plus/src/components/src/shadow_plus.dart';
-import 'package:flutter_plus/src/components/src/text_decoration_plus.dart';
-import 'package:flutter_plus/src/components/src/text_field_mask_plus.dart';
-import 'package:flutter_plus/src/widgets/src/text_plus.dart';
-import 'container_plus.dart';
+
+import '../../../flutter_plus.dart';
 
 class TextFieldPlus extends StatelessWidget {
   final EdgeInsets padding;
@@ -19,7 +13,6 @@ class TextFieldPlus extends StatelessWidget {
 
   final Color backgroundColor;
 
-  final bool useSkeleton;
   final bool isCenter;
   final bool isExpanded;
 
@@ -28,6 +21,7 @@ class TextFieldPlus extends StatelessWidget {
   final BorderPlus border;
   final List<ShadowPlus> shadows;
   final GradientPlus gradient;
+  final SkeletonPlus skeleton;
 
   //TextField
   final TextEditingController controller;
@@ -38,9 +32,9 @@ class TextFieldPlus extends StatelessWidget {
   final TextAlignVertical textAlignVertical;
 
   final Function(String) onChanged;
-  final Function onTap;
-  final Function onEditingComplete;
-  final Function onSubmitted;
+  final Function() onTap;
+  final Function() onEditingComplete;
+  final Function(String) onSubmitted;
 
   final String mask;
 
@@ -75,11 +69,10 @@ class TextFieldPlus extends StatelessWidget {
 
   final Widget prefixWidget;
   final Widget suffixWidget;
-  // placeholderStyle: this._buildTextStyle(),
+  // placeholderStyle: _buildTextStyle(),
 
   TextFieldPlus({
     this.enabled,
-    this.useSkeleton,
     this.isCenter = false,
     this.isExpanded = false,
     this.padding,
@@ -90,6 +83,7 @@ class TextFieldPlus extends StatelessWidget {
     this.border,
     this.shadows,
     this.gradient,
+    this.skeleton,
     this.alignment,
     this.backgroundColor,
     this.controller,
@@ -122,7 +116,6 @@ class TextFieldPlus extends StatelessWidget {
     this.showCursor = true,
     this.prefixWidget,
     this.suffixWidget,
-    // this.placeholderStyle,
     this.onTap,
     this.onEditingComplete,
     this.onSubmitted,
@@ -133,69 +126,65 @@ class TextFieldPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return this._buildContainerPlus();
+    return _buildContainerPlus();
   }
 
   ContainerPlus _buildContainerPlus() {
     _containerPlus = ContainerPlus(
-      padding: this.useSkeleton == true
-          ? EdgeInsets.all(0)
-          : this.padding ?? EdgeInsets.symmetric(horizontal: 4),
-      margin: this.margin,
-      isCenter: this.isCenter,
-      isExpanded: this.isExpanded,
-      alignment: this.alignment,
-      color: this.backgroundColor,
-      height: this.height,
-      width: this.width,
-      // skeleton: this.useSkeleton,
-      border: this.border,
-      gradient: this.gradient,
-      radius: this.radius,
-      shadows: this.shadows,
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 4),
+      margin: margin,
+      isCenter: isCenter,
+      isExpanded: isExpanded,
+      alignment: alignment,
+      color: backgroundColor,
+      height: height,
+      width: width,
+      skeleton: skeleton,
+      border: border,
+      gradient: gradient,
+      radius: radius,
+      shadows: shadows,
       // notifyParent: () => setState(() {}),
-      child: this._buildTextField(),
+      child: _buildTextField(),
     );
     return _containerPlus;
   }
 
   Widget _buildTextField() {
     return CupertinoTextField(
-      padding: this.useSkeleton == true
-          ? EdgeInsets.all(0)
-          : this.padding ?? EdgeInsets.symmetric(horizontal: 4),
-      autocorrect: this.autocorrect,
-      enabled: this.enabled,
-      controller: this.controller,
-      focusNode: this.focusNode,
-      autofocus: this.autofocus,
-      textCapitalization: this.textCapitalization,
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 4),
+      autocorrect: autocorrect,
+      enabled: enabled,
+      controller: controller,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      textCapitalization: textCapitalization,
       keyboardAppearance: Brightness.dark,
-      cursorColor: this.cursorColor,
+      cursorColor: cursorColor,
       textAlign: TextAlign.start,
-      obscureText: this.obscureText,
-      readOnly: this.readOnly,
-      textAlignVertical: this.textAlignVertical,
-      keyboardType: this.onlyNumbers == true && this.textInputType == null
+      obscureText: obscureText,
+      readOnly: readOnly,
+      textAlignVertical: textAlignVertical,
+      keyboardType: onlyNumbers == true && textInputType == null
           ? TextInputType.number
-          : this.textInputType,
-      maxLines: this.maxLines,
-      maxLength: this.maxLength,
+          : textInputType,
+      maxLines: maxLines,
+      maxLength: maxLength,
       maxLengthEnforced: true,
-      showCursor: this.showCursor,
-      cursorRadius: Radius.circular(this.cursorRadius),
-      cursorWidth: this.cursorWidth,
-      placeholder: this.placeholder?.text,
-      placeholderStyle: this._buildPlaceholderTextStyle(),
-      style: this._buildTextStyle(),
-      inputFormatters: this._getFormatters(),
-      prefix: this.prefixWidget,
-      suffix: this.suffixWidget,
-      onChanged: this.onChanged,
-      onTap: this.onTap,
-      onEditingComplete: this.onEditingComplete,
-      onSubmitted: this.onSubmitted,
-      textInputAction: this.textInputAction,
+      showCursor: showCursor,
+      cursorRadius: Radius.circular(cursorRadius),
+      cursorWidth: cursorWidth,
+      placeholder: placeholder?.text,
+      placeholderStyle: _buildPlaceholderTextStyle(),
+      style: _buildTextStyle(),
+      inputFormatters: _getFormatters(),
+      prefix: prefixWidget,
+      suffix: suffixWidget,
+      onChanged: onChanged,
+      onTap: onTap,
+      onEditingComplete: onEditingComplete,
+      onSubmitted: onSubmitted,
+      textInputAction: textInputAction,
 
       // remove native decoration
       decoration: null,
@@ -205,63 +194,60 @@ class TextFieldPlus extends StatelessWidget {
   TextStyle _buildTextStyle() {
     return TextStyle(
       backgroundColor: Colors.transparent,
-      color: this.textColor,
-      fontSize: this.fontSize,
-      fontWeight: this.fontWeight,
-      fontStyle: this.fontStyle,
-      decoration: this.textDecorationX?.textDecoration,
-      decorationColor: this.textDecorationX?.color,
-      decorationStyle: this.textDecorationX?.decorationStyle,
-      decorationThickness: this.textDecorationX?.decorationThickness,
-      letterSpacing: this.letterSpacing,
-      fontFamily: this.fontFamily,
-      wordSpacing: this.wordSpacing,
+      color: textColor,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      decoration: textDecorationX?.textDecoration,
+      decorationColor: textDecorationX?.color,
+      decorationStyle: textDecorationX?.decorationStyle,
+      decorationThickness: textDecorationX?.decorationThickness,
+      letterSpacing: letterSpacing,
+      fontFamily: fontFamily,
+      wordSpacing: wordSpacing,
     );
   }
 
   TextStyle _buildPlaceholderTextStyle() {
-    if (this.placeholder == null) return null;
+    if (placeholder == null) return null;
     return TextStyle(
-      backgroundColor: this.placeholder.backgroundColor,
-      color: this.placeholder.color,
-      fontSize: this.placeholder.fontSize,
-      fontWeight: this.placeholder.fontWeight,
-      fontStyle: this.placeholder.fontStyle,
-      decoration: this.placeholder.textDecorationPlus?.textDecoration,
-      decorationColor: this.placeholder.textDecorationPlus?.color,
-      decorationStyle: this.placeholder.textDecorationPlus?.decorationStyle,
-      decorationThickness:
-          this.placeholder.textDecorationPlus?.decorationThickness,
-      letterSpacing: this.placeholder.letterSpacing,
-      fontFamily: this.placeholder.fontFamily,
-      wordSpacing: this.placeholder.wordSpacing,
-      height: this.placeholder.height,
+      backgroundColor: placeholder.backgroundColor,
+      color: placeholder.color,
+      fontSize: placeholder.fontSize,
+      fontWeight: placeholder.fontWeight,
+      fontStyle: placeholder.fontStyle,
+      decoration: placeholder.textDecorationPlus?.textDecoration,
+      decorationColor: placeholder.textDecorationPlus?.color,
+      decorationStyle: placeholder.textDecorationPlus?.decorationStyle,
+      decorationThickness: placeholder.textDecorationPlus?.decorationThickness,
+      letterSpacing: placeholder.letterSpacing,
+      fontFamily: placeholder.fontFamily,
+      wordSpacing: placeholder.wordSpacing,
+      height: placeholder.height,
     );
   }
 
   List<TextInputFormatter> _getFormatters() {
-    print('_getFormatters');
-
-    List<TextInputFormatter> textInputFormatters = [];
-    if (this.maxLength != null) {
-      //   var maxLengthFormatter = LengthLimitingTextInputFormatter(this.maxLength);
-      //   textInputFormatters.add(maxLengthFormatter);
-      textInputFormatters.add(MaxLengthTextInputFormatter(this.maxLength));
+    var textInputFormatters = [];
+    if (maxLength != null) {
+      //   var maxLengthFormatter = LengthLimitingTextInputFormatter(maxLength);
+      //   textInputFormatters.add(wmaxLengthFormatter);
+      textInputFormatters.add(MaxLengthTextInputFormatter(maxLength));
     }
 
-    if (this.mask != null) {
-      var maskFormatter = new TextFieldMaskPlus(
-          mask: this.mask, filter: {"#": RegExp(r'[0-9]')});
+    if (mask != null) {
+      var maskFormatter =
+          TextFieldMaskPlus(mask: mask, filter: {"#": RegExp(r'[0-9]')});
       textInputFormatters.add(maskFormatter);
     }
 
-    if (this.onlyNumbers == true) {
+    if (onlyNumbers == true) {
       // textInputFormatters.add(WhitelistingTextInputFormatter.digitsOnly);
       textInputFormatters.add(FilteringTextInputFormatter.digitsOnly);
       // textInputFormatters.add(DecimalTextInputFormatter());
     }
 
-    return textInputFormatters;
+    return textInputFormatters.map((e) => e as TextInputFormatter).toList();
   }
 }
 
@@ -280,13 +266,3 @@ class MaxLengthTextInputFormatter extends TextInputFormatter {
     }
   }
 }
-
-// class DecimalTextInputFormatter extends TextInputFormatter {
-//   @override
-//   TextEditingValue formatEditUpdate(
-//       TextEditingValue oldValue, TextEditingValue newValue) {
-//     final regEx = RegExp(r"^\d*\.?\d*");
-//     String newString = regEx.stringMatch(newValue.text) ?? "";
-//     return newString == newValue.text ? newValue : oldValue;
-//   }
-// }

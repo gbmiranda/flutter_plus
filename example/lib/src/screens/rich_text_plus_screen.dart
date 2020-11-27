@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class RichTextPlusScreen extends StatelessWidget {
   @override
@@ -13,11 +13,11 @@ class RichTextPlusScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.red,
       ),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(24),
       child: Center(
@@ -25,14 +25,14 @@ class RichTextPlusScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            this._buildExample(),
+            _buildExample(),
           ],
         ),
       ),
     );
   }
 
-  _buildExample() {
+  Widget _buildExample() {
     return RichTextPlus(
       texts: [
         TextPlus(

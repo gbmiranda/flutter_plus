@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
+import 'package:flutter_plus/flutter_plus.dart';
 
 class ButtonPlusScreen extends StatefulWidget {
   @override
@@ -18,11 +18,11 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
         ),
         backgroundColor: Colors.red,
       ),
-      body: this._buildBody(),
+      body: _buildBody(),
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(24),
       child: Center(
@@ -30,17 +30,17 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            this._buildExample1(),
-            this._buildExample2(),
-            this._buildExample3(),
-            this._buildExample4(),
+            _buildExample1(),
+            _buildExample2(),
+            _buildExample3(),
+            _buildExample4(),
           ],
         ),
       ),
     );
   }
 
-  _buildExample1() {
+  Widget _buildExample1() {
     return ButtonPlus(
       width: 200,
       height: 60,
@@ -61,7 +61,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
     );
   }
 
-  _buildExample2() {
+  Widget _buildExample2() {
     return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
@@ -100,7 +100,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
     );
   }
 
-  _buildExample3() {
+  Widget _buildExample3() {
     return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
@@ -133,14 +133,14 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
 
   bool isLoading = false;
 
-  _buildExample4() {
+  Widget _buildExample4() {
     return ButtonPlus(
       margin: EdgeInsets.only(top: 48),
       width: 200,
       height: 60,
       color: Colors.black,
       radius: RadiusPlus.only(topLeft: 40, bottomRight: 10),
-      skeleton: SkeletonPlus.automatic(enabled: this.isLoading),
+      skeleton: SkeletonPlus.automatic(enabled: isLoading),
       child: TextPlus(
         'EXAMPLE 4',
         color: Colors.white,
@@ -149,11 +149,11 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
         print('EXAMPLE 4');
 
         setState(() {
-          this.isLoading = !this.isLoading;
+          isLoading = !isLoading;
         });
         Future.delayed(Duration(seconds: 5), () {
           setState(() {
-            this.isLoading = !this.isLoading;
+            isLoading = !isLoading;
           });
         });
       },

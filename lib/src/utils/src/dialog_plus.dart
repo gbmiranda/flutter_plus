@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_plus/plus.dart';
-import 'package:flutter_plus/src/utils/src/utils_plus.dart';
+import '../../../flutter_plus.dart';
 
 final dialogPlus = DialogPlus._instance;
 
@@ -32,7 +31,7 @@ class DialogPlus {
       useRootNavigator: useRootNavigator,
       useSafeArea: useSafeArea,
       builder: (context) {
-        return this._createDialog(
+        return _createDialog(
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [child],
@@ -64,7 +63,7 @@ class DialogPlus {
     FontWeight buttonOneTextWeight,
     Color buttonOneColor,
     RadiusPlus buttonOneRadius,
-    Function buttonOneCallback,
+    Function() buttonOneCallback,
     // buttonTwo
     String buttonTwoText,
     Color buttonTwoTextColor,
@@ -72,7 +71,7 @@ class DialogPlus {
     FontWeight buttonTwoTextWeight,
     Color buttonTwoColor,
     RadiusPlus buttonTwoRadius,
-    Function buttonTwoCallback,
+    Function() buttonTwoCallback,
     // others
     double buttonsHeight,
     EdgeInsetsGeometry padding,
@@ -101,7 +100,7 @@ class DialogPlus {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: this._createButton(
+                child: _createButton(
                   buttonOneText,
                   buttonOneTextColor,
                   buttonOneTextSize,
@@ -116,7 +115,7 @@ class DialogPlus {
                 width: elementsSpacing,
               ),
               Expanded(
-                child: this._createButton(
+                child: _createButton(
                   buttonTwoText,
                   buttonTwoTextColor,
                   buttonTwoTextSize,
@@ -130,7 +129,7 @@ class DialogPlus {
             ],
           );
         } else if (buttonOneText.isNotNullOrEmpty) {
-          buttonsContent = this._createButton(
+          buttonsContent = _createButton(
             buttonOneText,
             buttonOneTextColor,
             buttonOneTextSize,
@@ -141,7 +140,7 @@ class DialogPlus {
             buttonOneCallback,
           );
         } else if (buttonTwoText.isNotNullOrEmpty) {
-          buttonsContent = this._createButton(
+          buttonsContent = _createButton(
             buttonTwoText,
             buttonTwoTextColor,
             buttonTwoTextSize,
@@ -200,7 +199,7 @@ class DialogPlus {
             ],
           ),
         );
-        return this._createDialog(
+        return _createDialog(
           dialogContent,
           elevation,
           radius ?? RadiusPlus.all(20),
@@ -211,7 +210,7 @@ class DialogPlus {
     );
   }
 
-  _createDialog(
+  Widget _createDialog(
     Widget child,
     double elevation,
     RadiusPlus radius,
@@ -242,7 +241,7 @@ class DialogPlus {
     double buttonsHeight,
     Color buttonColor,
     RadiusPlus buttonRadius,
-    Function buttonCallback,
+    Function() buttonCallback,
   ) {
     return ButtonPlus(
       child: TextPlus(
