@@ -17,16 +17,15 @@ class _FlutterPlusExampleState extends State<FlutterPlusExample> {
     );
 
     // Using MaterialApp
-
-    MaterialApp(
-      title: 'Flutter Plus Example',
-      navigatorKey: navigatorPlus.key,
-      builder: (context, child) {
-        return Scaffold(
-          key: snackBarPlus.scaffoldKey,
-          body: child,
-        );
-      },
-    );
+    // MaterialApp(
+    //   title: 'Flutter Plus Example',
+    //   navigatorKey: navigatorPlus.key,
+    //   builder: (context, child) {
+    //     return Scaffold(
+    //       key: snackBarPlus.scaffoldKey,
+    //       body: child,
+    //     );
+    //   },
+    // );
   }
 }

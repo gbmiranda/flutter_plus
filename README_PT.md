@@ -1,9 +1,8 @@
 > #### 🌐 _Idiomas: [EN](README.md) - PT_
 
-[![likes](https://badges.bar/flutter_plus/likes)](https://pub.dev/packages/flutter_plus/likes)
-[![popularity](https://badges.bar/flutter_plus/popularity)](https://pub.dev/packages/flutter_plus/popularity)
-[![pub points](https://badges.bar/flutter_plus/pub%20points)](https://pub.dev/packages/flutter_plus/points) 
-
+[![likes](https://badges.bar/flutter_plus/likes)](https://pub.dev/packages/flutter_plus/score)
+[![popularity](https://badges.bar/flutter_plus/popularity)](https://pub.dev/packages/flutter_plus/score)
+[![pub points](https://badges.bar/flutter_plus/pub%20points)](https://pub.dev/packages/flutter_plus/score) 
 
 # 🗂 Indice
 

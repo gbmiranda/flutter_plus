@@ -26,19 +26,19 @@ class RichTextPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget TextPlus = this._buildRichTextPlus();
+    Widget richTextPlus = this._buildRichTextPlus();
 
     if (this.isCenter == true)
-      TextPlus = Center(
-        child: TextPlus,
+      richTextPlus = Center(
+        child: richTextPlus,
       );
 
     if (this.isExpandend == true)
-      TextPlus = Expanded(
-        child: TextPlus,
+      richTextPlus = Expanded(
+        child: richTextPlus,
       );
 
-    return TextPlus;
+    return richTextPlus;
   }
 
   Widget _buildRichTextPlus() {
@@ -49,9 +49,9 @@ class RichTextPlus extends StatelessWidget {
         children: this
             .texts
             .map(
-              (TextPlus) => TextSpan(
-                text: TextPlus.text,
-                style: TextPlus.textStyle,
+              (richTextPlus) => TextSpan(
+                text: richTextPlus.text,
+                style: richTextPlus.textStyle,
               ),
             )
             .toList(),
