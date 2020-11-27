@@ -59,7 +59,7 @@ Use extensions to treat **dates**, **strings**, **numbers** and **files**.
 
 ## 🍬 Demonstration
 
-An appetizer of the real meaning of the library. Two codes that do the same thing, the first with native widgets and the second using the library.
+An appetizer of the real meaning of the library. Two codes that do the same thing, the first using the library and the second with native widgets.
 
 > A customized Container with centralized text that accepts user interaction.
 > 

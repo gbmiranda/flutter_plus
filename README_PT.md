@@ -58,7 +58,7 @@ Utilize extensões para tratar **datas**, **strings**, **números** e **arquivos
 
 ## 🍬 Demonstração
 
-Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro com widgets nativos e o segundo utilizando a biblioteca.
+Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro utilizando a biblioteca e o segundo com widgets nativos.
 
 > Um Container customizado com um texto centralizado que aceite interação do usuário. 
 
