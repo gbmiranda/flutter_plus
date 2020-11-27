@@ -7,9 +7,9 @@
 # 🗂 Indice
 
 - [FlutterPlus](#-flutterplus)
+	- [Demonstração](#-demonstração)
 - [Instalação](#-instalação)
 - [Exemplos](#-exemplos)
-	- [Demonstração](#-demonstração)
 	- [Widgets](#-widgets)
 		- [ContainerPlus](#-containerplus)
 		- [ButtonPlus](#-buttonplus)
@@ -51,10 +51,18 @@ Navegue entre **Telas**, abra **BottomSheets**, **Dialogs** e **Snackbars** sem 
 
 Utilize extensões para tratar **datas**, **strings**, **números** e **arquivos**.
 
-> **Muitas das soluções encontradas aqui foram criadas para uso próprio ao longo da minha jornada com Flutter.
-> Resolvi reunir tudo uma único lugar para auxiliar meu trabalho e o de quem interessar. ;)**
+> Muitas das soluções encontradas aqui foram criadas para uso próprio ao longo da minha jornada com Flutter.
+> Resolvi reunir tudo uma único lugar para auxiliar meu trabalho e o de quem interessar. ;)
 
-> Tentarei sempre manter a documentação atualizada porém pode acontecer de esquecer de colocar uma coisa ou outra aqui ;)
+> Tentarei sempre manter a documentação atualizada porém pode acontecer de esquecer de colocar uma coisa ou outra aqui.
+
+## 🍬 Demonstração
+
+Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro com widgets nativos e o segundo utilizando a biblioteca.
+
+> Um Container customizado com um texto centralizado que aceite interação do usuário. 
+
+![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 # 🔩 Instalação
 
@@ -84,14 +92,6 @@ _*Não é necessário nenhum ajuste extra para funcionar no iOS, Android, Web ou
 A seguir existem exemplos de como usar e configurar os principais recursos da biblioteca.
 
 _*Você também encontra um projeto de exemplo mostrando como utilizar a biblioteca [aqui](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
-
-## 🍬 Demonstração
-
-Um aperitivo do real significado da biblioteca. Dois códigos que fazem a mesma coisa, o primeiro com widgets nativos e o segundo utilizando a biblioteca.
-
-> Um Container customizado com um texto centralizado que aceite interação do usuário. 
-
-![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 ## 🛠 Widgets
 

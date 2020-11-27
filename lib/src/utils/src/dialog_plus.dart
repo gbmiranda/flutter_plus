@@ -31,16 +31,18 @@ class DialogPlus {
       routeSettings: routeSettings,
       useRootNavigator: useRootNavigator,
       useSafeArea: useSafeArea,
-      child: this._createDialog(
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [child],
-        ),
-        elevation,
-        radius,
-        border,
-        screenHorizontalMargin,
-      ),
+      builder: (context) {
+        return this._createDialog(
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [child],
+          ),
+          elevation,
+          radius,
+          border,
+          screenHorizontalMargin,
+        );
+      },
     );
   }
 

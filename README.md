@@ -7,9 +7,9 @@
 # 🗂 Index
 
 - [FlutterPlus](#-flutterplus)
+	- [Demonstration](#-demonstration)
 - [Installation](#-installation)
 - [Examples](#-examples)
-	- [Demonstration](#-demonstration)
 	- [Widgets](#-widgets)
 		- [ContainerPlus](#-containerplus)
 		- [ButtonPlus](#-buttonplus)
@@ -47,15 +47,23 @@ FlutterPlus is an open-source library created to make Flutter development faster
 
 Create **Containers**, **Buttons**, **TextFields**, **Texts** and **RichTexts** customized with few lines.
 
-Navigate between **Telas**, open **BottomSheets**, **Dialogs** and **Snackbars** without context anywhere in your code.
+Navigate between **Screens**, open **BottomSheets**, **Dialogs** and **Snackbars** without context anywhere in your code.
 
-Use extensions to treat **datas**, **strings**, **números** and **arquivos**.
+Use extensions to treat **dates**, **strings**, **numbers** and **files**.
 
-> ** Many of the solutions found here were created for my own use throughout my journey with Flutter.
+> Many of the solutions found here were created for my own use throughout my journey with Flutter.
 
-> I decided to bring everything together in a single place to help my work and that of anyone interested ;)**
+> I decided to bring everything together in a single place to help my work and that of anyone interested. ;)
 
-> I will always try to keep the documentation up to date but it may happen that I forget to put something or other here ;)
+> I will always try to keep the documentation up to date but it may happen that I forget to put something or other here.
+
+## 🍬 Demonstration
+
+An appetizer of the real meaning of the library. Two codes that do the same thing, the first with native widgets and the second using the library.
+
+> A customized Container with centralized text that accepts user interaction.
+> 
+![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 # 🔩 Installation
 
@@ -85,14 +93,6 @@ _*No extra adjustments are required to work on iOS, Android, Web or Desktop._
 The following are examples of how to use and configure the main features of the library.
 
 _*You can also find an example project showing how to use the library [here](https://github.com/gbmiranda/flutter_plus/tree/master/example)._
-
-## 🍬 Demonstration
-
-An appetizer of the real meaning of the library. Two codes that do the same thing, the first with native widgets and the second using the library.
-
-> A customized Container with centralized text that accepts user interaction.
-> 
-![FlutterPlus compare](https://raw.githubusercontent.com/gbmiranda/flutter_plus/master/example/images/comparativo.png)
 
 ## 🛠 Widgets
 

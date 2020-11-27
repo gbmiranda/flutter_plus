@@ -2,6 +2,8 @@ name: flutter_plus
 description: Develop applications in Flutter more quickly and easily.
 version: 0.0.3
 homepage: https://github.com/gbmiranda/flutter_plus.git
+repository: https://github.com/gbmiranda/flutter_plus.git
+issue_tracker: https://github.com/gbmiranda/flutter_plus/issues
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
