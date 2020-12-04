@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TextDecorationPlus {
+  /// Native Flutter TextDecoration
   final TextDecoration textDecoration;
+
+  /// TextDecorationPlus color
   final Color color;
+
+  /// Native Flutter TextDecorationStyle
   final TextDecorationStyle decorationStyle;
+
+  /// TextDecorationPlus decorationThickness
   final double decorationThickness;
 
   TextDecorationPlus({

@@ -1,18 +1,29 @@
 import 'package:flutter/widgets.dart';
 
 class RadiusPlus {
+  /// Radius value for all corners
   final double all;
+
+  /// Radius value for topLeft corner
   final double topLeft;
+
+  /// Radius value for topRight corner
   final double topRight;
+
+  /// Radius value for bottomLeft corner
   final double bottomLeft;
+
+  /// Radius value for bottomRight corner
   final double bottomRight;
 
+  /// Radius to all corners
   RadiusPlus.all(this.all)
       : topLeft = all,
         topRight = all,
         bottomLeft = all,
         bottomRight = all;
 
+  /// Radius to specific corner
   RadiusPlus.only({
     this.topLeft,
     this.topRight,
@@ -20,6 +31,7 @@ class RadiusPlus {
     this.bottomRight,
   }) : all = null;
 
+  /// Radius to all top corners
   RadiusPlus.top(double radiusTop)
       : all = null,
         topLeft = radiusTop,
@@ -27,6 +39,7 @@ class RadiusPlus {
         bottomLeft = null,
         bottomRight = null;
 
+  /// Radius to all bottom corners
   RadiusPlus.bottom(double radiusBottom)
       : all = null,
         topLeft = null,
@@ -34,6 +47,7 @@ class RadiusPlus {
         bottomLeft = radiusBottom,
         bottomRight = radiusBottom;
 
+  /// Transform RadiusPlus to native Flutter BorderRadius
   BorderRadius get toBorderRadius {
     if (this == null) {
       return BorderRadius.zero;

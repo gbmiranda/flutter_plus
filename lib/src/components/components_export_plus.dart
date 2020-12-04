@@ -7,5 +7,5 @@ export 'src/shadow_plus.dart';
 export 'src/skeleton_plus.dart';
 // export 'src/skeleton_render_plus.dart';
 export 'src/text_decoration_plus.dart';
-export 'src/text_field_mask_plus.dart';
-export 'src/text_rich_pattern_plus.dart';
+// export 'src/text_field_mask_plus.dart';
+// export 'src/text_rich_pattern_plus.dart';

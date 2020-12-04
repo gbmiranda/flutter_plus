@@ -3,73 +3,152 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../flutter_plus.dart';
+import '../../../src/components/src/text_field_mask_plus.dart';
 
 class TextFieldPlus extends StatelessWidget {
+  /// TextFieldPlus padding
   final EdgeInsets padding;
+
+  /// TextFieldPlus margin
   final EdgeInsets margin;
+
+  /// TextFieldPlus height
   final double height;
+
+  /// TextFieldPlus width
   final double width;
+
+  /// TextFieldPlus alignment
   final Alignment alignment;
 
+  /// TextFieldPlus backgroundColor
   final Color backgroundColor;
 
-  final bool isCenter;
-  final bool isExpanded;
-
-  // Plus Package
-  final RadiusPlus radius;
-  final BorderPlus border;
-  final List<ShadowPlus> shadows;
-  final GradientPlus gradient;
-  final SkeletonPlus skeleton;
-
-  //TextField
+  /// TextFieldPlus controller
   final TextEditingController controller;
+
+  /// TextFieldPlus focusNode
   final FocusNode focusNode;
+
+  /// TextFieldPlus textInputType
   final TextInputType textInputType;
+
+  /// TextFieldPlus textCapitalization
   final TextCapitalization textCapitalization;
+
+  /// TextFieldPlus textAlign
   final TextAlign textAlign;
+
+  /// TextFieldPlus textAlignVertical
   final TextAlignVertical textAlignVertical;
 
+  /// TextFieldPlus onChanged action
   final Function(String) onChanged;
+
+  /// TextFieldPlus onTap action
   final Function() onTap;
+
+  /// TextFieldPlus onEditingComplete action
   final Function() onEditingComplete;
+
+  /// TextFieldPlus onSubmitted action
   final Function(String) onSubmitted;
 
+  /// TextFieldPlus mask -> (+##) #####-#####
   final String mask;
 
+  /// TextFieldPlus placeholder [TextPlus]
   final TextPlus placeholder;
 
+  /// TextFieldPlus textInputAction
   final TextInputAction textInputAction;
 
+  /// TextFieldPlus maxLength
+  final int maxLength;
+
+  /// TextFieldPlus maxLines
+  final int maxLines;
+
+  /// TextFieldPlus cursorColor
   final Color cursorColor;
 
-  final int maxLength;
-  final int maxLines;
+  /// TextFieldPlus cursorRadius
   final double cursorRadius;
+
+  /// TextFieldPlus cursorWidth
   final double cursorWidth;
 
-  final bool enabled;
-  final bool autocorrect;
-  final bool autofocus;
-  final bool obscureText;
-  final bool readOnly;
+  /// TextFieldPlus showCursor -> true or false
   final bool showCursor;
+
+  /// TextFieldPlus enabled -> true or false
+  final bool enabled;
+
+  /// TextFieldPlus autocorrect -> true or false
+  final bool autocorrect;
+
+  /// TextFieldPlus autofocus -> true or false
+  final bool autofocus;
+
+  /// TextFieldPlus obscureText -> true or false
+  final bool obscureText;
+
+  /// TextFieldPlus readOnly -> true or false
+  final bool readOnly;
+
+  /// TextFieldPlus onlyNumbers -> true or false
   final bool onlyNumbers;
 
-  // style
+  /// TextFieldPlus textColor
   final Color textColor;
-  final double fontSize;
-  final FontWeight fontWeight;
-  final FontStyle fontStyle;
-  final double letterSpacing;
-  final double wordSpacing;
-  final String fontFamily;
-  final TextDecorationPlus textDecorationX;
 
+  /// TextFieldPlus fontSize
+  final double fontSize;
+
+  /// TextFieldPlus fontWeight
+  final FontWeight fontWeight;
+
+  /// TextFieldPlus fontStyle
+  final FontStyle fontStyle;
+
+  /// TextFieldPlus letterSpacing
+  final double letterSpacing;
+
+  /// TextFieldPlus wordSpacing
+  final double wordSpacing;
+
+  /// TextFieldPlus fontFamily
+  final String fontFamily;
+
+  /// TextFieldPlus prefixWidget
   final Widget prefixWidget;
+
+  /// TextFieldPlus suffixWidget
   final Widget suffixWidget;
-  // placeholderStyle: _buildTextStyle(),
+
+  /// TextFieldPlus textDecorationPlus
+  final TextDecorationPlus textDecorationPlus;
+
+  /// TextFieldPlus radius
+  final RadiusPlus radius;
+
+  /// TextFieldPlus border
+  final BorderPlus border;
+
+  /// TextFieldPlus shadows
+  final List<ShadowPlus> shadows;
+
+  /// TextFieldPlus gradient
+  final GradientPlus gradient;
+
+  /// ButtonPlus skeleton
+  final SkeletonPlus skeleton;
+
+  /// TextFieldPlus inside Center widget
+  final bool isCenter;
+
+  /// TextFieldPlus inside Expanded widget
+  final bool isExpanded;
 
   TextFieldPlus({
     this.enabled,
@@ -109,7 +188,7 @@ class TextFieldPlus extends StatelessWidget {
     this.letterSpacing,
     this.wordSpacing,
     this.fontFamily,
-    this.textDecorationX,
+    this.textDecorationPlus,
     this.placeholder,
     this.cursorRadius = 2,
     this.cursorWidth = 2,
@@ -198,10 +277,10 @@ class TextFieldPlus extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: fontWeight,
       fontStyle: fontStyle,
-      decoration: textDecorationX?.textDecoration,
-      decorationColor: textDecorationX?.color,
-      decorationStyle: textDecorationX?.decorationStyle,
-      decorationThickness: textDecorationX?.decorationThickness,
+      decoration: textDecorationPlus?.textDecoration,
+      decorationColor: textDecorationPlus?.color,
+      decorationStyle: textDecorationPlus?.decorationStyle,
+      decorationThickness: textDecorationPlus?.decorationThickness,
       letterSpacing: letterSpacing,
       fontFamily: fontFamily,
       wordSpacing: wordSpacing,

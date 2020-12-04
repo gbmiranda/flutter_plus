@@ -3,49 +3,100 @@ import 'package:flutter/material.dart';
 import '../../../flutter_plus.dart';
 
 class TextPlus extends StatelessWidget {
-  // Todo
-  // urls
-  // phones
-  // dates
-  // onTap
+  /*
+    Todo
+    urls
+    phones
+    dates
+    onTap
+  */
 
-  // atributos
+  /// TextPlus text
   final String text;
-  final int maxLines;
-  final String mask;
-  final bool isCenter;
-  final bool isExpandend;
 
+  /// TextPlus maxLines
+  final int maxLines;
+
+  /// TextPlus mask -> ###.###.###-##
+  final String mask;
+
+  /// TextPlus inside Center widget
+  final bool isCenter;
+
+  /// TextPlus inside Expanded widget
+  final bool isExpanded;
+
+  /// TextPlus height
   final double height;
+
+  /// TextPlus width
   final double width;
+
+  /// TextPlus padding
   final EdgeInsets padding;
+
+  /// TextPlus margin
   final EdgeInsets margin;
 
-  // style
+  /// TextPlus textOverflow
   final TextOverflow textOverflow;
+
+  /// TextPlus textAlign
   final TextAlign textAlign;
+
+  /// TextPlus textDirection
   final TextDirection textDirection;
+
+  /// TextPlus color
   final Color color;
+
+  /// TextPlus fontSize
   final double fontSize;
+
+  /// TextPlus fontWeight
   final FontWeight fontWeight;
+
+  /// TextPlus fontStyle
   final FontStyle fontStyle;
+
+  /// TextPlus backgroundColor
   final Color backgroundColor;
+
+  /// TextPlus letterSpacing
   final double letterSpacing;
+
+  /// TextPlus wordSpacing
   final double wordSpacing;
+
+  /// TextPlus fontFamily
   final String fontFamily;
 
+  /// TextPlus textDecorationPlus
   final TextDecorationPlus textDecorationPlus;
+
+  /// TextPlus textShadows
   final List<ShadowPlus> textShadows;
 
-  // ContainePlus
-  final Function() onTap;
-  final Function() onLongPress;
-
-  final BorderPlus backgroundBorder;
-  final List<ShadowPlus> backgroundShadows;
-  final List<InnerShadowPlus> backgroundInnerShadows;
-  final GradientPlus backgroundGradient;
+  /// TextPlus radius
   final RadiusPlus backgroundRadius;
+
+  /// TextPlus border
+  final BorderPlus backgroundBorder;
+
+  /// TextPlus shadows
+  final List<ShadowPlus> backgroundShadows;
+
+  /// TextPlus gradient
+  final GradientPlus backgroundGradient;
+
+  /// TextPlus innerShadows
+  final List<InnerShadowPlus> backgroundInnerShadows;
+
+  /// TextPlus onTap action
+  final Function() onTap;
+
+  /// TextPlus onLongPress action
+  final Function() onLongPress;
 
   TextPlus(
     this.text, {
@@ -67,7 +118,7 @@ class TextPlus extends StatelessWidget {
     // custom
     this.mask,
     this.isCenter = false,
-    this.isExpandend = false,
+    this.isExpanded = false,
     this.textDecorationPlus,
     this.textShadows,
     this.padding = EdgeInsets.zero,
@@ -92,7 +143,7 @@ class TextPlus extends StatelessWidget {
       );
     }
 
-    if (isExpandend == true) {
+    if (isExpanded == true) {
       _textPlus = Expanded(
         child: _textPlus,
       );

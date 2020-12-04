@@ -7,6 +7,7 @@ class DialogPlus {
   static final _instance = DialogPlus._();
   DialogPlus._();
 
+  /// Shows custom Dialog
   void show({
     @required Widget child,
     Color barrierColor,
@@ -45,6 +46,7 @@ class DialogPlus {
     );
   }
 
+  /// Shows default Dialog with some customizations
   void showDefault({
     // title
     String title,

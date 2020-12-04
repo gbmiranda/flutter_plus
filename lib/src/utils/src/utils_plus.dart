@@ -6,11 +6,12 @@ class UtilsPlus {
   static final _instance = UtilsPlus._();
   UtilsPlus._();
 
+  /// Closes the keyboard if it is open
   void closeKeyboard() {
     FocusManager.instance.primaryFocus.unfocus();
-    // FocusScope.of(navigatorPlus.currentContext).unfocus();
   }
 
+  /// Turns a hexadecimal String to Color
   Color colorHex(String hex) {
     if (hex == null) {
       return Colors.transparent;
@@ -19,6 +20,7 @@ class UtilsPlus {
     }
   }
 
+  /// Turns a Color to String hexadecimal
   String colorToHex(Color color) {
     return color.value.toRadixString(16);
   }

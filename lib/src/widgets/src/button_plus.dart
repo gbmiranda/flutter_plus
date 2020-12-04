@@ -3,45 +3,86 @@ import 'package:flutter/material.dart';
 import '../../../flutter_plus.dart';
 
 class ButtonPlus extends StatefulWidget {
-  /// Todo
-  /// 1- isLoading - show progress
-  /// 2- tap feedback
-  ///
+  /*
+    Todo
+    1- isLoading - show progress
+    2- tap feedback
+  */
 
+  /// ButtonPlus child
   final Widget child;
 
-  final bool enabled;
-  final bool isCenter;
-  final bool isExpanded;
-  final bool isCircle;
-
+  /// ButtonPlus padding
   final EdgeInsets padding;
+
+  /// ButtonPlus margin
   final EdgeInsets margin;
+
+  /// ButtonPlus height
   final double height;
+
+  /// ButtonPlus width
   final double width;
 
+  /// ButtonPlus alignment
+  final Alignment alignment;
+
+  /// ButtonPlus decoration image
   final DecorationImage image;
 
+  /// ButtonPlus color when there is no gradient
   final Color color;
+
+  /// ButtonPlus disabledBackgroundColor
   final Color disabledBackgroundColor;
 
-  final Alignment alignment;
+  /// ButtonPlus onPressed action
   final Function() onPressed;
+
+  /// ButtonPlus onLongPress action
   final Function() onLongPress;
 
-  //effects
+  /// ButtonPlus splashColor
   final Color splashColor;
+
+  /// ButtonPlus highlightColor
   final Color highlightColor;
+
+  /// ButtonPlus focusColor
   final Color focusColor;
+
+  /// ButtonPlus hoverColor
   final Color hoverColor;
 
-  // Plus
+  /// ButtonPlus radius
   final RadiusPlus radius;
+
+  /// ButtonPlus border
   final BorderPlus border;
+
+  /// ButtonPlus shadows
   final List<ShadowPlus> shadows;
+
+  /// ButtonPlus gradient
   final GradientPlus gradient;
+
+  /// ButtonPlus innerShadows
   final List<InnerShadowPlus> innerShadows;
+
+  /// ButtonPlus skeleton
   final SkeletonPlus skeleton;
+
+  /// ButtonPlus enabled -> true or false
+  final bool enabled;
+
+  /// ButtonPlus inside Center widget
+  final bool isCenter;
+
+  /// ButtonPlus inside Expanded widget
+  final bool isExpanded;
+
+  /// ButtonPlus circle radius
+  final bool isCircle;
 
   ButtonPlus({
     Key key,

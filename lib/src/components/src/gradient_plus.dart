@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 class GradientPlus {
+  /// Gradient colors
   final List<Color> colors;
+
+  /// Gradient colors stops
   final List<double> stops;
+
+  /// Gradient tileMode
   final TileMode tileMode;
 
   LinearGradient _linearGradient;
+
+  /// Gradient linear mode
   GradientPlus.linear({
     @required this.colors,
     this.stops,
@@ -23,6 +30,8 @@ class GradientPlus {
   }
 
   RadialGradient _radialGradient;
+
+  /// Gradient radial mode
   GradientPlus.radial({
     @required this.colors,
     this.stops,
@@ -44,6 +53,8 @@ class GradientPlus {
   }
 
   SweepGradient _sweepGradient;
+
+  /// Gradient sweep mode
   GradientPlus.sweep({
     @required this.colors,
     this.stops,
@@ -62,6 +73,7 @@ class GradientPlus {
     );
   }
 
+  /// Transform GradientPlus to native Flutter Gradient
   Gradient get toGradient {
     if (_linearGradient != null) {
       return _linearGradient;

@@ -9,10 +9,22 @@ export 'package:flutter_plus/src/widgets/widgets_export_plus.dart';
 
 class FlutterPlus {
   FlutterPlus._();
+
+  /// Access FlutterPlus UtilsPlus
   static UtilsPlus utils = utilsPlus;
+
+  /// Access FlutterPlus LocalStoragePlus
   static LocalStoragePlus localStorage = localStoragePlus;
+
+  /// Access FlutterPlus NavigatorPlus
   static NavigatorPlus navigator = navigatorPlus;
+
+  /// Access FlutterPlus SnackBarPlus
   static SnackBarPlus snackBar = snackBarPlus;
+
+  /// Access FlutterPlus DialogPlus
   static DialogPlus dialog = dialogPlus;
+
+  /// Access FlutterPlus BottomSheetPlus
   static BottomSheetPlus bottomSheet = bottomSheetPlus;
 }

@@ -1,3 +1,6 @@
+## [0.0.5] - 27/11/2020
+* Web
+* Code and Documentation improvements;
 ## [0.0.4] - 27/11/2020
 * Pedantic analyze;
 * Code and Documentation improvements;

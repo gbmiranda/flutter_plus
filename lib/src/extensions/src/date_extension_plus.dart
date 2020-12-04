@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 
 extension DateExtensionPlus on DateTime {
+  /// Format DateTime to String
   String format(String format) {
     if (this == null) {
       return null;
@@ -9,6 +10,7 @@ extension DateExtensionPlus on DateTime {
     }
   }
 
+  /// Number of days in month
   int get daysOfMonth {
     if (this == null) {
       {
@@ -22,6 +24,7 @@ extension DateExtensionPlus on DateTime {
     }
   }
 
+  /// Number of days in year
   int get daysOfYear {
     if (this == null) {
       return -1;
@@ -32,6 +35,7 @@ extension DateExtensionPlus on DateTime {
     }
   }
 
+  /// Checks whether it is the current day
   bool get isToday {
     if (this == null) {
       return false;
@@ -43,22 +47,27 @@ extension DateExtensionPlus on DateTime {
     }
   }
 
+  /// Month name
   String get monthName {
     return format('MMMM');
   }
 
+  /// Month name sort
   String get monthNameSort {
     return format('MMM');
   }
 
+  /// Week name
   String get weekName {
     return format('EEEE');
   }
 
+  /// Week name sort
   String get weekNameSort {
     return format('EEE');
   }
 
+  /// Checks if two dates are equal
   bool sameDay(DateTime compareDate) {
     if (this == null) {
       return false;

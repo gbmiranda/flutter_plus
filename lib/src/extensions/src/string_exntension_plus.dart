@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 extension StringExtensionPlus on String {
+  /// Checks whether string is empty or null
   bool get isNotNullOrEmpty {
     return this != null && isNotEmpty;
   }
 
+  /// Get first letter of string
   String get firstLetter {
     if (isNotNullOrEmpty) {
       return this[0].toUpperCase();
@@ -17,6 +19,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Get first word of string
   String get firstWord {
     if (isNotNullOrEmpty) {
       var words = split(' ');
@@ -30,6 +33,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Convert String to base64
   String get toBase64 {
     if (isNotNullOrEmpty) {
       var stringToBase64 = utf8.fuse(base64);
@@ -39,6 +43,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Convert base64 to String
   String get fromBase64 {
     if (isNotNullOrEmpty) {
       var stringToBase64 = utf8.fuse(base64);
@@ -48,6 +53,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Remove special characters from the String
   String get cleanString {
     if (isNotNullOrEmpty) {
       return replaceAll(RegExp(r'[^\w\s]+'), '');
@@ -56,6 +62,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Remove special characters and spaces from the String
   String get cleanStringAndSpaces {
     if (isNotNullOrEmpty) {
       return replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
@@ -64,12 +71,14 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Checks whether the string is an e-mail
   bool get isEmail {
     return _checkRegex(
       r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
     );
   }
 
+  /// Checks whether the string is an CPF (Brazil)
   bool get isCpf {
     if (isNotNullOrEmpty) {
       return false;
@@ -106,14 +115,17 @@ extension StringExtensionPlus on String {
     return verificationDigit >= 10 ? 0 : verificationDigit;
   }
 
+  /// Checks whether the string is an cellphone (Brazil)
   bool get isCelular {
     return _checkRegex(r'^\([1-9]{2}\) [0-9]{5}\-[0-9]{4}$');
   }
 
+  /// Checks whether the string is an phone number (Brazil)
   bool get isTelefone {
     return _checkRegex(r'^\([1-9]{2}\) [0-9]{4}\-[0-9]{4}$');
   }
 
+  /// Compare to another String with caseSensitive or not
   bool compareStrings(String text, {bool caseSensitive}) {
     if (this == null || text == null) {
       return false;
@@ -133,6 +145,8 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Remove diacritics from the String
+  /// Remove acentos da String
   String get cleanDiacritics {
     if (isNotNullOrEmpty) {
       return removeDiacritics(this);
@@ -141,10 +155,7 @@ extension StringExtensionPlus on String {
     }
   }
 
-  String get removerAcentos {
-    return cleanDiacritics;
-  }
-
+  /// Capitalize first word from the String
   String get capitalizeFirstWord {
     if (isNotNullOrEmpty) {
       var input = toLowerCase();
@@ -154,6 +165,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Capitalize all words from the String
   String get capitalizeAllWords {
     if (isNotNullOrEmpty) {
       var input = toLowerCase();
@@ -170,6 +182,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Transfor String to DateTime
   DateTime toDate({@required String format}) {
     if (isNotNullOrEmpty) {
       return DateFormat(format).parse(this);
@@ -178,6 +191,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Set custom mask to String
   String setMask({@required String mask}) {
     if (isNotNullOrEmpty) {
       var cleanText = cleanStringAndSpaces;
@@ -197,6 +211,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Checks whether a String is a number
   bool get isNum {
     if (isNotNullOrEmpty) {
       var source = trim();
@@ -209,6 +224,7 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Checks whether a String is a bool
   bool get isBool {
     if (isNotNullOrEmpty) {
       return (this == 'true' || this == 'false');
@@ -217,10 +233,12 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Checks whether a String is a date
   bool get isDateTime {
     return _checkRegex(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$");
   }
 
+  /// Checks whether a String is a url
   bool get isURL {
     return _checkRegex(
       r"^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,6}(\:[0-9]{1,5})*(/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$",

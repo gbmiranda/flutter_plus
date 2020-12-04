@@ -29,6 +29,7 @@ class NavigatorPlus {
   BuildContext get currentContext =>
       _getNavigatorKey?.currentState?.overlay?.context;
 
+  /// Navigate to a specific Widget
   Future<dynamic> show(
     Widget destination, {
     bool replace,
@@ -55,6 +56,7 @@ class NavigatorPlus {
     }
   }
 
+  /// Navigate to a modal specific Widget
   Future<dynamic> showModal(
     Widget destination, {
     bool replace,
@@ -81,6 +83,7 @@ class NavigatorPlus {
     }
   }
 
+  /// Check if you can return
   bool get canBack {
     if (_getNavigatorKey == null || _getNavigatorKey.currentState == null) {
       return false;
@@ -89,11 +92,13 @@ class NavigatorPlus {
     }
   }
 
+  /// Back to previous Widget
   void back({dynamic result}) {
     FocusManager.instance.primaryFocus.unfocus();
     if (canBack) _getNavigatorKey.currentState.pop(result);
   }
 
+  /// Back to first stack widget
   void backAll() {
     FocusManager.instance.primaryFocus.unfocus();
     if (canBack) {

@@ -6,6 +6,7 @@ class LocalStoragePlus {
   static final _instance = LocalStoragePlus._();
   LocalStoragePlus._();
 
+  /// Save data with custom key
   Future write(String key, dynamic data) async {
     return SharedPreferences.getInstance().then((sharedPreferences) {
       if (data is bool) {
@@ -26,6 +27,7 @@ class LocalStoragePlus {
     });
   }
 
+  /// Get data with custom key
   Future<dynamic> read(String key) {
     return SharedPreferences.getInstance().then((sharedPreferences) {
       return sharedPreferences.get(key);
@@ -34,6 +36,7 @@ class LocalStoragePlus {
     });
   }
 
+  /// Delete data with custom key
   Future<bool> delete(String key) async {
     return SharedPreferences.getInstance().then((sharedPreferences) {
       return sharedPreferences.remove(key);
@@ -42,6 +45,7 @@ class LocalStoragePlus {
     });
   }
 
+  /// Clear all local data
   Future<bool> clear() async {
     return SharedPreferences.getInstance().then((sharedPreferences) {
       return sharedPreferences.clear();
@@ -50,6 +54,7 @@ class LocalStoragePlus {
     });
   }
 
+  /// Check if key exists
   Future<bool> containsKey(String key) async {
     return SharedPreferences.getInstance().then((sharedPreferences) {
       return sharedPreferences.containsKey(key);

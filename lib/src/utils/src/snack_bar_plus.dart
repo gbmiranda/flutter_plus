@@ -8,8 +8,10 @@ class SnackBarPlus {
   static final _instance = SnackBarPlus._();
   SnackBarPlus._();
 
+// final  rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  /// Shows custom SnackBar
   void show({
     @required Widget child,
     Color backgroundColor,
@@ -43,6 +45,7 @@ class SnackBarPlus {
     scaffoldKey.currentState.showSnackBar(_snackBar);
   }
 
+  /// Shows default SnackBar with some customizations
   void showText(
     String text, {
     Color textColor,

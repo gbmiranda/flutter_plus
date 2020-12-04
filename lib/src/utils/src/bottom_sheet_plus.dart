@@ -8,6 +8,7 @@ class BottomSheetPlus {
   static final _instance = BottomSheetPlus._();
   BottomSheetPlus._();
 
+  /// Shows custom BottomSheet
   void show({
     @required Widget child,
     Function(dynamic result) onClosed,

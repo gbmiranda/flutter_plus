@@ -3,24 +3,31 @@ import 'package:flutter/material.dart';
 import '../../../flutter_plus.dart';
 
 class RichTextPlus extends StatelessWidget {
-  // TODO
-  // urls
-  // phones
-  // dates
+  /*
+    Todo
+    urls
+    phones
+    dates
+  */
 
-  // atributos
-  final int maxLines;
-  final bool isCenter;
-  final bool isExpandend;
-
+  /// RichTextPlus texts
   final List<TextPlus> texts;
+
+  /// RichTextPlus maxLines
+  final int maxLines;
+
+  /// RichTextPlus inside Center widget
+  final bool isCenter;
+
+  /// RichTextPlus inside Expanded widget
+  final bool isExpanded;
 
   RichTextPlus({
     Key key,
     this.maxLines = 1,
     // custom
     this.isCenter = false,
-    this.isExpandend = false,
+    this.isExpanded = false,
     this.texts,
     // this.mainTextStyleX,
   }) : super(key: key);
@@ -35,7 +42,7 @@ class RichTextPlus extends StatelessWidget {
       );
     }
 
-    if (isExpandend == true) {
+    if (isExpanded == true) {
       richTextPlus = Expanded(
         child: richTextPlus,
       );

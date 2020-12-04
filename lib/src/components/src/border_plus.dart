@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class BorderPlus {
+  /// Border color
   final Color color;
+
+  /// Border width
   final double width;
+
+  /// Border style
   final BorderStyle style;
 
+  /// BorderPlus constructor
   BorderPlus({
     this.color = Colors.black,
     this.width = 1,
     this.style = BorderStyle.solid,
   });
 
+  /// Transform BorderPlus to native Flutter Border
   Border get toBorder {
     if (this == null) {
       return Border.all(
@@ -27,6 +34,7 @@ class BorderPlus {
     }
   }
 
+  /// Transform BorderPlus to native Flutter BorderSide
   BorderSide get toBorderSide {
     if (this == null) {
       return BorderSide.none;

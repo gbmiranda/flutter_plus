@@ -5,117 +5,104 @@ import '../../../src/components/src/inner_shadow_render_plus.dart';
 import '../../../src/components/src/skeleton_render_plus.dart';
 
 class ContainerPlus extends StatefulWidget {
-  /// Empty space to inscribe inside the [decoration]. The [child], if any, is
-  /// placed inside this padding.
-  ///
-  /// This padding is in addition to any padding inherent in the [decoration];
-  /// see [Decoration.padding].
-  final EdgeInsets padding;
-
-  /// Empty space to surround the [decoration] and [child].
-  final EdgeInsets margin;
-
-  final double height;
-  final double width;
-
-  final Alignment alignment;
-  final BlendMode backgroundBlendMode;
-  final BoxConstraints boxConstraints;
-
-  /// Container color when there is no gradient.
-  final Color color;
-
-  /// Image background.
-  final DecorationImage image;
-
-  /// The widget below this widget in the tree.
-  ///
-  /// {@macro flutter.widgets.child}
+  /// ContainerPlus child widget
   final Widget child;
 
-  // Custom
+  /// ContainerPlus padding
+  final EdgeInsets padding;
 
-  /// X tap on [ContainerPlus].
+  /// ContainerPlus margin
+  final EdgeInsets margin;
+
+  /// ContainerPlus height
+  final double height;
+
+  /// ContainerPlus width
+  final double width;
+
+  /// ContainerPlus alignment
+  final Alignment alignment;
+
+  /// ContainerPlus backgroundBlendMode
+  final BlendMode backgroundBlendMode;
+
+  /// ContainerPlus boxConstraints
+  final BoxConstraints boxConstraints;
+
+  /// ContainerPlus color when there is no gradient
+  final Color color;
+
+  /// ContainerPlus image background
+  final DecorationImage image;
+
+  /// ContainerPlus onTap action
   final Function() onTap;
 
-  /// X tap on [ContainerPlus].
+  /// ContainerPlus onTapDown action
   final Function(TapDownDetails) onTapDown;
 
-  /// X tap on [ContainerPlus].
+  /// ContainerPlus onTapUp action
   final Function(TapUpDetails) onTapUp;
 
-  /// X tap on [ContainerPlus].
+  /// ContainerPlus onTapCancel action
   final Function() onTapCancel;
 
-  /// Double tap on [ContainerPlus].
+  /// ContainerPlus onDoubleTap action
   final Function() onDoubleTap;
 
-  /// Long press on [ContainerPlus].
+  /// ContainerPlus onLongPress action
   final Function() onLongPress;
 
+  /// ContainerPlus onPanUpdate action
   final Function(DragUpdateDetails) onPanUpdate;
+
+  /// ContainerPlus onPanEnd action
   final Function(DragStartDetails) onPanStart;
+
+  /// ContainerPlus onLongPress action
   final Function(DragEndDetails) onPanEnd;
+
+  /// ContainerPlus onPanDown action
   final Function(DragDownDetails) onPanDown;
+
+  /// ContainerPlus onPanCancel action
   final Function() onPanCancel;
 
-  /// Notify a parent when the update size and position.
-  ///
-  /// Defaults is [null].
-  final Function(Size, Offset) notifyParent;
-
-  /// When [true] place the container inside a [Center] widget.
-  ///
-  /// Defaults is [false].
-  final bool isCenter;
-
-  /// When [true] place the container inside a [Expanded] widget.
-  ///
-  /// Defaults is [false].
-  final bool isExpanded;
-
-  /// When [true] force a circle container.
-  ///
-  /// Defaults is [false].
-  final bool isCircle;
-
-  // Plus Package
-
-  /// When [true] show a loading effect up child.
-  ///
-  /// Defaults is [null].
-  final SkeletonPlus skeleton;
-
-  /// X class to set [radius] on container.
-  ///
-  /// Defaults is [null].
+  /// ContainerPlus radius
   final RadiusPlus radius;
 
-  /// X class to set [border] on container.
-  ///
-  /// Defaults is [null].
+  /// ContainerPlus border
   final BorderPlus border;
 
-  /// X class to set [shadow] on container.
-  ///
-  /// Defaults is [null].
+  /// ContainerPlus shadows
   final List<ShadowPlus> shadows;
 
-  /// X class to set [shadow] on container.
-  ///
-  /// Defaults is [null].
+  /// ContainerPlus gradient
+  final GradientPlus gradient;
+
+  /// ContainerPlus innerShadows
   final List<InnerShadowPlus> innerShadows;
 
-  /// X class to set [gradient] on container.
-  ///
-  /// Defaults is [null].
-  final GradientPlus gradient;
+  /// ContainerPlus skeleton
+  final SkeletonPlus skeleton;
+
+  /// ContainerPlus inside Center widget
+  final bool isCenter;
+
+  /// ContainerPlus inside Expanded widget
+  final bool isExpanded;
+
+  /// ContainerPlus circle radius
+  final bool isCircle;
+
+  /// Async notify a parent the size and position of ContainerPlus
+  final Function(Size, Offset) notifyParent;
 
   ContainerPlus({
     Key key,
     this.height,
     this.width,
-    this.color = Colors.white,
+    this.color = Colors.transparent,
     this.child,
     this.padding = EdgeInsets.zero,
     this.margin = EdgeInsets.zero,
