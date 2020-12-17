@@ -1,4 +1,6 @@
-## [0.0.5] - 27/11/2020
+## [0.0.6] - 06/12/2020
+* Improvements;
+## [0.0.5] - 04/12/2020
 * Web
 * Code and Documentation improvements;
 ## [0.0.4] - 27/11/2020

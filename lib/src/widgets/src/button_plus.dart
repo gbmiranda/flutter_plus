@@ -89,7 +89,7 @@ class ButtonPlus extends StatefulWidget {
     this.child,
     this.padding = EdgeInsets.zero,
     this.margin,
-    this.height = 40,
+    this.height,
     this.width,
     this.color,
     this.disabledBackgroundColor,

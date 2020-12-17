@@ -55,6 +55,22 @@ class HomeScreen extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.all(24),
       children: [
+        // _buildButton(
+        //   'SaveData',
+        //   Colors.purple,
+        //   () {
+        //     localStoragePlus.write('flutter_plus_key',
+        //         DateTime.now().format('dd/MM/yyyy HH:mm:ss'));
+        //   },
+        // ),
+        // _buildButton(
+        //   'GetData',
+        //   Colors.purple,
+        //   () async {
+        //     var data = await localStoragePlus.read('flutter_plus_key');
+        //     print(data);
+        //   },
+        // ),
         _buildButton(
           'ContainerPlus',
           Colors.redAccent,
