@@ -174,7 +174,7 @@ class DialogPlus {
             fontSize: messageSize ?? 16,
             fontWeight: messageWeight ?? FontWeight.normal,
             textAlign: TextAlign.center,
-            textOverflow: TextOverflow.ellipsis,
+            // textOverflow: TextOverflow.ellipsis,
           );
         }
 

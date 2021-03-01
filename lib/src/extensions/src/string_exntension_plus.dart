@@ -1,11 +1,15 @@
 import 'dart:convert';
-
 import 'package:diacritic/diacritic.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/foundation.dart';
 
 extension StringExtensionPlus on String {
   /// Checks whether string is empty or null
+  bool get isNullOrEmpty {
+    return this == null && !isNotEmpty;
+  }
+
+  /// Checks whether string is not empty or null
   bool get isNotNullOrEmpty {
     return this != null && isNotEmpty;
   }
@@ -81,8 +85,6 @@ extension StringExtensionPlus on String {
   /// Checks whether the string is an CPF (Brazil)
   bool get isCpf {
     if (isNotNullOrEmpty) {
-      return false;
-    } else {
       var sanitizedCPF =
           replaceAll(RegExp(r'\.|-'), '').split('').map(int.parse).toList();
       return !_blacklistedCPF(sanitizedCPF.join()) &&
@@ -90,6 +92,8 @@ extension StringExtensionPlus on String {
               _gerarDigitoVerificador(sanitizedCPF.getRange(0, 9).toList()) &&
           sanitizedCPF[10] ==
               _gerarDigitoVerificador(sanitizedCPF.getRange(0, 10).toList());
+    } else {
+      return false;
     }
   }
 
@@ -233,9 +237,28 @@ extension StringExtensionPlus on String {
     }
   }
 
-  /// Checks whether a String is a date
-  bool get isDateTime {
-    return _checkRegex(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$");
+  /// Checks whether a String is a dateTime
+  // bool get isDateTime {
+  //   // return _checkRegex(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$");
+  // }
+
+  /// Checks whether a String is a dateTime
+  bool isDateTime({@required String format}) {
+    if (format.isNotNullOrEmpty || isNotNullOrEmpty) {
+      try {
+        var dateTime = toDate(format: format);
+        if (dateTime != null) {
+          return true;
+        } else {
+          return false;
+        }
+      } on Exception catch (e) {
+        print(e);
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   /// Checks whether a String is a url

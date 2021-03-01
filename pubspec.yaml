@@ -1,6 +1,6 @@
 name: flutter_plus
 description: Create customized Containers/Buttons/TextFields/Texts/RichTexts in a few lines. Navigate between Screens and open BottomSheets/Dialogs/Snackbars without context and more!
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/gbmiranda/flutter_plus.git
 repository: https://github.com/gbmiranda/flutter_plus.git
 issue_tracker: https://github.com/gbmiranda/flutter_plus/issues
@@ -12,9 +12,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.16.1
+  intl:
   diacritic: ^0.1.1
-  shared_preferences: '>=0.5.12+4 <2.0.0'
+  # shared_preferences: '>=0.5.12+4 <2.0.0'
+  shared_preferences: ^0.5.12+4
+  shared_preferences_web: ^0.1.0
   path: ^1.7.0
 
 dev_dependencies:
