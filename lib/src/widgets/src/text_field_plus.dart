@@ -249,7 +249,8 @@ class TextFieldPlus extends StatelessWidget {
           : textInputType,
       maxLines: maxLines,
       maxLength: maxLength,
-      maxLengthEnforced: true,
+      // maxLengthEnforced: true,
+      maxLengthEnforcement: MaxLengthEnforcement.none,
       showCursor: showCursor,
       cursorRadius: Radius.circular(cursorRadius),
       cursorWidth: cursorWidth,
@@ -264,7 +265,6 @@ class TextFieldPlus extends StatelessWidget {
       onEditingComplete: onEditingComplete,
       onSubmitted: onSubmitted,
       textInputAction: textInputAction,
-
       // remove native decoration
       decoration: null,
     );

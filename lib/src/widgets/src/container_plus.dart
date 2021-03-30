@@ -304,7 +304,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   BoxDecoration _buildInDecoration() {
     return BoxDecoration(
-      color: skeletonEnabled == true ? Colors.transparent : widget.color,
+      color: _containerColor(),
       // shape: widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
       shape: BoxShape.rectangle,
       border: _buildBorder(),
@@ -318,7 +318,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   BoxDecoration _buildOutDecoration() {
     return BoxDecoration(
-      color: skeletonEnabled == true ? Colors.transparent : widget.color,
+      color: _containerColor(),
       // shape: widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
       shape: BoxShape.rectangle,
       border: _buildBorder(),
@@ -328,6 +328,14 @@ class _ContainerPlusState extends State<ContainerPlus> {
       image: _buildDecorationImage(),
       backgroundBlendMode: widget.backgroundBlendMode,
     );
+  }
+
+  Color _containerColor() {
+    if (widget.gradient != null) {
+      return Colors.red;
+    } else {
+      return skeletonEnabled == true ? Colors.transparent : widget.color;
+    }
   }
 
   List<BoxShadow> _buildShadow() {

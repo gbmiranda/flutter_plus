@@ -68,6 +68,7 @@ class _ButtonPlusScreenState extends State<ButtonPlusScreen> {
       height: 60,
       radius: RadiusPlus.bottom(20),
       color: Colors.yellow,
+      splashColor: Colors.red,
       shadows: [
         ShadowPlus(
           color: Colors.red,
