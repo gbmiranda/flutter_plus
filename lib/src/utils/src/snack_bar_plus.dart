@@ -8,8 +8,7 @@ class SnackBarPlus {
   static final _instance = SnackBarPlus._();
   SnackBarPlus._();
 
-// final  rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
   /// Shows custom SnackBar
   void show({
@@ -42,7 +41,8 @@ class SnackBarPlus {
       shape: shape,
       width: width,
     );
-    scaffoldKey.currentState.showSnackBar(_snackBar);
+    hideCurrentSnackBar();
+    rootScaffoldMessengerKey.currentState.showSnackBar(_snackBar);
   }
 
   /// Shows default SnackBar with some customizations
@@ -89,6 +89,23 @@ class SnackBarPlus {
       shape: shape,
       width: width,
     );
-    scaffoldKey.currentState.showSnackBar(_snackBar);
+    hideCurrentSnackBar();
+    rootScaffoldMessengerKey.currentState.showSnackBar(_snackBar);
+  }
+
+  void removeCurrentSnackBar({
+    SnackBarClosedReason reson = SnackBarClosedReason.remove,
+  }) {
+    rootScaffoldMessengerKey.currentState.removeCurrentSnackBar(
+      reason: reson,
+    );
+  }
+
+  void hideCurrentSnackBar({
+    SnackBarClosedReason reson = SnackBarClosedReason.hide,
+  }) {
+    rootScaffoldMessengerKey.currentState.hideCurrentSnackBar(
+      reason: reson,
+    );
   }
 }

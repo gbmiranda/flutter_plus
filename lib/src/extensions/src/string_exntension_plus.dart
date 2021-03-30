@@ -149,6 +149,26 @@ extension StringExtensionPlus on String {
     }
   }
 
+  /// Containes to another String with caseSensitive or not
+  bool containesStrings(String text, {bool caseSensitive}) {
+    if (this == null || text == null) {
+      return false;
+    } else if (isEmpty && text.isEmpty) {
+      return true;
+    } else {
+      var originalStr = cleanString?.cleanDiacritics;
+      var compareStr = text.cleanString?.cleanDiacritics;
+      if (originalStr == null || compareStr == null) {
+        return false;
+      }
+      if (caseSensitive == false) {
+        originalStr = originalStr.toLowerCase();
+        compareStr = compareStr.toLowerCase();
+      }
+      return originalStr.contains(compareStr) == 0;
+    }
+  }
+
   /// Remove diacritics from the String
   /// Remove acentos da String
   String get cleanDiacritics {

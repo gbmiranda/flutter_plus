@@ -463,11 +463,9 @@ class _FlutterAppPlusState extends State<FlutterAppPlus> {
       theme: widget.theme,
       themeMode: widget.themeMode,
       title: widget.title,
+      scaffoldMessengerKey: snackBarPlus.rootScaffoldMessengerKey,
       builder: (context, child) {
-        return Scaffold(
-          key: snackBarPlus.scaffoldKey,
-          body: widget.builder == null ? child : widget.builder(context, child),
-        );
+        return widget.builder == null ? child : widget.builder(context, child);
       },
       home: widget.home,
     );
