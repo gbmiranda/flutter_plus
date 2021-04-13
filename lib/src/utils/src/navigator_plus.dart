@@ -6,10 +6,10 @@ class NavigatorPlus {
   static final _instance = NavigatorPlus._();
   NavigatorPlus._();
 
-  GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
+  GlobalKey<NavigatorState>? _navigatorKey = GlobalKey();
 
-  GlobalKey<NavigatorState> get _getNavigatorKey {
-    if (_navigatorKey == null || _navigatorKey.currentState == null) {
+  GlobalKey<NavigatorState>? get _getNavigatorKey {
+    if (_navigatorKey == null || _navigatorKey!.currentState == null) {
       print('Need configuration');
       return null;
     } else {
@@ -17,26 +17,26 @@ class NavigatorPlus {
     }
   }
 
-  GlobalKey<NavigatorState> get key {
+  GlobalKey<NavigatorState>? get key {
     return _navigatorKey;
   }
 
-  GlobalKey<NavigatorState> addKey(GlobalKey<NavigatorState> newKey) {
+  GlobalKey<NavigatorState>? addKey(GlobalKey<NavigatorState>? newKey) {
     _navigatorKey = newKey;
     return _navigatorKey;
   }
 
-  BuildContext get currentContext =>
+  BuildContext? get currentContext =>
       _getNavigatorKey?.currentState?.overlay?.context;
 
   /// Navigate to a specific Widget
-  Future<dynamic> show(
+  Future<dynamic>? show(
     Widget destination, {
-    bool replace,
-    bool maintainState,
-    RouteSettings settings,
+    bool? replace,
+    bool? maintainState,
+    RouteSettings? settings,
   }) {
-    FocusManager.instance.primaryFocus.unfocus();
+    FocusManager.instance.primaryFocus!.unfocus();
     if (replace != null && replace == true) {
       return _getNavigatorKey?.currentState?.pushReplacement(
         MaterialPageRoute(
@@ -57,13 +57,13 @@ class NavigatorPlus {
   }
 
   /// Navigate to a modal specific Widget
-  Future<dynamic> showModal(
+  Future<dynamic>? showModal(
     Widget destination, {
-    bool replace,
-    bool maintainState,
-    RouteSettings settings,
+    bool? replace,
+    bool? maintainState,
+    RouteSettings? settings,
   }) {
-    FocusManager.instance.primaryFocus.unfocus();
+    FocusManager.instance.primaryFocus!.unfocus();
     if (replace != null && replace == true) {
       return _getNavigatorKey?.currentState?.pushReplacement(
         MaterialPageRoute(
@@ -85,24 +85,24 @@ class NavigatorPlus {
 
   /// Check if you can return
   bool get canBack {
-    if (_getNavigatorKey == null || _getNavigatorKey.currentState == null) {
+    if (_getNavigatorKey == null || _getNavigatorKey!.currentState == null) {
       return false;
     } else {
-      return _getNavigatorKey.currentState.canPop();
+      return _getNavigatorKey!.currentState!.canPop();
     }
   }
 
   /// Back to previous Widget
   void back({dynamic result}) {
-    FocusManager.instance.primaryFocus.unfocus();
-    if (canBack) _getNavigatorKey.currentState.pop(result);
+    FocusManager.instance.primaryFocus!.unfocus();
+    if (canBack) _getNavigatorKey!.currentState!.pop(result);
   }
 
   /// Back to first stack widget
   void backAll() {
-    FocusManager.instance.primaryFocus.unfocus();
+    FocusManager.instance.primaryFocus!.unfocus();
     if (canBack) {
-      _getNavigatorKey.currentState.popUntil((route) => route.isFirst);
+      _getNavigatorKey!.currentState!.popUntil((route) => route.isFirst);
     }
   }
 }

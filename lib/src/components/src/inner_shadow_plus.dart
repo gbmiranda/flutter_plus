@@ -5,7 +5,7 @@ class InnerShadowPlus {
   final Color color;
 
   /// InnerShadow color opacity -> 0.0 to 1.0
-  final double opacity;
+  final double? opacity;
 
   /// InnerShadow blur
   final double blur;

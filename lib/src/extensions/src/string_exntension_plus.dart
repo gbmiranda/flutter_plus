@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'package:diacritic/diacritic.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/foundation.dart';
 
 extension StringExtensionPlus on String {
   /// Checks whether string is empty or null
   bool get isNullOrEmpty {
-    return this == null && !isNotEmpty;
+    return this == null && isNotEmpty;
   }
 
   /// Checks whether string is not empty or null
@@ -15,7 +14,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Get first letter of string
-  String get firstLetter {
+  String? get firstLetter {
     if (isNotNullOrEmpty) {
       return this[0].toUpperCase();
     } else {
@@ -24,7 +23,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Get first word of string
-  String get firstWord {
+  String? get firstWord {
     if (isNotNullOrEmpty) {
       var words = split(' ');
       if (words.length > 0) {
@@ -38,9 +37,9 @@ extension StringExtensionPlus on String {
   }
 
   /// Convert String to base64
-  String get toBase64 {
+  String? get toBase64 {
     if (isNotNullOrEmpty) {
-      var stringToBase64 = utf8.fuse(base64);
+      Codec<String?, String> stringToBase64 = utf8.fuse(base64);
       return stringToBase64.encode(this);
     } else {
       return null;
@@ -48,7 +47,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Convert base64 to String
-  String get fromBase64 {
+  String? get fromBase64 {
     if (isNotNullOrEmpty) {
       var stringToBase64 = utf8.fuse(base64);
       return stringToBase64.decode(this);
@@ -58,7 +57,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Remove special characters from the String
-  String get cleanString {
+  String? get cleanString {
     if (isNotNullOrEmpty) {
       return replaceAll(RegExp(r'[^\w\s]+'), '');
     } else {
@@ -67,7 +66,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Remove special characters and spaces from the String
-  String get cleanStringAndSpaces {
+  String? get cleanStringAndSpaces {
     if (isNotNullOrEmpty) {
       return replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
     } else {
@@ -130,7 +129,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Compare to another String with caseSensitive or not
-  bool compareStrings(String text, {bool caseSensitive}) {
+  bool compareStrings(String text, {bool? caseSensitive}) {
     if (this == null || text == null) {
       return false;
     } else if (isEmpty && text.isEmpty) {
@@ -150,7 +149,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Containes to another String with caseSensitive or not
-  bool containesStrings(String text, {bool caseSensitive}) {
+  bool containesStrings(String text, {bool? caseSensitive}) {
     if (this == null || text == null) {
       return false;
     } else if (isEmpty && text.isEmpty) {
@@ -171,7 +170,7 @@ extension StringExtensionPlus on String {
 
   /// Remove diacritics from the String
   /// Remove acentos da String
-  String get cleanDiacritics {
+  String? get cleanDiacritics {
     if (isNotNullOrEmpty) {
       return removeDiacritics(this);
     } else {
@@ -180,7 +179,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Capitalize first word from the String
-  String get capitalizeFirstWord {
+  String? get capitalizeFirstWord {
     if (isNotNullOrEmpty) {
       var input = toLowerCase();
       return input[0].toUpperCase() + input.substring(1);
@@ -190,7 +189,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Capitalize all words from the String
-  String get capitalizeAllWords {
+  String? get capitalizeAllWords {
     if (isNotNullOrEmpty) {
       var input = toLowerCase();
       var words = input.split(' ');
@@ -207,7 +206,7 @@ extension StringExtensionPlus on String {
   }
 
   /// Transfor String to DateTime
-  DateTime toDate({@required String format}) {
+  DateTime? toDate({required String format}) {
     if (isNotNullOrEmpty) {
       return DateFormat(format).parse(this);
     } else {
@@ -216,14 +215,14 @@ extension StringExtensionPlus on String {
   }
 
   /// Set custom mask to String
-  String setMask({@required String mask}) {
+  String? setMask({required String mask}) {
     if (isNotNullOrEmpty) {
       var cleanText = cleanStringAndSpaces;
       var maskItemCount = 0;
       var maskedString = '';
       for (var i = 0; i < mask.length; i++) {
         if (mask[i] == '#') {
-          maskedString += cleanText[i - maskItemCount];
+          maskedString += cleanText![i - maskItemCount];
         } else {
           maskedString += mask[i];
           maskItemCount++;
@@ -263,7 +262,7 @@ extension StringExtensionPlus on String {
   // }
 
   /// Checks whether a String is a dateTime
-  bool isDateTime({@required String format}) {
+  bool isDateTime({required String format}) {
     if (format.isNotNullOrEmpty || isNotNullOrEmpty) {
       try {
         var dateTime = toDate(format: format);

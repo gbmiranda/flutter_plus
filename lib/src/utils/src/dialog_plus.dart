@@ -9,23 +9,23 @@ class DialogPlus {
 
   /// Shows custom Dialog
   void show({
-    @required Widget child,
-    Color barrierColor,
+    required Widget child,
+    Color? barrierColor,
     bool barrierDismissible = true,
     bool useRootNavigator = false,
     bool useSafeArea = false,
-    RouteSettings routeSettings,
+    RouteSettings? routeSettings,
     bool closeKeyboardWhenOpen = true,
-    RadiusPlus radius,
-    BorderPlus border,
+    RadiusPlus? radius,
+    BorderPlus? border,
     double elevation = 1,
-    double screenHorizontalMargin,
+    double? screenHorizontalMargin,
   }) {
     if (closeKeyboardWhenOpen == true) {
       utilsPlus.closeKeyboard();
     }
     showDialog(
-      context: navigatorPlus.currentContext,
+      context: navigatorPlus.currentContext!,
       barrierColor: barrierColor,
       barrierDismissible: barrierDismissible,
       routeSettings: routeSettings,
@@ -49,55 +49,56 @@ class DialogPlus {
   /// Shows default Dialog with some customizations
   void showDefault({
     // title
-    String title,
-    Color titleColor,
-    double titleSize,
-    FontWeight titleWeight,
+    String? title,
+    Color? titleColor,
+    double? titleSize,
+    FontWeight? titleWeight,
     // message
-    String message,
-    Color messageColor,
-    double messageSize,
-    FontWeight messageWeight,
+    String? message,
+    Color? messageColor,
+    double? messageSize,
+    FontWeight? messageWeight,
     // button one
-    String buttonOneText,
-    Color buttonOneTextColor,
-    double buttonOneTextSize,
-    FontWeight buttonOneTextWeight,
-    Color buttonOneColor,
-    RadiusPlus buttonOneRadius,
-    Function() buttonOneCallback,
+    String? buttonOneText = '',
+    Color? buttonOneTextColor,
+    double? buttonOneTextSize,
+    FontWeight? buttonOneTextWeight,
+    Color? buttonOneColor,
+    RadiusPlus? buttonOneRadius,
+    Function()? buttonOneCallback,
     // buttonTwo
-    String buttonTwoText,
-    Color buttonTwoTextColor,
-    double buttonTwoTextSize,
-    FontWeight buttonTwoTextWeight,
-    Color buttonTwoColor,
-    RadiusPlus buttonTwoRadius,
-    Function() buttonTwoCallback,
+    String? buttonTwoText = '',
+    Color? buttonTwoTextColor,
+    double? buttonTwoTextSize,
+    FontWeight? buttonTwoTextWeight,
+    Color? buttonTwoColor,
+    RadiusPlus? buttonTwoRadius,
+    Function()? buttonTwoCallback,
     // others
-    double buttonsHeight,
-    EdgeInsetsGeometry padding,
-    Color barrierColor,
+    double? buttonsHeight,
+    EdgeInsetsGeometry? padding,
+    Color? barrierColor,
     bool barrierDismissible = true,
     bool closeKeyboardWhenOpen = true,
-    RadiusPlus radius,
-    BorderPlus border,
+    RadiusPlus? radius,
+    BorderPlus? border,
     double elevation = 1,
     double elementsSpacing = 16,
-    double screenHorizontalMargin,
+    double? screenHorizontalMargin,
   }) {
     if (closeKeyboardWhenOpen == true) {
       utilsPlus.closeKeyboard();
     }
     showDialog(
-      context: navigatorPlus.currentContext,
+      context: navigatorPlus.currentContext!,
       barrierColor: barrierColor,
       barrierDismissible: (buttonOneText == null || buttonOneText == null)
           ? true
           : barrierDismissible,
       builder: (context) {
-        Widget buttonsContent;
-        if (buttonOneText.isNotNullOrEmpty && buttonTwoText.isNotNullOrEmpty) {
+        Widget? buttonsContent;
+        if (buttonOneText!.isNotNullOrEmpty &&
+            buttonTwoText!.isNotNullOrEmpty) {
           buttonsContent = Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -141,7 +142,7 @@ class DialogPlus {
             buttonOneRadius,
             buttonOneCallback,
           );
-        } else if (buttonTwoText.isNotNullOrEmpty) {
+        } else if (buttonTwoText!.isNotNullOrEmpty) {
           buttonsContent = _createButton(
             buttonTwoText,
             buttonTwoTextColor,
@@ -154,7 +155,7 @@ class DialogPlus {
           );
         }
 
-        TextPlus titleWidget;
+        TextPlus? titleWidget;
         if (title != null) {
           titleWidget = TextPlus(
             title,
@@ -166,7 +167,7 @@ class DialogPlus {
           );
         }
 
-        TextPlus messageWidget;
+        TextPlus? messageWidget;
         if (message != null) {
           messageWidget = TextPlus(
             message,
@@ -215,9 +216,9 @@ class DialogPlus {
   Widget _createDialog(
     Widget child,
     double elevation,
-    RadiusPlus radius,
-    BorderPlus border,
-    double screenHorizontalMargin,
+    RadiusPlus? radius,
+    BorderPlus? border,
+    double? screenHorizontalMargin,
   ) {
     return Dialog(
       child: ClipRRect(
@@ -236,14 +237,14 @@ class DialogPlus {
   }
 
   ButtonPlus _createButton(
-    String buttonText,
-    Color buttonTextColor,
-    double buttonTextSize,
-    FontWeight buttonTextWeight,
-    double buttonsHeight,
-    Color buttonColor,
-    RadiusPlus buttonRadius,
-    Function() buttonCallback,
+    String? buttonText,
+    Color? buttonTextColor,
+    double? buttonTextSize,
+    FontWeight? buttonTextWeight,
+    double? buttonsHeight,
+    Color? buttonColor,
+    RadiusPlus? buttonRadius,
+    Function()? buttonCallback,
   ) {
     return ButtonPlus(
       child: TextPlus(

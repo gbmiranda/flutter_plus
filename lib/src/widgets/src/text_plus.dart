@@ -12,13 +12,13 @@ class TextPlus extends StatelessWidget {
   */
 
   /// TextPlus text
-  final String text;
+  final String? text;
 
   /// TextPlus maxLines
-  final int maxLines;
+  final int? maxLines;
 
   /// TextPlus mask -> ###.###.###-##
-  final String mask;
+  final String? mask;
 
   /// TextPlus inside Center widget
   final bool isCenter;
@@ -27,10 +27,10 @@ class TextPlus extends StatelessWidget {
   final bool isExpanded;
 
   /// TextPlus height
-  final double height;
+  final double? height;
 
   /// TextPlus width
-  final double width;
+  final double? width;
 
   /// TextPlus padding
   final EdgeInsets padding;
@@ -39,7 +39,7 @@ class TextPlus extends StatelessWidget {
   final EdgeInsets margin;
 
   /// TextPlus textOverflow
-  final TextOverflow textOverflow;
+  final TextOverflow? textOverflow;
 
   /// TextPlus textAlign
   final TextAlign textAlign;
@@ -48,10 +48,10 @@ class TextPlus extends StatelessWidget {
   final TextDirection textDirection;
 
   /// TextPlus color
-  final Color color;
+  final Color? color;
 
   /// TextPlus fontSize
-  final double fontSize;
+  final double? fontSize;
 
   /// TextPlus fontWeight
   final FontWeight fontWeight;
@@ -60,47 +60,47 @@ class TextPlus extends StatelessWidget {
   final FontStyle fontStyle;
 
   /// TextPlus backgroundColor
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// TextPlus letterSpacing
-  final double letterSpacing;
+  final double? letterSpacing;
 
   /// TextPlus wordSpacing
-  final double wordSpacing;
+  final double? wordSpacing;
 
   /// TextPlus fontFamily
-  final String fontFamily;
+  final String? fontFamily;
 
   /// TextPlus textDecorationPlus
-  final TextDecorationPlus textDecorationPlus;
+  final TextDecorationPlus? textDecorationPlus;
 
   /// TextPlus textShadows
-  final List<ShadowPlus> textShadows;
+  final List<ShadowPlus>? textShadows;
 
   /// TextPlus radius
-  final RadiusPlus backgroundRadius;
+  final RadiusPlus? backgroundRadius;
 
   /// TextPlus border
-  final BorderPlus backgroundBorder;
+  final BorderPlus? backgroundBorder;
 
   /// TextPlus shadows
-  final List<ShadowPlus> backgroundShadows;
+  final List<ShadowPlus>? backgroundShadows;
 
   /// TextPlus gradient
-  final GradientPlus backgroundGradient;
+  final GradientPlus? backgroundGradient;
 
   /// TextPlus innerShadows
-  final List<InnerShadowPlus> backgroundInnerShadows;
+  final List<InnerShadowPlus>? backgroundInnerShadows;
 
   /// TextPlus onTap action
-  final Function() onTap;
+  final Function()? onTap;
 
   /// TextPlus onLongPress action
-  final Function() onLongPress;
+  final Function()? onLongPress;
 
   TextPlus(
     this.text, {
-    Key key,
+    Key? key,
     this.maxLines,
     this.textOverflow,
     this.textAlign = TextAlign.left,
@@ -167,7 +167,7 @@ class TextPlus extends StatelessWidget {
       gradient: backgroundGradient,
       radius: backgroundRadius,
       child: Text(
-        _maskText,
+        _maskText!,
         key: key,
         maxLines: maxLines,
         overflow: textOverflow,
@@ -197,20 +197,20 @@ class TextPlus extends StatelessWidget {
     );
   }
 
-  String get _maskText {
+  String? get _maskText {
     try {
-      if (text == null || text.isEmpty) {
+      if (text == null || text!.isEmpty) {
         return '';
-      } else if (mask == null || mask.isEmpty) {
+      } else if (mask == null || mask!.isEmpty) {
         return text;
       } else {
         var maskItemCount = 0;
         var maskedString = '';
-        for (var i = 0; i < mask.length; i++) {
-          if (mask[i] == '#') {
+        for (var i = 0; i < mask!.length; i++) {
+          if (mask![i] == '#') {
             maskedString += _cleanText[i - maskItemCount];
           } else {
-            maskedString += mask[i];
+            maskedString += mask![i];
             maskItemCount++;
           }
         }
@@ -223,17 +223,17 @@ class TextPlus extends StatelessWidget {
   }
 
   String get _cleanText {
-    return text.replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
+    return text!.replaceAll(RegExp(r'[^\w\s]+'), '').replaceAll(' ', '');
   }
 
-  List<Shadow> _buildShadows() {
-    if (textShadows == null || textShadows.isEmpty) {
+  List<Shadow>? _buildShadows() {
+    if (textShadows == null || textShadows!.isEmpty) {
       return null;
     } else {
-      return textShadows.map((shadowPlus) {
+      return textShadows!.map((shadowPlus) {
         return Shadow(
           color: shadowPlus.opacity != null
-              ? shadowPlus.color.withOpacity(shadowPlus.opacity)
+              ? shadowPlus.color.withOpacity(shadowPlus.opacity!)
               : shadowPlus.color,
           blurRadius: shadowPlus.blur,
           offset: Offset(

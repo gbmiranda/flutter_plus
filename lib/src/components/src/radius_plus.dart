@@ -2,19 +2,19 @@ import 'package:flutter/widgets.dart';
 
 class RadiusPlus {
   /// Radius value for all corners
-  final double all;
+  final double? all;
 
   /// Radius value for topLeft corner
-  final double topLeft;
+  final double? topLeft;
 
   /// Radius value for topRight corner
-  final double topRight;
+  final double? topRight;
 
   /// Radius value for bottomLeft corner
-  final double bottomLeft;
+  final double? bottomLeft;
 
   /// Radius value for bottomRight corner
-  final double bottomRight;
+  final double? bottomRight;
 
   /// Radius to all corners
   RadiusPlus.all(this.all)

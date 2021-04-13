@@ -4,7 +4,7 @@ import 'package:path/path.dart' as path;
 
 extension FileExtensionPlus on File {
   /// Convert File to base64 sync
-  String get base64Sync {
+  String? get base64Sync {
     if (this == null) {
       return null;
     } else {
@@ -14,7 +14,7 @@ extension FileExtensionPlus on File {
   }
 
   /// Convert File to base64 async
-  Future<String> get base64Async {
+  Future<String>? get base64Async {
     if (this == null) {
       return null;
     } else {

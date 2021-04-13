@@ -10,21 +10,21 @@ class BottomSheetPlus {
 
   /// Shows custom BottomSheet
   void show({
-    @required Widget child,
-    Function(dynamic result) onClosed,
-    Color backgroundColor,
-    Color barrierColor,
+    required Widget child,
+    Function(dynamic result)? onClosed,
+    Color? backgroundColor,
+    Color? barrierColor,
     bool isDismissible = true,
     bool isScrollControlled = false,
     bool enableDrag = true,
     double elevation = 0,
-    double heightPercentScreen,
-    double height,
+    double? heightPercentScreen,
+    double? height,
     Clip clipBehavior = Clip.none,
-    RadiusPlus radius,
-    BorderPlus border,
+    RadiusPlus? radius,
+    BorderPlus? border,
   }) {
-    FocusManager.instance.primaryFocus.unfocus();
+    FocusManager.instance.primaryFocus!.unfocus();
 
     var _validCustomHeight = (height != null && height > 0) ||
         (heightPercentScreen != null &&
@@ -35,7 +35,7 @@ class BottomSheetPlus {
       isScrollControlled = true;
     }
     showModalBottomSheet(
-      context: navigatorPlus.currentContext,
+      context: navigatorPlus.currentContext!,
       backgroundColor: backgroundColor,
       barrierColor: barrierColor,
       isDismissible: isDismissible,

@@ -5,7 +5,7 @@ class ShadowPlus {
   final Color color;
 
   /// Shadow color opacity -> 0.0 to 1.0
-  final double opacity;
+  final double? opacity;
 
   /// Shadow blur
   final double blur;

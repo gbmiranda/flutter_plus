@@ -7,31 +7,31 @@ import '../../../src/components/src/text_field_mask_plus.dart';
 
 class TextFieldPlus extends StatelessWidget {
   /// TextFieldPlus padding
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   /// TextFieldPlus margin
-  final EdgeInsets margin;
+  final EdgeInsets? margin;
 
   /// TextFieldPlus height
   final double height;
 
   /// TextFieldPlus width
-  final double width;
+  final double? width;
 
   /// TextFieldPlus alignment
-  final Alignment alignment;
+  final Alignment? alignment;
 
   /// TextFieldPlus backgroundColor
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// TextFieldPlus controller
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   /// TextFieldPlus focusNode
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
 
   /// TextFieldPlus textInputType
-  final TextInputType textInputType;
+  final TextInputType? textInputType;
 
   /// TextFieldPlus textCapitalization
   final TextCapitalization textCapitalization;
@@ -43,34 +43,34 @@ class TextFieldPlus extends StatelessWidget {
   final TextAlignVertical textAlignVertical;
 
   /// TextFieldPlus onChanged action
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
 
   /// TextFieldPlus onTap action
-  final Function() onTap;
+  final Function()? onTap;
 
   /// TextFieldPlus onEditingComplete action
-  final Function() onEditingComplete;
+  final Function()? onEditingComplete;
 
   /// TextFieldPlus onSubmitted action
-  final Function(String) onSubmitted;
+  final Function(String)? onSubmitted;
 
   /// TextFieldPlus mask -> (+##) #####-#####
-  final String mask;
+  final String? mask;
 
   /// TextFieldPlus placeholder [TextPlus]
-  final TextPlus placeholder;
+  final TextPlus? placeholder;
 
   /// TextFieldPlus textInputAction
   final TextInputAction textInputAction;
 
   /// TextFieldPlus maxLength
-  final int maxLength;
+  final int? maxLength;
 
   /// TextFieldPlus maxLines
-  final int maxLines;
+  final int? maxLines;
 
   /// TextFieldPlus cursorColor
-  final Color cursorColor;
+  final Color? cursorColor;
 
   /// TextFieldPlus cursorRadius
   final double cursorRadius;
@@ -82,7 +82,7 @@ class TextFieldPlus extends StatelessWidget {
   final bool showCursor;
 
   /// TextFieldPlus enabled -> true or false
-  final bool enabled;
+  final bool? enabled;
 
   /// TextFieldPlus autocorrect -> true or false
   final bool autocorrect;
@@ -100,49 +100,49 @@ class TextFieldPlus extends StatelessWidget {
   final bool onlyNumbers;
 
   /// TextFieldPlus textColor
-  final Color textColor;
+  final Color? textColor;
 
   /// TextFieldPlus fontSize
-  final double fontSize;
+  final double? fontSize;
 
   /// TextFieldPlus fontWeight
-  final FontWeight fontWeight;
+  final FontWeight? fontWeight;
 
   /// TextFieldPlus fontStyle
-  final FontStyle fontStyle;
+  final FontStyle? fontStyle;
 
   /// TextFieldPlus letterSpacing
-  final double letterSpacing;
+  final double? letterSpacing;
 
   /// TextFieldPlus wordSpacing
-  final double wordSpacing;
+  final double? wordSpacing;
 
   /// TextFieldPlus fontFamily
-  final String fontFamily;
+  final String? fontFamily;
 
   /// TextFieldPlus prefixWidget
-  final Widget prefixWidget;
+  final Widget? prefixWidget;
 
   /// TextFieldPlus suffixWidget
-  final Widget suffixWidget;
+  final Widget? suffixWidget;
 
   /// TextFieldPlus textDecorationPlus
-  final TextDecorationPlus textDecorationPlus;
+  final TextDecorationPlus? textDecorationPlus;
 
   /// TextFieldPlus radius
-  final RadiusPlus radius;
+  final RadiusPlus? radius;
 
   /// TextFieldPlus border
-  final BorderPlus border;
+  final BorderPlus? border;
 
   /// TextFieldPlus shadows
-  final List<ShadowPlus> shadows;
+  final List<ShadowPlus>? shadows;
 
   /// TextFieldPlus gradient
-  final GradientPlus gradient;
+  final GradientPlus? gradient;
 
   /// ButtonPlus skeleton
-  final SkeletonPlus skeleton;
+  final SkeletonPlus? skeleton;
 
   /// TextFieldPlus inside Center widget
   final bool isCenter;
@@ -201,14 +201,14 @@ class TextFieldPlus extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
   });
 
-  static ContainerPlus _containerPlus;
+  static ContainerPlus? _containerPlus;
 
   @override
   Widget build(BuildContext context) {
-    return _buildContainerPlus();
+    return _buildContainerPlus()!;
   }
 
-  ContainerPlus _buildContainerPlus() {
+  ContainerPlus? _buildContainerPlus() {
     _containerPlus = ContainerPlus(
       padding: padding ?? EdgeInsets.symmetric(horizontal: 4),
       margin: margin,
@@ -287,22 +287,22 @@ class TextFieldPlus extends StatelessWidget {
     );
   }
 
-  TextStyle _buildPlaceholderTextStyle() {
+  TextStyle? _buildPlaceholderTextStyle() {
     if (placeholder == null) return null;
     return TextStyle(
-      backgroundColor: placeholder.backgroundColor,
-      color: placeholder.color,
-      fontSize: placeholder.fontSize,
-      fontWeight: placeholder.fontWeight,
-      fontStyle: placeholder.fontStyle,
-      decoration: placeholder.textDecorationPlus?.textDecoration,
-      decorationColor: placeholder.textDecorationPlus?.color,
-      decorationStyle: placeholder.textDecorationPlus?.decorationStyle,
-      decorationThickness: placeholder.textDecorationPlus?.decorationThickness,
-      letterSpacing: placeholder.letterSpacing,
-      fontFamily: placeholder.fontFamily,
-      wordSpacing: placeholder.wordSpacing,
-      height: placeholder.height,
+      backgroundColor: placeholder!.backgroundColor,
+      color: placeholder!.color,
+      fontSize: placeholder!.fontSize,
+      fontWeight: placeholder!.fontWeight,
+      fontStyle: placeholder!.fontStyle,
+      decoration: placeholder!.textDecorationPlus?.textDecoration,
+      decorationColor: placeholder!.textDecorationPlus?.color,
+      decorationStyle: placeholder!.textDecorationPlus?.decorationStyle,
+      decorationThickness: placeholder!.textDecorationPlus?.decorationThickness,
+      letterSpacing: placeholder!.letterSpacing,
+      fontFamily: placeholder!.fontFamily,
+      wordSpacing: placeholder!.wordSpacing,
+      height: placeholder!.height,
     );
   }
 
@@ -316,7 +316,7 @@ class TextFieldPlus extends StatelessWidget {
 
     if (mask != null) {
       var maskFormatter =
-          TextFieldMaskPlus(mask: mask, filter: {"#": RegExp(r'[0-9]')});
+          TextFieldMaskPlus(mask: mask!, filter: {"#": RegExp(r'[0-9]')});
       textInputFormatters.add(maskFormatter);
     }
 
@@ -331,14 +331,14 @@ class TextFieldPlus extends StatelessWidget {
 }
 
 class MaxLengthTextInputFormatter extends TextInputFormatter {
-  final int maxLength;
+  final int? maxLength;
 
   MaxLengthTextInputFormatter(this.maxLength);
 
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    if (newValue.text.length > maxLength) {
+    if (newValue.text.length > maxLength!) {
       return oldValue;
     } else {
       return newValue;

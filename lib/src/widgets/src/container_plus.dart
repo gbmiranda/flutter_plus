@@ -6,85 +6,85 @@ import '../../../src/components/src/skeleton_render_plus.dart';
 
 class ContainerPlus extends StatefulWidget {
   /// ContainerPlus child widget
-  final Widget child;
+  final Widget? child;
 
   /// ContainerPlus padding
   final EdgeInsets padding;
 
   /// ContainerPlus margin
-  final EdgeInsets margin;
+  final EdgeInsets? margin;
 
   /// ContainerPlus height
-  final double height;
+  final double? height;
 
   /// ContainerPlus width
-  final double width;
+  final double? width;
 
   /// ContainerPlus alignment
-  final Alignment alignment;
+  final Alignment? alignment;
 
   /// ContainerPlus backgroundBlendMode
-  final BlendMode backgroundBlendMode;
+  final BlendMode? backgroundBlendMode;
 
   /// ContainerPlus boxConstraints
-  final BoxConstraints boxConstraints;
+  final BoxConstraints? boxConstraints;
 
   /// ContainerPlus color when there is no gradient
-  final Color color;
+  final Color? color;
 
   /// ContainerPlus image background
-  final DecorationImage image;
+  final DecorationImage? image;
 
   /// ContainerPlus onTap action
-  final Function() onTap;
+  final Function()? onTap;
 
   /// ContainerPlus onTapDown action
-  final Function(TapDownDetails) onTapDown;
+  final Function(TapDownDetails)? onTapDown;
 
   /// ContainerPlus onTapUp action
-  final Function(TapUpDetails) onTapUp;
+  final Function(TapUpDetails)? onTapUp;
 
   /// ContainerPlus onTapCancel action
-  final Function() onTapCancel;
+  final Function()? onTapCancel;
 
   /// ContainerPlus onDoubleTap action
-  final Function() onDoubleTap;
+  final Function()? onDoubleTap;
 
   /// ContainerPlus onLongPress action
-  final Function() onLongPress;
+  final Function()? onLongPress;
 
   /// ContainerPlus onPanUpdate action
-  final Function(DragUpdateDetails) onPanUpdate;
+  final Function(DragUpdateDetails)? onPanUpdate;
 
   /// ContainerPlus onPanEnd action
-  final Function(DragStartDetails) onPanStart;
+  final Function(DragStartDetails)? onPanStart;
 
   /// ContainerPlus onLongPress action
-  final Function(DragEndDetails) onPanEnd;
+  final Function(DragEndDetails)? onPanEnd;
 
   /// ContainerPlus onPanDown action
-  final Function(DragDownDetails) onPanDown;
+  final Function(DragDownDetails)? onPanDown;
 
   /// ContainerPlus onPanCancel action
-  final Function() onPanCancel;
+  final Function()? onPanCancel;
 
   /// ContainerPlus radius
-  final RadiusPlus radius;
+  final RadiusPlus? radius;
 
   /// ContainerPlus border
-  final BorderPlus border;
+  final BorderPlus? border;
 
   /// ContainerPlus shadows
-  final List<ShadowPlus> shadows;
+  final List<ShadowPlus>? shadows;
 
   /// ContainerPlus gradient
-  final GradientPlus gradient;
+  final GradientPlus? gradient;
 
   /// ContainerPlus innerShadows
-  final List<InnerShadowPlus> innerShadows;
+  final List<InnerShadowPlus>? innerShadows;
 
   /// ContainerPlus skeleton
-  final SkeletonPlus skeleton;
+  final SkeletonPlus? skeleton;
 
   /// ContainerPlus inside Center widget
   final bool isCenter;
@@ -96,10 +96,10 @@ class ContainerPlus extends StatefulWidget {
   final bool isCircle;
 
   /// Async notify a parent the size and position of ContainerPlus
-  final Function(Size, Offset) notifyParent;
+  final Function(Size?, Offset?)? notifyParent;
 
   ContainerPlus({
-    Key key,
+    Key? key,
     this.height,
     this.width,
     this.color = Colors.transparent,
@@ -141,15 +141,13 @@ class ContainerPlus extends StatefulWidget {
 
 class _ContainerPlusState extends State<ContainerPlus> {
   final _keyRect = GlobalKey();
-  Size _containerSize;
-  Offset _containerPostion;
+  Size? _containerSize;
+  Offset? _containerPostion;
 
   @override
   void initState() {
     // close previus keyboard (add to navigatorObservers)
-    FocusManager?.instance?.primaryFocus?.unfocus();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       // delay principalmente para casos por exemplo que o teclado está aberto
       Future.delayed(Duration(microseconds: 50), _afterLayout);
     });
@@ -160,7 +158,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     _getSizes();
     _getPositions();
     if (widget.notifyParent != null) {
-      widget.notifyParent(
+      widget.notifyParent!(
         _containerSize,
         _containerPostion,
       );
@@ -169,6 +167,12 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   @override
   Widget build(BuildContext context) {
+    var currentFocus = FocusScope.of(context);
+
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
+
     var containerPlus = _buildContainerPlus();
 
     if (widget.isCenter == true) {
@@ -209,7 +213,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     );
   }
 
-  Widget _buildSkeleton() {
+  Widget? _buildSkeleton() {
     // to calculate height
 
     if (skeletonEnabled == false) {
@@ -226,13 +230,13 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   Widget _buildInnerShadow(Widget child) {
-    if (widget.innerShadows == null || widget.innerShadows.isEmpty) {
+    if (widget.innerShadows == null || widget.innerShadows!.isEmpty) {
       return child;
     } else {
       return InnerShadowRenderPlus(
         shadows: widget.innerShadows == null
             ? []
-            : widget.innerShadows
+            : widget.innerShadows!
                 .map(
                   (innerShadow) => Shadow(
                     color: innerShadow.color,
@@ -252,7 +256,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     }
   }
 
-  Widget _buildChild() {
+  Widget? _buildChild() {
     if (hasGestureDetector == true) {
       return _buildGestureDetector();
     } else {
@@ -330,7 +334,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
     );
   }
 
-  Color _containerColor() {
+  Color? _containerColor() {
     if (widget.gradient != null) {
       return Colors.red;
     } else {
@@ -340,10 +344,10 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   List<BoxShadow> _buildShadow() {
     if (widget.shadows == null || skeletonShowShadow == false) return [];
-    return widget.shadows.map((shadow) {
+    return widget.shadows!.map((shadow) {
       return BoxShadow(
         color: shadow.opacity != null
-            ? shadow.color.withOpacity(shadow.opacity)
+            ? shadow.color.withOpacity(shadow.opacity!)
             : shadow.color,
         blurRadius: shadow.blur,
         spreadRadius: shadow.spread,
@@ -355,13 +359,13 @@ class _ContainerPlusState extends State<ContainerPlus> {
     }).toList();
   }
 
-  DecorationImage _buildDecorationImage() {
+  DecorationImage? _buildDecorationImage() {
     return widget.image;
   }
 
-  Gradient _buildGradient() {
+  Gradient? _buildGradient() {
     if (widget.gradient != null) {
-      return widget.gradient.toGradient;
+      return widget.gradient!.toGradient;
     } else {
       return null;
     }
@@ -375,24 +379,24 @@ class _ContainerPlusState extends State<ContainerPlus> {
         style: BorderStyle.none,
       );
     } else {
-      return widget.border.toBorder;
+      return widget.border!.toBorder;
     }
   }
 
   BorderRadius _buildRadius() {
     if (widget.isCircle == true && _containerSize != null) {
       return BorderRadius.all(
-        Radius.circular(_containerSize.height / 2),
+        Radius.circular(_containerSize!.height / 2),
       );
     } else if (widget.radius == null) {
       return BorderRadius.zero;
     } else {
-      return widget.radius.toBorderRadius;
+      return widget.radius!.toBorderRadius;
     }
   }
 
   _getSizes() {
-    final renderBox = _keyRect?.currentContext?.findRenderObject() as RenderBox;
+    final renderBox = _keyRect.currentContext?.findRenderObject() as RenderBox?;
     if (renderBox != null) {
       final size = renderBox.size;
       setState(() {
@@ -405,7 +409,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
   }
 
   _getPositions() {
-    final renderBox = _keyRect?.currentContext?.findRenderObject() as RenderBox;
+    final renderBox = _keyRect.currentContext?.findRenderObject() as RenderBox?;
     if (renderBox != null) {
       final position = renderBox.localToGlobal(Offset.zero);
       setState(() {
@@ -419,7 +423,7 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   bool get skeletonEnabled {
     if (widget.skeleton != null &&
-        widget.skeleton.enabled == true &&
+        widget.skeleton!.enabled == true &&
         _containerSize != null) {
       return true;
     } else {
