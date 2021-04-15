@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 extension NumExtensionPlus on num {
   /// Num to locale currency with symbol or not
-  String toCurrency({bool withSymbol}) {
+  String? toCurrency({bool? withSymbol}) {
     if (isNullOrZero) {
       return null;
     } else {
@@ -16,7 +16,7 @@ extension NumExtensionPlus on num {
   }
 
   /// Num to locale compact currency with symbol or not
-  String toCurrencyCompact({bool withSymbol}) {
+  String? toCurrencyCompact({bool? withSymbol}) {
     if (isNullOrZero) {
       return null;
     } else {

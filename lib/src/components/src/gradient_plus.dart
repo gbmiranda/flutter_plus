@@ -5,16 +5,16 @@ class GradientPlus {
   final List<Color> colors;
 
   /// Gradient colors stops
-  final List<double> stops;
+  final List<double>? stops;
 
   /// Gradient tileMode
   final TileMode tileMode;
 
-  LinearGradient _linearGradient;
+  LinearGradient? _linearGradient;
 
   /// Gradient linear mode
   GradientPlus.linear({
-    @required this.colors,
+    required this.colors,
     this.stops,
     this.tileMode = TileMode.clamp,
     Alignment begin = Alignment.centerLeft,
@@ -29,11 +29,11 @@ class GradientPlus {
     );
   }
 
-  RadialGradient _radialGradient;
+  RadialGradient? _radialGradient;
 
   /// Gradient radial mode
   GradientPlus.radial({
-    @required this.colors,
+    required this.colors,
     this.stops,
     this.tileMode = TileMode.clamp,
     Alignment center = Alignment.center,
@@ -52,11 +52,11 @@ class GradientPlus {
     );
   }
 
-  SweepGradient _sweepGradient;
+  SweepGradient? _sweepGradient;
 
   /// Gradient sweep mode
   GradientPlus.sweep({
-    @required this.colors,
+    required this.colors,
     this.stops,
     this.tileMode = TileMode.clamp,
     Alignment center = Alignment.center,
@@ -74,7 +74,7 @@ class GradientPlus {
   }
 
   /// Transform GradientPlus to native Flutter Gradient
-  Gradient get toGradient {
+  Gradient? get toGradient {
     if (_linearGradient != null) {
       return _linearGradient;
     } else if (_radialGradient != null) {

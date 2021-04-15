@@ -11,7 +11,7 @@ class RichTextPlus extends StatelessWidget {
   */
 
   /// RichTextPlus texts
-  final List<TextPlus> texts;
+  final List<TextPlus>? texts;
 
   /// RichTextPlus maxLines
   final int maxLines;
@@ -23,7 +23,7 @@ class RichTextPlus extends StatelessWidget {
   final bool isExpanded;
 
   RichTextPlus({
-    Key key,
+    Key? key,
     this.maxLines = 1,
     // custom
     this.isCenter = false,
@@ -55,7 +55,7 @@ class RichTextPlus extends StatelessWidget {
       key: key,
       text: TextSpan(
         text: '',
-        children: texts
+        children: texts!
             .map(
               (richTextPlus) => TextSpan(
                 text: richTextPlus.text,

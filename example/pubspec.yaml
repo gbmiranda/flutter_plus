@@ -30,7 +30,7 @@ dependencies:
 
   flutter_plus:
     path: ../
-  url_launcher: ^5.7.10
+  url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_test:

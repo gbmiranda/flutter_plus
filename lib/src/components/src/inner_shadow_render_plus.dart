@@ -4,9 +4,9 @@ import 'package:flutter/rendering.dart';
 
 class InnerShadowRenderPlus extends SingleChildRenderObjectWidget {
   const InnerShadowRenderPlus({
-    Key key,
+    Key? key,
     this.shadows = const <Shadow>[],
-    Widget child,
+    Widget? child,
   }) : super(key: key, child: child);
 
   final List<Shadow> shadows;
@@ -26,7 +26,7 @@ class InnerShadowRenderPlus extends SingleChildRenderObjectWidget {
 }
 
 class _RenderInnerShadow extends RenderProxyBox {
-  List<Shadow> shadows;
+  late List<Shadow> shadows;
 
   @override
   void paint(PaintingContext context, Offset offset) {
@@ -34,7 +34,7 @@ class _RenderInnerShadow extends RenderProxyBox {
     final bounds = offset & size;
 
     context.canvas.saveLayer(bounds, Paint());
-    context.paintChild(child, offset);
+    context.paintChild(child!, offset);
 
     for (final shadow in shadows) {
       final shadowRect = bounds.inflate(shadow.blurSigma);
@@ -48,7 +48,7 @@ class _RenderInnerShadow extends RenderProxyBox {
       context.canvas
         ..saveLayer(shadowRect, shadowPaint)
         ..translate(shadow.offset.dx, shadow.offset.dy);
-      context.paintChild(child, offset);
+      context.paintChild(child!, offset);
       context.canvas.restore();
     }
 

@@ -8,7 +8,7 @@ class UtilsPlus {
 
   /// Closes the keyboard if it is open
   void closeKeyboard() {
-    FocusManager.instance.primaryFocus.unfocus();
+    FocusManager.instance.primaryFocus!.unfocus();
   }
 
   /// Turns a hexadecimal String to Color

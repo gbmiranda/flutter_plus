@@ -4,10 +4,10 @@ import '../../../flutter_plus.dart';
 
 class FlutterAppPlus extends StatefulWidget {
   /// {@macro flutter.widgets.widgetsApp.navigatorKey}
-  final GlobalKey<NavigatorState> navigatorKey;
+  final GlobalKey<NavigatorState>? navigatorKey;
 
   /// {@macro flutter.widgets.widgetsApp.home}
-  final Widget home;
+  final Widget? home;
 
   /// The application's top-level routing table.
   ///
@@ -20,31 +20,31 @@ class FlutterAppPlus extends StatefulWidget {
   final Map<String, WidgetBuilder> routes;
 
   /// {@macro flutter.widgets.widgetsApp.initialRoute}
-  final String initialRoute;
+  final String? initialRoute;
 
   /// {@macro flutter.widgets.widgetsApp.onGenerateRoute}
-  final RouteFactory onGenerateRoute;
+  final RouteFactory? onGenerateRoute;
 
   /// {@macro flutter.widgets.widgetsApp.onGenerateInitialRoutes}
-  final InitialRouteListFactory onGenerateInitialRoutes;
+  final InitialRouteListFactory? onGenerateInitialRoutes;
 
   /// {@macro flutter.widgets.widgetsApp.onUnknownRoute}
-  final RouteFactory onUnknownRoute;
+  final RouteFactory? onUnknownRoute;
 
   /// {@macro flutter.widgets.widgetsApp.navigatorObservers}
   final List<NavigatorObserver> navigatorObservers;
 
   /// {@macro flutter.widgets.widgetsApp.routeInformationProvider}
-  final RouteInformationProvider routeInformationProvider;
+  final RouteInformationProvider? routeInformationProvider;
 
   /// {@macro flutter.widgets.widgetsApp.routeInformationParser}
-  final RouteInformationParser<Object> routeInformationParser;
+  final RouteInformationParser<Object>? routeInformationParser;
 
   /// {@macro flutter.widgets.widgetsApp.routerDelegate}
-  final RouterDelegate<Object> routerDelegate;
+  final RouterDelegate<Object>? routerDelegate;
 
   /// {@macro flutter.widgets.widgetsApp.backButtonDispatcher}
-  final BackButtonDispatcher backButtonDispatcher;
+  final BackButtonDispatcher? backButtonDispatcher;
 
   /// {@macro flutter.widgets.widgetsApp.builder}
   ///
@@ -53,7 +53,7 @@ class FlutterAppPlus extends StatefulWidget {
   /// such as [Tooltip], [PopupMenuButton],
   /// also require a [Navigator] to properly
   /// function.
-  final TransitionBuilder builder;
+  final TransitionBuilder? builder;
 
   /// {@macro flutter.widgets.widgetsApp.title}
   ///
@@ -63,7 +63,7 @@ class FlutterAppPlus extends StatefulWidget {
   /// {@macro flutter.widgets.widgetsApp.onGenerateTitle}
   ///
   /// This value is passed unmodified to [WidgetsApp.onGenerateTitle].
-  final GenerateAppTitle onGenerateTitle;
+  final GenerateAppTitle? onGenerateTitle;
 
   /// Default visual properties, like colors fonts and shapes, for this app's
   /// material widgets.
@@ -82,7 +82,7 @@ class FlutterAppPlus extends StatefulWidget {
   ///    and [darkTheme] in [MaterialApp].
   ///  * [ThemeData.brightness], which indicates the [Brightness] of a theme's
   ///    colors.
-  final ThemeData theme;
+  final ThemeData? theme;
 
   /// The [ThemeData] to use when a 'dark mode' is requested by the system.
   ///
@@ -104,7 +104,7 @@ class FlutterAppPlus extends StatefulWidget {
   ///    and [darkTheme] in [MaterialApp].
   ///  * [ThemeData.brightness], which is typically set to the value of
   ///    [MediaQueryData.platformBrightness].
-  final ThemeData darkTheme;
+  final ThemeData? darkTheme;
 
   /// The [ThemeData] to use when 'high contrast' is requested by the system.
   ///
@@ -117,7 +117,7 @@ class FlutterAppPlus extends StatefulWidget {
   ///
   ///  * [MediaQueryData.highContrast], which indicates the platform's
   ///    desire to increase contrast.
-  final ThemeData highContrastTheme;
+  final ThemeData? highContrastTheme;
 
   /// The [ThemeData] to use when a 'dark mode' and 'high contrast' is requested
   /// by the system.
@@ -133,7 +133,7 @@ class FlutterAppPlus extends StatefulWidget {
   ///
   ///  * [MediaQueryData.highContrast], which indicates the platform's
   ///    desire to increase contrast.
-  final ThemeData highContrastDarkTheme;
+  final ThemeData? highContrastDarkTheme;
 
   /// Determines which theme will be used by the application if both [theme]
   /// and [darkTheme] are provided.
@@ -163,10 +163,10 @@ class FlutterAppPlus extends StatefulWidget {
   final ThemeMode themeMode;
 
   /// {@macro flutter.widgets.widgetsApp.color}
-  final Color color;
+  final Color? color;
 
   /// {@macro flutter.widgets.widgetsApp.locale}
-  final Locale locale;
+  final Locale? locale;
 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
   ///
@@ -260,17 +260,17 @@ class FlutterAppPlus extends StatefulWidget {
   ///    which provides material localizations for many languages.
   ///  * The Flutter Internationalization Tutorial,
   ///    <https://flutter.dev/tutorials/internationalization/>.
-  final Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates;
+  final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
   /// {@macro flutter.widgets.widgetsApp.localeListResolutionCallback}
   ///
   /// This callback is passed along to the [WidgetsApp] built by this widget.
-  final LocaleListResolutionCallback localeListResolutionCallback;
+  final LocaleListResolutionCallback? localeListResolutionCallback;
 
   /// {@macro flutter.widgets.widgetsApp.localeResolutionCallback}
   ///
   /// This callback is passed along to the [WidgetsApp] built by this widget.
-  final LocaleResolutionCallback localeResolutionCallback;
+  final LocaleResolutionCallback? localeResolutionCallback;
 
   /// {@macro flutter.widgets.widgetsApp.supportedLocales}
   ///
@@ -332,7 +332,7 @@ class FlutterAppPlus extends StatefulWidget {
   /// ```
   /// {@end-tool}
   /// {@macro flutter.widgets.widgetsApp.shortcuts.seeAlso}
-  final Map<LogicalKeySet, Intent> shortcuts;
+  final Map<LogicalKeySet, Intent>? shortcuts;
 
   /// {@macro flutter.widgets.widgetsApp.actions}
   /// {@tool snippet}
@@ -365,7 +365,7 @@ class FlutterAppPlus extends StatefulWidget {
   /// ```
   /// {@end-tool}
   /// {@macro flutter.widgets.widgetsApp.actions.seeAlso}
-  final Map<Type, Action<Intent>> actions;
+  final Map<Type, Action<Intent>>? actions;
 
   /// Turns on a [GridPaper] overlay that paints a baseline grid
   /// Material apps.
@@ -378,7 +378,7 @@ class FlutterAppPlus extends StatefulWidget {
   final bool debugShowMaterialGrid;
 
   const FlutterAppPlus({
-    Key key,
+    Key? key,
     this.navigatorKey,
     this.home,
     this.routes = const <String, WidgetBuilder>{},
@@ -409,15 +409,7 @@ class FlutterAppPlus extends StatefulWidget {
     this.debugShowCheckedModeBanner = true,
     this.shortcuts,
     this.actions,
-  })  : assert(routes != null),
-        assert(navigatorObservers != null),
-        assert(title != null),
-        assert(debugShowMaterialGrid != null),
-        assert(showPerformanceOverlay != null),
-        assert(checkerboardRasterCacheImages != null),
-        assert(checkerboardOffscreenLayers != null),
-        assert(showSemanticsDebugger != null),
-        assert(debugShowCheckedModeBanner != null),
+  })  : 
         routeInformationProvider = null,
         routeInformationParser = null,
         routerDelegate = null,
@@ -465,7 +457,8 @@ class _FlutterAppPlusState extends State<FlutterAppPlus> {
       title: widget.title,
       scaffoldMessengerKey: snackBarPlus.rootScaffoldMessengerKey,
       builder: (context, child) {
-        return widget.builder == null ? child : widget.builder(context, child);
+        return widget.builder == null ? child! : 
+        widget.builder!(context, child);
       },
       home: widget.home,
     );

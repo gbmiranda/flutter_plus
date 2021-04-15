@@ -11,17 +11,17 @@ class SkeletonPlus {
   final bool showBorders;
 
   /// Skeleton base color
-  final Color baseColor;
+  final Color? baseColor;
 
   /// Skeleton animated color
-  final Color highlightColor;
+  final Color? highlightColor;
 
   /// Skeleton animation duration
-  final Duration duration;
+  final Duration? duration;
 
   /// Custom Skeleton animation
   SkeletonPlus.custom({
-    @required this.enabled,
+    required this.enabled,
     this.baseColor,
     this.highlightColor,
     this.duration,
@@ -30,7 +30,7 @@ class SkeletonPlus {
   });
 
   /// Default Skeleton animation
-  SkeletonPlus.automatic({@required this.enabled})
+  SkeletonPlus.automatic({required this.enabled})
       : baseColor = null,
         highlightColor = null,
         duration = Duration(milliseconds: 1500),

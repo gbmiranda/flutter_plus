@@ -10,70 +10,70 @@ class ButtonPlus extends StatefulWidget {
   */
 
   /// ButtonPlus child
-  final Widget child;
+  final Widget? child;
 
   /// ButtonPlus padding
   final EdgeInsets padding;
 
   /// ButtonPlus margin
-  final EdgeInsets margin;
+  final EdgeInsets? margin;
 
   /// ButtonPlus height
-  final double height;
+  final double? height;
 
   /// ButtonPlus width
-  final double width;
+  final double? width;
 
   /// ButtonPlus alignment
-  final Alignment alignment;
+  final Alignment? alignment;
 
   /// ButtonPlus decoration image
-  final DecorationImage image;
+  final DecorationImage? image;
 
   /// ButtonPlus color when there is no gradient
-  final Color color;
+  final Color? color;
 
   /// ButtonPlus disabledBackgroundColor
-  final Color disabledBackgroundColor;
+  final Color? disabledBackgroundColor;
 
   /// ButtonPlus onPressed action
-  final Function() onPressed;
+  final Function()? onPressed;
 
   /// ButtonPlus onLongPress action
-  final Function() onLongPress;
+  final Function()? onLongPress;
 
   /// ButtonPlus splashColor
-  final Color splashColor;
+  final Color? splashColor;
 
   /// ButtonPlus highlightColor
-  final Color highlightColor;
+  final Color? highlightColor;
 
   /// ButtonPlus focusColor
-  final Color focusColor;
+  final Color? focusColor;
 
   /// ButtonPlus hoverColor
-  final Color hoverColor;
+  final Color? hoverColor;
 
   /// ButtonPlus radius
-  final RadiusPlus radius;
+  final RadiusPlus? radius;
 
   /// ButtonPlus border
-  final BorderPlus border;
+  final BorderPlus? border;
 
   /// ButtonPlus shadows
-  final List<ShadowPlus> shadows;
+  final List<ShadowPlus>? shadows;
 
   /// ButtonPlus gradient
-  final GradientPlus gradient;
+  final GradientPlus? gradient;
 
   /// ButtonPlus innerShadows
-  final List<InnerShadowPlus> innerShadows;
+  final List<InnerShadowPlus>? innerShadows;
 
   /// ButtonPlus skeleton
-  final SkeletonPlus skeleton;
+  final SkeletonPlus? skeleton;
 
   /// ButtonPlus enabled -> true or false
-  final bool enabled;
+  final bool? enabled;
 
   /// ButtonPlus inside Center widget
   final bool isCenter;
@@ -85,7 +85,7 @@ class ButtonPlus extends StatefulWidget {
   final bool isCircle;
 
   ButtonPlus({
-    Key key,
+    Key? key,
     this.child,
     this.padding = EdgeInsets.zero,
     this.margin,
@@ -164,11 +164,11 @@ class _ButtomPlusState extends State<ButtonPlus> {
       onPressed: isEnabled ? widget.onPressed : null,
       onLongPress: isEnabled ? widget.onLongPress : null,
       child: Padding(
-        padding: widget.padding ?? EdgeInsets.zero,
+        padding: widget.padding,
         child: widget.child,
       ),
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.resolveWith<Color>(
+        overlayColor: MaterialStateProperty.resolveWith<Color?>(
           (states) {
             if (states.contains(MaterialState.focused)) {
               return widget.focusColor ?? Colors.transparent;
