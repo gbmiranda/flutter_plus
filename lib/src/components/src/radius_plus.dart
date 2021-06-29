@@ -49,15 +49,11 @@ class RadiusPlus {
 
   /// Transform RadiusPlus to native Flutter BorderRadius
   BorderRadius get toBorderRadius {
-    if (this == null) {
-      return BorderRadius.zero;
-    } else {
-      return BorderRadius.only(
-        topLeft: Radius.circular(topLeft ?? 0),
-        topRight: Radius.circular(topRight ?? 0),
-        bottomLeft: Radius.circular(bottomLeft ?? 0),
-        bottomRight: Radius.circular(bottomRight ?? 0),
-      );
-    }
+    return BorderRadius.only(
+      topLeft: Radius.circular(topLeft ?? 0),
+      topRight: Radius.circular(topRight ?? 0),
+      bottomLeft: Radius.circular(bottomLeft ?? 0),
+      bottomRight: Radius.circular(bottomRight ?? 0),
+    );
   }
 }

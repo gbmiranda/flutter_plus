@@ -92,9 +92,7 @@ class DialogPlus {
     showDialog(
       context: navigatorPlus.currentContext!,
       barrierColor: barrierColor,
-      barrierDismissible: (buttonOneText == null || buttonOneText == null)
-          ? true
-          : barrierDismissible,
+      barrierDismissible: buttonOneText == null ? true : barrierDismissible,
       builder: (context) {
         Widget? buttonsContent;
         if (buttonOneText!.isNotNullOrEmpty &&

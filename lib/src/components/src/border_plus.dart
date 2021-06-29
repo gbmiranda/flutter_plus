@@ -19,31 +19,19 @@ class BorderPlus {
 
   /// Transform BorderPlus to native Flutter Border
   Border get toBorder {
-    if (this == null) {
-      return Border.all(
-        color: Colors.transparent,
-        width: 0,
-        style: BorderStyle.none,
-      );
-    } else {
-      return Border.all(
-        style: style,
-        color: color,
-        width: width,
-      );
-    }
+    return Border.all(
+      style: style,
+      color: color,
+      width: width,
+    );
   }
 
   /// Transform BorderPlus to native Flutter BorderSide
   BorderSide get toBorderSide {
-    if (this == null) {
-      return BorderSide.none;
-    } else {
-      return BorderSide(
-        style: style,
-        color: color,
-        width: width,
-      );
-    }
+    return BorderSide(
+      style: style,
+      color: color,
+      width: width,
+    );
   }
 }

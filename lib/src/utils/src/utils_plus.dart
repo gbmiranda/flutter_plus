@@ -13,11 +13,7 @@ class UtilsPlus {
 
   /// Turns a hexadecimal String to Color
   Color colorHex(String hex) {
-    if (hex == null) {
-      return Colors.transparent;
-    } else {
-      return Color(int.parse("0xFF${hex.replaceAll('#', '')}"));
-    }
+    return Color(int.parse("0xFF${hex.replaceAll('#', '')}"));
   }
 
   /// Turns a Color to String hexadecimal

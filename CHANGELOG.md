@@ -1,3 +1,7 @@
+## [1.0.0] - 27/04/2021
+* Improvements;
+## [0.0.9] - 15/04/2021
+* Migrate to null safety by @pythonhubpy;
 ## [0.0.8] - 30/03/2021
 * Improvements;
 ## [0.0.7] - 01/03/2021

@@ -167,11 +167,10 @@ class _ContainerPlusState extends State<ContainerPlus> {
 
   @override
   Widget build(BuildContext context) {
-    var currentFocus = FocusScope.of(context);
-
-    if (!currentFocus.hasPrimaryFocus) {
-      currentFocus.unfocus();
-    }
+    // var currentFocus = FocusScope.of(context);
+    // if (!currentFocus.hasPrimaryFocus) {
+    //   currentFocus.unfocus();
+    // }
 
     var containerPlus = _buildContainerPlus();
 

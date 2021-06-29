@@ -98,7 +98,7 @@ extension NumExtensionPlus on num {
 
   /// Checks whether number is 0 or null
   bool get isNullOrZero {
-    if (this == null || this == 0) {
+    if (this == 0) {
       return true;
     } else {
       return false;

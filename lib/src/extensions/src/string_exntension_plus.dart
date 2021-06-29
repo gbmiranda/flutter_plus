@@ -4,13 +4,13 @@ import 'package:intl/intl.dart';
 
 extension StringExtensionPlus on String {
   /// Checks whether string is empty or null
-  bool get isNullOrEmpty {
-    return this == null && isNotEmpty;
-  }
+  // bool get isNullOrEmpty {
+  //   return isNotEmpty;
+  // }
 
   /// Checks whether string is not empty or null
   bool get isNotNullOrEmpty {
-    return this != null && isNotEmpty;
+    return isNotEmpty;
   }
 
   /// Get first letter of string
@@ -130,9 +130,7 @@ extension StringExtensionPlus on String {
 
   /// Compare to another String with caseSensitive or not
   bool compareStrings(String text, {bool? caseSensitive}) {
-    if (this == null || text == null) {
-      return false;
-    } else if (isEmpty && text.isEmpty) {
+    if (isEmpty && text.isEmpty) {
       return true;
     } else {
       var originalStr = cleanString?.cleanDiacritics;
@@ -150,9 +148,7 @@ extension StringExtensionPlus on String {
 
   /// Containes to another String with caseSensitive or not
   bool containesStrings(String text, {bool? caseSensitive}) {
-    if (this == null || text == null) {
-      return false;
-    } else if (isEmpty && text.isEmpty) {
+    if (isEmpty && text.isEmpty) {
       return true;
     } else {
       var originalStr = cleanString?.cleanDiacritics;
