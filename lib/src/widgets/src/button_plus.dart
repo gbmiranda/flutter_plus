@@ -148,18 +148,6 @@ class _ButtomPlusState extends State<ButtonPlus> {
   }
 
   Widget _buildChildButton() {
-    // return FlatButton(
-    //   padding: widget.padding ?? EdgeInsets.zero,
-    //   splashColor: widget.splashColor,
-    //   highlightColor: c,
-    //   focusColor: widget.focusColor,
-    //   hoverColor: widget.hoverColor,
-    //   color: Colors.transparent,
-    //   onHighlightChanged: (value) {},
-    //   onPressed: isEnabled ? widget.onPressed : null,
-    //   onLongPress: isEnabled ? widget.onLongPress : null,
-    //   child: widget.child,
-    // );
     return TextButton(
       onPressed: isEnabled ? widget.onPressed : null,
       onLongPress: isEnabled ? widget.onLongPress : null,

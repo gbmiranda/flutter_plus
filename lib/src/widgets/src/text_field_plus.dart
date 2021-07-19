@@ -150,6 +150,8 @@ class TextFieldPlus extends StatelessWidget {
   /// TextFieldPlus inside Expanded widget
   final bool isExpanded;
 
+  final List<TextInputFormatter>? inpuFormatters;
+
   TextFieldPlus({
     this.enabled,
     this.isCenter = false,
@@ -199,6 +201,7 @@ class TextFieldPlus extends StatelessWidget {
     this.onEditingComplete,
     this.onSubmitted,
     this.textInputAction = TextInputAction.done,
+    this.inpuFormatters,
   });
 
   static ContainerPlus? _containerPlus;
@@ -308,6 +311,11 @@ class TextFieldPlus extends StatelessWidget {
 
   List<TextInputFormatter> _getFormatters() {
     var textInputFormatters = [];
+
+    if (inpuFormatters != null && inpuFormatters!.isNotEmpty) {
+      textInputFormatters.addAll(inpuFormatters!);
+    }
+
     if (maxLength != null) {
       //   var maxLengthFormatter = LengthLimitingTextInputFormatter(maxLength);
       //   textInputFormatters.add(wmaxLengthFormatter);
