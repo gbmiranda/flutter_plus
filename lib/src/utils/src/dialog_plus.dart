@@ -33,10 +33,13 @@ class DialogPlus {
       useSafeArea: useSafeArea,
       builder: (context) {
         return _createDialog(
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [child],
-          ),
+          child,
+          // SingleChildScrollView(
+          //   child: Column(
+          //     mainAxisSize: MainAxisSize.min,
+          //     children: [child],
+          //   ),
+          // ),
           elevation,
           radius,
           border,

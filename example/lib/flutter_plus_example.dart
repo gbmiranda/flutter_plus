@@ -11,9 +11,6 @@ class FlutterPlusExample extends StatefulWidget {
 class _FlutterPlusExampleState extends State<FlutterPlusExample> {
   @override
   Widget build(BuildContext context) {
-    DateTime now;
-    print('XXX -> ${now.format('dd/MM/yyyy HH:mm:ss')}');
-
     // Using FlutterAppPlus
     return FlutterAppPlus(
       title: 'Flutter Plus Example',
