@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../flutter_plus.dart';
 
@@ -14,7 +15,7 @@ class RichTextPlus extends StatelessWidget {
   final List<TextPlus>? texts;
 
   /// RichTextPlus maxLines
-  final int maxLines;
+  final int? maxLines;
 
   /// RichTextPlus inside Center widget
   final bool isCenter;
@@ -22,13 +23,20 @@ class RichTextPlus extends StatelessWidget {
   /// RichTextPlus inside Expanded widget
   final bool isExpanded;
 
+  final TextOverflow? overflow;
+  final bool? softWrap;
+  final TextAlign? textAlign;
+
   RichTextPlus({
     Key? key,
-    this.maxLines = 1,
+    this.maxLines,
     // custom
     this.isCenter = false,
     this.isExpanded = false,
     this.texts,
+    this.overflow,
+    this.softWrap = true,
+    this.textAlign,
     // this.mainTextStyleX,
   }) : super(key: key);
 
@@ -53,6 +61,10 @@ class RichTextPlus extends StatelessWidget {
   Widget _buildRichTextPlus() {
     return RichText(
       key: key,
+      maxLines: maxLines,
+      overflow: overflow ?? TextOverflow.visible,
+      softWrap: softWrap!,
+      textAlign: textAlign ?? TextAlign.start,
       text: TextSpan(
         text: '',
         children: texts!
