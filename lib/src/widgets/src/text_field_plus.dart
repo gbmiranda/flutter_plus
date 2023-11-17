@@ -239,7 +239,7 @@ class TextFieldPlus extends StatelessWidget {
     return CupertinoTextField(
       padding: padding ?? EdgeInsets.symmetric(horizontal: 4),
       autocorrect: autocorrect,
-      enabled: enabled,
+      enabled: enabled ?? true,
       controller: controller,
       focusNode: focusNode,
       autofocus: autofocus,
