@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -27,6 +28,11 @@ class RichTextPlus extends StatelessWidget {
   final bool? softWrap;
   final TextAlign? textAlign;
 
+  // These are applied as the base style for all children texts.
+  final Color? color;
+  final FontWeight? fontWeight;
+  final double? fontSize;
+
   RichTextPlus({
     Key? key,
     this.maxLines,
@@ -37,6 +43,9 @@ class RichTextPlus extends StatelessWidget {
     this.overflow,
     this.softWrap = true,
     this.textAlign,
+    this.color,
+    this.fontWeight,
+    this.fontSize,
     // this.mainTextStyleX,
   }) : super(key: key);
 
@@ -67,12 +76,18 @@ class RichTextPlus extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       text: TextSpan(
         text: '',
+        style: TextStyle(
+          color: color,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+        ),
         children: texts!
             .map(
               (richTextPlus) => TextSpan(
-                text: richTextPlus.text,
-                style: richTextPlus.textStyle,
-              ),
+                  text: richTextPlus.text,
+                  style: richTextPlus.textStyle,
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = richTextPlus.onTap),
             )
             .toList(),
       ),

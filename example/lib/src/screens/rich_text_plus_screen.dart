@@ -34,36 +34,44 @@ class RichTextPlusScreen extends StatelessWidget {
 
   Widget _buildExample() {
     return RichTextPlus(
+      fontSize: 30,
       texts: [
         TextPlus(
           'Flutter ',
           color: Colors.black,
           fontWeight: FontWeight.normal,
-          fontSize: 30,
         ),
         TextPlus(
           'Plus ',
           color: Colors.red,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
         ),
         TextPlus(
           '!',
           color: Colors.blue,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
         ),
         TextPlus(
           '!',
           color: Colors.green,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
         ),
         TextPlus(
           '!',
           color: Colors.orange,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
+        ),
+        TextPlus(
+          '--->>>',
+          color: Colors.orange,
+          fontWeight: FontWeight.bold,
+          textDecorationPlus: TextDecorationPlus(
+            textDecoration: TextDecoration.underline,
+            color: Colors.orange,
+          ),
+          onTap: (() {
+            snackBarPlus.show(child: TextPlus("Flutter Plus is Awesome"));
+          }),
         ),
       ],
     );
